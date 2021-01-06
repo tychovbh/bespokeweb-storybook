@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build app
-        run: yarn build-storybook
+        run: yarn build-ts
       - name: Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
