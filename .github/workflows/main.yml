@@ -1,6 +1,8 @@
 name: Semantic release
 
 on: push
+  tags:
+    - 'v*'
 jobs:
   publish:
     runs-on: ubuntu-20.04
