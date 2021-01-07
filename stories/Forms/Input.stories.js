@@ -12,7 +12,7 @@ export default {
 
 const Template = (args) => <Input {...args} />;
 
-export const Field = Template.bind({});
-Field.args = {
+export const Text = Template.bind({});
+Text.args = {
 
 };

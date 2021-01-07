@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
  * Form Input component
  */
 export const Input = () => {
-    return <input/>
+    return <input className={'storybook-forms-input-text'}/>
 };
 
 Input.propTypes = {
