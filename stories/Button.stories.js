@@ -34,3 +34,12 @@ Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+
+export const onClick = Template.bind({});
+onClick.args = {
+  label: 'Button',
+  onClick: function () {
+    alert('test')
+  }
+};
