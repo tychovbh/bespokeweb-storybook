@@ -20,3 +20,8 @@ Default.args = {
 
 };
 
+export const Inline = Template.bind({});
+Inline.args = {
+    type: 'inline'
+};
+
