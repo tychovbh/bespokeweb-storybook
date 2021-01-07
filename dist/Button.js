@@ -28,7 +28,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Button = void 0;
 var react_1 = __importDefault(require("react"));
 var prop_types_1 = __importDefault(require("prop-types"));
-require("./button.css");
 /**
  * Primary UI component for user interaction
  */
