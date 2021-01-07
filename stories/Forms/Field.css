@@ -1,0 +1,14 @@
+.storybook-forms-field-default .storybook-forms-label {
+    margin-right: 1rem;
+    display: block;
+}
+.storybook-forms-field-default .storybook-forms-input-text {
+    display: block;
+}
+
+.storybook-forms-field-inline .storybook-forms-label {
+    padding-right: 1rem;
+}
+.storybook-forms-field-inline .storybook-forms-input-text {
+
+}
