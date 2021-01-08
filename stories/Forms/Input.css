@@ -1,5 +1,8 @@
-.storybook-forms-input-text {
-    padding: 1rem;
+.storybook-forms-input {
+    padding: 0.5rem;
     border: 1px #9CA3AF solid;
     border-radius: 5px;
+}
+.storybook-forms-input-text {
+
 }

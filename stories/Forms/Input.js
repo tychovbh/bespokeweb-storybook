@@ -1,4 +1,5 @@
 import React from 'react';
+import '../shared/style.css'
 import './Input.css'
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,7 @@ export const Input = ({id, className, appendClassname, name, type, placeholder, 
     return <input
         id={id}
         type={type}
-        className={`${className ?? 'storybook-forms-input-text'} ${appendClassname}`}
+        className={`${className ?? 'storybook-forms-input'} ${appendClassname}`}
         name={name}
         placeholder={placeholder}
         value={value}
@@ -39,9 +40,9 @@ Input.propTypes = {
     name: PropTypes.string,
 
     /**
-     * The type of an Input (e.g. Text, Password, Radio, Checkbox)
+     * The type of an Input (e.g. Texts, Password, Radio, Checkbox)
      */
-    type: PropTypes.string,
+    type: PropTypes.oneOf(['text', 'password']),
 
     /**
      * The placeholder of an Input
@@ -60,5 +61,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-    appendClassname: ''
+    appendClassname: '',
+    type: 'text'
 };

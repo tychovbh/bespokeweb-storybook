@@ -1,40 +1,46 @@
-.storybook-forms-submit {
+.storybook-button {
     padding: .5rem .8rem;
     border: none;
     border-radius: 5px;
 }
 
-.storybook-forms-submit-primary {
+.storybook-button-primary {
     background: #3B82F6;
     color: white;
 }
 
-.storybook-forms-submit-secondary {
+.storybook-button-secondary {
     background: #6B7280;
     color: white;
 }
 
-.storybook-forms-submit-success {
+.storybook-button-success {
     background: #10B981;
     color: white;
 }
 
-.storybook-forms-submit-danger {
+.storybook-button-danger {
     background: #EF4444;
     color: white;
 }
 
-.storybook-forms-submit-warning {
+.storybook-button-warning {
     background: #F59E0B;
     color: white;
 }
 
-.storybook-forms-submit-info {
+.storybook-button-info {
     background: #60A5FA;
     color: white;
 }
 
-.storybook-forms-submit-dark {
+.storybook-button-dark {
     background: #374151;
     color: white;
+}
+
+.storybook-button-link {
+    background: inherit;
+    color: #1F2937;
+    text-decoration: underline;
 }

@@ -17,7 +17,7 @@ const Template = (args) => <Field {...args}>
 
 export const Default = Template.bind({});
 Default.args = {
-
+    type: 'default'
 };
 
 export const Inline = Template.bind({});

@@ -1,45 +1,63 @@
 import React from 'react';
-
-import { Button } from './Button';
+import {Button} from './Button';
 
 export default {
-  title: 'Example/Button',
-  component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'Example/Button',
+    component: Button,
+    argTypes: {},
 };
 
 const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
-  label: 'Button',
+    children: 'Primary',
+    type: 'primary'
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+    children: 'Secondary',
+    type: 'secondary'
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
+export const Success = Template.bind({});
+Success.args = {
+    children: 'Success',
+    type: 'success'
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const Danger = Template.bind({});
+Danger.args = {
+    children: 'Danger',
+    type: 'danger'
 };
 
+export const Warning = Template.bind({});
+Warning.args = {
+    children: 'Warning',
+    type: 'warning'
+};
 
-export const onClick = Template.bind({});
-onClick.args = {
-  label: 'Button',
-  onClick: function () {
-    alert('test')
-  }
+export const Info = Template.bind({});
+Info.args = {
+    children: 'Info',
+    type: 'info'
+};
+
+export const Light = Template.bind({});
+Light.args = {
+    children: 'Light',
+    type: 'light'
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+    children: 'Dark',
+    type: 'dark'
+};
+export const Link = Template.bind({});
+Link.args = {
+    children: 'Link',
+    type: 'link'
 };

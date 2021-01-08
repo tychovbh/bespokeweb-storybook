@@ -1,8 +1,7 @@
 import React from 'react'
+import '../shared/style.css'
 import './Field.css'
 import PropTypes from 'prop-types'
-import {Label} from "./Label";
-import {Input} from "./Input";
 
 export const Field = ({className, children, type}) => {
     const typeClass = type ? 'storybook-forms-field-' + type : '';

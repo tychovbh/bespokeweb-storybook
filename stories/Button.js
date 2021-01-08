@@ -1,50 +1,48 @@
 import React from 'react';
+import './shared/style.css';
+import './Button.css';
 import PropTypes from 'prop-types';
-import './button.css';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
-  );
+export const Button = ({id, className, appendClassname, children, type}) => {
+    const typeClass = type ? 'storybook-button-' + type : '';
+    return (
+        <button id={id} className={`${className ?? 'storybook-button'} ${typeClass} ${appendClassname}`}>
+            {children}
+        </button>
+    );
 };
 
 Button.propTypes = {
   /**
-   * Is this the principal call to action on the page?
+   * The id of a Button
    */
-  primary: PropTypes.bool,
+  id: PropTypes.string,
+
   /**
-   * What background color to use
+   * Use a different classname
    */
-  backgroundColor: PropTypes.string,
+  className: PropTypes.string,
+
   /**
-   * How large should the button be?
+   * Add more classnames
    */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  appendClassname: PropTypes.string,
+
   /**
-   * Button contents
+   * The title of the Button
    */
-  label: PropTypes.string.isRequired,
+  children: PropTypes.string,
+
   /**
-   * Optional click handler
+   * the color of a Submit button
    */
-  onClick: PropTypes.func,
+  type: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
 };
 
 Button.defaultProps = {
-  bakgroundColor: null,
-  primary: false,
-  size: 'medium',
-  onClick: undefined,
+  appendClassname: '',
+  type: 'light'
 };

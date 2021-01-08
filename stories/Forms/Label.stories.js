@@ -1,19 +1,16 @@
 import React from 'react'
 
-import { Label  } from './Label'
+import {Label} from './Label'
 
 export default {
     title: 'Example/Forms/Label',
     component: Label,
-    argTypes: {
-
-    }
+    argTypes: {}
 }
 
 const Template = (args) => <Label {...args}/>;
 
-export const Text = Template.bind({});
-
-Text.args = {
-    children: 'Text'
+export const Default = Template.bind({});
+Default.args = {
+    children: 'Label'
 };

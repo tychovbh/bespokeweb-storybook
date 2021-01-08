@@ -1,18 +1,14 @@
 import React from 'react';
 
-import { Input } from './Input';
+import {Input} from './Input';
 
 export default {
     title: 'Example/Forms/Input',
     component: Input,
-    argTypes: {
-
-    },
+    argTypes: {},
 };
 
 const Template = (args) => <Input {...args} />;
 
 export const Text = Template.bind({});
-Text.args = {
-
-};
+Text.args = {};

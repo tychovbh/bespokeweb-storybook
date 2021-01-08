@@ -1,10 +1,11 @@
 import React from 'react'
+import '../shared/style.css'
 import './Label.css'
 import PropTypes from 'prop-types';
 
 
 export const Label = ({id, htmlFor, className, appendClassname, children}) => {
-    return <label id={id} htmlFor={htmlFor} className={`${className ?? 'storybook-forms-label'} ${appendClassname}`} >
+    return <label id={id} htmlFor={htmlFor} className={`${className ?? 'storybook-forms-label'} ${appendClassname}`}>
         {children}
     </label>
 };
@@ -31,6 +32,4 @@ Label.propTypes = {
     children: PropTypes.node.isRequired
 };
 
-Label.defaultProps = {
-
-};
+Label.defaultProps = {};

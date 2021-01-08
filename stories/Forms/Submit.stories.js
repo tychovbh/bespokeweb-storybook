@@ -1,18 +1,16 @@
 import React from 'react';
 
-import { Submit } from './Submit';
+import {Submit} from './Submit';
 
 export default {
     title: 'Example/Forms/Submit',
     component: Submit,
-    argTypes: {
-
-    },
+    argTypes: {},
 };
 
 const Template = (args) => <Submit {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-
+    title: 'Submit'
 };
