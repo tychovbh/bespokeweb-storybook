@@ -1,13 +1,13 @@
 import React from "react";
-import {Heading} from './Heading'
+import * as Texts from './Texts'
 
 export default {
     title: 'Example/Texts/Heading',
-    component: Heading,
+    component: Texts,
     argsTypes: {}
 }
 
-const Template = (args) => <Heading {...args}/>;
+const Template = (args) => <Texts.Heading {...args}/>;
 
 export const H1 = Template.bind({});
 H1.args = {

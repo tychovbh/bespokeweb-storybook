@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
  */
 export const Button = ({id, className, appendClassname, children, type}) => {
     const typeClass = type ? 'storybook-button-' + type : '';
-    return (
-        <button id={id} className={`${className ?? 'storybook-button'} ${typeClass} ${appendClassname}`}>
+    return <button
+        id={id}
+        className={`${className ?? 'storybook-button'} ${typeClass} ${appendClassname}`}>
             {children}
-        </button>
-    );
+        </button>;
 };
 
 Button.propTypes = {
