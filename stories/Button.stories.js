@@ -9,6 +9,12 @@ export default {
 
 const Template = (args) => <Button {...args} />;
 
+export const Default = Template.bind({});
+Default.args = {
+    children: 'Default',
+    type: 'default'
+};
+
 export const Primary = Template.bind({});
 Primary.args = {
     children: 'Primary',

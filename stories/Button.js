@@ -39,10 +39,10 @@ Button.propTypes = {
   /**
    * the color of a Submit button
    */
-  type: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
+  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
 };
 
 Button.defaultProps = {
   appendClassname: '',
-  type: 'light'
+  type: 'default'
 };
