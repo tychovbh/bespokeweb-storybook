@@ -1,0 +1,27 @@
+.storybook-navigation-container {
+    background: #1F2937;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.storybook-navigation-logo {
+    width: 3rem;
+    margin-right: 1rem;
+}
+
+.storybook-navigation-nav {
+    flex-grow: 1;
+}
+
+.storybook-navigation-nav-link {
+    color: white;
+    padding: .5rem .7rem;
+    margin: .5rem;
+    border-radius: .5rem;
+}
+
+.storybook-navigation-nav-link:hover {
+    background: #374151;
+
+}
