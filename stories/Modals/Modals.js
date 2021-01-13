@@ -46,15 +46,13 @@ Overlay.defaultProps = {
 
 export const Modal = ({children, open, onClose}) => {
     useEffect(() => {
-        const body = document.body;
+
         if (open) {
-            console.log(open);
-            body.classList.add('no-scroll');
+            document.body.classList.add('no-scroll');
         } else {
-            console.log(open);
-            body.classList.remove('no-scroll');
+            document.body.classList.remove('no-scroll');
         }
-    }, open);
+    }, [open]);
 
     return <Overlay open={open} onClose={onClose}>
         {children}

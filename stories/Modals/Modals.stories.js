@@ -61,7 +61,9 @@ const Template2 = (args) => {
 }
 
 export const Hidden = Template.bind({})
-Hidden.args = {}
+Hidden.args = {
+    open: false,
+}
 
 export const Shown = Template.bind({});
 Shown.args = {
