@@ -31,32 +31,6 @@ const Template2 = (args) => {
     return <>
         <Template {...args} open={open} onClose={() => setOpen(false)}/>
         <Button type={'primary'} onClick={() => setOpen(true)}>Open model</Button>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
     </>
 }
 

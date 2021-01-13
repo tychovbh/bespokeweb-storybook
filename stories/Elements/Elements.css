@@ -1,0 +1,44 @@
+.storybook-elements-avatar {
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.storybook-elements-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.storybook-elements-avatar-circular img,
+.storybook-elements-avatar-circular-notification img {
+    border-radius: 100%;
+}
+
+.storybook-elements-avatar-circular-notification .storybook-elements-avatar-notification {
+    display: block;
+}
+
+.storybook-elements-avatar-rounded img,
+.storybook-elements-avatar-rounded-notification img {
+    border-radius: .5rem;
+}
+
+.storybook-elements-avatar-circular-notification > .storybook-elements-avatar-notification {
+    display: block;
+}
+
+
+.storybook-elements-avatar-notification,
+.storybook-elements-rounded-notification
+{
+    width: 25%;
+    height: 25%;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 100%;
+    border: 3px solid white;
+    margin: -3px -3px 0 0;
+}
