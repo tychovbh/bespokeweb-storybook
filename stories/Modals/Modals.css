@@ -1,12 +1,19 @@
 /* Overlay */
 
 .storybook-modals-overlay {
-    width: 100%;
-    height: 500px;
-    display: flex;
+    display: none;
     background: rgba(0, 0, 0, .33);
-    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.storybook-modals-visible {
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 /* Body */
@@ -17,12 +24,21 @@
     background: white;
     overflow: hidden;
     box-shadow: 0 0 5px 0 #6B7280;
+    margin: 1rem;
+    z-index: 100;
+}
+
+.storybook-models-onblur {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 /* Content */
 
 .storybook-modals-content {
     padding: 1.5rem;
+    /*position: absolute;*/
 }
 
 .storybook-modals-body .storybook-texts-primary {
@@ -34,7 +50,7 @@
 .storybook-modals-footer {
     display: flex;
     justify-content: flex-end;
-    background: #F9FAFB;
+    background: #F3F4F6;
     padding: 1rem 1.5rem;
 }
 

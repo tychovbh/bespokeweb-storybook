@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import * as Modals from './Modals';
 import * as Texts from "../Texts/Texts";
 import {Body} from "./Modals";
@@ -10,20 +10,65 @@ export default {
     argsTypes: {}
 };
 
-const Template = (args) => <Modals.Modal>
-    <Modals.Body>
-        <Modals.Content>
+const Template = (args) => <Modals.Modal {...args}>
+    <Modals.Container>
+        <Modals.Body>
             <Modals.Title>Deactivate account</Modals.Title>
             <Texts.Primary>
                 Are you sure you want to deactivate your account? All of your data will be permanently removed. This
                 action cannot be undone.
             </Texts.Primary>
-        </Modals.Content>
+        </Modals.Body>
         <Modals.Footer>
-            <Button type={'default'}>Close</Button><Button type={'danger'}>Deactivate</Button>
+            <Button type={'default'} onClick={args.onClose}>Close</Button>
+            <Button type={'danger'}>Deactivate</Button>
         </Modals.Footer>
-    </Modals.Body>
+    </Modals.Container>
 </Modals.Modal>;
 
-export const Default = Template.bind({});
-Default.args = {}
+const Template2 = (args) => {
+    const [open, setOpen] = useState(false);
+    return <>
+        <Template {...args} open={open} onClose={() => setOpen(false)}/>
+        <Button type={'primary'} onClick={() => setOpen(true)}>Open model</Button>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </>
+}
+
+export const Hidden = Template.bind({})
+Hidden.args = {}
+
+export const Shown = Template.bind({});
+Shown.args = {
+    open: true,
+};
+
+export const Simple = Template2.bind({});
+Simple.args = {
+    open: false,
+}
