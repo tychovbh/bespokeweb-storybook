@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import * as Modals from './Modals';
 import * as Texts from "../Texts/Texts";
-import {Body} from "./Modals";
-import {Button} from "../Button";
+import {Button} from "../Buttons/Button";
 
 export default {
     title: 'Example/Modals',
@@ -32,12 +31,12 @@ const Template2 = (args) => {
         <Template {...args} open={open} onClose={() => setOpen(false)}/>
         <Button type={'primary'} onClick={() => setOpen(true)}>Open model</Button>
     </>
-}
+};
 
-export const Hidden = Template.bind({})
+export const Hidden = Template.bind({});
 Hidden.args = {
     open: false,
-}
+};
 
 export const Shown = Template.bind({});
 Shown.args = {
@@ -47,4 +46,4 @@ Shown.args = {
 export const Simple = Template2.bind({});
 Simple.args = {
     open: false,
-}
+};

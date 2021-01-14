@@ -1,7 +1,6 @@
 .storybook-elements-avatar {
     width: 3rem;
     height: 3rem;
-    overflow: hidden;
     position: relative;
 }
 
@@ -24,13 +23,12 @@
     border-radius: .5rem;
 }
 
-.storybook-elements-avatar-circular-notification > .storybook-elements-avatar-notification {
+.storybook-elements-avatar-rounded-notification > .storybook-elements-avatar-notification {
     display: block;
 }
 
 
-.storybook-elements-avatar-notification,
-.storybook-elements-rounded-notification
+.storybook-elements-avatar-notification
 {
     width: 25%;
     height: 25%;

@@ -4,7 +4,7 @@ import './Elements.css';
 import PropTypes from 'prop-types';
 
 export const Avatar = ({id, className, appendClassname, type, img, notificationColor}) => {
-    const typeClass = 'storybook-elements-avatar-' + type
+    const typeClass = 'storybook-elements-avatar-' + type;
     return <div
         id={id}
         className={`${className ?? 'storybook-elements-avatar'} ${typeClass} ${appendClassname}`}
@@ -12,7 +12,7 @@ export const Avatar = ({id, className, appendClassname, type, img, notificationC
         <div className={'storybook-elements-avatar-notification'} style={{backgroundColor: notificationColor}}/>
         <img src={img} alt={'avatar'}/>
     </div>
-}
+};
 Avatar.propTypes = {
     /**
      * The id of the Avatar
@@ -33,9 +33,9 @@ Avatar.propTypes = {
      * The type of Avatar
      */
     type: PropTypes.oneOf(['circular', 'circular-notification', 'rounded', 'rounded-notification'])
-}
+};
 Avatar.defaultProps = {
     appendClassname: '',
     type: 'circular',
     notificationColor: 'white'
-}
+};

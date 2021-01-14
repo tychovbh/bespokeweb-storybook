@@ -1,7 +1,7 @@
 import React from 'react'
 import {Question} from "./Question";
 import {Checkbox} from "./Checkbox";
-import {Button} from "../Button";
+import {Button} from "../Buttons/Button";
 
 export default {
     title: 'Example/forms/Question',
@@ -12,9 +12,9 @@ export default {
 const Template = (args) => <Question {...args}>
     <Checkbox/> By selecting this, you agree to the <Button type={'link'}>Privacy Policy</Button> and <Button
     type={'link'}>Cookie Policy</Button>
-</Question>
+</Question>;
 
 export const Default = Template.bind({});
 Default.args = {
     children: ''
-}
+};

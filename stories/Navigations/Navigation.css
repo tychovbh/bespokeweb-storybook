@@ -19,9 +19,16 @@
     padding: .5rem .7rem;
     margin: .5rem;
     border-radius: .5rem;
+    cursor: pointer;
 }
 
 .storybook-navigation-nav-link:hover {
     background: #374151;
+}
 
+.storybook-navigation-nav-link-active {
+    background: #111827;
+}
+.storybook-navigation-nav-link-active:hover {
+    background: #111827;
 }

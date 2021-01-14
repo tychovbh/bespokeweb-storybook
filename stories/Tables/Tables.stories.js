@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Tables from './Tables'
-import {Button} from "../Button";
 
 export default {
     title: 'Example/Tables',
@@ -45,12 +44,12 @@ const Template = (args) => <Tables.Table {...args}>
     </tbody>
 </Tables.Table>;
 
-export const Simple = Template.bind({})
+export const Simple = Template.bind({});
 Simple.args = {
     type: 'simple'
-}
+};
 
-export const Simple_Striped = Template.bind({})
+export const Simple_Striped = Template.bind({});
 Simple_Striped.args = {
     type: 'striped'
-}
+};
