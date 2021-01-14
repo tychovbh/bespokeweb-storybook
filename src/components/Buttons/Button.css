@@ -1,0 +1,56 @@
+.storybook-button {
+    padding: .5rem .8rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.storybook-button:hover {
+    cursor: pointer;
+
+}
+
+.storybook-button-default {
+    @apply bg-white;
+    @apply text-black;
+}
+
+.storybook-button-primary {
+    @apply bg-blue-400;
+    @apply text-white;
+}
+
+.storybook-button-secondary {
+    background: #6B7280;
+    color: white;
+}
+
+.storybook-button-success {
+    background: #10B981;
+    color: white;
+}
+
+.storybook-button-danger {
+    background: #EF4444;
+    color: white;
+}
+
+.storybook-button-warning {
+    background: #F59E0B;
+    color: white;
+}
+
+.storybook-button-info {
+    background: #60A5FA;
+    color: white;
+}
+
+.storybook-button-dark {
+    background: #374151;
+    color: white;
+}
+
+.storybook-button-link {
+    background: inherit;
+    color: #1F2937;
+    text-decoration: underline;
+}
