@@ -1,0 +1,52 @@
+.storybook-feedbacks-alert {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: .5rem;
+}
+
+.storybook-feedbacks-alert .storybook-texts-heading {
+    margin-bottom: .5rem;
+}
+
+/* Default */
+
+.storybook-feedbacks-alert-default {
+    background: #F3F4F6;
+}
+
+.storybook-feedbacks-alert-default .storybook-texts-heading {
+    color: #1F2937;
+}
+
+.storybook-feedbacks-alert-default .storybook-texts-primary {
+    color: #374151;
+}
+
+/* Information */
+
+.storybook-feedbacks-alert-default {
+    background: #F3F4F6;
+}
+
+.storybook-feedbacks-alert-default .storybook-texts-heading {
+    color: #1F2937;
+}
+
+.storybook-feedbacks-alert-default .storybook-texts-primary {
+    color: #374151;
+}
+
+/* Warning */
+
+.storybook-feedbacks-alert-warning {
+    background: #FEF3C7;
+}
+
+.storybook-feedbacks-alert-warning .storybook-texts-heading {
+    color: #92400E;
+}
+
+.storybook-feedbacks-alert-warning .storybook-texts-primary {
+    color: #B45309;
+}
+

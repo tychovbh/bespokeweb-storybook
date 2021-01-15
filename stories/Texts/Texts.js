@@ -3,29 +3,30 @@ import '../shared/style.css';
 import PropTypes from 'prop-types';
 
 export const Heading = ({id, className, appendClassname, children, type}) => {
+    const typeClass = type ? 'storybook-texts-heading-' + type : '';
     switch (type) {
         case 'h1':
-            return <h1 id={id} className={`${className ?? 'storybook-texts-heading-h1'} ${appendClassname}`}>
+            return <h1 id={id} className={`${className ?? 'storybook-texts-heading'} ${typeClass} ${appendClassname}`}>
                 {children}
             </h1>;
         case 'h2':
-            return <h2 id={id} className={`${className ?? 'storybook-texts-heading-h2'} ${appendClassname}`}>
+            return <h2 id={id} className={`${className ?? 'storybook-texts-heading'} ${typeClass} ${appendClassname}`}>
                 {children}
             </h2>;
         case 'h3':
-            return <h3 id={id} className={`${className ?? 'storybook-texts-heading-h3'} ${appendClassname}`}>
+            return <h3 id={id} className={`${className ?? 'storybook-texts-heading'} ${typeClass} ${appendClassname}`}>
                 {children}
             </h3>;
         case 'h4':
-            return <h4 id={id} className={`${className ?? 'storybook-texts-heading-h4'} ${appendClassname}`}>
+            return <h4 id={id} className={`${className ?? 'storybook-texts-heading'} ${typeClass} ${appendClassname}`}>
                 {children}
             </h4>;
         case 'h5':
-            return <h5 id={id} className={`${className ?? 'storybook-texts-heading-h5'} ${appendClassname}`}>
+            return <h5 id={id} className={`${className ?? 'storybook-texts-heading'} ${typeClass} ${appendClassname}`}>
                 {children}
             </h5>;
         case 'h6':
-            return <h6 id={id} className={`${className ?? 'storybook-texts-heading-h6'} ${appendClassname}`}>
+            return <h6 id={id} className={`${className ?? 'storybook-texts-heading'} ${typeClass} ${appendClassname}`}>
                 {children}
             </h6>;
     }
