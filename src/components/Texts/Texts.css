@@ -1,0 +1,28 @@
+.storybook-texts-heading {
+   @apply font-bold;
+}
+
+.storybook-texts-heading-h1 {
+    font-size: 2em;
+}
+
+.storybook-texts-heading-h2 {
+    font-size: 1.5em;
+}
+
+.storybook-texts-heading-h3 {
+    font-size: 1.17em;
+}
+
+.storybook-texts-heading-h4 {
+    font-size: 1em;
+}
+
+.storybook-texts-heading-h5 {
+    font-size: .83em;
+}
+
+.storybook-texts-heading-h6 {
+    font-size: .67em;
+}
+
