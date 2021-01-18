@@ -1,0 +1,86 @@
+.storybook-feedbacks-alert {
+    @apply p-4;
+    @apply m-4;
+    @apply rounded-lg;
+}
+
+.storybook-feedbacks-alert .storybook-texts-heading {
+    @apply mb-2;
+}
+
+.storybook-feedbacks-alert .storybook-button-link {
+    @apply p-0;
+}
+
+/* Default */
+
+.storybook-feedbacks-alert-default {
+    @apply bg-gray-300;
+}
+
+.storybook-feedbacks-alert-default .storybook-texts-heading,
+.storybook-feedbacks-alert-default .storybook-button-link {
+    @apply text-gray-900;
+}
+
+.storybook-feedbacks-alert-default .storybook-texts-primary {
+    @apply text-gray-800;
+}
+
+/* Information */
+
+.storybook-feedbacks-alert-information {
+    @apply bg-blue-300;
+}
+
+.storybook-feedbacks-alert-information .storybook-texts-heading,
+.storybook-feedbacks-alert-information .storybook-button-link {
+    @apply text-blue-900;
+}
+
+.storybook-feedbacks-alert-information .storybook-texts-primary {
+    @apply text-blue-800;
+}
+
+/* Success */
+
+.storybook-feedbacks-alert-success {
+    @apply bg-green-300;
+}
+
+.storybook-feedbacks-alert-success .storybook-texts-heading,
+.storybook-feedbacks-alert-success .storybook-button-link {
+    @apply text-green-900;
+}
+
+.storybook-feedbacks-alert-success .storybook-texts-primary {
+    @apply text-green-800;
+}
+
+/* Warning */
+
+.storybook-feedbacks-alert-warning {
+    @apply bg-yellow-300;
+}
+
+.storybook-feedbacks-alert-warning .storybook-texts-heading,
+.storybook-feedbacks-alert-warning .storybook-button-link {
+    @apply text-yellow-900;
+}
+
+.storybook-feedbacks-alert-warning .storybook-texts-primary {
+    @apply text-yellow-800;
+}
+
+.storybook-feedbacks-alert-danger {
+    @apply bg-red-300;
+}
+
+.storybook-feedbacks-alert-danger .storybook-texts-heading,
+.storybook-feedbacks-alert-danger .storybook-button-link {
+    @apply text-red-900;
+}
+
+.storybook-feedbacks-alert-danger .storybook-texts-primary {
+    @apply text-red-800;
+}
