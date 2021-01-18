@@ -2,4 +2,5 @@
 @import '../components/Buttons/Button.css';
 @import '../components/Elements/Elements.css';
 @import '../components/Texts/Texts.css';
-@import '../components/Feedbacks/Feedback.css';
+@import '../components/Feedbacks/Feedbacks.css';
+@import '../components/Tables/Tables.css';

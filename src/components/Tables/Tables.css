@@ -1,0 +1,51 @@
+.storybook-tables-table tbody,
+.storybook-tables-table td,
+.storybook-tables-table tfoot,
+.storybook-tables-table th,
+.storybook-tables-table thead,
+.storybook-tables-table tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+/* Simple */
+
+.storybook-tables-table {
+    @apply w-full;
+    @apply text-left;
+    @apply rounded-lg;
+    @apply shadow;
+    @apply overflow-hidden;
+}
+
+.storybook-tables-table th,
+.storybook-tables-table td {
+    @apply px-4 py-3;
+}
+
+.storybook-tables-table thead tr th {
+    @apply bg-gray-100;
+    @apply uppercase;
+    @apply font-normal;
+    @apply tracking-wider;
+    @apply text-xs;
+}
+
+.storybook-tables-table tbody tr {
+    @apply border-t border-b;
+}
+
+/* Simple Striped */
+
+.storybook-tables-table thead {
+    @apply border-b;
+}
+
+.storybook-tables-table-striped tbody tr {
+    @apply border-none;
+}
+
+.storybook-tables-table-striped tbody tr:nth-child(even) {
+    @apply bg-gray-100;
+}
