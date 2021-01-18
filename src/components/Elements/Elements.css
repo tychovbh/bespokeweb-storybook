@@ -1,0 +1,41 @@
+.storybook-elements-avatar {
+    @apply h-12;
+    @apply w-12;
+    @apply relative;
+}
+
+.storybook-elements-avatar img {
+    @apply w-full;
+    @apply h-full;
+}
+
+.storybook-elements-avatar-circular img,
+.storybook-elements-avatar-circular-notification img {
+    @apply rounded-full;
+}
+
+.storybook-elements-avatar-circular-notification .storybook-elements-avatar-notification {
+    @apply block;
+}
+
+.storybook-elements-avatar-rounded img,
+.storybook-elements-avatar-rounded-notification img {
+    @apply rounded-lg;
+}
+
+.storybook-elements-avatar-rounded-notification > .storybook-elements-avatar-notification {
+    @apply block;
+}
+
+
+.storybook-elements-avatar-notification
+{
+    @apply w-4;
+    @apply h-4;
+    @apply hidden;
+    @apply absolute;
+    @apply top-0 right-0;
+    @apply rounded-full;
+    border: 3px solid white;
+    margin: -3px -3px 0 0;
+}
