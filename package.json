@@ -1,6 +1,6 @@
 {
   "name": "bespokeweb-storybook",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "",
   "author": "Tycho van Berge Henegouwen",
   "repository": {
@@ -16,7 +16,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "tsc",
+    "build": "tsc && postcss src/styles/style.css -o dist/style.css",
     "build-tailwind": "postcss src/styles/style.css -o dist/style.css"
   },
   "keywords": [
@@ -36,5 +36,9 @@
     "postcss-import": "^12.0.1",
     "tailwindcss": "^1.2",
     "autoprefixer": "^9.7.5"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js"
 }

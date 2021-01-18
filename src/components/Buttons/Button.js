@@ -1,6 +1,4 @@
 import React from 'react';
-import '../../styles/index.css';
-import './Button.css';
 import PropTypes from 'prop-types';
 
 /**
