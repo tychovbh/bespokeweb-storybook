@@ -1,0 +1,58 @@
+ /* Overlay */
+
+.storybook-modals-overlay {
+    @apply hidden;
+    background: rgba(0, 0, 0, .33);
+    @apply absolute;
+    @apply top-0 bottom-0 left-0 right-0;
+}
+
+.storybook-modals-visible {
+    @apply flex justify-center items-center;
+}
+
+/* Body */
+
+.storybook-modals-body {
+    max-width: 640px;
+    @apply rounded-lg;
+    @apply bg-white;
+    @apply overflow-hidden;
+    @apply shadow;
+    @apply m-4;
+    @apply z-50
+}
+
+.storybook-models-onblur {
+    @apply w-full;
+    @apply h-full;
+    @apply absolute;
+}
+
+/* Content */
+
+.storybook-modals-content {
+    @apply p-6;
+}
+
+.storybook-modals-body .storybook-texts-primary {
+    @apply text-gray-700;
+}
+
+/* Footer */
+
+.storybook-modals-footer {
+    @apply flex justify-end;
+    @apply bg-gray-200;
+    @apply py-4 px-6;
+}
+
+.storybook-modals-footer .storybook-button {
+    @apply ml-2;
+}
+
+/* Title */
+
+.storybook-modals-title {
+    @apply mb-2;
+}
