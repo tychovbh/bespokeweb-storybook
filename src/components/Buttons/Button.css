@@ -1,12 +1,10 @@
 .storybook-button {
-    padding: .5rem .8rem;
-    border: none;
-    border-radius: 5px;
+    @apply py-2 px-4;
+    @apply rounded-lg;
 }
 
 .storybook-button:hover {
-    cursor: pointer;
-
+    @apply cursor-pointer;
 }
 
 .storybook-button-default {
@@ -15,42 +13,47 @@
 }
 
 .storybook-button-primary {
-    @apply bg-blue-400;
+    @apply bg-blue-500;
     @apply text-white;
 }
 
 .storybook-button-secondary {
-    background: #6B7280;
-    color: white;
+    @apply bg-gray-400;
+    @apply text-white;
 }
 
 .storybook-button-success {
-    background: #10B981;
-    color: white;
+    @apply bg-green-400;
+    @apply text-white;
 }
 
 .storybook-button-danger {
-    background: #EF4444;
-    color: white;
+    @apply bg-orange-400;
+    @apply text-white;
 }
 
 .storybook-button-warning {
-    background: #F59E0B;
-    color: white;
+    @apply bg-red-400;
+    @apply text-white;
 }
 
 .storybook-button-info {
-    background: #60A5FA;
-    color: white;
+    @apply bg-blue-300;
+    @apply text-white;
+}
+
+.storybook-button-light {
+    @apply bg-gray-100;
+    @apply text-gray-900;
 }
 
 .storybook-button-dark {
-    background: #374151;
-    color: white;
+    @apply bg-gray-700;
+    @apply text-white;
 }
 
 .storybook-button-link {
-    background: inherit;
-    color: #1F2937;
-    text-decoration: underline;
+    @apply bg-transparent;
+    @apply text-gray-800;
+    @apply underline;
 }
