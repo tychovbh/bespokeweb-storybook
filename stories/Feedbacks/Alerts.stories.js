@@ -26,7 +26,17 @@ Information.args = {
     type: 'information'
 };
 
+export const Success = Template.bind({});
+Success.args = {
+    type: 'success'
+};
+
 export const Warning = Template.bind({});
 Warning.args = {
     type: 'warning'
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+    type: 'danger'
 };

@@ -24,16 +24,44 @@
 
 /* Information */
 
-.storybook-feedbacks-alert-default {
-    background: #F3F4F6;
+.storybook-feedbacks-alert-information {
+    background: #93C5FD;
 }
 
-.storybook-feedbacks-alert-default .storybook-texts-heading {
-    color: #1F2937;
+.storybook-feedbacks-alert-information .storybook-texts-heading {
+    color: #1E3A8A;
 }
 
-.storybook-feedbacks-alert-default .storybook-texts-primary {
-    color: #374151;
+.storybook-feedbacks-alert-information .storybook-texts-primary {
+    color: #1E40AF;
+}
+
+/* Success */
+
+.storybook-feedbacks-alert-success {
+    background: #A7F3D0;
+}
+
+.storybook-feedbacks-alert-success .storybook-texts-heading {
+    color: #065F46;
+}
+
+.storybook-feedbacks-alert-success .storybook-texts-primary {
+    color: #047857;
+}
+
+/* Success */
+
+.storybook-feedbacks-alert-success {
+    background: #A7F3D0;
+}
+
+.storybook-feedbacks-alert-success .storybook-texts-heading {
+    color: #065F46;
+}
+
+.storybook-feedbacks-alert-success .storybook-texts-primary {
+    color: #047857;
 }
 
 /* Warning */
@@ -50,3 +78,14 @@
     color: #B45309;
 }
 
+.storybook-feedbacks-alert-danger {
+    background: #FEE2E2;
+}
+
+.storybook-feedbacks-alert-danger .storybook-texts-heading {
+    color: #991B1B;
+}
+
+.storybook-feedbacks-alert-danger .storybook-texts-primary {
+    color: #B91C1C;
+}
