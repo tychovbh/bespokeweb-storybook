@@ -3,6 +3,8 @@ import '../components/Navigations/Navigation.css';
 import * as Navigation from "../components/Navigations/Navigation";
 import * as Elements from '../components/Elements/Elements'
 import Avatar from '../assets/profile.jpg'
+import Logo from '../assets/world-wide-web.svg'
+import * as Texts from '../components/Texts/Texts'
 
 export default {
     title: 'Example/Navigations',
@@ -11,6 +13,10 @@ export default {
 };
 
 const Template = (args) => <Navigation.Container {...args}>
+    <Navigation.Brand>
+        <Navigation.BrandImage img={Logo}/>
+        <Texts.Heading type={'h2'}>BespokeWeb</Texts.Heading>
+    </Navigation.Brand>
     <Navigation.Nav>
         <Navigation.NavLink active>Dashboard</Navigation.NavLink>
         <Navigation.NavLink>Team</Navigation.NavLink>

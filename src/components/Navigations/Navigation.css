@@ -1,34 +1,43 @@
 .storybook-navigation-container {
-    background: #1F2937;
-    display: flex;
-    align-items: center;
-    padding: 1rem 1.5rem;
+    @apply bg-gray-800;
+    @apply flex items-center;
+    @apply py-4 px-6;
+
 }
 
-.storybook-navigation-logo {
-    width: 3rem;
-    margin-right: 1rem;
+.storybook-navigation-brand {
+    @apply flex items-center;
+    @apply mr-6;
+}
+
+.storybook-texts-heading {
+    @apply text-white;
+}
+
+.storybook-navigation-brand-image {
+    @apply w-12;
+    @apply mr-4;
 }
 
 .storybook-navigation-nav {
-    flex-grow: 1;
+    @apply flex-1;
 }
 
 .storybook-navigation-nav-link {
-    color: white;
-    padding: .5rem .7rem;
-    margin: .5rem;
-    border-radius: .5rem;
-    cursor: pointer;
+    @apply text-white;
+    @apply py-2 px-3;
+    @apply m-2;
+    @apply rounded-lg;
+    @apply cursor-pointer;
 }
 
 .storybook-navigation-nav-link:hover {
-    background: #374151;
+    @apply bg-gray-700
 }
 
 .storybook-navigation-nav-link-active {
-    background: #111827;
+    @apply bg-gray-900;
 }
 .storybook-navigation-nav-link-active:hover {
-    background: #111827;
+    @apply bg-gray-900;
 }
