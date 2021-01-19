@@ -1,0 +1,59 @@
+.storybook-forms-submit {
+    @apply py-2 px-4;
+    @apply rounded-lg;
+}
+
+.storybook-forms-submit:hover {
+    @apply cursor-pointer;
+}
+
+.storybook-forms-submit-default {
+    @apply bg-white;
+    @apply text-black;
+}
+
+.storybook-forms-submit-primary {
+    @apply bg-blue-500;
+    @apply text-white;
+}
+
+.storybook-forms-submit-secondary {
+    @apply bg-gray-400;
+    @apply text-white;
+}
+
+.storybook-forms-submit-success {
+    @apply bg-green-400;
+    @apply text-white;
+}
+
+.storybook-forms-submit-danger {
+    @apply bg-orange-400;
+    @apply text-white;
+}
+
+.storybook-forms-submit-warning {
+    @apply bg-red-400;
+    @apply text-white;
+}
+
+.storybook-forms-submit-info {
+    @apply bg-blue-300;
+    @apply text-white;
+}
+
+.storybook-forms-submit-light {
+    @apply bg-gray-100;
+    @apply text-gray-900;
+}
+
+.storybook-forms-submit-dark {
+    @apply bg-gray-700;
+    @apply text-white;
+}
+
+.storybook-forms-submit-link {
+    @apply bg-transparent;
+    @apply text-gray-800;
+    @apply underline;
+}
