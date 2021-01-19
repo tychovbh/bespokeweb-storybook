@@ -21,7 +21,7 @@ const Template = (args) => <div {...args}>
             <Navigations.Content>
                 <Navigations.Brand>
                     <Navigations.BrandImage img={Logo}/>
-                    <Texts.Heading type={'h2'}>BespokeWeb</Texts.Heading>
+                    <Texts.Heading type={'h2'}>Bespoke Web</Texts.Heading>
                 </Navigations.Brand>
                 <Navigations.Nav>
                     <Navigations.NavLink active>Dashboard</Navigations.NavLink>

@@ -18,7 +18,7 @@ const Template = (args) => <Navigation.Container {...args}>
         <Navigation.Content>
             <Navigation.Brand>
                 <Navigation.BrandImage img={Logo}/>
-                <Texts.Heading type={'h2'}>BespokeWeb</Texts.Heading>
+                <Texts.Heading type={'h2'}>Bespoke Web</Texts.Heading>
             </Navigation.Brand>
             <Navigation.Nav>
                 <Navigation.NavLink active>Dashboard</Navigation.NavLink>
