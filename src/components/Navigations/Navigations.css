@@ -1,8 +1,10 @@
 .storybook-navigation-container {
     @apply bg-gray-800;
-    @apply flex items-center;
-    @apply py-4 px-6;
+}
 
+.storybook-navigation-content {
+    @apply flex items-center;
+    @apply py-4;
 }
 
 .storybook-navigation-brand {
@@ -10,7 +12,7 @@
     @apply mr-6;
 }
 
-.storybook-texts-heading {
+.storybook-navigation-brand .storybook-texts-heading {
     @apply text-white;
 }
 

@@ -1,0 +1,5 @@
+.storybook-layouts-container {
+    max-width: 1280px;
+    @apply px-4;
+    @apply mx-auto;
+}

@@ -1,8 +1,10 @@
 @import './index.css';
+@import '../components/Layouts/Layouts.css';
 @import '../components/Buttons/Button.css';
 @import '../components/Elements/Elements.css';
 @import '../components/Texts/Texts.css';
 @import '../components/Feedbacks/Feedbacks.css';
+@import '../components/Navigations/Navigations.css';
 @import '../components/Tables/Tables.css';
 @import '../components/Modals/Modals.css';
 @import '../components/Forms/Label.css';
@@ -11,3 +13,5 @@
 @import '../components/Forms/Input.css';
 @import '../components/Forms/Question.css';
 @import '../components/Forms/Submit.css';
+@import '../components/Dashboards/Dashboards.css';
+

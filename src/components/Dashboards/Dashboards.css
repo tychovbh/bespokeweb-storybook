@@ -1,0 +1,4 @@
+.storybook-dashboards-header {
+    @apply bg-white;
+    @apply shadow;
+}
