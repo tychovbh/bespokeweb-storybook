@@ -166,7 +166,7 @@ Footer.propTypes = {
     appendClassname: PropTypes.string,
 
     /**
-     * The title of the Button
+     * The title of the Buttons
      */
     children: PropTypes.node.isRequired,
 };

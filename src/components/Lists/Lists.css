@@ -40,7 +40,7 @@
 @media (min-width: 640px) {
 
     /* Header */
-    .storybook-lists-header th {
+    .storybook-lists-header {
         @apply px-6;
     }
 

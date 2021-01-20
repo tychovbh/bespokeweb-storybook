@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/style.css'
-import {Button} from '../components/Buttons/Button';
+import {Button} from '../components/Buttons/Buttons';
 
 export default {
-    title: 'Example/Button',
+    title: 'Example/Buttons',
     component: Button,
     argTypes: {},
 };

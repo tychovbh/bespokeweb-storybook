@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import '../styles/style.css';
 import * as Modals from '../components/Modals/Modals';
 import * as Texts from "../components/Texts/Texts";
-import {Button} from "../components/Buttons/Button";
+import {Button} from "../components/Buttons/Buttons";
 
 export default {
     title: 'Example/Modals',

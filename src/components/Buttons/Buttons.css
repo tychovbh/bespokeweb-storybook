@@ -57,3 +57,35 @@
     @apply text-gray-800;
     @apply underline;
 }
+
+/* Group */
+.storybook-button-group {
+    @apply border;
+    @apply rounded-lg;
+    @apply overflow-hidden;
+}
+
+.storybook-button-group .storybook-button-download {
+    @apply border-t-0 border-r-0 border-l-0;
+    @apply rounded-none;
+}
+.storybook-button-group .storybook-button-download:last-of-type {
+    @apply border-none;
+}
+
+/* Download */
+.storybook-button-download {
+    @apply flex items-center;
+    @apply border;
+    @apply rounded-lg;
+    @apply pl-3 pr-4 py-3;
+}
+
+.storybook-button-download-content {
+    @apply flex-1;
+}
+
+.storybook-button-download-content-button {
+    @apply font-medium;
+    @apply text-purple-700;
+}

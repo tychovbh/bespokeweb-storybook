@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/style.css';
 import {Question} from "../components/Forms/Question";
 import {Checkbox} from "../components/Forms/Checkbox";
-import {Button} from "../components/Buttons/Button";
+import {Button} from "../components/Buttons/Buttons";
 
 export default {
     title: 'Example/forms/Question',

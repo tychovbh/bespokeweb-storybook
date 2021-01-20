@@ -2,6 +2,7 @@ import React from "react";
 import '../styles/style.css';
 import * as Lists from '../components/Lists/Lists';
 import * as Texts from '../components/Texts/Texts'
+import * as Buttons from "../components/Buttons/Buttons";
 
 export default {
     title: 'Example/Lists',
@@ -38,8 +39,16 @@ const Template = (args) => <Lists.Container {...args}>
             proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
         </Lists.Column>
     </Lists.Row>
+    <Lists.Row>
+        <Lists.Column type={'dt'}>Attachment</Lists.Column>
+        <Lists.Column type={'dd'} colSpan={2}>
+                <Buttons.Download>resume_back_end_developer.pdf</Buttons.Download>
+        </Lists.Column>
+    </Lists.Row>
 </Lists.Container>;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+    appendClassname: 'w-3/5 mx-auto'
+};
 

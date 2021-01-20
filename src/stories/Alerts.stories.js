@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/style.css'
 import * as Feedback from '../components/Feedbacks/Feedbacks';
 import * as Texts from '../components/Texts/Texts';
-import {Button} from '../components/Buttons/Button';
+import {Button} from '../components/Buttons/Buttons';
 
 export default {
     title: 'Example/Feedback/Alerts',
