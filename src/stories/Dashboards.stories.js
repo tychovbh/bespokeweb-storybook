@@ -11,7 +11,7 @@ import Avatar from '../assets/profile.jpg'
 
 export default {
     title: 'Example/Dashboards/Layouts',
-    component: Dashboards.Container,
+    component: '',
     argsTypes: {}
 };
 
@@ -44,7 +44,7 @@ const Template = (args) => <div {...args}>
         <Layouts.Container appendClassname={'h-64 border-4 border-dashed rounded-lg my-4'}>
         </Layouts.Container>
     </Dashboards.Content>
-</div>
+</div>;
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

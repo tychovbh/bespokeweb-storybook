@@ -1,0 +1,55 @@
+/* Container */
+.storybook-lists-container {
+    @apply bg-white;
+    @apply shadow;
+    @apply overflow-hidden;
+    @apply rounded-lg;
+}
+
+/* Header */
+.storybook-lists-header {
+    @apply py-5 px-4;
+    @apply text-left;
+    @apply font-normal;
+    @apply border-b;
+}
+
+.storybook-lists-header .storybook-texts-heading {
+    @apply font-medium;
+}
+
+/* Row */
+.storybook-lists-row {
+    @apply px-4;
+    @apply py-5;
+}
+
+.storybook-lists-container .storybook-lists-row:nth-child(even) {
+    @apply bg-gray-100;
+}
+
+/* Column */
+.storybook-lists-column {
+
+}
+
+.storybook-lists-column-dt {
+    @apply text-gray-700;
+}
+
+@media (min-width: 640px) {
+
+    /* Header */
+    .storybook-lists-header th {
+        @apply px-6;
+    }
+
+    /*Row*/
+    .storybook-lists-row {
+        @apply grid;
+        @apply grid-cols-3;
+        @apply gap-4;
+        @apply px-6;
+        @apply col-span-2;
+    }
+}

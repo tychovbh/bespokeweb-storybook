@@ -1,5 +1,10 @@
+.storybook-texts-primary,
 .storybook-texts-heading {
-   @apply font-bold;
+    @apply text-gray-900;
+}
+
+.storybook-texts-heading {
+    @apply font-bold;
 }
 
 .storybook-texts-heading-h1 {

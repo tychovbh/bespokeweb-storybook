@@ -9,7 +9,7 @@ export const Header = ({id, className, appendClassname, children}) => {
         {children}
     </header>
 
-}
+};
 Header.propTypes = {
     /**
      * The id of the Header
@@ -30,10 +30,10 @@ Header.propTypes = {
      * The HTML inside of the Header
      */
     children: PropTypes.node.isRequired
-}
+};
 Header.defaultProps = {
     appendClassname: ''
-}
+};
 
 export const Content = ({id, className, appendClassname, children}) => {
     return <div
@@ -42,7 +42,7 @@ export const Content = ({id, className, appendClassname, children}) => {
     >
         {children}
     </div>
-}
+};
 Content.propTypes = {
     /**
      * The id of the Content
@@ -63,7 +63,7 @@ Content.propTypes = {
      * The HTML inside of the Content
      */
     children: PropTypes.node.isRequired
-}
+};
 Content.defaultProps = {
     appendClassname: ''
-}
+};
