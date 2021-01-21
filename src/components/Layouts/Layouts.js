@@ -7,4 +7,4 @@ export const Container = ({id, className, appendClassname = '', children}) => {
     >
         {children}
     </div>
-}
+};
