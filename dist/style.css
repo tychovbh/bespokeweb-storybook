@@ -4,15 +4,19 @@
 
 @tailwind utilities;
 
+.storybook-layouts-container {
+    max-width: 1280px;
+    @apply px-4;
+    @apply mx-auto;
+}
+
 .storybook-button {
-    padding: .5rem .8rem;
-    border: none;
-    border-radius: 5px;
+    @apply py-2 px-4;
+    @apply rounded-lg;
 }
 
 .storybook-button:hover {
-    cursor: pointer;
-
+    @apply cursor-pointer;
 }
 
 .storybook-button-default {
@@ -21,42 +25,567 @@
 }
 
 .storybook-button-primary {
-    @apply bg-blue-400;
+    @apply bg-blue-500;
     @apply text-white;
 }
 
 .storybook-button-secondary {
-    background: #6B7280;
-    color: white;
+    @apply bg-gray-400;
+    @apply text-white;
 }
 
 .storybook-button-success {
-    background: #10B981;
-    color: white;
+    @apply bg-green-400;
+    @apply text-white;
 }
 
 .storybook-button-danger {
-    background: #EF4444;
-    color: white;
+    @apply bg-orange-400;
+    @apply text-white;
 }
 
 .storybook-button-warning {
-    background: #F59E0B;
-    color: white;
+    @apply bg-red-400;
+    @apply text-white;
 }
 
 .storybook-button-info {
-    background: #60A5FA;
-    color: white;
+    @apply bg-blue-300;
+    @apply text-white;
+}
+
+.storybook-button-light {
+    @apply bg-gray-100;
+    @apply text-gray-900;
 }
 
 .storybook-button-dark {
-    background: #374151;
-    color: white;
+    @apply bg-gray-700;
+    @apply text-white;
 }
 
 .storybook-button-link {
-    background: inherit;
-    color: #1F2937;
-    text-decoration: underline;
+    @apply bg-transparent;
+    @apply text-gray-800;
+    @apply underline;
 }
+
+/* Group */
+
+.storybook-button-group {
+    @apply border;
+    @apply rounded-lg;
+    @apply overflow-hidden;
+}
+
+.storybook-button-group .storybook-button-download {
+    @apply border-t-0 border-r-0 border-l-0;
+    @apply rounded-none;
+}
+
+.storybook-button-group .storybook-button-download:last-of-type {
+    @apply border-none;
+}
+
+/* Download */
+
+.storybook-button-download {
+    @apply flex items-center;
+    @apply border;
+    @apply rounded-lg;
+    @apply pl-3 pr-4 py-3;
+}
+
+.storybook-button-download-content {
+    @apply flex-1;
+}
+
+.storybook-button-download-content-button {
+    @apply text-purple-700;
+}
+
+.storybook-elements-avatar {
+    @apply h-12;
+    @apply w-12;
+    @apply relative;
+}
+
+.storybook-elements-avatar img {
+    @apply w-full;
+    @apply h-full;
+}
+
+.storybook-elements-avatar-circular img,
+.storybook-elements-avatar-circular-notification img {
+    @apply rounded-full;
+}
+
+.storybook-elements-avatar-circular-notification .storybook-elements-avatar-notification {
+    @apply block;
+}
+
+.storybook-elements-avatar-rounded img,
+.storybook-elements-avatar-rounded-notification img {
+    @apply rounded-lg;
+}
+
+.storybook-elements-avatar-rounded-notification > .storybook-elements-avatar-notification {
+    @apply block;
+}
+
+.storybook-elements-avatar-notification
+{
+    @apply w-4;
+    @apply h-4;
+    @apply hidden;
+    @apply absolute;
+    @apply top-0 right-0;
+    @apply rounded-full;
+    border: 3px solid white;
+    margin: -3px -3px 0 0;
+}
+
+.storybook-texts-primary,
+.storybook-texts-heading {
+    @apply text-gray-900;
+}
+
+.storybook-texts-heading {
+    @apply font-medium;
+}
+
+.storybook-texts-heading-h1 {
+    font-size: 2em;
+}
+
+.storybook-texts-heading-h2 {
+    font-size: 1.5em;
+}
+
+.storybook-texts-heading-h3 {
+    font-size: 1.17em;
+}
+
+.storybook-texts-heading-h4 {
+    font-size: 1em;
+}
+
+.storybook-texts-heading-h5 {
+    font-size: .83em;
+}
+
+.storybook-texts-heading-h6 {
+    font-size: .67em;
+}
+
+.storybook-feedbacks-alert {
+    @apply p-4;
+    @apply m-4;
+    @apply rounded-lg;
+}
+
+.storybook-feedbacks-alert .storybook-texts-heading {
+    @apply mb-2;
+}
+
+.storybook-feedbacks-alert .storybook-button-link {
+    @apply p-0;
+}
+
+/* Default */
+
+.storybook-feedbacks-alert-default {
+    @apply bg-gray-300;
+}
+
+.storybook-feedbacks-alert-default .storybook-texts-heading,
+.storybook-feedbacks-alert-default .storybook-button-link {
+    @apply text-gray-900;
+}
+
+.storybook-feedbacks-alert-default .storybook-texts-primary {
+    @apply text-gray-800;
+}
+
+/* Information */
+
+.storybook-feedbacks-alert-information {
+    @apply bg-blue-300;
+}
+
+.storybook-feedbacks-alert-information .storybook-texts-heading,
+.storybook-feedbacks-alert-information .storybook-button-link {
+    @apply text-blue-900;
+}
+
+.storybook-feedbacks-alert-information .storybook-texts-primary {
+    @apply text-blue-800;
+}
+
+/* Success */
+
+.storybook-feedbacks-alert-success {
+    @apply bg-green-300;
+}
+
+.storybook-feedbacks-alert-success .storybook-texts-heading,
+.storybook-feedbacks-alert-success .storybook-button-link {
+    @apply text-green-900;
+}
+
+.storybook-feedbacks-alert-success .storybook-texts-primary {
+    @apply text-green-800;
+}
+
+/* Warning */
+
+.storybook-feedbacks-alert-warning {
+    @apply bg-yellow-300;
+}
+
+.storybook-feedbacks-alert-warning .storybook-texts-heading,
+.storybook-feedbacks-alert-warning .storybook-button-link {
+    @apply text-yellow-900;
+}
+
+.storybook-feedbacks-alert-warning .storybook-texts-primary {
+    @apply text-yellow-800;
+}
+
+.storybook-feedbacks-alert-danger {
+    @apply bg-red-300;
+}
+
+.storybook-feedbacks-alert-danger .storybook-texts-heading,
+.storybook-feedbacks-alert-danger .storybook-button-link {
+    @apply text-red-900;
+}
+
+.storybook-feedbacks-alert-danger .storybook-texts-primary {
+    @apply text-red-800;
+}
+
+.storybook-navigation-container {
+    @apply bg-gray-800;
+}
+
+.storybook-navigation-content {
+    @apply flex items-center;
+    @apply py-4;
+}
+
+.storybook-navigation-brand {
+    @apply flex items-center;
+    @apply mr-6;
+}
+
+.storybook-navigation-brand .storybook-texts-heading {
+    @apply text-white;
+}
+
+.storybook-navigation-brand-image {
+    @apply w-12;
+    @apply mr-4;
+}
+
+.storybook-navigation-nav {
+    @apply flex-1;
+}
+
+.storybook-navigation-nav-link {
+    @apply text-white;
+    @apply py-2 px-3;
+    @apply m-2;
+    @apply rounded-lg;
+    @apply cursor-pointer;
+}
+
+.storybook-navigation-nav-link:hover {
+    @apply bg-gray-700
+}
+
+.storybook-navigation-nav-link-active {
+    @apply bg-gray-900;
+}
+
+.storybook-navigation-nav-link-active:hover {
+    @apply bg-gray-900;
+}
+
+.storybook-tables-table tbody,
+.storybook-tables-table td,
+.storybook-tables-table tfoot,
+.storybook-tables-table th,
+.storybook-tables-table thead,
+.storybook-tables-table tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+/* Simple */
+
+.storybook-tables-table {
+    @apply w-full;
+    @apply text-left;
+    @apply rounded-lg;
+    @apply shadow;
+    @apply overflow-hidden;
+}
+
+.storybook-tables-table th,
+.storybook-tables-table td {
+    @apply px-4 py-3;
+}
+
+.storybook-tables-table thead tr th {
+    @apply bg-gray-100;
+    @apply uppercase;
+    @apply font-normal;
+    @apply tracking-wider;
+    @apply text-xs;
+}
+
+.storybook-tables-table tbody tr {
+    @apply border-t border-b;
+}
+
+/* Simple Striped */
+
+.storybook-tables-table thead {
+    @apply border-b;
+}
+
+.storybook-tables-table-striped tbody tr {
+    @apply border-none;
+}
+
+.storybook-tables-table-striped tbody tr:nth-child(even) {
+    @apply bg-gray-100;
+}
+
+.storybook-modals-container {
+    @apply rounded-lg;
+    @apply bg-white;
+    @apply overflow-hidden;
+    @apply shadow;
+    @apply m-4;
+    @apply z-50
+}
+
+/* Modal */
+
+.storybook-modals-overlay {
+    @apply hidden;
+    background: rgba(0, 0, 0, .33);
+    @apply absolute;
+    @apply top-0 bottom-0 left-0 right-0;
+}
+
+.storybook-modals-visible {
+    @apply flex justify-center items-center;
+}
+
+.storybook-modals-body {
+    @apply p-6;
+}
+
+.storybook-modals-body .storybook-texts-primary {
+    @apply text-gray-700;
+}
+
+.storybook-modals-footer {
+    @apply flex justify-end;
+    @apply bg-gray-200;
+    @apply py-4 px-6;
+}
+
+.storybook-modals-footer .storybook-button {
+    @apply ml-2;
+}
+
+/* Notification */
+
+.storybook-modals-notification .storybook-modals-container {
+    max-width: 400px;
+}
+
+.storybook-modals-notification-body {
+    @apply flex items-center;
+    @apply p-4;
+}
+
+.storybook-modals-notification-body img {
+    @apply w-8;
+    @apply fill-current text-green-400;
+}
+
+.storybook-forms-label {
+
+}
+
+.storybook-forms-checkbox {
+
+}
+
+.storybook-forms-field {
+    @apply flex;
+    @apply m-4;
+}
+
+/* Default */
+
+.storybook-forms-field-default {
+    @apply flex-col justify-center;
+}
+
+.storybook-forms-field-default .storybook-forms-label {
+    @apply mb-2;
+}
+
+/* Inline */
+
+.storybook-forms-field-inline {
+    @apply flex-row items-center;
+}
+
+.storybook-forms-field-inline .storybook-forms-label {
+    @apply mr-4;
+}
+
+.storybook-forms-input {
+    @apply w-full;
+    @apply py-1 px-2;
+    @apply border;
+    @apply rounded-lg;
+}
+
+.storybook-forms-question {
+    @apply text-gray-700;
+}
+
+.storybook-forms-question .storybook-button-link  {
+    @apply p-0;
+}
+
+.storybook-forms-submit {
+    @apply py-2 px-4;
+    @apply rounded-lg;
+}
+
+.storybook-forms-submit:hover {
+    @apply cursor-pointer;
+}
+
+.storybook-forms-submit-default {
+    @apply bg-white;
+    @apply text-black;
+}
+
+.storybook-forms-submit-primary {
+    @apply bg-blue-500;
+    @apply text-white;
+}
+
+.storybook-forms-submit-secondary {
+    @apply bg-gray-400;
+    @apply text-white;
+}
+
+.storybook-forms-submit-success {
+    @apply bg-green-400;
+    @apply text-white;
+}
+
+.storybook-forms-submit-danger {
+    @apply bg-orange-400;
+    @apply text-white;
+}
+
+.storybook-forms-submit-warning {
+    @apply bg-red-400;
+    @apply text-white;
+}
+
+.storybook-forms-submit-info {
+    @apply bg-blue-300;
+    @apply text-white;
+}
+
+.storybook-forms-submit-light {
+    @apply bg-gray-100;
+    @apply text-gray-900;
+}
+
+.storybook-forms-submit-dark {
+    @apply bg-gray-700;
+    @apply text-white;
+}
+
+.storybook-forms-submit-link {
+    @apply bg-transparent;
+    @apply text-gray-800;
+    @apply underline;
+}
+
+.storybook-dashboards-header {
+    @apply bg-white;
+    @apply shadow;
+}
+
+/* Container */
+
+.storybook-lists-container {
+    @apply bg-white;
+    @apply shadow;
+    @apply overflow-hidden;
+    @apply rounded-lg;
+}
+
+/* Header */
+
+.storybook-lists-header {
+    @apply py-5 px-4;
+    @apply text-left;
+    @apply font-normal;
+    @apply border-b;
+}
+
+/* Row */
+
+.storybook-lists-row {
+    @apply px-4;
+    @apply py-5;
+}
+
+.storybook-lists-container .storybook-lists-row:nth-child(even) {
+    @apply bg-gray-100;
+}
+
+/* Column */
+
+.storybook-lists-column {
+
+}
+
+.storybook-lists-column-dt {
+    @apply text-gray-700;
+}
+
+@media (min-width: 640px) {
+
+    /* Header */
+    .storybook-lists-header {
+        @apply px-6;
+    }
+
+    /*Row*/
+    .storybook-lists-row {
+        @apply grid;
+        @apply grid-cols-3;
+        @apply gap-4;
+        @apply px-6;
+        @apply col-span-2;
+    }
+}
+

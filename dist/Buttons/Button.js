@@ -17,7 +17,7 @@ var Button = function (_a) {
 exports.Button = Button;
 exports.Button.propTypes = {
     /**
-     * The id of a Button
+     * The id of a Buttons
      */
     id: prop_types_1.default.string,
     /**
@@ -29,7 +29,7 @@ exports.Button.propTypes = {
      */
     appendClassname: prop_types_1.default.string,
     /**
-     * The title of the Button
+     * The title of the Buttons
      */
     children: prop_types_1.default.string,
     /**
@@ -37,12 +37,13 @@ exports.Button.propTypes = {
      */
     type: prop_types_1.default.oneOf(['default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']),
     /**
-     * The onClick function of the Button
+     * The onClick function of the Buttons
      */
     onClick: prop_types_1.default.func
 };
 exports.Button.defaultProps = {
     appendClassname: '',
     type: 'default',
-    onClick: function () { }
+    onClick: function () {
+    }
 };
