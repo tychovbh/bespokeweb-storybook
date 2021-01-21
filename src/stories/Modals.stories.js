@@ -5,7 +5,7 @@ import * as Texts from "../components/Texts/Texts";
 import {Button} from "../components/Buttons/Buttons";
 
 export default {
-    title: 'Example/Modals',
+    title: 'Example/Modals/Modals',
     component: Modals.Modal,
     argsTypes: {}
 };
@@ -13,7 +13,7 @@ export default {
 const Template = (args) => <Modals.Modal {...args}>
     <Modals.Container>
         <Modals.Body>
-            <Modals.Title>Deactivate account</Modals.Title>
+            <Texts.Heading type={'h3'} appendClassname={'mb-2'}>Deactivate account</Texts.Heading>
             <Texts.Primary>
                 Are you sure you want to deactivate your account? All of your data will be permanently removed. This
                 action cannot be undone.

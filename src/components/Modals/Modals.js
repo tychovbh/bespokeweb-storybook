@@ -1,6 +1,8 @@
 import React, {useEffect} from "react";
 import PropTypes from 'prop-types';
-import * as Texts from '../Texts/Texts'
+import * as Texts from '../Texts/Texts';
+import Success from '../../icons/check-circle.svg';
+import Close from '../../icons/x.svg';
 
 export const Overlay = ({id, className, appendClassname, children, open}) => {
     const showClass = open ? 'storybook-modals-visible' : '';
@@ -52,7 +54,9 @@ export const Modal = ({children, open, onClose}) => {
     }, [open]);
 
     return <Overlay open={open} onClose={onClose}>
-        {children}
+        <div className={'storybook-modals-model'}>
+            {children}
+        </div>
         <div className={'storybook-models-onblur'} onClick={onClose}/>
     </Overlay>
 };
@@ -79,7 +83,7 @@ Modal.defaultProps = {
 export const Container = ({id, className, appendClassname, children}) => {
     return <div
         id={id}
-        className={`${className ?? 'storybook-modals-body'} ${appendClassname}`}>
+        className={`${className ?? 'storybook-modals-container'} ${appendClassname}`}>
         {children}
     </div>
 };
@@ -111,7 +115,7 @@ Container.defaultProps = {
 export const Body = ({id, className, appendClassname, children}) => {
     return <div
         id={id}
-        className={`${className ?? 'storybook-modals-content'} ${appendClassname}`}
+        className={`${className ?? 'storybook-modals-body'} ${appendClassname}`}
     >
         {children}
     </div>
@@ -183,4 +187,58 @@ export const Title = ({id, className, appendClassname, children}) => {
     >
         {children}
     </Texts.Heading>
+};
+
+export const Notification = ({id, className, appendClassname, children, type}) => {
+    let icon = '';
+
+    switch (type) {
+        case 'success':
+            icon = Success;
+    }
+
+    return <div
+        id={id}
+        className={`${className ?? 'storybook-modals-notification'} ${appendClassname}`}
+    >
+        <Container>
+            <div className={'storybook-modals-notification-body'}>
+                <img src={icon} alt=""/>
+                <div>
+                    {children}
+                </div>
+                <img src={Close} alt=""/>
+            </div>
+        </Container>
+    </div>
+};
+Notification.propTypes = {
+    /**
+     * The id of the Modal
+     */
+    id: PropTypes.string,
+
+    /**
+     * Use a different classname
+     */
+    className: PropTypes.string,
+
+    /**
+     * Add more classnames
+     */
+    appendClassname: PropTypes.string,
+
+    /**
+     * The title of the Buttons
+     */
+    children: PropTypes.node.isRequired,
+
+    /**
+     * The type of Notification
+     */
+    type: PropTypes.oneOf(['default', 'success'])
+};
+Notification.defaultProps = {
+    appendClassname: '',
+    type: 'default'
 };

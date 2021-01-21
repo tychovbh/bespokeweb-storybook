@@ -5,7 +5,7 @@ import * as Texts from '../components/Texts/Texts';
 import {Button} from '../components/Buttons/Buttons';
 
 export default {
-    title: 'Example/Feedback/Alerts',
+    title: 'Example/Feedbacks/Alert',
     component: Feedback.Alert,
     argsTypes: {}
 }

@@ -4,7 +4,7 @@
 }
 
 .storybook-texts-heading {
-    @apply font-bold;
+    @apply font-medium;
 }
 
 .storybook-texts-heading-h1 {

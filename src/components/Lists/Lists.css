@@ -14,10 +14,6 @@
     @apply border-b;
 }
 
-.storybook-lists-header .storybook-texts-heading {
-    @apply font-medium;
-}
-
 /* Row */
 .storybook-lists-row {
     @apply px-4;
