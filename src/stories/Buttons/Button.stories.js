@@ -1,14 +1,14 @@
 import React from 'react';
-import '../styles/style.css'
-import {Button} from '../components/Buttons/Buttons';
+import '../../styles/style.css'
+import {Buttons} from '../../';
 
 export default {
-    title: 'Example/Buttons',
-    component: Button,
+    title: 'Example/Buttons/Button',
+    component: Buttons.Button,
     argTypes: {},
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Buttons.Button {...args}/>;
 
 export const Default = Template.bind({});
 Default.args = {
