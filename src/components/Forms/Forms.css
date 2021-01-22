@@ -1,3 +1,53 @@
+/* Checkbox */
+.storybook-forms-checkbox {
+
+}
+
+/* Field */
+.storybook-forms-field {
+    @apply flex;
+    @apply m-4;
+}
+
+.storybook-forms-field-default {
+    @apply flex-col justify-center;
+}
+
+.storybook-forms-field-default .storybook-forms-label {
+    @apply mb-2;
+}
+
+.storybook-forms-field-inline {
+    @apply flex-row items-center;
+}
+
+.storybook-forms-field-inline .storybook-forms-label {
+    @apply mr-4;
+}
+
+/* Input */
+.storybook-forms-input {
+    @apply w-full;
+    @apply py-1 px-2;
+    @apply border;
+    @apply rounded-lg;
+}
+
+/* Label */
+.storybook-forms-label {
+
+}
+
+/* Question */
+.storybook-forms-question {
+    @apply text-gray-700;
+}
+
+.storybook-forms-question .storybook-button-link  {
+    @apply p-0;
+}
+
+/* Submit */
 .storybook-forms-submit {
     @apply py-2 px-4;
     @apply rounded-lg;

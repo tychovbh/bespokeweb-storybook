@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
 
 export const Alert = ({id, className, appendClassname, children, type}) => {
@@ -11,6 +11,7 @@ export const Alert = ({id, className, appendClassname, children, type}) => {
         {children}
     </div>
 };
+
 Alert.propTypes = {
     /**
      * The id of the Alert
@@ -37,6 +38,7 @@ Alert.propTypes = {
      */
     type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger'])
 };
+
 Alert.defaultProps = {
     appendClassname: '',
     type: 'default'

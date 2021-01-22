@@ -9,10 +9,5 @@
 @import '../components/Navigations/Navigations.css';
 @import '../components/Tables/Tables.css';
 @import '../components/Texts/Texts.css';
-@import '../components/Forms/Label.css';
-@import '../components/Forms/Checkbox.css';
-@import '../components/Forms/Field.css';
-@import '../components/Forms/Input.css';
-@import '../components/Forms/Question.css';
-@import '../components/Forms/Submit.css';
+@import '../components/Forms/Forms.css';
 

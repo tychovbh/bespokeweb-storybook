@@ -1,6 +1,0 @@
-.storybook-forms-input {
-    @apply w-full;
-    @apply py-1 px-2;
-    @apply border;
-    @apply rounded-lg;
-}
