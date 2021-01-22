@@ -8,12 +8,11 @@ export default {
     argsTypes: {}
 }
 
-const Template = (args) => <div {...args}>
-    <Dashboards.Content>
-        <Layouts.Container appendClassname={'h-64 border-4 border-dashed rounded-lg'}>
-        </Layouts.Container>
-    </Dashboards.Content>
-</div>;
+const Template = (args) => <Layouts.Container {...args}>
+    <div className={'h-64 border-4 border-dashed'} />
+</Layouts.Container>;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+    appendClassname: 'storybook-dashboards-content'
+};

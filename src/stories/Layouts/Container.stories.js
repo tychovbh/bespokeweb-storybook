@@ -9,9 +9,8 @@ export default {
 }
 
 const Template = (args) => <Layouts.Container {...args}>
+    <div className={'h-64 border-4 border-dashed'}/>
 </Layouts.Container>;
 
 export const Container = Template.bind({});
-Container.args = {
-    appendClassname: 'h-64 border-4 border-dashed'
-};
+Container.args = {};
