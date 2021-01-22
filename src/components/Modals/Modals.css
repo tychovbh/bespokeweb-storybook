@@ -8,6 +8,17 @@
 }
 
 /* Modal */
+
+.storybook-modals-modal .storybook-modals-container {
+    max-width: 640px;
+}
+
+.storybook-models-onblur {
+    @apply w-full;
+    @apply h-full;
+    @apply absolute;
+}
+
 .storybook-modals-overlay {
     @apply hidden;
     background: rgba(0, 0, 0, .33);

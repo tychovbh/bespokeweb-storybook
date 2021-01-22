@@ -1,9 +1,0 @@
-.storybook-modals-modal .storybook-modals-container {
-    max-width: 640px;
-}
-
-.storybook-models-onblur {
-    @apply w-full;
-    @apply h-full;
-    @apply absolute;
-}
