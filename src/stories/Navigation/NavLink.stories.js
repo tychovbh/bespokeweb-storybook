@@ -13,4 +13,11 @@ const Template = (args) => <Navigations.NavLink {...args}>
 </Navigations.NavLink>;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+    children: 'Dashboard'
+};
+export const Active = Template.bind({});
+Active.args = {
+    children: 'Dashboard',
+    active: true
+};

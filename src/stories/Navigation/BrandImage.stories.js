@@ -9,9 +9,10 @@ export default {
     argsTypes: {}
 }
 
-const Template = (args) => <Navigations.BrandImage {...args} />;
+const Template = (args) => <Navigations.BrandImage {...args}/>;
 
 export const Default = Template.bind({});
 Default.args = {
-    src: Logo
+    src: Logo,
+    img: Logo
 };

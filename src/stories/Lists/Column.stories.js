@@ -9,8 +9,17 @@ export default {
 }
 
 const Template = (args) => <Lists.Column {...args}>
-    Column
 </Lists.Column>;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Dt = Template.bind({});
+Dt.args = {
+    type: 'dt',
+    children: 'Full Name'
+};
+
+export const Dd = Template.bind({});
+Dd.args = {
+    type: 'dd',
+    children: 'Margot Foster'
+
+};

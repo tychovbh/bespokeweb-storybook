@@ -4,13 +4,15 @@
     @apply overflow-hidden;
     @apply shadow;
     @apply m-4;
-    @apply z-50
 }
 
 /* Modal */
+.storybook-modals-model {
+    @apply z-50;
+}
 
-.storybook-modals-modal .storybook-modals-container {
-    max-width: 640px;
+.storybook-modals-model .storybook-modals-container {
+    width: 640px;
 }
 
 .storybook-models-onblur {
@@ -48,20 +50,4 @@
 
 .storybook-modals-footer .storybook-button {
     @apply ml-2;
-}
-
-
-/* Notification */
-.storybook-modals-notification .storybook-modals-container {
-    max-width: 400px;
-}
-
-.storybook-modals-notification-body {
-    @apply flex items-center;
-    @apply p-4;
-}
-
-.storybook-modals-notification-body img {
-    @apply w-8;
-    @apply fill-current text-green-400;
 }

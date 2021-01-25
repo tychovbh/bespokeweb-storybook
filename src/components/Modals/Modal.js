@@ -12,10 +12,10 @@ export const Modal = ({children, open, onClose}) => {
     }, [open]);
 
     return <Overlay open={open} onClose={onClose}>
+        <div className={'storybook-models-onblur'} onClick={onClose}/>
         <div className={'storybook-modals-model'}>
             {children}
         </div>
-        <div className={'storybook-models-onblur'} onClick={onClose}/>
     </Overlay>
 };
 
