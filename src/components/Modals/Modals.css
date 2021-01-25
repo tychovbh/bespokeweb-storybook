@@ -28,11 +28,9 @@
     @apply top-0 bottom-0 left-0 right-0;
 }
 
-
 .storybook-modals-visible {
     @apply flex justify-center items-center;
 }
-
 
 .storybook-modals-body {
     @apply p-6;
@@ -50,4 +48,17 @@
 
 .storybook-modals-footer .storybook-button {
     @apply ml-2;
+}
+
+/* Notification */
+.storybook-modals-notification {
+    @apply z-50;
+    @apply rounded-lg;
+    @apply shadow-lg;
+    @apply border;
+    @apply p-4;
+}
+
+.storybook-modals-notification .storybook-modals-container {
+    max-width: 420px;
 }

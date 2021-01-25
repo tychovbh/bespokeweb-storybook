@@ -1,6 +1,16 @@
 import React, {useEffect} from "react";
 import PropTypes from 'prop-types';
-import {Overlay} from "./Overlay";
+
+export const Overlay = ({id, className, appendClassname, children, open}) => {
+    const showClass = open ? 'storybook-modals-visible' : '';
+
+    return <div
+        id={id}
+        className={`${className ?? 'storybook-modals-overlay'} ${showClass} ${appendClassname}`}
+    >
+        {children}
+    </div>
+};
 
 export const Modal = ({children, open, onClose}) => {
     useEffect(() => {
