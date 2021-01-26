@@ -50,15 +50,44 @@
     @apply ml-2;
 }
 
+/* NotificationOverlay */
+.storybook-modals-notification-overlay {
+    max-width: 640px;
+    @apply p-4;
+    @apply fixed top-0 right-0;
+    @apply flex flex-col-reverse;
+    @apply z-50;
+}
+
 /* Notification */
 .storybook-modals-notification {
     @apply z-50;
     @apply rounded-lg;
     @apply shadow-lg;
     @apply border;
-    @apply p-4;
+    @apply bg-white;
+    @apply p-4 px-4;
+    @apply mb-4;
 }
 
-.storybook-modals-notification .storybook-modals-container {
-    max-width: 420px;
+.storybook-modals-notification-icon {
+    @apply w-6;
+    @apply mr-4;
+}
+
+.storybook-modals-notification-body {
+    @apply flex items-start;
+}
+
+.storybook-modals-notification-content {
+    @apply flex-1;
+    @apply mr-4;
+}
+.storybook-modals-notification-close {
+    @apply w-6;
+}
+
+.storybook-modals-notification-close .storybook-button-default {
+    @apply p-0;
+    @apply bg-transparent;
 }

@@ -8,11 +8,32 @@ export default {
     argsTypes: {}
 }
 
-const NotificationTemplate = (args) => <Modals.Notification {...args} />;
+const Template = (args) => <Modals.Notification {...args} />;
 
-export const Default = NotificationTemplate.bind({});
+export const Default = Template.bind({});
 Default.args = {
     title: 'Discussion archived',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-    type: 'default'
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
 };
+
+export const Success = Template.bind({});
+Success.args = {
+    type: 'success',
+    title: 'Discussion archived',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+    type: 'warning',
+    title: 'Discussion archived',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+    type: 'danger',
+    title: 'Discussion archived',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+};
+
