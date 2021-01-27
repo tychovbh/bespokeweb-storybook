@@ -34,7 +34,7 @@ Button.propTypes = {
     /**
      * The title of the Buttons
      */
-    children: PropTypes.string,
+    children: PropTypes.any,
 
     /**
      * the color of a Submit button
