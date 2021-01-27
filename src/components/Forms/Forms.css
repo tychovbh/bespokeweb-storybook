@@ -25,6 +25,16 @@
     @apply mr-4;
 }
 
+/* File */
+.storybook-forms-file {
+    @apply flex justify-between;
+    @apply cursor-pointer;
+}
+
+#storybook-forms-file-chosen {
+    @apply ml-2;
+}
+
 /* Input */
 .storybook-forms-input {
     @apply w-full;
