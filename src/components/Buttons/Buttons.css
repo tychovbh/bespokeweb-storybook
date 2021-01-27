@@ -27,12 +27,12 @@
     @apply text-white;
 }
 
-.storybook-button-danger {
+.storybook-button-warning {
     @apply bg-orange-400;
     @apply text-white;
 }
 
-.storybook-button-warning {
+.storybook-button-danger {
     @apply bg-red-400;
     @apply text-white;
 }
@@ -69,6 +69,7 @@
     @apply border-t-0 border-r-0 border-l-0;
     @apply rounded-none;
 }
+
 .storybook-button-group .storybook-button-download:last-of-type {
     @apply border-none;
 }
