@@ -19,5 +19,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Buttons = void 0;
+exports.Tables = exports.Navigations = exports.Modals = exports.Lists = exports.Forms = exports.Feedbacks = exports.Elements = exports.Layouts = exports.Texts = exports.Dashboards = exports.Buttons = void 0;
 exports.Buttons = __importStar(require("./components/Buttons"));
+exports.Dashboards = __importStar(require("./components/Dashboards"));
+exports.Texts = __importStar(require("./components/Texts"));
+exports.Layouts = __importStar(require("./components/Layouts"));
+exports.Elements = __importStar(require("./components/Elements"));
+exports.Feedbacks = __importStar(require("./components/Feedbacks"));
+exports.Forms = __importStar(require("./components/Forms"));
+exports.Lists = __importStar(require("./components/Lists"));
+exports.Modals = __importStar(require("./components/Modals"));
+exports.Navigations = __importStar(require("./components/Navigations"));
+exports.Tables = __importStar(require("./components/Tables"));

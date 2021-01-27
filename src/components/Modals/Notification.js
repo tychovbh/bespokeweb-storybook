@@ -1,19 +1,55 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Texts} from '../../';
+import {Texts, Buttons} from '../../';
+import {Icon} from '../Icons'
 
-export const Notification = ({id, className, appendClassname, children, title, description}) => {
+const icons = {
+    success: {
+        className: 'text-green-500',
+        icon: 'check-circle'
+    },
+    warning: {
+        className: 'text-orange-500',
+        icon: 'exclamation'
+    },
+    danger: {
+        className: 'text-red-500',
+        icon: 'shield-exclamation'
+    },
+}
+
+export const Notification = ({id, className, appendClassname, children, type, title, description}) => {
+    const typeClass = type ? ' storybook-modals-notification-' + type : '';
+
+    if (children) {
+        return <div
+            id={id}
+            className={`${className ?? 'storybook-modals-notification'}${typeClass} ${appendClassname}`}
+        >
+            <div className={'storybook-modals-notification-body'}>
+                {children}
+            </div>
+        </div>
+    }
+
     return <div
         id={id}
-        className={`${className ?? 'storybook-modals-notification'} ${appendClassname}`}
+        className={`${className ?? 'storybook-modals-notification'}${typeClass} ${appendClassname}`}
     >
         <div className={'storybook-modals-notification-body'}>
-            <div></div>
-            <div>
+            {
+                type &&
+                <Icon className={`${icons[type].className} storybook-modals-notification-icon`} type={icons[type].icon}/>
+            }
+            <div className={'storybook-modals-notification-content'}>
                 <Texts.Heading type={'h4'}>{title}</Texts.Heading>
                 <Texts.Primary>{description}</Texts.Primary>
             </div>
-            <div></div>
+            <div className={'storybook-modals-notification-close'}>
+                <Buttons.Button>
+                    <Icon className={`storybook-modals-notification-close`} type={'x'}/>
+                </Buttons.Button>
+            </div>
         </div>
     </div>
 };
@@ -34,9 +70,9 @@ Notification.propTypes = {
     appendClassname: PropTypes.string,
 
     /**
-     * The title of the Container
+     * The type of Notification
      */
-    children: PropTypes.node.isRequired
+    type: PropTypes.oneOf(['default', 'success', 'warning', 'danger'])
 };
 Notification.defaultProps = {
     appendClassname: ''
