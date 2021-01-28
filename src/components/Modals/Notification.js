@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Texts, Buttons} from '../../';
-import {Icon} from '../Icons'
+import {Icons} from '../../'
 
 const icons = {
     success: {
@@ -16,7 +16,7 @@ const icons = {
         className: 'text-red-500',
         icon: 'shield-exclamation'
     },
-}
+};
 
 export const Notification = ({id, className, appendClassname, children, type, title, description}) => {
     const typeClass = type ? ' storybook-modals-notification-' + type : '';
@@ -39,7 +39,7 @@ export const Notification = ({id, className, appendClassname, children, type, ti
         <div className={'storybook-modals-notification-body'}>
             {
                 type &&
-                <Icon className={`${icons[type].className} storybook-modals-notification-icon`} type={icons[type].icon}/>
+                <Icons.Icon className={`${icons[type].className} storybook-modals-notification-icon`} name={icons[type].icon}/>
             }
             <div className={'storybook-modals-notification-content'}>
                 <Texts.Heading type={'h4'}>{title}</Texts.Heading>
@@ -47,7 +47,7 @@ export const Notification = ({id, className, appendClassname, children, type, ti
             </div>
             <div className={'storybook-modals-notification-close'}>
                 <Buttons.Button>
-                    <Icon className={`storybook-modals-notification-close`} type={'x'}/>
+                    <Icons.Icon className={`storybook-modals-notification-close`} name={'x'}/>
                 </Buttons.Button>
             </div>
         </div>
