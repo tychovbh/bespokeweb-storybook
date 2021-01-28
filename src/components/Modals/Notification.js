@@ -14,7 +14,7 @@ const icons = {
     },
     danger: {
         className: 'text-red-500',
-        icon: 'shield-exclamation'
+        icon: 'exclamation-shield'
     },
 };
 
