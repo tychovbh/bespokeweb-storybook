@@ -1,0 +1,35 @@
+.storybook-sections-pricing {
+    width: 300px;
+    @apply border;
+    @apply rounded-lg;
+    @apply shadow-sm;
+}
+
+.storybook-sections-pricing-details {
+    @apply p-6 pt-5;
+}
+
+.storybook-sections-pricing-price {
+    @apply mt-3 mb-6;
+    @apply flex items-end;
+}
+
+.storybook-sections-pricing-price .storybook-texts-primary {
+    margin-bottom: -.1rem;
+    @apply font-medium;
+}
+
+.storybook-sections-pricing-price .storybook-texts-heading {
+    @apply -mb-2;
+    @apply font-bold;
+}
+
+.storybook-sections-pricing-list {
+    @apply grid gap-4;
+    @apply p-6 pt-5;
+    @apply border-t;
+}
+
+.storybook-sections-pricing-list-item {
+    @apply flex items-start;
+}

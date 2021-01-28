@@ -48,7 +48,7 @@
 }
 
 .storybook-button-dark {
-    @apply bg-gray-700;
+    @apply bg-gray-800;
     @apply text-white;
 }
 

@@ -1,6 +1,9 @@
-.storybook-texts-primary,
 .storybook-texts-heading {
     @apply text-gray-900;
+}
+
+.storybook-texts-primary {
+    @apply text-gray-700;
 }
 
 .storybook-texts-heading {
