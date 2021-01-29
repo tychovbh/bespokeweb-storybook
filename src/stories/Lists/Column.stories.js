@@ -21,5 +21,4 @@ export const Dd = Template.bind({});
 Dd.args = {
     type: 'dd',
     children: 'Margot Foster'
-
 };

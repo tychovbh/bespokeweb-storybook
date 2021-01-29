@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const Container = ({id, className, appendClassname, children}) => {
-    return <div
+    return <dl
         id={id}
         className={`${className ?? 'storybook-lists-container'} ${appendClassname}`}
     >
         {children}
-    </div>
+    </dl>
 };
 
 Container.propTypes = {

@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const Row = ({id, className, appendClassname, children}) => {
-    return <dt
+    return <div
         id={id}
         className={`${className ?? 'storybook-lists-row'} ${appendClassname}`}
     >
         {children}
-    </dt>
+    </div>
 };
 
 Row.propTypes = {

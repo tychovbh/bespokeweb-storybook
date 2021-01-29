@@ -4,12 +4,22 @@ import PropTypes from "prop-types";
 export const Column = ({id, className, appendClassname, children, type, colSpan}) => {
     const titleClass = type ? 'storybook-lists-column-' + type : '';
     const colsSpanClass = colSpan ? 'col-span-' + colSpan : '';
-    return <dd
-        id={id}
-        className={`${className ?? 'storybook-lists-column'} ${colsSpanClass} ${titleClass} ${appendClassname}`}
-    >
-        {children}
-    </dd>
+
+    if (type === 'dt') {
+        return <dt
+            id={id}
+            className={`${className ?? 'storybook-lists-column'} ${colsSpanClass} ${titleClass} ${appendClassname}`}
+        >
+            {children}
+        </dt>
+    } else {
+        return <dd
+            id={id}
+            className={`${className ?? 'storybook-lists-column'} ${colsSpanClass} ${titleClass} ${appendClassname}`}
+        >
+            {children}
+        </dd>
+    }
 };
 
 Column.propTypes = {
