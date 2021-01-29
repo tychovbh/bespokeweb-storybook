@@ -26,7 +26,8 @@
 }
 
 /* File */
-.storybook-forms-file {
+.storybook-forms-file-label {
+    @apply w-full;
     @apply flex justify-between;
     @apply cursor-pointer;
 }

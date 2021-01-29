@@ -13,7 +13,7 @@ export const File = ({id, className, appendClassname, label, placeholder, onChan
     });
 
 
-    return <div>
+    return <div className={`${className} ${appendClassname}`}>
         <input
             id={id}
             type="file"
@@ -23,7 +23,7 @@ export const File = ({id, className, appendClassname, label, placeholder, onChan
         />
         <label
             htmlFor={id}
-            className={`${className} ${appendClassname}`}
+            className={'storybook-forms-file-label'}
         >
             <span id={'storybook-forms-file-chosen'}>{placeholder}</span>
             {label}
