@@ -7,7 +7,7 @@ exports.Notification = void 0;
 var react_1 = __importDefault(require("react"));
 var prop_types_1 = __importDefault(require("prop-types"));
 var __1 = require("../../");
-var Icons_1 = require("../Icons");
+var __2 = require("../../");
 var icons = {
     success: {
         className: 'text-green-500',
@@ -19,7 +19,7 @@ var icons = {
     },
     danger: {
         className: 'text-red-500',
-        icon: 'shield-exclamation'
+        icon: 'exclamation-shield'
     },
 };
 var Notification = function (_a) {
@@ -32,13 +32,13 @@ var Notification = function (_a) {
     return react_1.default.createElement("div", { id: id, className: "" + (className !== null && className !== void 0 ? className : 'storybook-modals-notification') + typeClass + " " + appendClassname },
         react_1.default.createElement("div", { className: 'storybook-modals-notification-body' },
             type &&
-                react_1.default.createElement(Icons_1.Icon, { className: icons[type].className + " storybook-modals-notification-icon", type: icons[type].icon }),
+                react_1.default.createElement(__2.Icons.Icon, { className: icons[type].className + " storybook-modals-notification-icon", name: icons[type].icon }),
             react_1.default.createElement("div", { className: 'storybook-modals-notification-content' },
                 react_1.default.createElement(__1.Texts.Heading, { type: 'h4' }, title),
                 react_1.default.createElement(__1.Texts.Primary, null, description)),
             react_1.default.createElement("div", { className: 'storybook-modals-notification-close' },
                 react_1.default.createElement(__1.Buttons.Button, null,
-                    react_1.default.createElement(Icons_1.Icon, { className: "storybook-modals-notification-close", type: 'x' })))));
+                    react_1.default.createElement(__2.Icons.Icon, { className: "storybook-modals-notification-close", name: 'x' })))));
 };
 exports.Notification = Notification;
 exports.Notification.propTypes = {

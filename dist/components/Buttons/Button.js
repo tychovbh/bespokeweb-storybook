@@ -31,7 +31,7 @@ exports.Button.propTypes = {
     /**
      * The title of the Buttons
      */
-    children: prop_types_1.default.string,
+    children: prop_types_1.default.any,
     /**
      * the color of a Submit button
      */
