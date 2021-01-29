@@ -8,7 +8,7 @@ var react_1 = __importDefault(require("react"));
 var prop_types_1 = __importDefault(require("prop-types"));
 var Container = function (_a) {
     var id = _a.id, className = _a.className, appendClassname = _a.appendClassname, children = _a.children;
-    return react_1.default.createElement("div", { id: id, className: (className !== null && className !== void 0 ? className : 'storybook-lists-container') + " " + appendClassname }, children);
+    return react_1.default.createElement("dl", { id: id, className: (className !== null && className !== void 0 ? className : 'storybook-lists-container') + " " + appendClassname }, children);
 };
 exports.Container = Container;
 exports.Container.propTypes = {

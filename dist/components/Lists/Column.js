@@ -10,7 +10,12 @@ var Column = function (_a) {
     var id = _a.id, className = _a.className, appendClassname = _a.appendClassname, children = _a.children, type = _a.type, colSpan = _a.colSpan;
     var titleClass = type ? 'storybook-lists-column-' + type : '';
     var colsSpanClass = colSpan ? 'col-span-' + colSpan : '';
-    return react_1.default.createElement("dd", { id: id, className: (className !== null && className !== void 0 ? className : 'storybook-lists-column') + " " + colsSpanClass + " " + titleClass + " " + appendClassname }, children);
+    if (type === 'dt') {
+        return react_1.default.createElement("dt", { id: id, className: (className !== null && className !== void 0 ? className : 'storybook-lists-column') + " " + colsSpanClass + " " + titleClass + " " + appendClassname }, children);
+    }
+    else {
+        return react_1.default.createElement("dd", { id: id, className: (className !== null && className !== void 0 ? className : 'storybook-lists-column') + " " + colsSpanClass + " " + titleClass + " " + appendClassname }, children);
+    }
 };
 exports.Column = Column;
 exports.Column.propTypes = {
