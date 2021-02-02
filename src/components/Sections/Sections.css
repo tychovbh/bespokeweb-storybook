@@ -3,6 +3,7 @@
     @apply border;
     @apply rounded-lg;
     @apply shadow-sm;
+    @apply inline;
 }
 
 .storybook-sections-pricing-details {
@@ -32,4 +33,10 @@
 
 .storybook-sections-pricing-list-item {
     @apply flex items-start;
+}
+
+/* Pricing */
+
+.storybook-sections-pricing-product-container {
+    @apply grid gap-4;
 }
