@@ -1,24 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Select = ({id, className, appendClassname, name, options, value, placeholder, onChange}) => {
+export const Select = ({id, className, appendClassname, children, name, value, onChange}) => {
     return <select id={id} name={name}
                    className={`${className} ${appendClassname}`}
                    defaultValue={value}
-                   placeholder={placeholder}
                    onChange={onChange}
     >
-        <option disabled selected>{placeholder}</option>
-        {
-            options &&
-            options.map((option, index) => {
-                return <option key={index}
-                               value={option.value}
-                >
-                    {option.label}
-                </option>
-            })
-        }
+        {children}
     </select>
 }
 
@@ -37,6 +26,11 @@ Select.propTypes = {
      * Add more classNames
      */
     appendClassname: PropTypes.string,
+
+    /**
+     * The HTMl inside of the Select
+     */
+    children: PropTypes.any,
 
     /**
      * The name of the Select

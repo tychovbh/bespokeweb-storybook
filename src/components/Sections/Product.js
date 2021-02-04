@@ -17,19 +17,21 @@ export const Product = ({id, className, appendClassname, title, description, pri
                 <Texts.Primary>/mo</Texts.Primary>
             </div>
 
-            <Buttons.Button type={'dark'} appendClassname={'w-full'} >{button}</Buttons.Button>
+            <Buttons.Button type={'dark'} appendClassname={'w-full'}>{button}</Buttons.Button>
         </div>
         <div className={'storybook-sections-pricing-list'}>
-            <Texts.Heading type={'h4'} appendClassname={'uppercase'}>{list.title}</Texts.Heading>
-            {
-                list &&
-                list.items.map((item, index) => {
-                    return <div key={index} className={'storybook-sections-pricing-list-item flex'}>
-                        <Icons.Icon name={'check'} className={'text-green-400 w-6 mr-3'}/>
-                        <Texts.Primary appendClassname={'flex-1'}>{item}</Texts.Primary>
-                    </div>
-                })
-            }
+            <div>
+                <Texts.Heading type={'h4'} appendClassname={'uppercase'}>{list.title}</Texts.Heading>
+                {
+                    list &&
+                    list.items.map((item, index) => {
+                        return <div key={index} className={'storybook-sections-pricing-list-item flex'}>
+                            <Icons.Icon name={'check'} className={'text-green-400 w-6 mr-3'}/>
+                            <Texts.Primary appendClassname={'flex-1'}>{item}</Texts.Primary>
+                        </div>
+                    })
+                }
+            </div>
         </div>
     </div>
 };

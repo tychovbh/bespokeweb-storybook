@@ -41,39 +41,41 @@ Default.args = {
                     'Potinti felis, in cras at at ligula nunc.',
                     'Orci neque eget pellentesque',
                     'Potinti felis, in cras at at ligula nunc.',
-                    'Orci neque eget pellentesque'
-                ]
-            }
-        },
-        {
-            title: 'Hobby',
-            description: 'All the basics for starting a new business',
-            price: '12',
-            button: 'Buy Hobby',
-            list: {
-                title: "What's included",
-                items: [
-                    'Potinti felis, in cras at at ligula nunc.',
                     'Orci neque eget pellentesque',
                     'Potinti felis, in cras at at ligula nunc.',
                     'Orci neque eget pellentesque'
                 ]
             }
         },
-        {
-            title: 'Hobby',
-            description: 'All the basics for starting a new business',
-            price: '12',
-            button: 'Buy Hobby',
-            list: {
-                title: "What's included",
-                items: [
-                    'Potinti felis, in cras at at ligula nunc.',
-                    'Orci neque eget pellentesque',
-                    'Potinti felis, in cras at at ligula nunc.',
-                    'Orci neque eget pellentesque'
-                ]
-            }
-        }
+        // {
+        //     title: 'Hobby',
+        //     description: 'All the basics for starting a new business',
+        //     price: '12',
+        //     button: 'Buy Hobby',
+        //     list: {
+        //         title: "What's included",
+        //         items: [
+        //             'Potinti felis, in cras at at ligula nunc.',
+        //             'Orci neque eget pellentesque',
+        //             'Potinti felis, in cras at at ligula nunc.',
+        //             'Orci neque eget pellentesque'
+        //         ]
+        //     }
+        // },
+        // {
+        //     title: 'Hobby',
+        //     description: 'All the basics for starting a new business',
+        //     price: '12',
+        //     button: 'Buy Hobby',
+        //     list: {
+        //         title: "What's included",
+        //         items: [
+        //             'Potinti felis, in cras at at ligula nunc.',
+        //             'Orci neque eget pellentesque',
+        //             'Potinti felis, in cras at at ligula nunc.',
+        //             'Orci neque eget pellentesque'
+        //         ]
+        //     }
+        // }
     ]
 };

@@ -4,30 +4,18 @@ import {Forms} from '../../'
 
 export default {
     title: 'Example/Forms/Select',
-    components: Forms.Select,
+    component: Forms.Select,
     argsTypes: {}
 }
 
-const Template = (args) => <Forms.Select {...args} />
+const Template = (args) => <Forms.Select {...args}>
+    <option value="1">Eén</option>
+    <option value="2">Twee</option>
+    <option value="3">Drie</option>
+</Forms.Select>
 
 export const Default = Template.bind({})
 Default.args = {
     name: 'TestSelect',
-    placeholder: 'Choose',
-    value: '3',
-    options: [
-        {
-            value: '1',
-            label: 'Eén'
-        },
-        {
-            value: '2',
-            label: 'Twee'
-        },
-        {
-            value: '3',
-            label: 'Drie'
-        },
-
-    ]
+    value: '3'
 }
