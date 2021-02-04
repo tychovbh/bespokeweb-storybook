@@ -16,4 +16,5 @@ __exportStar(require("./File"), exports);
 __exportStar(require("./Input"), exports);
 __exportStar(require("./Label"), exports);
 __exportStar(require("./Question"), exports);
+__exportStar(require("./Select"), exports);
 __exportStar(require("./Submit"), exports);

@@ -461,11 +461,20 @@
     @apply bg-gray-900;
 }
 
+.storybook-pages-title {
+    @apply font-bold !important;
+}
+
+.storybook-pages-description {
+    @apply text-xl;
+}
+
 .storybook-sections-pricing {
     width: 300px;
     @apply border;
     @apply rounded-lg;
     @apply shadow-sm;
+    @apply inline;
 }
 
 .storybook-sections-pricing-details {
@@ -495,6 +504,12 @@
 
 .storybook-sections-pricing-list-item {
     @apply flex items-start;
+}
+
+/* Pricing */
+
+.storybook-sections-pricing-product-container {
+    @apply grid gap-4;
 }
 
 .storybook-tables-table tbody,
@@ -647,7 +662,7 @@
     @apply text-gray-700;
 }
 
-.storybook-forms-question .storybook-button-link  {
+.storybook-forms-question .storybook-button-link {
     @apply p-0;
 }
 
@@ -711,5 +726,11 @@
     @apply bg-transparent;
     @apply text-gray-800;
     @apply underline;
+}
+
+/* Select */
+
+.storybook-forms-select {
+
 }
 

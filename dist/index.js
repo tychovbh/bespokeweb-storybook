@@ -19,7 +19,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Texts = exports.Tables = exports.Sections = exports.Navigations = exports.Modals = exports.Lists = exports.Icons = exports.Forms = exports.Feedbacks = exports.Elements = exports.Layouts = exports.Dashboards = exports.Buttons = void 0;
+exports.Pages = exports.Texts = exports.Tables = exports.Sections = exports.Navigations = exports.Modals = exports.Lists = exports.Icons = exports.Forms = exports.Feedbacks = exports.Elements = exports.Layouts = exports.Dashboards = exports.Buttons = void 0;
 exports.Buttons = __importStar(require("./components/Buttons"));
 exports.Dashboards = __importStar(require("./components/Dashboards"));
 exports.Layouts = __importStar(require("./components/Layouts"));
@@ -33,3 +33,4 @@ exports.Navigations = __importStar(require("./components/Navigations"));
 exports.Sections = __importStar(require("./components/Sections"));
 exports.Tables = __importStar(require("./components/Tables"));
 exports.Texts = __importStar(require("./components/Texts"));
+exports.Pages = __importStar(require("./components/Pages"));
