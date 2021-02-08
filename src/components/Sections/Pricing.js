@@ -1,56 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Texts, Buttons, Icons} from '../../'
+import React from "react";
+import PropTypes from 'prop-types'
+import {Sections, Pages} from '../../'
 
-export const Pricing = ({id, className, appendClassname, title, description, price, button, list}) => {
-    return <div
-        id={id}
-        className={`${className} ${appendClassname}`}
-    >
-        <div className={'storybook-sections-pricing-details'}>
-            <Texts.Heading type={'h3'} appendClassname={'mb-4'}>{title}</Texts.Heading>
-
-            <Texts.Primary>{description}</Texts.Primary>
-
-            <div className={'storybook-sections-pricing-price'}>
-                <Texts.Heading>&euro;{price}</Texts.Heading>
-                <Texts.Primary>/mo</Texts.Primary>
-            </div>
-
-            <Buttons.Button type={'dark'} appendClassname={'w-full'}>{button}</Buttons.Button>
+export const Pricing = ({title, description, pricings}) => {
+    return <div>
+        <div className={'text-center grid gap-4 mb-12'}>
+            <Pages.Title>{title}</Pages.Title>
+            <Pages.Description>{description}</Pages.Description>
         </div>
-        <div className={'storybook-sections-pricing-list'}>
-            <Texts.Heading type={'h4'} appendClassname={'uppercase'}>{list.title}</Texts.Heading>
+        <div className={'storybook-sections-pricing-product-container'}>
             {
-                list &&
-                list.items.map((item, index) => {
-                    return <div key={index} className={'storybook-sections-pricing-list-item flex'}>
-                        <Icons.Icon name={'check'} className={'text-green-400 w-6 mr-3'}/>
-                        <Texts.Primary appendClassname={'flex-1'}>{item}</Texts.Primary>
-                    </div>
+                pricings &&
+                pricings.map((item, index) => {
+                    return <Sections.Product key={index} {...item} />
                 })
             }
         </div>
     </div>
-};
-
-Pricing.propTypes = {
-    /**
-     * The id of the Pricing component
-     */
-    id: PropTypes.string,
-
-    /**
-     * Use a different className
-     */
-    className: PropTypes.string,
-
-    /**
-     * Add more classNames
-     */
-    appendClassname: PropTypes.string
-};
-Pricing.defaultProps = {
-    className: 'storybook-sections-pricing',
-    appendClassname: ''
-};
+}

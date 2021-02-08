@@ -54,7 +54,7 @@
     @apply text-gray-700;
 }
 
-.storybook-forms-question .storybook-button-link  {
+.storybook-forms-question .storybook-button-link {
     @apply p-0;
 }
 
@@ -117,4 +117,10 @@
     @apply bg-transparent;
     @apply text-gray-800;
     @apply underline;
+}
+
+/* Select */
+
+.storybook-forms-select {
+
 }

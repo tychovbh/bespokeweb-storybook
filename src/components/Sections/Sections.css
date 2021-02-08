@@ -1,8 +1,10 @@
 .storybook-sections-pricing {
-    width: 300px;
+    min-width: 300px;
     @apply border;
     @apply rounded-lg;
     @apply shadow-sm;
+    @apply inline-block;
+    @apply mx-2;
 }
 
 .storybook-sections-pricing-details {
@@ -32,4 +34,11 @@
 
 .storybook-sections-pricing-list-item {
     @apply flex items-start;
+}
+
+/* Pricing */
+
+.storybook-sections-pricing-product-container {
+    @apply flex justify-center;
+    @apply overflow-x-scroll;
 }

@@ -1,0 +1,7 @@
+.storybook-pages-title {
+    @apply font-bold !important;
+}
+
+.storybook-pages-description {
+    @apply text-xl;
+}

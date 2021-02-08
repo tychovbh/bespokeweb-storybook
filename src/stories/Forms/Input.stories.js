@@ -19,3 +19,13 @@ export const Password = Template.bind({});
 Password.args = {
     type: 'password'
 };
+
+export const Hidden = Template.bind({});
+Hidden.args = {
+    type: 'hidden'
+};
+
+export const Number = Template.bind({});
+Number.args = {
+    type: 'number'
+};
