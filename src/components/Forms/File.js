@@ -1,32 +1,20 @@
-import React, {useEffect} from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 
-export const File = ({id, className, appendClassname, label, placeholder, onChange, value}) => {
-    useEffect(() => {
-        const actualBtn = document.getElementById(id);
-
-        const fileChosen = document.getElementById('storybook-forms-file-chosen');
-
-        actualBtn.addEventListener('change', function(){
-            fileChosen.textContent = this.files[0].name
-        });
-    });
-
-
+export const File = ({id, className, appendClassname, children, placeholder, onChange, value = {}}) => {
     return <div className={`${className} ${appendClassname}`}>
         <input
             id={id}
-            type="file"
-            value={value}
-            onChange={onChange}
+            type={'file'}
+            onChange={event => onChange(event.target.files[0])}
             hidden
         />
         <label
             htmlFor={id}
             className={'storybook-forms-file-label'}
         >
-            <span id={'storybook-forms-file-chosen'}>{placeholder}</span>
-            {label}
+            <span>{value.name || placeholder}</span>
+            {children}
         </label>
     </div>
 };
@@ -55,7 +43,12 @@ File.propTypes = {
     /**
      * The value of the File input
      */
-    value: PropTypes.any
+    value: PropTypes.object,
+
+    /**
+     * The value of the File input
+     */
+    children: PropTypes.any
 };
 
 File.defaultProps = {

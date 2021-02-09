@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import '../../styles/style.css'
 import {Forms} from '../../'
 
@@ -8,10 +8,13 @@ export default {
     argsTypes: {}
 }
 
-const Template = (args) => <Forms.File {...args}/>;
+const Template = (args) => {
+    const [file, setFile] = useState({})
+    return <Forms.File value={file} onChange={file => setFile(file)} {...args}/>
+};
 
 export const Default = Template.bind({});
 Default.args = {
-    label: 'Choose file',
-    placeholder: 'No file chosen'
+    children: 'Choose file',
+    placeholder: 'No file chosen',
 };
