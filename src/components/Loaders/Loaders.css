@@ -1,7 +1,46 @@
+/* Circle */
 .storybook-loaders-circle {
     border-radius: 50%;
+    @apply animate-spin;
+}
+
+.storybook-loaders-circle-sm {
+    @apply w-8 h-8;
+    border-width: .35rem;
+}
+
+.storybook-loaders-circle-md {
+    @apply w-12 h-12;
+    border-width: .5rem;
+}
+
+.storybook-loaders-circle-lg {
+    @apply w-16 h-16;
+    border-width: .65rem;
+}
+
+.storybook-loaders-circle-xl {
+    @apply w-20 h-20;
+    border-width: .8rem;
 }
 
 .storybook-loaders-circle-default {
-
+    border-top-color: #4A5568;
 }
+
+.storybook-loaders-circle-primary {
+    border-top-color: #63B3ED;
+}
+
+.storybook-loaders-circle-success {
+    border-top-color: #68D391;
+}
+
+.storybook-loaders-circle-warning {
+    border-top-color: #F6AD55;
+}
+
+.storybook-loaders-circle-danger {
+    border-top-color: #FC8181;
+}
+

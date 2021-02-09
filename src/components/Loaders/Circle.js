@@ -1,16 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Circle = ({id, className, appendClassname, color, size, border}) => {
+export const Circle = ({id, className, appendClassname, size, type}) => {
     return <div
         id={id}
-        className={`${className} ${appendClassname}`}
-        style={{
-            width: size + 'px',
-            height: size + 'px',
-            borderWidth: 20 / 4,
-            borderTop: border
-        }}
+        className={`${className} storybook-loaders-circle-${size} storybook-loaders-circle-${type} ${appendClassname}`}
     >
 
     </div>
@@ -32,18 +26,19 @@ Circle.propTypes = {
     appendClassname: PropTypes.string,
 
     /**
-     * The color of the Loader
+     * The type of the Circle
      */
-    color: PropTypes.string,
+    type: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'danger']),
 
     /**
      * The size of the Loader
      */
-    size: PropTypes.number
+    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl'])
 }
 
 Circle.defaultProps = {
     className: 'storybook-loaders-circle',
     appendClassname: '',
-    size: 20
+    type: 'default',
+    size: 'md',
 }
