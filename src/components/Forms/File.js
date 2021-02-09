@@ -45,7 +45,17 @@ File.propTypes = {
     /**
      * Add more classNames to the File input
      */
-    appendClassname: PropTypes.string
+    appendClassname: PropTypes.string,
+
+    /**
+     * The onChange of the File input
+     */
+    onChange: PropTypes.func,
+
+    /**
+     * The value of the File input
+     */
+    value: PropTypes.any
 };
 
 File.defaultProps = {
