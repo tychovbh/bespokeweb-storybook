@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const Container = ({id, className, appendClassname, children}) => {
+export const Topbar = ({id, className, appendClassname, children}) => {
     return <div
         id={id}
-        className={`${className ?? 'storybook-navigation-container'} ${appendClassname}`}
+        className={`${className} ${appendClassname}`}
     >
         {children}
     </div>
 };
 
-Container.propTypes = {
+Topbar.propTypes = {
     /**
      * The id of the Container
      */
@@ -27,6 +27,7 @@ Container.propTypes = {
     appendClassname: PropTypes.string,
 };
 
-Container.defaultProps = {
+Topbar.defaultProps = {
+    className: 'storybook-navigation-container',
     appendClassname: ''
 };

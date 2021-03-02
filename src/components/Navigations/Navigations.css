@@ -17,7 +17,7 @@
 }
 
 .storybook-navigation-brand-image {
-    @apply w-12;
+    /*@apply w-12;*/
     @apply mr-4;
 }
 
@@ -42,4 +42,13 @@
 }
 .storybook-navigation-nav-link-active:hover {
     @apply bg-gray-900;
+}
+
+/* Sidebar */
+.storybook-navigations-sidebar {
+    @apply bg-white;
+    @apply flex flex-col flex-grow;
+    @apply pt-5 pb-4;
+    @apply border-r border-gray-200;
+    @apply overflow-y-auto;
 }

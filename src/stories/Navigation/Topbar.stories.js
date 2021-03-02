@@ -5,12 +5,12 @@ import Logo from '../../assets/world-wide-web.svg'
 import Avatar from '../../assets/profile.jpg'
 
 export default {
-    title: 'Example/Navigations/Container',
-    component: Navigations.Container,
+    title: 'Example/Navigations/Topbar',
+    component: Navigations.Topbar,
     argsTypes: {}
 }
 
-const Template = (args) => <Navigations.Container {...args}>
+const Template = (args) => <Navigations.Topbar {...args}>
     <Layouts.Container>
         <Navigations.Content>
             <Navigations.Brand>
@@ -26,7 +26,7 @@ const Template = (args) => <Navigations.Container {...args}>
             <Elements.Avatar img={Avatar}/>
         </Navigations.Content>
     </Layouts.Container>
-</Navigations.Container>;
+</Navigations.Topbar>;
 
 export const Default = Template.bind({});
 Default.args = {};
