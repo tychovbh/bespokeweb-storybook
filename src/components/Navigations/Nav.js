@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const Nav = ({id, className, appendClassname, children}) => {
-    return <div
+    return <nav
         id={id}
-        className={`${className ?? 'storybook-navigation-nav'} ${appendClassname}`}
+        className={`${className} ${appendClassname}`}
     >
         {children}
-    </div>
+    </nav>
 };
 
 Nav.propTypes = {
@@ -33,5 +33,6 @@ Nav.propTypes = {
 };
 
 Nav.defaultProps = {
+    className: 'storybook-navigation-nav',
     appendClassname: ''
 };

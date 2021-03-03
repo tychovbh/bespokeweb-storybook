@@ -3,7 +3,7 @@ import '../../styles/style.css'
 import {Buttons} from '../../';
 
 export default {
-    title: 'Example/Buttons/Group',
+    title: 'Example/Buttons/Dropdown',
     component: Buttons.Group,
     argTypes: {},
 };

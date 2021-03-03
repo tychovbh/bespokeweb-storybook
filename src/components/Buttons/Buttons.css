@@ -58,7 +58,7 @@
     @apply underline;
 }
 
-/* Group */
+/* Dropdown */
 .storybook-button-group {
     @apply border;
     @apply rounded-lg;

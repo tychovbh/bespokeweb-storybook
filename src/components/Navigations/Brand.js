@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const Brand = ({id, className, appendClassname, children}) => {
     return <div
         id={id}
-        className={`${className ?? 'storybook-navigation-brand'} ${appendClassname}`}
+        className={`${className} ${appendClassname}`}
     >
         {children}
     </div>
@@ -33,5 +33,6 @@ Brand.propTypes = {
 };
 
 Brand.defaultProps = {
+    className: 'storybook-navigations-brand',
     appendClassname: ''
 };
