@@ -21,7 +21,7 @@
     @apply mr-4;
 }
 
-.storybook-navigation-nav {
+.storybook-navigations-nav {
     @apply flex-1;
 }
 
@@ -47,11 +47,19 @@
 
 /* Sidebar */
 .storybook-navigations-sidebar {
+    min-width: 300px;
+    @apply absolute;
+    @apply h-full;
+    @apply left-0 top-0;
     @apply bg-white;
     @apply flex flex-col flex-grow;
     @apply pt-5 pb-4;
     @apply border-r border-gray-200;
     @apply overflow-y-auto;
+}
+
+.storybook-navigations-dropdown-icon {
+    @apply ml-auto mr-0 !important;
 }
 
 .storybook-navigations-sidebar .storybook-navigations-brand {
@@ -81,6 +89,11 @@
 
 .storybook-navigations-sidebar .storybook-navigations-nav-link svg {
     @apply w-6;
-    @apply text-gray-500;
+    @apply text-gray-400;
     @apply mr-3;
+}
+
+/* Dropdown */
+.storybook-navigations-dropdown .storybook-navigations-nav-link:hover {
+    background: inherit;
 }

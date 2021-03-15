@@ -1,11 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {navigations} from '../../'
+import {navigations, Buttons, Icons} from '../../'
 
-export const Sidebar = ({id, className, appendClassname, children}) => {
-    return <div id={id} className={`${className} ${appendClassname}`}>
-        {children}
-    </div>
+export const Sidebar = ({id, className, appendClassname, children, open}) => {
+    if (open) {
+        return <div id={id} className={`${className} ${appendClassname}`}>
+
+            {children}
+        </div>
+    }
+
+    return null
 }
 
 Sidebar.propTypes = {

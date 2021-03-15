@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../../styles/style.css'
-import {Navigations, Icons} from '../../'
+import {Navigations, Icons, Buttons} from '../../'
 
 export default {
     title: 'Example/Navigations/Sidebar',
@@ -8,22 +8,114 @@ export default {
     argsTypes: {}
 }
 
-const Template = (args) => <Navigations.Sidebar {...args}>
-    <Navigations.Brand>
-        <Navigations.BrandImage src={'https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg'}
-                                appendClassname={'h-8'}/>
-    </Navigations.Brand>
-    <Navigations.Nav>
-        <Navigations.NavLink>
-            <Icons.Icon name={'home'} />
-            Dashboard
-        </Navigations.NavLink>
-        <Navigations.Dropdown>
-            <Navigations.NavLink>Team</Navigations.NavLink>
-            <Navigations.NavLink>Overview</Navigations.NavLink>
-        </Navigations.Dropdown>
-    </Navigations.Nav>
-</Navigations.Sidebar>
+const Template = (args) => {
+    const [open, setOpen] = useState('')
+    const [sidebarOpen, setSidebarOpen] = useState(false)
+
+    const handleOpen = (item) => {
+        setOpen(open === item ? '' : item)
+    }
+
+    return <div>
+        <Buttons.Button type={'primary'} onClick={() => setSidebarOpen(!sidebarOpen)}>Open sidebar</Buttons.Button>
+
+        <Navigations.Sidebar {...args} open={sidebarOpen}>
+            <div className={'mb-6'}>
+                <Buttons.Button onClick={() => setSidebarOpen(!sidebarOpen)}>
+                    <Icons.Icon name={'x'} className={'w-6'}/>
+                </Buttons.Button>
+            </div>
+
+            <Navigations.Brand>
+                <Navigations.BrandImage
+                    src={'https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg'}
+                    appendClassname={'h-8'}/>
+            </Navigations.Brand>
+            <Navigations.Nav>
+                {/* Home */}
+                <Navigations.NavLink>
+                    <Icons.Icon name={'home'}/>
+                    Dashboard
+                </Navigations.NavLink>
+
+                <Navigations.NavLink onClick={() => handleOpen('team')}>
+                    <Icons.Icon name={'users'}/>
+                    Team
+                    <Icons.Icon
+                        name={open === 'team' ? 'chevron-down' : 'chevron-right'}
+                        className={'storybook-navigations-dropdown-icon'}
+                    />
+                </Navigations.NavLink>
+                <Navigations.Dropdown appendClassname={open === 'team' ? '' : 'hidden'}>
+                    <Navigations.NavLink>Overview</Navigations.NavLink>
+                    <Navigations.NavLink>Members</Navigations.NavLink>
+                    <Navigations.NavLink>Calendar</Navigations.NavLink>
+                    <Navigations.NavLink>Settings</Navigations.NavLink>
+                </Navigations.Dropdown>
+
+                <Navigations.NavLink onClick={() => handleOpen('projects')}>
+                    <Icons.Icon name={'folder'}/>
+                    Projects
+                    <Icons.Icon
+                        name={open === 'projects' ? 'chevron-down' : 'chevron-right'}
+                        className={'storybook-navigations-dropdown-icon'}
+                    />
+                </Navigations.NavLink>
+                <Navigations.Dropdown appendClassname={open === 'projects' ? '' : 'hidden'}>
+                    <Navigations.NavLink>Overview</Navigations.NavLink>
+                    <Navigations.NavLink>Members</Navigations.NavLink>
+                    <Navigations.NavLink>Calendar</Navigations.NavLink>
+                    <Navigations.NavLink>Settings</Navigations.NavLink>
+                </Navigations.Dropdown>
+
+                <Navigations.NavLink onClick={() => handleOpen('calendar')}>
+                    <Icons.Icon name={'calendar'}/>
+                    Calendar
+                    <Icons.Icon
+                        name={open === 'calendar' ? 'chevron-down' : 'chevron-right'}
+                        className={'storybook-navigations-dropdown-icon'}
+                    />
+                </Navigations.NavLink>
+                <Navigations.Dropdown appendClassname={open === 'calendar' ? '' : 'hidden'}>
+                    <Navigations.NavLink>Overview</Navigations.NavLink>
+                    <Navigations.NavLink>Members</Navigations.NavLink>
+                    <Navigations.NavLink>Calendar</Navigations.NavLink>
+                    <Navigations.NavLink>Settings</Navigations.NavLink>
+                </Navigations.Dropdown>
+
+                <Navigations.NavLink onClick={() => handleOpen('documents')}>
+                    <Icons.Icon name={'inbox'}/>
+                    Documents
+                    <Icons.Icon
+                        name={open === 'documents' ? 'chevron-down' : 'chevron-right'}
+                        className={'storybook-navigations-dropdown-icon'}
+                    />
+                </Navigations.NavLink>
+                <Navigations.Dropdown appendClassname={open === 'documents' ? '' : 'hidden'}>
+                    <Navigations.NavLink>Overview</Navigations.NavLink>
+                    <Navigations.NavLink>Members</Navigations.NavLink>
+                    <Navigations.NavLink>Calendar</Navigations.NavLink>
+                    <Navigations.NavLink>Settings</Navigations.NavLink>
+                </Navigations.Dropdown>
+
+                <Navigations.NavLink onClick={() => handleOpen('reports')}>
+                    <Icons.Icon name={'chart-bar'}/>
+                    Reports
+                    <Icons.Icon
+                        name={open === 'reports' ? 'chevron-down' : 'chevron-right'}
+                        className={'storybook-navigations-dropdown-icon'}
+                    />
+                </Navigations.NavLink>
+                <Navigations.Dropdown appendClassname={open === 'reports' ? '' : 'hidden'}>
+                    <Navigations.NavLink>Overview</Navigations.NavLink>
+                    <Navigations.NavLink>Members</Navigations.NavLink>
+                    <Navigations.NavLink>Calendar</Navigations.NavLink>
+                    <Navigations.NavLink>Settings</Navigations.NavLink>
+                </Navigations.Dropdown>
+            </Navigations.Nav>
+        </Navigations.Sidebar>
+    </div>
+}
 
 export const Sidebar = Template.bind({})
 Sidebar.args = {}
@@ -33,7 +125,8 @@ export const Voorbeeld = () => {
 
         <div class="flex items-center flex-shrink-0 px-4">
 
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
+            <img class="h-8 w-auto"
+                 src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
                  alt="Workflow"/>
 
         </div>
@@ -70,11 +163,13 @@ export const Voorbeeld = () => {
 
                 <div class="space-y-1">
 
-                    <button class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button
+                        class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
 
                         {/* Heroicon name: outline/users */}
 
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                             xmlns="http://www.w3.org/2000/svg"
                              fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
 
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -86,8 +181,9 @@ export const Voorbeeld = () => {
 
                         {/* Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" */}
 
-                        <svg class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
-                             viewBox="0 0 20 20" aria-hidden="true">
+                        <svg
+                            class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
+                            viewBox="0 0 20 20" aria-hidden="true">
 
                             <path d="M6 6L14 10L6 14V6Z" fill="currentColor"/>
 
@@ -137,11 +233,13 @@ export const Voorbeeld = () => {
 
                 <div class="space-y-1">
 
-                    <button class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button
+                        class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
 
                         {/* Heroicon name: outline/folder */}
 
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                             xmlns="http://www.w3.org/2000/svg"
                              fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
 
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -153,8 +251,9 @@ export const Voorbeeld = () => {
 
                         {/* Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" */}
 
-                        <svg class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
-                             viewBox="0 0 20 20" aria-hidden="true">
+                        <svg
+                            class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
+                            viewBox="0 0 20 20" aria-hidden="true">
 
                             <path d="M6 6L14 10L6 14V6Z" fill="currentColor"/>
 
@@ -204,11 +303,13 @@ export const Voorbeeld = () => {
 
                 <div class="space-y-1">
 
-                    <button class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button
+                        class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
 
                         {/* Heroicon name: outline/calendar */}
 
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                             xmlns="http://www.w3.org/2000/svg"
                              fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
 
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -220,8 +321,9 @@ export const Voorbeeld = () => {
 
                         {/* Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" */}
 
-                        <svg class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
-                             viewBox="0 0 20 20" aria-hidden="true">
+                        <svg
+                            class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
+                            viewBox="0 0 20 20" aria-hidden="true">
 
                             <path d="M6 6L14 10L6 14V6Z" fill="currentColor"/>
 
@@ -271,11 +373,13 @@ export const Voorbeeld = () => {
 
                 <div class="space-y-1">
 
-                    <button class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button
+                        class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
 
                         {/* Heroicon name: outline/inbox */}
 
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                             xmlns="http://www.w3.org/2000/svg"
                              fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
 
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -287,8 +391,9 @@ export const Voorbeeld = () => {
 
                         {/* Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" */}
 
-                        <svg class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
-                             viewBox="0 0 20 20" aria-hidden="true">
+                        <svg
+                            class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
+                            viewBox="0 0 20 20" aria-hidden="true">
 
                             <path d="M6 6L14 10L6 14V6Z" fill="currentColor"/>
 
@@ -338,11 +443,13 @@ export const Voorbeeld = () => {
 
                 <div class="space-y-1">
 
-                    <button class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button
+                        class="group w-full flex items-center pl-2 pr-1 py-2 text-sm font-medium rounded-md bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
 
                         {/* Heroicon name: outline/chart-bar */}
 
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                             xmlns="http://www.w3.org/2000/svg"
                              fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
 
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -354,8 +461,9 @@ export const Voorbeeld = () => {
 
                         {/* Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" */}
 
-                        <svg class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
-                             viewBox="0 0 20 20" aria-hidden="true">
+                        <svg
+                            class="ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150"
+                            viewBox="0 0 20 20" aria-hidden="true">
 
                             <path d="M6 6L14 10L6 14V6Z" fill="currentColor"/>
 

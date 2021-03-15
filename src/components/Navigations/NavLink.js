@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const NavLink = ({id, className, appendClassname, children, link, active}) => {
+export const NavLink = ({id, className, appendClassname, children, link, active, onClick}) => {
     const activeClass = active ? 'storybook-navigations-nav-link-active' : '';
     return <a
         id={id}
         className={`${className} ${activeClass} ${appendClassname}`}
         href={link}
+        onClick={onClick}
     >
         {children}
     </a>

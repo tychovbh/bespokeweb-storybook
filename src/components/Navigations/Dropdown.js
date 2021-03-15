@@ -16,4 +16,7 @@ Dropdown.propTypes = {
     children: PropTypes.any
 }
 
-Dropdown.defaultProps = {}
+Dropdown.defaultProps = {
+    className: 'storybook-navigations-dropdown',
+    appendClassname: ''
+}

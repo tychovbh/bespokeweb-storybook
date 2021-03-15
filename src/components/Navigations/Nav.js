@@ -33,6 +33,6 @@ Nav.propTypes = {
 };
 
 Nav.defaultProps = {
-    className: 'storybook-navigation-nav',
+    className: 'storybook-navigations-nav',
     appendClassname: ''
 };
