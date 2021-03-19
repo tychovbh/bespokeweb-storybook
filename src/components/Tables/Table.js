@@ -30,7 +30,7 @@ Table.propTypes = {
     /**
      * The html inside of the Table
      */
-    children: PropTypes.node.isRequired,
+    children: PropTypes.any,
 
     /**
      * The type of Table

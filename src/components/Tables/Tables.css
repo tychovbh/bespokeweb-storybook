@@ -10,7 +10,6 @@
 }
 
 /* Simple */
-
 .storybook-tables-table {
     @apply w-full;
     @apply text-left;
@@ -37,7 +36,6 @@
 }
 
 /* Simple Striped */
-
 .storybook-tables-table thead {
     @apply border-b;
 }
@@ -48,4 +46,26 @@
 
 .storybook-tables-table-striped tbody tr:nth-child(even) {
     @apply bg-gray-100;
+}
+
+.th-sort:hover {
+    @apply cursor-pointer;
+}
+
+.th-sort-asc .th-sort-icons svg:first-child {
+    @apply hidden;
+}
+
+.th-sort-desc .th-sort-icons svg:last-child {
+    @apply hidden;
+}
+
+.th-sort-body {
+    @apply flex items-center;
+    @apply relative;
+}
+
+.th-sort-icons {
+    @apply w-2;
+    @apply ml-2;
 }
