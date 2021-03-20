@@ -1,5 +1,6 @@
 @import './index.css';
 @import '../components/Buttons/Buttons.css';
+@import '../components/Collections/Collections.css';
 @import '../components/Dashboards/Dashboards.css';
 @import '../components/Elements/Elements.css';
 @import '../components/Feedbacks/Feedbacks.css';

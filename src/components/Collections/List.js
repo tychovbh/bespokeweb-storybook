@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
+import Axios from 'axios'
 import {
     Buttons,
     Forms,
@@ -10,30 +11,7 @@ import {
     Icons,
 } from '../../'
 
-const Header = ({response}) => <div>
-    <Texts.Heading appendClassname={'text-center'}>
-        {response.meta.plural || ''}
-    </Texts.Heading>
-
-    <div className={'button-action'}>
-        <Buttons.Button type={'primary'}>Add {response.meta.singular}</Buttons.Button>
-    </div>
-</div>
-
-export const Search = ({search, onSearch}) => {
-    return <div className={'flex justify-end'}>
-        <div className={'w-1/3'}>
-            <Forms.Input
-                id={'search'}
-                placeholder={'Search'}
-                appendClassname={'mb-4'}
-                value={search}
-                onChange={(event) => onSearch(event.target.value)}/>
-        </div>
-    </div>
-}
-
-export const TableHead = ({sort, fields, handleSort}) => <thead>
+const ListTableHead = ({sort, fields, handleSort}) => <thead>
 <tr>
     {fields.map((field, index) => {
         const sortClass = sort.name === field.name ? 'th-sort-' + sort.type : ''
@@ -60,27 +38,31 @@ export const TableHead = ({sort, fields, handleSort}) => <thead>
 </tr>
 </thead>
 
-export const TableBody = ({data, url, items, fields, collection, onDelete}) => {
-    // const Delete = (id) => {
-    //     axios.delete(url + '/' + id)
-    //         .then(response => {
-    //             const allData = items.filter(item => item.id !== id)
-    //             onDelete(allData)
-    //         }).catch(err => console.log(err))
-    // }
+const ListTableBody = ({url, items, fields, collection, onDelete}) => {
+    const Delete = (id) => {
+        Axios.delete(url + '/' + id)
+            .then(response => {
+                const allData = items.filter(item => item.id !== id)
+                onDelete(allData)
+            }).catch(err => console.log(err))
+    }
 
     return <tbody>
     {
-        data.map((item, index) => <tr key={index}>
+        items.map((item, index) => <tr key={index}>
                 {fields.map((field, fieldIndex) => <td key={fieldIndex}>{item[field.name]}</td>)}
                 <td width={'152'}>
+                    {/*<Link to={`/dashboard/${collection}/${item.id}`}>*/}
                     <Buttons.Button appendClassname={'button-icon'}>
                         <Icons.Icon name={'eye'} className={'text-green-400 w-4'}/>
                     </Buttons.Button>
+                    {/*</Link>*/}
+                    {/*<Link to={`/dashboard/${collection}/${item.id}/edit`}>*/}
                     <Buttons.Button appendClassname={'button-icon'}>
                         <Icons.Icon name={'pencil'} className={'text-orange-400 w-4'}/>
                     </Buttons.Button>
-                    <Buttons.Button appendClassname={'button-icon'}>
+                    {/*</Link>*/}
+                    <Buttons.Button onClick={() => Delete(item.id)} appendClassname={'button-icon'}>
                         <Icons.Icon name={'x-circle'} className={'text-red-400 w-4'}/>
                     </Buttons.Button>
                 </td>
@@ -90,7 +72,34 @@ export const TableBody = ({data, url, items, fields, collection, onDelete}) => {
     </tbody>
 }
 
-export const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-6'}>
+const Loading = () => <div className={'h-64 flex justify-center items-center'}>
+    <Loaders.Circle/>
+</div>
+
+const ListSearch = ({search, onSearch}) => <div className={'flex justify-center'}>
+    <div className={'w-1/2'}>
+        <Forms.Input
+            id={'search'}
+            placeholder={'Search'}
+            appendClassname={'mb-4'}
+            value={search}
+            onChange={(event) => onSearch(event.target.value)}/>
+    </div>
+</div>
+
+const ListHeader = ({meta, collection, create_url}) => <>
+    <Texts.Heading appendClassname={'text-center'}>
+        {meta.plural || ''}
+    </Texts.Heading>
+
+    <div className={'button-action'}>
+        {/*<Link to={create_url || `/dashboard/` + collection + `/create`}>*/}
+        <Buttons.Button type={'primary'}>Add {meta.singular}</Buttons.Button>
+        {/*</Link>*/}
+    </div>
+</>
+
+const ListPagination = ({meta, onPage}) => <div className={'flex justify-between mt-6'}>
     <div>
         <p>
             Showing <span className={'font-bold'}>{meta.from}</span> to <span
@@ -115,47 +124,107 @@ export const Pagination = ({meta, onPage}) => <div className={'flex justify-betw
     </div>
 </div>
 
-export const List = ({endpoint}) => {
+export const List = (
+    {
+        match = {params: {}},
+        url,
+        collection,
+        create_url,
+        bulk_import = true,
+    }) => {
+    const [items, setItems] = useState([])
+    const [fields, setFields] = useState([])
+    const [meta, setMeta] = useState({})
+    const [search, setSearch] = useState('')
+    const [sort, setSort] = useState({
+        name: '',
+        type: '',
+    })
     const [isLoading, setLoading] = useState(true)
-    const [response, setResponse] = useState({})
+    const [page, setPage] = useState('')
+
+    collection = collection || match.params.collection
+    url = url || '/api/' + collection
+
+
+    const Request = (params = {}) => {
+        Axios.get(url, {
+            params: {
+                paginate: '10',
+                ...params,
+            },
+        }).then(response => {
+            setItems(response.data.data)
+            setFields(response.data.fields)
+            setMeta(response.data.meta)
+            setLoading(false)
+        })
+    }
+
+    const handleSort = (field) => {
+        let sortType = 'desc'
+
+        if (sort.name !== field.name || sort.type === 'desc') {
+            sortType = 'asc'
+        }
+
+        setSort({
+            name: field.name,
+            type: sortType,
+        })
+
+        Request({
+            page,
+            sort: field.name + ' ' + sortType,
+            search,
+        })
+    }
+
 
     useEffect(() => {
-        fetch(endpoint)
-            .then(response => response.json())
-            .then(data => {
-                setResponse(data)
-                setLoading(false)
-            })
+        Request()
     }, [])
 
     if (isLoading) {
-        return <div className={'h-64 flex justify-center items-center'}>
-            <Loaders.Circle/>
-        </div>
-    } else {
-        return <Layouts.Container>
-            <Header response={response}/>
+        return <Loading/>
+    }
 
-            <Search/>
+    return <div className={'mt-12'}>
+        {/*{bulk_import && <Import collection={collection} onImport={() => setLoading(true)}/>}*/}
+
+        <div>
+            <ListHeader collection={collection} meta={meta} create_url={create_url}/>
+
+            <ListSearch onSearch={search => {
+                setSearch(search)
+                setPage('1')
+                Request({
+                    page: '1',
+                    sort: sort.name + ' ' + sort.type,
+                    search,
+                })
+            }}/>
 
             <Tables.Table>
-                <Tables.Table>
-                    {/*<TableHead sort={sort} fields={fields} handleSort={handleSort}/>*/}
-
-                    <TableBody
-                        data={response.data}
-                        // url={url}
-                        // items={items}
-                        // onDelete={newItems => setItems(newItems)}
-                        // fields={fields}
-                        // collection={collection}
-                    />
-                </Tables.Table>
+                <ListTableHead sort={sort} fields={fields} handleSort={handleSort}/>
+                <ListTableBody
+                    url={url}
+                    items={items}
+                    onDelete={newItems => setItems(newItems)}
+                    fields={fields}
+                    collection={collection}/>
             </Tables.Table>
 
-            {/*<Pagination/>*/}
-        </Layouts.Container>
-    }
+            <ListPagination meta={meta} onPage={page => {
+                setPage(page)
+                Request({
+                    page,
+                    sort: sort.name + ' ' + sort.type,
+                    search,
+                })
+            }}/>
+        </div>
+    </div>
 }
 
 List.propTypes = {

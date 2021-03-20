@@ -1,0 +1,4 @@
+.button-icon {
+    @apply p-2;
+    @apply bg-transparent;
+}
