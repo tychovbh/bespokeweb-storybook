@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const NavLink = ({id, className, appendClassname, children, link, active}) => {
-    const activeClass = active ? 'storybook-navigation-nav-link-active' : '';
+export const NavLink = ({id, className, appendClassname, children, link, active, onClick}) => {
+    const activeClass = active ? 'storybook-navigations-nav-link-active' : '';
     return <a
         id={id}
-        className={`${className ?? 'storybook-navigation-nav-link'} ${activeClass} ${appendClassname}`}
+        className={`${className} ${activeClass} ${appendClassname}`}
         href={link}
+        onClick={onClick}
     >
         {children}
     </a>
@@ -46,5 +47,6 @@ NavLink.propTypes = {
 };
 
 NavLink.defaultProps = {
+    className: 'storybook-navigations-nav-link',
     appendClassname: ''
 };
