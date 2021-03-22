@@ -18,7 +18,6 @@ export const Sidebar = ({children}) => {
     const nav = useRef(null)
 
     const checkVisible = () => {
-        console.log('resizing')
         const box = nav.current.getBoundingClientRect();
         const visible = !!(box.width && box.height);
         setState(visible ? 'open' : 'close')
