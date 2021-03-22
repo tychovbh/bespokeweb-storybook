@@ -51,10 +51,24 @@
     @apply h-full;
     @apply left-0 top-0;
     @apply bg-white;
-    @apply flex flex-col flex-grow;
     @apply pt-5 pb-4;
     @apply border-r border-gray-200;
     @apply overflow-y-auto;
+    @apply flex flex-col flex-grow;
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .storybook-navigations-sidebar {
+        display: flex;
+    }
+}
+.storybook-navigations-sidebar-open {
+    display: flex;
+}
+
+.storybook-navigations-sidebar-close {
+    display: none;
 }
 
 .storybook-navigations-dropdown-icon {

@@ -1,16 +1,40 @@
-import React from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import PropTypes from 'prop-types'
-import {navigations, Buttons, Icons} from '../../'
+import {Buttons, Icons} from '../../'
 
-export const Sidebar = ({id, className, appendClassname, children, open}) => {
-    if (open) {
-        return <div id={id} className={`${className} ${appendClassname}`}>
-
-            {children}
+export const SidebarNav = ({id, className, appendClassname, navRef, children, state, setState}) => {
+    return <div ref={navRef} className={`storybook-navigations-sidebar${state ? ` storybook-navigations-sidebar-${state}` : ''}`}>
+        <div className={'mb-6'}>
+            <Buttons.Button onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
+                <Icons.Icon name={'x'} className={'w-6'}/>
+            </Buttons.Button>
         </div>
+        {children}
+    </div>
+}
+
+export const Sidebar = ({children}) => {
+    const [state, setState] = useState('')
+    const nav = useRef(null)
+
+    const checkVisible = () => {
+        console.log('resizing')
+        const box = nav.current.getBoundingClientRect();
+        const visible = !!(box.width && box.height);
+        setState(visible ? 'open' : 'close')
     }
 
-    return null
+    useEffect(() => {
+        checkVisible()
+    }, [])
+
+    return <>
+        <Buttons.Button onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
+            <Icons.Icon name={'menu-alt-2'} className={'w-8'}/>
+        </Buttons.Button>
+
+        <SidebarNav setState={setState} navRef={nav} state={state}>{children}</SidebarNav>
+    </>
 }
 
 Sidebar.propTypes = {
