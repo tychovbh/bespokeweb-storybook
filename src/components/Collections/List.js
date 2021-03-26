@@ -128,19 +128,15 @@ export const List = (
     }) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
-
-    const [search, setSearch] = useState('')
-    const [sort, setSort] = useState({
-        name: '',
-        type: '',
+    const [params, setParams] = useState({
+        search: ''
     })
-    const [page, setPage] = useState('')
 
     const Request = (params = {}) => {
         Axios.get(url, {
             params: {
-                paginate: '10',
                 ...params,
+                paginate: '10',
             },
         }).then(response => {
             setData(response.data)
@@ -175,6 +171,8 @@ export const List = (
         return <Loading/>
     }
 
+    console.log(params)
+
     return <div className={'mt-12'}>
         {/*{bulk_import && <Import collection={collection} onImport={() => setLoading(true)}/>}*/}
 
@@ -182,20 +180,16 @@ export const List = (
             <ListHeader
                 collection={data.collection}
                 meta={data.meta}
-                search={search}
+                search={params.search}
                 onSearch={search => {
-                    setSearch(search)
-                    setPage('1')
-                    Request({
-                        page: '1',
-                        sort: sort.name + ' ' + sort.type,
-                        search,
-                    })
+                    setParams({...params, search})
+                    Request({...params, search})
                 }}
             />
+
             <div className={'w-full overflow-x-auto'}>
                 <Tables.Table appendClassname={'storybook-list-table'}>
-                    <ListTableHead sort={sort} fields={data.fields} handleSort={handleSort}/>
+                    {/*<ListTableHead sort={params.sort} fields={data.fields} handleSort={handleSort}/>*/}
                     <ListTableBody
                         url={url}
                         items={data.data}
@@ -205,14 +199,7 @@ export const List = (
                 </Tables.Table>
             </div>
 
-            <ListPagination meta={data.meta} onPage={page => {
-                setPage(page)
-                Request({
-                    page,
-                    sort: sort.name + ' ' + sort.type,
-                    search,
-                })
-            }}/>
+            {/*<ListPagination meta={data.meta}/>*/}
         </div>
     </div>
 }
