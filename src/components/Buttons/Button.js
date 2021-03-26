@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Icons} from '../../'
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({id, className, appendClassname, children, type, onClick}) => {
-    const typeClass = type ? 'storybook-button-' + type : '';
+export const Button = ({id, className, appendClassname, children, type, onClick, disabled}) => {
+    let typeClass = type ? 'storybook-buttons-button-' + type : '';
+
     return <button
         id={id}
-        className={`${className ?? 'storybook-button'} ${typeClass} ${appendClassname}`}
+        className={`${className} ${typeClass} ${appendClassname}`}
         onClick={onClick}
+        disabled={disabled}
     >
         {children}
     </button>;
@@ -48,6 +51,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+    className: 'storybook-buttons-button',
     appendClassname: '',
     type: 'default',
     onClick: () => {

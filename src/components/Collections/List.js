@@ -51,7 +51,7 @@ const ListTableBody = ({url, items, fields, collection, onDelete}) => {
     {
         items.map((item, index) => <tr key={index}>
                 {fields.map((field, fieldIndex) => <td key={fieldIndex}>{item[field.name]}</td>)}
-                <td width={'152'}>
+                <td className={'storybook-list-table-body-actions'}>
                     {/*<Link to={`/dashboard/${collection}/${item.id}`}>*/}
                     <Buttons.Button appendClassname={'button-icon'}>
                         <Icons.Icon name={'eye'} className={'text-green-400 w-4'}/>
@@ -76,26 +76,24 @@ const Loading = () => <div className={'h-64 flex justify-center items-center'}>
     <Loaders.Circle/>
 </div>
 
-const ListSearch = ({search, onSearch}) => <div className={'flex justify-center'}>
-    <div className={'w-1/2'}>
-        <Forms.Input
-            id={'search'}
-            placeholder={'Search'}
-            appendClassname={'mb-4'}
-            value={search}
-            onChange={(event) => onSearch(event.target.value)}/>
-    </div>
-</div>
-
-const ListHeader = ({meta, collection, create_url}) => <>
-    <Texts.Heading appendClassname={'text-center'}>
+const ListHeader = ({meta, search, onSearch}) => <>
+    <Texts.Heading appendClassname={'text-center mb-8'}>
         {meta.plural || ''}
     </Texts.Heading>
 
-    <div className={'button-action'}>
-        {/*<Link to={create_url || `/dashboard/` + collection + `/create`}>*/}
-        <Buttons.Button type={'primary'}>Add {meta.singular}</Buttons.Button>
-        {/*</Link>*/}
+    <div className={'flex justify-between mb-4'}>
+        <Buttons.Button type={'primary'}>
+            <Icons.Icon name={'plus'}/> {'Add ' + meta.singular}
+        </Buttons.Button>
+
+        <div className={'w-1/3 flex items-center'}>
+            <Forms.Input
+                id={'search'}
+                placeholder={'Search'}
+                value={search}
+                onChange={(event) => onSearch(event.target.value)}
+            />
+        </div>
     </div>
 </>
 
@@ -126,26 +124,17 @@ const ListPagination = ({meta, onPage}) => <div className={'flex justify-between
 
 export const List = (
     {
-        match = {params: {}},
         url,
-        collection,
-        create_url,
-        bulk_import = true,
     }) => {
-    const [items, setItems] = useState([])
-    const [fields, setFields] = useState([])
-    const [meta, setMeta] = useState({})
+    const [data, setData] = useState({})
+    const [isLoading, setLoading] = useState(true)
+
     const [search, setSearch] = useState('')
     const [sort, setSort] = useState({
         name: '',
         type: '',
     })
-    const [isLoading, setLoading] = useState(true)
     const [page, setPage] = useState('')
-
-    collection = collection || match.params.collection
-    url = url || '/api/' + collection
-
 
     const Request = (params = {}) => {
         Axios.get(url, {
@@ -154,9 +143,7 @@ export const List = (
                 ...params,
             },
         }).then(response => {
-            setItems(response.data.data)
-            setFields(response.data.fields)
-            setMeta(response.data.meta)
+            setData(response.data)
             setLoading(false)
         })
     }
@@ -180,7 +167,6 @@ export const List = (
         })
     }
 
-
     useEffect(() => {
         Request()
     }, [])
@@ -193,29 +179,33 @@ export const List = (
         {/*{bulk_import && <Import collection={collection} onImport={() => setLoading(true)}/>}*/}
 
         <div>
-            <ListHeader collection={collection} meta={meta} create_url={create_url}/>
+            <ListHeader
+                collection={data.collection}
+                meta={data.meta}
+                search={search}
+                onSearch={search => {
+                    setSearch(search)
+                    setPage('1')
+                    Request({
+                        page: '1',
+                        sort: sort.name + ' ' + sort.type,
+                        search,
+                    })
+                }}
+            />
+            <div className={'w-full overflow-x-auto'}>
+                <Tables.Table appendClassname={'storybook-list-table'}>
+                    <ListTableHead sort={sort} fields={data.fields} handleSort={handleSort}/>
+                    <ListTableBody
+                        url={url}
+                        items={data.data}
+                        onDelete={newItems => data.data = newItems}
+                        fields={data.fields}
+                        collection={data.collection}/>
+                </Tables.Table>
+            </div>
 
-            <ListSearch onSearch={search => {
-                setSearch(search)
-                setPage('1')
-                Request({
-                    page: '1',
-                    sort: sort.name + ' ' + sort.type,
-                    search,
-                })
-            }}/>
-
-            <Tables.Table>
-                <ListTableHead sort={sort} fields={fields} handleSort={handleSort}/>
-                <ListTableBody
-                    url={url}
-                    items={items}
-                    onDelete={newItems => setItems(newItems)}
-                    fields={fields}
-                    collection={collection}/>
-            </Tables.Table>
-
-            <ListPagination meta={meta} onPage={page => {
+            <ListPagination meta={data.meta} onPage={page => {
                 setPage(page)
                 Request({
                     page,

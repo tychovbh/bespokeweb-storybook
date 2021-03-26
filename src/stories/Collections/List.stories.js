@@ -9,7 +9,7 @@ export default {
 
 const Template = (args) => <Collections.List {...args}/>
 
-export const List = Template.bind({})
-List.args = {
+export const Example = Template.bind({})
+Example.args = {
     url: 'http://local.wielerflits.nl/api/persons'
 }

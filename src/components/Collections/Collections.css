@@ -2,3 +2,19 @@
     @apply p-2;
     @apply bg-transparent;
 }
+
+/* list */
+.storybook-list-table-body-actions {
+    width: 164px;
+}
+.storybook-list-table {
+    min-width: 1024px;
+}
+
+/* Show */
+.storybook-collections-show-buttons {
+    @apply flex justify-between;
+    @apply mb-4;
+}
+
+
