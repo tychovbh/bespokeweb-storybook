@@ -11,14 +11,15 @@ import {
     Icons,
 } from '../../'
 
-const ListTableHead = ({sort, fields, handleSort}) => <thead>
+const TableHead = ({sort, fields, onSort}) => <thead>
 <tr>
     {fields.map((field, index) => {
-        const sortClass = sort.name === field.name ? 'th-sort-' + sort.type : ''
-        return <th key={index} onClick={() => handleSort(field)} className={`th-sort ${sortClass}`}>
-            <div className={'th-sort-body'}>
+        const sortClass = sort.name === field.name ? 'storybook-collections-list-th-sort-' + sort.type : ''
+
+        return <th key={index} onClick={() => onSort(field.name)} className={`storybook-collections-list-th-sort`}>
+            <div className={'storybook-collections-list-th-sort-body'}>
                 {field.label}
-                <div className={'th-sort-icons'}>
+                <div className={'storybook-collections-list-th-sort-icons'}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -38,9 +39,9 @@ const ListTableHead = ({sort, fields, handleSort}) => <thead>
 </tr>
 </thead>
 
-const ListTableBody = ({url, items, fields, collection, onDelete}) => {
+const TableBody = ({endpoint, items, fields, onDelete}) => {
     const Delete = (id) => {
-        Axios.delete(url + '/' + id)
+        Axios.delete(endpoint + '/' + id)
             .then(response => {
                 const allData = items.filter(item => item.id !== id)
                 onDelete(allData)
@@ -76,14 +77,14 @@ const Loading = () => <div className={'h-64 flex justify-center items-center'}>
     <Loaders.Circle/>
 </div>
 
-const ListHeader = ({meta, search, onSearch}) => <>
+const Header = ({meta, search, onSearch}) => <>
     <Texts.Heading appendClassname={'text-center mb-8'}>
         {meta.plural || ''}
     </Texts.Heading>
 
     <div className={'flex justify-between mb-4'}>
         <Buttons.Button type={'primary'}>
-            <Icons.Icon name={'plus'}/> {'Add ' + meta.singular}
+            <Icons.Icon name={'plus'} className={'mr-2'}/> {'Add ' + meta.singular}
         </Buttons.Button>
 
         <div className={'w-1/3 flex items-center'}>
@@ -97,7 +98,7 @@ const ListHeader = ({meta, search, onSearch}) => <>
     </div>
 </>
 
-const ListPagination = ({meta, onPage}) => <div className={'flex justify-between mt-6'}>
+const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-6'}>
     <div>
         <p>
             Showing <span className={'font-bold'}>{meta.from}</span> to <span
@@ -122,18 +123,16 @@ const ListPagination = ({meta, onPage}) => <div className={'flex justify-between
     </div>
 </div>
 
-export const List = (
-    {
-        url,
-    }) => {
+export const List = ({endpoint}) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
     const [params, setParams] = useState({
-        search: ''
+        search: '',
+        sort: ''
     })
 
     const Request = (params = {}) => {
-        Axios.get(url, {
+        Axios.get(endpoint, {
             params: {
                 ...params,
                 paginate: '10',
@@ -144,23 +143,19 @@ export const List = (
         })
     }
 
-    const handleSort = (field) => {
-        let sortType = 'desc'
+    const handleSort = (name) => {
+        let type = 'asc'
 
-        if (sort.name !== field.name || sort.type === 'desc') {
-            sortType = 'asc'
+        if (params.sort) {
+            const sort = params.sort.split(' ')
+            if (sort[0] !== name || sort[1] === 'asc') {
+                type = 'desc'
+            }
         }
 
-        setSort({
-            name: field.name,
-            type: sortType,
-        })
 
-        Request({
-            page,
-            sort: field.name + ' ' + sortType,
-            search,
-        })
+        setParams({...params, sort: name + ' ' + type})
+        Request({...params, sort: name + ' ' + type})
     }
 
     useEffect(() => {
@@ -177,21 +172,21 @@ export const List = (
         {/*{bulk_import && <Import collection={collection} onImport={() => setLoading(true)}/>}*/}
 
         <div>
-            <ListHeader
+            <Header
                 collection={data.collection}
                 meta={data.meta}
                 search={params.search}
                 onSearch={search => {
-                    setParams({...params, search})
-                    Request({...params, search})
+                    setParams({...params, search, page: 1})
+                    Request({...params, search, page: 1})
                 }}
             />
 
-            <div className={'w-full overflow-x-auto'}>
+            <div className={'storybook-collections-list-table-container'}>
                 <Tables.Table appendClassname={'storybook-list-table'}>
-                    {/*<ListTableHead sort={params.sort} fields={data.fields} handleSort={handleSort}/>*/}
-                    <ListTableBody
-                        url={url}
+                    <TableHead sort={params.sort} fields={data.fields} onSort={name => handleSort(name)}/>
+                    <TableBody
+                        url={endpoint}
                         items={data.data}
                         onDelete={newItems => data.data = newItems}
                         fields={data.fields}
@@ -199,7 +194,10 @@ export const List = (
                 </Tables.Table>
             </div>
 
-            {/*<ListPagination meta={data.meta}/>*/}
+            <Pagination meta={data.meta} onPage={page => {
+                setParams({...params, page})
+                Request({...params, page})
+            }}/>
         </div>
     </div>
 }

@@ -10,7 +10,6 @@
 
 .storybook-buttons-button svg {
     @apply w-5;
-    @apply mr-2;
 }
 
 .storybook-buttons-button:hover {

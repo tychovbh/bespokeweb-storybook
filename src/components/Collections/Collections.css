@@ -11,6 +11,35 @@
     min-width: 1024px;
 }
 
+.storybook-collections-list-table-container {
+    @apply w-full;
+    @apply overflow-x-auto;
+    @apply shadow;
+    @apply rounded-lg;
+}
+
+.storybook-collections-list-th-sort:hover {
+    @apply cursor-pointer;
+}
+
+.storybook-collections-list-th-sort-asc .storybook-collections-list-th-sort-icons svg:first-child {
+    @apply hidden;
+}
+
+.storybook-collections-list-th-sort-desc .storybook-collections-list-th-sort-icons svg:last-child {
+    @apply hidden;
+}
+
+.storybook-collections-list-th-sort-body {
+    @apply flex items-center;
+    @apply relative;
+}
+
+.storybook-collections-list-th-sort-icons {
+    @apply w-2;
+    @apply ml-2;
+}
+
 /* Show */
 .storybook-collections-show-buttons {
     @apply flex justify-between;
