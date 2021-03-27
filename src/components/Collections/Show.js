@@ -46,14 +46,7 @@ export const Show = ({match, url}) => {
         </Lists.Container>
 
         {
-            data.relations.map((relation, index) => <Collections.List
-                    collection={relation.name}
-                    url={relation.index}
-                    create_url={relation.create}
-                    key={index}
-                    bulk_import={false}
-                />
-            )
+            data.relations.map((relation, index) => <Collections.List endpoint={relation.index}/>)
         }
     </div>
 }

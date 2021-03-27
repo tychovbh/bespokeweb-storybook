@@ -39,13 +39,20 @@ const TableHead = ({sort, fields, onSort}) => <thead>
 </tr>
 </thead>
 
-const TableBody = ({endpoint, items, fields, onDelete}) => {
+const TableBody = ({endpoint, items, fields, onDelete, meta}) => {
     const Delete = (id) => {
         Axios.delete(endpoint + '/' + id)
             .then(response => {
                 const allData = items.filter(item => item.id !== id)
                 onDelete(allData)
             }).catch(err => console.log(err))
+    }
+    if (!items.length) {
+        return <tbody>
+        <tr>
+            <td colSpan={fields.length}><p>Er zijn geen {meta.plural} gevonden</p></td>
+        </tr>
+        </tbody>
     }
 
     return <tbody>
@@ -128,6 +135,7 @@ export const List = ({endpoint}) => {
     const [isLoading, setLoading] = useState(true)
     const [params, setParams] = useState({
         search: '',
+        page: 1,
         sort: ''
     })
 
@@ -152,7 +160,6 @@ export const List = ({endpoint}) => {
                 type = 'desc'
             }
         }
-
 
         setParams({...params, sort: name + ' ' + type})
         Request({...params, sort: name + ' ' + type})
@@ -182,17 +189,16 @@ export const List = ({endpoint}) => {
                 }}
             />
 
-            <div className={'storybook-collections-list-table-container'}>
-                <Tables.Table appendClassname={'storybook-list-table'}>
-                    <TableHead sort={params.sort} fields={data.fields} onSort={name => handleSort(name)}/>
-                    <TableBody
-                        url={endpoint}
-                        items={data.data}
-                        onDelete={newItems => data.data = newItems}
-                        fields={data.fields}
-                        collection={data.collection}/>
-                </Tables.Table>
-            </div>
+            <Tables.Table appendClassname={'storybook-list-table'}>
+                <TableHead sort={params.sort} fields={data.fields} onSort={name => handleSort(name)}/>
+                <TableBody
+                    meta={data.meta}
+                    endpoint={endpoint}
+                    items={data.data}
+                    onDelete={newItems => setData({...data, data: newItems})}
+                    fields={data.fields}
+                    collection={data.collection}/>
+            </Tables.Table>
 
             <Pagination meta={data.meta} onPage={page => {
                 setParams({...params, page})
