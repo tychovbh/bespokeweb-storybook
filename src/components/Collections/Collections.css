@@ -7,8 +7,23 @@
 .storybook-list-table-body-actions {
     width: 164px;
 }
+
 .storybook-list-table {
     min-width: 1024px;
+}
+
+.storybook-collections-list-toolbar {
+    @apply flex justify-between;
+    @apply border rounded-lg;
+    @apply mb-2;
+}
+
+.storybook-collections-list-search {
+    @apply w-full h-full;
+}
+
+.storybook-collections-list-search:focus {
+    outline: none !important;
 }
 
 .storybook-collections-list-table-container {
@@ -40,10 +55,15 @@
     @apply ml-2;
 }
 
+
 /* Show */
 .storybook-collections-show-buttons {
     @apply flex justify-between;
     @apply mb-4;
 }
 
-
+/* Save */
+.storybook-collections-save-form {
+    width: 512px;
+    @apply mx-auto;
+}

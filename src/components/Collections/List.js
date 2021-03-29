@@ -8,15 +8,23 @@ import {
     Texts,
     Loaders,
     Layouts,
-    Icons,
+    Icons, Modals,
 } from '../../'
 
 const TableHead = ({sort, fields, onSort}) => <thead>
 <tr>
     {fields.map((field, index) => {
-        const sortClass = sort.name === field.name ? 'storybook-collections-list-th-sort-' + sort.type : ''
+        let sortClass
+        sort = sort && sort.toString().split(' ')
 
-        return <th key={index} onClick={() => onSort(field.name)} className={`storybook-collections-list-th-sort`}>
+        if (sort.length) {
+            if (sort[0] === field.name) {
+                sortClass = 'storybook-collections-list-th-sort-' + sort[1]
+            }
+        }
+
+        return <th key={index} onClick={() => onSort(field.name)}
+                   className={`storybook-collections-list-th-sort ${sortClass}`}>
             <div className={'storybook-collections-list-th-sort-body'}>
                 {field.label}
                 <div className={'storybook-collections-list-th-sort-icons'}>
@@ -39,13 +47,15 @@ const TableHead = ({sort, fields, onSort}) => <thead>
 </tr>
 </thead>
 
-const TableBody = ({endpoint, items, fields, onDelete, meta}) => {
+const TableBody = ({deleteUrl, items, fields, onDelete, meta, setDeleteModelOpen}) => {
     const Delete = (id) => {
-        Axios.delete(endpoint + '/' + id)
-            .then(response => {
-                const allData = items.filter(item => item.id !== id)
-                onDelete(allData)
-            }).catch(err => console.log(err))
+        setDeleteModelOpen()
+
+        // Axios.delete(deleteUrl + id)
+        //     .then(response => {`
+        //         const allData = items.filter(item => item.id !== id)
+        //         onDelete(allData)
+        //     }).catch(err => console.log(err))
     }
     if (!items.length) {
         return <tbody>
@@ -58,18 +68,15 @@ const TableBody = ({endpoint, items, fields, onDelete, meta}) => {
     return <tbody>
     {
         items.map((item, index) => <tr key={index}>
+
                 {fields.map((field, fieldIndex) => <td key={fieldIndex}>{item[field.name]}</td>)}
                 <td className={'storybook-list-table-body-actions'}>
-                    {/*<Link to={`/dashboard/${collection}/${item.id}`}>*/}
                     <Buttons.Button appendClassname={'button-icon'}>
                         <Icons.Icon name={'eye'} className={'text-green-400 w-4'}/>
                     </Buttons.Button>
-                    {/*</Link>*/}
-                    {/*<Link to={`/dashboard/${collection}/${item.id}/edit`}>*/}
                     <Buttons.Button appendClassname={'button-icon'}>
                         <Icons.Icon name={'pencil'} className={'text-orange-400 w-4'}/>
                     </Buttons.Button>
-                    {/*</Link>*/}
                     <Buttons.Button onClick={() => Delete(item.id)} appendClassname={'button-icon'}>
                         <Icons.Icon name={'x-circle'} className={'text-red-400 w-4'}/>
                     </Buttons.Button>
@@ -84,23 +91,32 @@ const Loading = () => <div className={'h-64 flex justify-center items-center'}>
     <Loaders.Circle/>
 </div>
 
-const Header = ({meta, search, onSearch}) => <>
+const Header = ({meta, search, onSearch, collection}) => <>
     <Texts.Heading appendClassname={'text-center mb-8'}>
         {meta.plural || ''}
     </Texts.Heading>
 
-    <div className={'flex justify-between mb-4'}>
-        <Buttons.Button type={'primary'}>
-            <Icons.Icon name={'plus'} className={'mr-2'}/> {'Add ' + meta.singular}
-        </Buttons.Button>
+    <div className={'storybook-collections-list-toolbar'}>
+        <div className={'w-3/5 flex items-center'}>
+            <Icons.Icon name={'search'} className={'w-5 mx-3'}/>
 
-        <div className={'w-1/3 flex items-center'}>
             <Forms.Input
                 id={'search'}
+                className={'storybook-collections-list-search'}
                 placeholder={'Search'}
                 value={search}
                 onChange={(event) => onSearch(event.target.value)}
             />
+        </div>
+
+        <div className={'m-2'}>
+            <Buttons.Button type={'primary'} appendClassname={'mr-2'}>
+                <Icons.Icon name={'plus'} className={'mr-2'}/> {'Add ' + meta.singular}
+            </Buttons.Button>
+
+            <Buttons.ButtonLink type={'secondary'} href={`${collection}/import`}>
+                <Icons.Icon name={'cloud-upload'} className={'mr-2'}/> Bulk import
+            </Buttons.ButtonLink>
         </div>
     </div>
 </>
@@ -108,8 +124,8 @@ const Header = ({meta, search, onSearch}) => <>
 const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-6'}>
     <div>
         <p>
-            Showing <span className={'font-bold'}>{meta.from}</span> to <span
-            className={'font-bold'}>{meta.to}</span> of <span className={'font-bold'}>{meta.total}</span>
+            Showing <span className={'font-bold'}>{meta.from || 0}</span> to <span
+            className={'font-bold'}>{meta.to || 0}</span> of <span className={'font-bold'}>{meta.total}</span>
         </p>
     </div>
     <div>
@@ -130,17 +146,44 @@ const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-
     </div>
 </div>
 
-export const List = ({endpoint}) => {
+const DeleteModel = ({field, open, onClose}) => {
+    return <Modals.Modal open={open} onClose={onClose}>
+        <Modals.Container>
+            <Modals.Body>
+                <Texts.Heading type={'h3'} appendClassname={'mb-2'}>Verwijderen</Texts.Heading>
+                <Texts.Primary>
+                    Weet je zeker dat ... verwijderd moet worden
+                </Texts.Primary>
+            </Modals.Body>
+            <Modals.Footer>
+                <Buttons.Button type={'default'} onClick={onClose} appendClassname={'mr-2'}>Close</Buttons.Button>
+                <Buttons.Button type={'danger'}>Verwijderen</Buttons.Button>
+            </Modals.Footer>
+        </Modals.Container>
+    </Modals.Modal>
+}
+
+export const List = ({base_url, collection, search}) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
+    const [searching, setSearching] = useState(false)
     const [params, setParams] = useState({
+        ...search,
         search: '',
         page: 1,
         sort: ''
     })
+    const [deleteModelOpen, setDeleteModelOpen] = useState(false)
+
+
+    // Request is done after the user stops typing
+    useEffect(() => {
+        const timeoutId = setTimeout(() => Request(params), 500);
+        return () => clearTimeout(timeoutId);
+    }, [params.search])
 
     const Request = (params = {}) => {
-        Axios.get(endpoint, {
+        Axios.get(`${base_url}/api/${collection}`, {
             params: {
                 ...params,
                 paginate: '10',
@@ -148,6 +191,7 @@ export const List = ({endpoint}) => {
         }).then(response => {
             setData(response.data)
             setLoading(false)
+            setSearching(false)
         })
     }
 
@@ -166,38 +210,56 @@ export const List = ({endpoint}) => {
     }
 
     useEffect(() => {
-        Request()
+        Request(params)
     }, [])
 
     if (isLoading) {
         return <Loading/>
     }
 
-    console.log(params)
-
     return <div className={'mt-12'}>
-        {/*{bulk_import && <Import collection={collection} onImport={() => setLoading(true)}/>}*/}
-
         <div>
             <Header
-                collection={data.collection}
+                collection={collection}
                 meta={data.meta}
                 search={params.search}
                 onSearch={search => {
                     setParams({...params, search, page: 1})
-                    Request({...params, search, page: 1})
+                    setSearching(true)
                 }}
             />
+            {
+                data.fields.map((field, index) => {
+                    console.log(field)
+                    return <DeleteModel
+                        key={index}
+                        open={deleteModelOpen}
+                        field={field}
+                        onClose={() => setDeleteModelOpen(!deleteModelOpen)}
+                    />
+                })
+            }
 
             <Tables.Table appendClassname={'storybook-list-table'}>
                 <TableHead sort={params.sort} fields={data.fields} onSort={name => handleSort(name)}/>
-                <TableBody
-                    meta={data.meta}
-                    endpoint={endpoint}
-                    items={data.data}
-                    onDelete={newItems => setData({...data, data: newItems})}
-                    fields={data.fields}
-                    collection={data.collection}/>
+                {
+                    searching &&
+                    <tr className={'w-full'}>
+                        <td colSpan={data.fields.length + 1}><Loading/></td>
+                    </tr>
+                }
+                {
+                    !searching &&
+                    <TableBody
+                        meta={data.meta}
+                        deleteUrl={`${base_url}/api/${collection}/`}
+                        items={data.data}
+                        onDelete={newItems => setData({...data, data: newItems})}
+                        fields={data.fields}
+                        setDeleteModelOpen={() => setDeleteModelOpen(!deleteModelOpen)}
+                        collection={data.collection}
+                    />
+                }
             </Tables.Table>
 
             <Pagination meta={data.meta} onPage={page => {

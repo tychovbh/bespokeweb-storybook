@@ -22,6 +22,18 @@ Arrow_up.args = {
     className: 'w-64'
 };
 
+export const Calendar = Template.bind({});
+Calendar.args = {
+    name: 'calendar',
+    className: 'w-64'
+};
+
+export const Chart_bar = Template.bind({});
+Chart_bar.args = {
+    name: 'chart-bar',
+    className: 'w-64'
+};
+
 export const Check = Template.bind({});
 Check.args = {
     name: 'check',
@@ -31,6 +43,30 @@ Check.args = {
 export const Check_circle = Template.bind({});
 Check_circle.args = {
     name: 'check-circle',
+    className: 'w-64'
+};
+
+export const Chevron_down = Template.bind({});
+Chevron_down.args = {
+    name: 'chevron-down',
+    className: 'w-64'
+};
+
+export const Chevron_left = Template.bind({});
+Chevron_left.args = {
+    name: 'chevron-left',
+    className: 'w-64'
+};
+
+export const Chevron_right = Template.bind({});
+Chevron_right.args = {
+    name: 'chevron-right',
+    className: 'w-64'
+};
+
+export const Chevron_up = Template.bind({});
+Chevron_up.args = {
+    name: 'chevron-up',
     className: 'w-64'
 };
 
@@ -58,9 +94,21 @@ Eye.args = {
     className: 'w-64'
 };
 
+export const Folder = Template.bind({});
+Folder.args = {
+    name: 'folder',
+    className: 'w-64'
+};
+
 export const Home = Template.bind({});
 Home.args = {
     name: 'home',
+    className: 'w-64'
+};
+
+export const Inbox = Template.bind({});
+Inbox.args = {
+    name: 'inbox',
     className: 'w-64'
 };
 
@@ -88,6 +136,18 @@ Play.args = {
     className: 'w-64'
 };
 
+export const Plus = Template.bind({});
+Plus.args = {
+    name: 'plus',
+    className: 'w-64'
+};
+
+export const Search = Template.bind({});
+Search.args = {
+    name: 'search',
+    className: 'w-64'
+};
+
 export const Share = Template.bind({});
 Share.args = {
     name: 'share',
@@ -96,6 +156,12 @@ Share.args = {
 
 export const Trash = Template.bind({});
 Trash.args = {
+    name: 'trash',
+    className: 'w-64'
+};
+
+export const Users = Template.bind({});
+Users.args = {
     name: 'trash',
     className: 'w-64'
 };

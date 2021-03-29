@@ -11,5 +11,6 @@ const Template = (args) => <Collections.List {...args}/>
 
 export const Example = Template.bind({})
 Example.args = {
-    endpoint: 'http://local.wielerflits.nl/api/persons'
+    base_url: 'http://local.wielerflits.nl',
+    collection: 'persons'
 }

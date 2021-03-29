@@ -19,6 +19,7 @@
     @apply w-full;
     @apply h-full;
     @apply absolute;
+    @apply z-50;
 }
 
 .storybook-modals-overlay {

@@ -1,16 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-
-import {Buttons, Texts, Forms, Loaders} from '../../'
 import Form from 'react-form-foundry'
+import {Buttons, Texts, Forms, Loaders} from '../../'
 
-export const Create = ({endpoint}) => {
+export const Save = ({base_url, collection, id, return_url}) => {
     const [form, setForm] = useState({})
     const [isLoading, setLoading] = useState(true)
-    const search = location.search || ''
+    const endpoint = `${base_url}/api/${collection}/${id ? `${id}/edit` : 'create'}`
 
     useEffect(() => {
-        axios.get(endpoint + '/create' + search)
+        axios.get(endpoint)
             .then(response => {
                 setForm(response.data)
                 setLoading(false)
@@ -22,7 +21,7 @@ export const Create = ({endpoint}) => {
         axios.post(endpoint, model)
             .then(response => {
                 if (response.data) {
-                    window.location = return_url || `/dashboard/${collection}`
+                    window.location = return_url || `${base_url}/dasboard/${collection}`
                 }
             })
             .catch(e => {
@@ -32,7 +31,7 @@ export const Create = ({endpoint}) => {
 
     if (isLoading) {
         return <div className={'h-64 flex justify-center items-center'}>
-            <Loaders.Circle />
+            <Loaders.Circle/>
         </div>
     }
 
@@ -43,11 +42,11 @@ export const Create = ({endpoint}) => {
     return <div>
         <div className={'collections-buttons'}>
             {/*<Link to={`/dashboard/${collection}`}>*/}
-                <Buttons.Button type={'success'}>Terug</Buttons.Button>
+            <Buttons.Button type={'success'}>Terug</Buttons.Button>
             {/*</Link>*/}
         </div>
 
-        <div className={'form'}>
+        <div className={'storybook-collections-save-form'}>
             <Form
                 defaults={form.defaults}
                 method={'post'}
@@ -75,4 +74,4 @@ export const Create = ({endpoint}) => {
     </div>
 }
 
-export default Create
+export default Save

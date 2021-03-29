@@ -2,18 +2,18 @@ import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 import {Loaders, Buttons, Lists, Collections, Texts} from '../../'
 
-export const Show = ({match, url}) => {
+export const Show = ({base_url, collection, id}) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         setLoading(true)
-        Axios.get(url)
+        Axios.get(`${base_url}/api/${collection}/${id}`)
             .then(response => {
                 setData(response.data)
                 setLoading(false)
             })
-    }, [url])
+    }, [])
 
     if (isLoading) {
         return <div className={'h-64 flex justify-center items-center'}>
@@ -46,7 +46,17 @@ export const Show = ({match, url}) => {
         </Lists.Container>
 
         {
-            data.relations.map((relation, index) => <Collections.List endpoint={relation.index}/>)
+            data.relations.map((relation, index) => {
+                console.log(relation)
+                return <Collections.List
+                    key={index}
+                    base_url={base_url}
+                    collection={relation.name}
+                    search={{
+                        person_id: id
+                    }}
+                />
+            })
         }
     </div>
 }

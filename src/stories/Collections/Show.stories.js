@@ -11,5 +11,7 @@ const Template = (args) => <Collections.Show {...args}/>
 
 export const Example = Template.bind({})
 Example.args = {
-    url: 'http://local.wielerflits.nl/api/persons/1'
+    base_url: 'http://local.wielerflits.nl',
+    collection: 'persons',
+    id: 1,
 }
