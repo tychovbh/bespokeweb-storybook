@@ -47,9 +47,9 @@ const TableHead = ({sort, fields, onSort}) => <thead>
 </tr>
 </thead>
 
-const TableBody = ({deleteUrl, items, fields, onDelete, meta, setDeleteModelOpen}) => {
-    const Delete = (id) => {
-        setDeleteModelOpen()
+const TableBody = ({deleteUrl, items, fields, onDelete, meta, setDeleteModal}) => {
+    const Delete = (item) => {
+        setDeleteModal(item)
 
         // Axios.delete(deleteUrl + id)
         //     .then(response => {`
@@ -57,6 +57,7 @@ const TableBody = ({deleteUrl, items, fields, onDelete, meta, setDeleteModelOpen
         //         onDelete(allData)
         //     }).catch(err => console.log(err))
     }
+
     if (!items.length) {
         return <tbody>
         <tr>
@@ -77,7 +78,7 @@ const TableBody = ({deleteUrl, items, fields, onDelete, meta, setDeleteModelOpen
                     <Buttons.Button appendClassname={'button-icon'}>
                         <Icons.Icon name={'pencil'} className={'text-orange-400 w-4'}/>
                     </Buttons.Button>
-                    <Buttons.Button onClick={() => Delete(item.id)} appendClassname={'button-icon'}>
+                    <Buttons.Button onClick={() => Delete(item)} appendClassname={'button-icon'}>
                         <Icons.Icon name={'x-circle'} className={'text-red-400 w-4'}/>
                     </Buttons.Button>
                 </td>
@@ -147,17 +148,31 @@ const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-
 </div>
 
 const DeleteModel = ({field, open, onClose}) => {
+    const [canDelete, setDelete] = useState(false)
+
+    const Delete = (() => {
+
+    })
+
+    console.log(field)
     return <Modals.Modal open={open} onClose={onClose}>
         <Modals.Container>
             <Modals.Body>
                 <Texts.Heading type={'h3'} appendClassname={'mb-2'}>Verwijderen</Texts.Heading>
-                <Texts.Primary>
-                    Weet je zeker dat ... verwijderd moet worden
+
+                <Texts.Primary appendClassname={'mb-4'}>
+                    Weet je zeker dat je ... wil verwijderen? schrijf dan in het tekstveld: VERWIJDER
                 </Texts.Primary>
+
+                <Forms.Input placeholder={'VERWIJDER'}/>
             </Modals.Body>
+
             <Modals.Footer>
                 <Buttons.Button type={'default'} onClick={onClose} appendClassname={'mr-2'}>Close</Buttons.Button>
-                <Buttons.Button type={'danger'}>Verwijderen</Buttons.Button>
+
+                <Buttons.Button type={'danger'} disabled={!canDelete} onClick={() => Delete()}>
+                    Verwijderen
+                </Buttons.Button>
             </Modals.Footer>
         </Modals.Container>
     </Modals.Modal>
@@ -173,7 +188,9 @@ export const List = ({base_url, collection, search}) => {
         page: 1,
         sort: ''
     })
-    const [deleteModelOpen, setDeleteModelOpen] = useState(false)
+    const [deleteModal, setDeleteModal] = useState({
+        open: false
+    })
 
 
     // Request is done after the user stops typing
@@ -228,17 +245,11 @@ export const List = ({base_url, collection, search}) => {
                     setSearching(true)
                 }}
             />
-            {
-                data.fields.map((field, index) => {
-                    console.log(field)
-                    return <DeleteModel
-                        key={index}
-                        open={deleteModelOpen}
-                        field={field}
-                        onClose={() => setDeleteModelOpen(!deleteModelOpen)}
-                    />
-                })
-            }
+            <DeleteModel
+                open={deleteModal.open}
+                field={deleteModal.field}
+                onClose={() => setDeleteModal({...deleteModal, open: !deleteModal.open})}
+            />
 
             <Tables.Table appendClassname={'storybook-list-table'}>
                 <TableHead sort={params.sort} fields={data.fields} onSort={name => handleSort(name)}/>
@@ -256,7 +267,9 @@ export const List = ({base_url, collection, search}) => {
                         items={data.data}
                         onDelete={newItems => setData({...data, data: newItems})}
                         fields={data.fields}
-                        setDeleteModelOpen={() => setDeleteModelOpen(!deleteModelOpen)}
+                        setDeleteModal={field => {
+                            setDeleteModal({...deleteModal, open: !deleteModal.open, field})
+                        }}
                         collection={data.collection}
                     />
                 }

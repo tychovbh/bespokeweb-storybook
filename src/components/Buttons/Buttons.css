@@ -51,6 +51,11 @@
     @apply text-white;
 }
 
+.storybook-buttons-button-danger:disabled {
+    @apply bg-red-300;
+    @apply cursor-not-allowed;
+}
+
 .storybook-buttons-button-info {
     @apply bg-blue-300;
     @apply text-white;
