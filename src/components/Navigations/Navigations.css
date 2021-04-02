@@ -17,7 +17,6 @@
 }
 
 .storybook-navigation-brand-image {
-    /*@apply w-12;*/
     @apply mr-4;
 }
 
@@ -52,10 +51,33 @@
     @apply h-full;
     @apply left-0 top-0;
     @apply bg-white;
-    @apply flex flex-col flex-grow;
     @apply pt-5 pb-4;
     @apply border-r border-gray-200;
     @apply overflow-y-auto;
+    @apply flex flex-col flex-grow;
+    display: none;
+}
+
+.storybook-navigations-sidebar-x {
+    @apply block;
+    @apply mb-4;
+}
+
+@media (min-width: 640px) {
+    .storybook-navigations-sidebar {
+        display: flex;
+    }
+
+    .storybook-navigations-sidebar-x {
+        @apply hidden;
+    }
+}
+.storybook-navigations-sidebar-open {
+    display: flex;
+}
+
+.storybook-navigations-sidebar-close {
+    display: none;
 }
 
 .storybook-navigations-dropdown-icon {
@@ -66,11 +88,10 @@
     @apply flex items-center;
     @apply flex-shrink-0;
     @apply px-4;
+    @apply mb-4;
 }
 
 .storybook-navigations-sidebar .storybook-navigations-nav-link {
-    /*@apply group;*/
-    /*@apply w-full;*/
     @apply flex items-center;
     @apply pl-2 pr-1 py-2;
     @apply text-sm font-medium;
@@ -82,9 +103,6 @@
 .storybook-navigations-sidebar .storybook-navigations-nav-link:hover {
     @apply text-gray-900;
     @apply bg-gray-100;
-    /*@apply focus:outline-none;*/
-    /*@apply focus:ring-2;*/
-    /*@apply focus:ring-indigo-500;*/
 }
 
 .storybook-navigations-sidebar .storybook-navigations-nav-link svg {

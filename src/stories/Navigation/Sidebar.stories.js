@@ -10,22 +10,13 @@ export default {
 
 const Template = (args) => {
     const [open, setOpen] = useState('')
-    const [sidebarOpen, setSidebarOpen] = useState(false)
 
     const handleOpen = (item) => {
         setOpen(open === item ? '' : item)
     }
 
     return <div>
-        <Buttons.Button type={'primary'} onClick={() => setSidebarOpen(!sidebarOpen)}>Open sidebar</Buttons.Button>
-
-        <Navigations.Sidebar {...args} open={sidebarOpen}>
-            <div className={'mb-6'}>
-                <Buttons.Button onClick={() => setSidebarOpen(!sidebarOpen)}>
-                    <Icons.Icon name={'x'} className={'w-6'}/>
-                </Buttons.Button>
-            </div>
-
+        <Navigations.Sidebar {...args}>
             <Navigations.Brand>
                 <Navigations.BrandImage
                     src={'https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg'}

@@ -118,6 +118,30 @@ Menu.args = {
     className: 'w-64'
 };
 
+export const Menu_alt_1 = Template.bind({});
+Menu_alt_1.args = {
+    name: 'menu-alt-1',
+    className: 'w-64'
+};
+
+export const Menu_alt_2 = Template.bind({});
+Menu_alt_2.args = {
+    name: 'menu-alt-2',
+    className: 'w-64'
+};
+
+export const Menu_alt_3 = Template.bind({});
+Menu_alt_3.args = {
+    name: 'menu-alt-3',
+    className: 'w-64'
+};
+
+export const Menu_alt_4 = Template.bind({});
+Menu_alt_4.args = {
+    name: 'menu-alt-4',
+    className: 'w-64'
+};
+
 export const Pencil = Template.bind({});
 Pencil.args = {
     name: 'pencil',
@@ -162,7 +186,7 @@ Trash.args = {
 
 export const Users = Template.bind({});
 Users.args = {
-    name: 'trash',
+    name: 'users',
     className: 'w-64'
 };
 
