@@ -3,16 +3,14 @@ import PropTypes from 'prop-types'
 import {Buttons, Icons} from '../../'
 
 export const SidebarNav = ({id, className, appendClassname, navRef, children, state, setState}) => {
+
     return <div ref={navRef}
                 className={`storybook-navigations-sidebar${state ? ` storybook-navigations-sidebar-${state}` : ''}`}>
-        {
-            state === 'close' &&
-            <div className={'mb-6'}>
-                <Buttons.Button onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
-                    <Icons.Icon name={'x'} className={'w-6'}/>
-                </Buttons.Button>
-            </div>
-        }
+        <div className={'storybook-navigations-sidebar-x'}>
+            <Buttons.Button onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
+                <Icons.Icon name={'x'} className={'w-6'}/>
+            </Buttons.Button>
+        </div>
         {children}
     </div>
 }
@@ -36,7 +34,9 @@ export const Sidebar = ({children}) => {
             <Icons.Icon name={'menu-alt-2'} className={'w-8'}/>
         </Buttons.Button>
 
-        <SidebarNav setState={setState} navRef={nav} state={state}>{children}</SidebarNav>
+        {
+            <SidebarNav setState={setState} navRef={nav} state={state}>{children}</SidebarNav>
+        }
     </>
 }
 
