@@ -58,9 +58,18 @@
     display: none;
 }
 
+.storybook-navigations-sidebar-x {
+    @apply block;
+    @apply mb-4;
+}
+
 @media (min-width: 640px) {
     .storybook-navigations-sidebar {
         display: flex;
+    }
+
+    .storybook-navigations-sidebar-x {
+        @apply hidden;
     }
 }
 .storybook-navigations-sidebar-open {
