@@ -148,13 +148,13 @@ const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-
 </div>
 
 const DeleteModel = ({field, open, onClose}) => {
-    const [canDelete, setDelete] = useState(false)
+    const [deleteField, setDeleteField] = useState('')
 
     const Delete = (() => {
-
+        console.log(deleteField)
     })
 
-    console.log(field)
+    console.log(deleteField)
     return <Modals.Modal open={open} onClose={onClose}>
         <Modals.Container>
             <Modals.Body>
@@ -164,13 +164,13 @@ const DeleteModel = ({field, open, onClose}) => {
                     Weet je zeker dat je ... wil verwijderen? schrijf dan in het tekstveld: VERWIJDER
                 </Texts.Primary>
 
-                <Forms.Input placeholder={'VERWIJDER'}/>
+                <Forms.Input placeholder={'VERWIJDER'} onChange={value => setDeleteField(value)} value={deleteField}/>
             </Modals.Body>
 
             <Modals.Footer>
                 <Buttons.Button type={'default'} onClick={onClose} appendClassname={'mr-2'}>Close</Buttons.Button>
 
-                <Buttons.Button type={'danger'} disabled={!canDelete} onClick={() => Delete()}>
+                <Buttons.Button type={'danger'} disabled={deleteField !== 'VERWIJDER'} onClick={() => Delete()}>
                     Verwijderen
                 </Buttons.Button>
             </Modals.Footer>

@@ -12,7 +12,7 @@ export const Input = ({id, className, appendClassname, name, type, placeholder, 
         name={name}
         placeholder={placeholder}
         value={value}
-        onChange={onChange}
+        onChange={event => onChange(event.target.value)}
     />
 };
 
