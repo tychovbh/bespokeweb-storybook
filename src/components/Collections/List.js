@@ -147,11 +147,13 @@ const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-
     </div>
 </div>
 
-const DeleteModel = ({field, open, onClose}) => {
+const DeleteModel = ({base_url, collection, field, open, onClose}) => {
     const [deleteField, setDeleteField] = useState('')
 
     const Delete = (() => {
-        console.log(deleteField)
+        Axios.delete(`${base_url}/api/${collection}/${field.id}`)
+            .then(response => console.log(response))
+        console.log(field.id)
     })
 
     console.log(deleteField)
@@ -164,7 +166,11 @@ const DeleteModel = ({field, open, onClose}) => {
                     Weet je zeker dat je ... wil verwijderen? schrijf dan in het tekstveld: VERWIJDER
                 </Texts.Primary>
 
-                <Forms.Input placeholder={'VERWIJDER'} onChange={value => setDeleteField(value)} value={deleteField}/>
+                <Forms.Input
+                    placeholder={'VERWIJDER'}
+                    onChange={event => setDeleteField(event.target.value)}
+                    value={deleteField}
+                />
             </Modals.Body>
 
             <Modals.Footer>
@@ -246,6 +252,8 @@ export const List = ({base_url, collection, search}) => {
                 }}
             />
             <DeleteModel
+                base_url={base_url}
+                collection={collection}
                 open={deleteModal.open}
                 field={deleteModal.field}
                 onClose={() => setDeleteModal({...deleteModal, open: !deleteModal.open})}
