@@ -7,7 +7,6 @@ import {
     Tables,
     Texts,
     Loaders,
-    Layouts,
     Icons, Modals,
 } from '../../'
 
@@ -152,7 +151,7 @@ const DeleteModel = ({base_url, collection, field, open, onClose, onDelete}) => 
 
     const Delete = (() => {
         // TODO receive error when can't delete e.g. having a relation
-        Axios.delete(`${base_url}/api/${collection}/${field.id}`)
+        Axios.delete(`${base_url}/${collection}/${field.id}`)
             .then(response => {
                 onDelete()
                 onClose()
@@ -209,7 +208,7 @@ export const List = ({base_url, collection, search}) => {
     }, [params.search])
 
     const Request = (params = {}) => {
-        Axios.get(`${base_url}/api/${collection}`, {
+        Axios.get(`${base_url}/${collection}`, {
             params: {
                 ...params,
                 paginate: '10',
@@ -280,7 +279,7 @@ export const List = ({base_url, collection, search}) => {
                     !searching &&
                     <TableBody
                         meta={data.meta}
-                        deleteUrl={`${base_url}/api/${collection}/`}
+                        deleteUrl={`${base_url}/${collection}/`}
                         items={data.data}
                         onDelete={newItems => setData({...data, data: newItems})}
                         fields={data.fields}

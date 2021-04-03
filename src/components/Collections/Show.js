@@ -8,7 +8,7 @@ export const Show = ({base_url, collection, id}) => {
 
     useEffect(() => {
         setLoading(true)
-        Axios.get(`${base_url}/api/${collection}/${id}`)
+        Axios.get(`${base_url}/${collection}/${id}`)
             .then(response => {
                 setData(response.data)
                 setLoading(false)

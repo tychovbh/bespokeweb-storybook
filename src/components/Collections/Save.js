@@ -6,7 +6,7 @@ import {Buttons, Texts, Forms, Loaders} from '../../'
 export const Save = ({base_url, collection, id, return_url}) => {
     const [form, setForm] = useState({})
     const [isLoading, setLoading] = useState(true)
-    const endpoint = `${base_url}/api/${collection}/${id ? `${id}/edit` : 'create'}`
+    const endpoint = `${base_url}/${collection}/${id ? `${id}/edit` : 'create'}`
 
     useEffect(() => {
         axios.get(endpoint)
@@ -21,7 +21,7 @@ export const Save = ({base_url, collection, id, return_url}) => {
         axios.post(endpoint, model)
             .then(response => {
                 if (response.data) {
-                    window.location = return_url || `${base_url}/dasboard/${collection}`
+                    window.location.href = return_url || `/${collection}`
                 }
             })
             .catch(e => {
