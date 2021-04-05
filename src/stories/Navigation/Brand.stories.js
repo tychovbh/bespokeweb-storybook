@@ -1,8 +1,7 @@
 import React from "react";
-import '../../styles/style.css';
-import {Navigations} from '../../';
-import Logo from "../../assets/world-wide-web.svg";
-import {Texts} from "../../index";
+import 'bespokeweb-storybook/styles/style.css';
+import {Navigations, Texts} from 'bespokeweb-storybook'
+import Logo from "../../assets/world-wide-web.svg"
 
 export default {
     title: 'Example/Navigations/Brand',

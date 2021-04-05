@@ -1,7 +1,6 @@
-import React from "react";
-import '../../styles/style.css';
-import {Modals} from '../../';
-import {Buttons, Texts} from "../../index";
+import React from "react"
+import 'bespokeweb-storybook/styles/style.css'
+import {Modals, Buttons, Texts} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Modals/Container',
@@ -21,7 +20,7 @@ const Template = (args) => <Modals.Container>
         <Buttons.Button type={'default'} onClick={args.onClose}>Close</Buttons.Button>
         <Buttons.Button type={'danger'}>Deactivate</Buttons.Button>
     </Modals.Footer>
-</Modals.Container>;
+</Modals.Container>
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

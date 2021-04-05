@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Icons} from '../../'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * Primary UI component for user interaction
  */
 export const ButtonLink = ({id, className, appendClassname, children, type, href}) => {
-    let typeClass = type ? 'storybook-buttons-button-' + type : '';
+    let typeClass = type ? 'storybook-buttons-button-' + type : ''
 
     return <a
         id={id}
@@ -14,8 +13,8 @@ export const ButtonLink = ({id, className, appendClassname, children, type, href
         className={`${className} ${typeClass} ${appendClassname}`}
     >
         {children}
-    </a>;
-};
+    </a>
+}
 
 ButtonLink.propTypes = {
     /**
@@ -47,10 +46,10 @@ ButtonLink.propTypes = {
      * The onClick function of the Buttons
      */
     onClick: PropTypes.func
-};
+}
 
 ButtonLink.defaultProps = {
     className: 'storybook-buttons-button',
     appendClassname: '',
     type: 'default',
-};
+}

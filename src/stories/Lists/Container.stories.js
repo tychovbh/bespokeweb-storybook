@@ -1,6 +1,6 @@
 import React from "react";
-import '../../styles/style.css'
-import {Lists, Buttons, Texts} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Lists, Buttons, Texts} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Lists/Container',

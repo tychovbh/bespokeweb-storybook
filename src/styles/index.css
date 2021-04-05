@@ -3,15 +3,3 @@
 @tailwind components;
 
 @tailwind utilities;
-
-.nowrap {
-    white-space: nowrap;
-}
-
-.whitespace-nowrap {
-    @apply nowrap;
-}
-
-.whitespace-no-wrap {
-    @apply nowrap;
-}

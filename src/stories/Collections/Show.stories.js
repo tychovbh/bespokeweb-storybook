@@ -1,5 +1,5 @@
 import React from 'react'
-import {Collections} from '../../'
+import {Collections} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Collections/Show',

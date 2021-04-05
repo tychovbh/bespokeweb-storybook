@@ -1,6 +1,6 @@
 import React, {useState} from "react"
-import '../../styles/style.css'
-import {Modals, Buttons, Texts} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Modals, Buttons, Texts} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Modals/Modal',

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
-import {Loaders, Buttons, Lists, Collections, Texts} from '../../'
+import {Loaders, Buttons, Lists, Collections, Texts} from 'bespokeweb-storybook'
 
 export const Show = ({base_url, collection, id}) => {
     const [data, setData] = useState({})

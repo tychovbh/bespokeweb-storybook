@@ -1,7 +1,6 @@
-import React from "react";
-import '../../styles/style.css';
-import {Modals} from '../../';
-import {Texts} from "../../index";
+import React from "react"
+import 'bespokeweb-storybook/styles/style.css'
+import {Modals, Texts} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Modals/Body',
@@ -15,7 +14,7 @@ const Template = (args) => <Modals.Body {...args}>
         Are you sure you want to deactivate your account? All of your data will be permanently removed. This
         action cannot be undone.
     </Texts.Primary>
-</Modals.Body>;
+</Modals.Body>
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {}

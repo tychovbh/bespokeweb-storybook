@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import Form from 'react-form-foundry'
-import {Buttons, Texts, Forms, Loaders} from '../../'
+import {Buttons, Texts, Forms, Loaders} from 'bespokeweb-storybook'
 
-export const Save = ({base_url, collection, id, return_url}) => {
+export const Save = ({base_url, collection, id, return_url, params = {}}) => {
     const [form, setForm] = useState({})
     const [isLoading, setLoading] = useState(true)
     const endpoint = `${base_url}/${collection}/${id ? `${id}/edit` : 'create'}`
 
     useEffect(() => {
-        axios.get(endpoint)
+        axios.get(endpoint, {
+            params
+        })
             .then(response => {
-                setForm(response.data)
+                setForm(response.data.data)
                 setLoading(false)
             })
     }, [])
@@ -38,7 +40,7 @@ export const Save = ({base_url, collection, id, return_url}) => {
     if (!form.title) {
         return <></>
     }
-
+    
     return <div>
         <div className={'collections-buttons'}>
             {/*<Link to={`/dashboard/${collection}`}>*/}

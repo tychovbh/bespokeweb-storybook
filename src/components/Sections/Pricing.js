@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import {Sections, Pages} from '../../'
+import {Sections, Pages} from 'bespokeweb-storybook'
 
 export const Pricing = ({title, description, pricings}) => {
     return <div>

@@ -1,6 +1,6 @@
 import React from "react";
-import '../../styles/style.css';
-import {Tables} from '../../';
+import 'bespokeweb-storybook/styles/style.css';
+import {Tables} from 'bespokeweb-storybook';
 
 export default {
     title: 'Example/Tables/Table',

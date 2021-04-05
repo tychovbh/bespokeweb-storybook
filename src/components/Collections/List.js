@@ -7,8 +7,9 @@ import {
     Tables,
     Texts,
     Loaders,
-    Icons, Modals,
-} from '../../'
+    Icons,
+    Modals,
+} from 'bespokeweb-storybook'
 
 const TableHead = ({sort, fields, onSort}) => <thead>
 <tr>
@@ -46,7 +47,7 @@ const TableHead = ({sort, fields, onSort}) => <thead>
 </tr>
 </thead>
 
-const TableBody = ({deleteUrl, items, fields, onDelete, meta, setDeleteModal}) => {
+const TableBody = ({deleteUrl, items, fields, onDelete, info, setDeleteModal}) => {
     const Delete = (item) => {
         setDeleteModal(item)
 
@@ -60,7 +61,7 @@ const TableBody = ({deleteUrl, items, fields, onDelete, meta, setDeleteModal}) =
     if (!items.length) {
         return <tbody>
         <tr>
-            <td colSpan={fields.length}><p>Er zijn geen {meta.plural} gevonden</p></td>
+            <td colSpan={fields.length}><p>Er zijn geen {info.plural} gevonden</p></td>
         </tr>
         </tbody>
     }
@@ -68,7 +69,6 @@ const TableBody = ({deleteUrl, items, fields, onDelete, meta, setDeleteModal}) =
     return <tbody>
     {
         items.map((item, index) => <tr key={index}>
-
                 {fields.map((field, fieldIndex) => <td key={fieldIndex}>{item[field.name]}</td>)}
                 <td className={'storybook-list-table-body-actions'}>
                     <Buttons.Button appendClassname={'button-icon'}>
@@ -91,35 +91,38 @@ const Loading = () => <div className={'h-64 flex justify-center items-center'}>
     <Loaders.Circle/>
 </div>
 
-const Header = ({meta, search, onSearch, collection}) => <>
-    <Texts.Heading appendClassname={'text-center mb-8'}>
-        {meta.plural || ''}
-    </Texts.Heading>
+const Header = ({info = {}, search, onSearch, collection}) => {
+    console.log(info)
+    return <>
+        <Texts.Heading appendClassname={'text-center mb-8'}>
+            {info.label || ''}
+        </Texts.Heading>
 
-    <div className={'storybook-collections-list-toolbar'}>
-        <div className={'w-3/5 flex items-center'}>
-            <Icons.Icon name={'search'} className={'w-5 mx-3'}/>
+        <div className={'storybook-collections-list-toolbar'}>
+            <div className={'w-3/5 flex items-center'}>
+                <Icons.Icon name={'search'}  className={'w-5 mx-3'}/>
 
-            <Forms.Input
-                id={'search'}
-                className={'storybook-collections-list-search'}
-                placeholder={'Search'}
-                value={search}
-                onChange={(event) => onSearch(event.target.value)}
-            />
+                <Forms.Input
+                    id={'search'}
+                    className={'storybook-collections-list-search'}
+                    placeholder={'Search'}
+                    value={search}
+                    onChange={(event) => onSearch(event.target.value)}
+                />
+            </div>
+
+            <div className={'m-2'}>
+                <Buttons.Button type={'primary'} appendClassname={'mr-2'}>
+                    <Icons.Icon name={'plus'} className={'mr-2'}/> {'Create new'}
+                </Buttons.Button>
+
+                <Buttons.ButtonLink type={'secondary'} href={`${collection}/import`}>
+                    <Icons.Icon name={'cloud-upload'} className={'mr-2'}/> Bulk import
+                </Buttons.ButtonLink>
+            </div>
         </div>
-
-        <div className={'m-2'}>
-            <Buttons.Button type={'primary'} appendClassname={'mr-2'}>
-                <Icons.Icon name={'plus'} className={'mr-2'}/> {'Add ' + meta.singular}
-            </Buttons.Button>
-
-            <Buttons.ButtonLink type={'secondary'} href={`${collection}/import`}>
-                <Icons.Icon name={'cloud-upload'} className={'mr-2'}/> Bulk import
-            </Buttons.ButtonLink>
-        </div>
-    </div>
-</>
+    </>
+}
 
 const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-6'}>
     <div>
@@ -196,15 +199,17 @@ export const List = ({base_url, collection, search}) => {
         page: 1,
         sort: ''
     })
+
     const [deleteModal, setDeleteModal] = useState({
         open: false
     })
 
-
     // Request is done after the user stops typing
     useEffect(() => {
-        const timeoutId = setTimeout(() => Request(params), 500);
-        return () => clearTimeout(timeoutId);
+        if(params.search) {
+            const timeoutId = setTimeout(() => Request(params), 500);
+            return () => clearTimeout(timeoutId);
+        }
     }, [params.search])
 
     const Request = (params = {}) => {
@@ -246,7 +251,7 @@ export const List = ({base_url, collection, search}) => {
         <div>
             <Header
                 collection={collection}
-                meta={data.meta}
+                info={data.info}
                 search={params.search}
                 onSearch={search => {
                     setParams({...params, search, page: 1})
@@ -266,23 +271,23 @@ export const List = ({base_url, collection, search}) => {
             />
 
             <Tables.Table appendClassname={'storybook-list-table'}>
-                <TableHead sort={params.sort} fields={data.fields} onSort={name => handleSort(name)}/>
+                <TableHead sort={params.sort} fields={data.index} onSort={name => handleSort(name)}/>
                 {
                     searching &&
                     <tbody>
                     <tr className={'w-full'}>
-                        <td colSpan={data.fields.length + 1}><Loading/></td>
+                        <td colSpan={data.index.length + 1}><Loading/></td>
                     </tr>
                     </tbody>
                 }
                 {
                     !searching &&
                     <TableBody
-                        meta={data.meta}
+                        info={data.info}
                         deleteUrl={`${base_url}/${collection}/`}
                         items={data.data}
                         onDelete={newItems => setData({...data, data: newItems})}
-                        fields={data.fields}
+                        fields={data.index}
                         setDeleteModal={field => {
                             setDeleteModal({...deleteModal, open: !deleteModal.open, field})
                         }}

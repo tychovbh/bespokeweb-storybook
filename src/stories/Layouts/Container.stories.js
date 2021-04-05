@@ -1,6 +1,6 @@
 import React from "react";
-import '../../styles/style.css';
-import {Layouts} from '../../'
+import 'bespokeweb-storybook/styles/style.css';
+import {Layouts} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Layouts/Container',

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import '../../styles/style.css'
-import {Navigations, Icons, Buttons} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Navigations, Icons} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Navigations/Sidebar',

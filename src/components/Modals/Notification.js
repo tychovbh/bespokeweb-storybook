@@ -1,7 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {Texts, Buttons} from '../../';
-import {Icons} from '../../'
+import React from "react"
+import PropTypes from "prop-types"
+import {Texts, Buttons, Icons} from 'bespokeweb-storybook'
 
 const icons = {
     success: {
@@ -16,10 +15,10 @@ const icons = {
         className: 'text-red-500',
         icon: 'exclamation-shield'
     },
-};
+}
 
 export const Notification = ({id, className, appendClassname, children, type, title, description}) => {
-    const typeClass = type ? ' storybook-modals-notification-' + type : '';
+    const typeClass = type ? ' storybook-modals-notification-' + type : ''
 
     if (children) {
         return <div
@@ -52,7 +51,8 @@ export const Notification = ({id, className, appendClassname, children, type, ti
             </div>
         </div>
     </div>
-};
+}
+
 Notification.propTypes = {
     /**
      * The id of the Container
@@ -76,4 +76,4 @@ Notification.propTypes = {
 };
 Notification.defaultProps = {
     appendClassname: ''
-};
+}

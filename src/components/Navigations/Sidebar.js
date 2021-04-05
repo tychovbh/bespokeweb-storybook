@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
-import {Buttons, Icons} from '../../'
+import {Buttons, Icons} from 'bespokeweb-storybook'
 
 export const SidebarNav = ({id, className, appendClassname, navRef, children, state, setState}) => {
 

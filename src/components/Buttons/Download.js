@@ -20,7 +20,7 @@ export const Download = ({id, className, appendClassname, children, onClick}) =>
             Download
         </button>
     </div>
-};
+}
 
 Download.propTypes = {
     /**
@@ -52,11 +52,11 @@ Download.propTypes = {
      * The onClick function of the Buttons
      */
     onClick: PropTypes.func
-};
+}
 
 Download.defaultProps = {
     appendClassname: '',
     type: 'default',
     onClick: () => {
     }
-};
+}
