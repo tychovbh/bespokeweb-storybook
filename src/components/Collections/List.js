@@ -92,7 +92,6 @@ const Loading = () => <div className={'h-64 flex justify-center items-center'}>
 </div>
 
 const Header = ({info = {}, search, onSearch, collection}) => {
-    console.log(info)
     return <>
         <Texts.Heading appendClassname={'text-center mb-8'}>
             {info.label || ''}
@@ -112,11 +111,11 @@ const Header = ({info = {}, search, onSearch, collection}) => {
             </div>
 
             <div className={'m-2'}>
-                <Buttons.Button type={'primary'} appendClassname={'mr-2'}>
+                <Buttons.Button type={'primary'} appendClassname={'mr-2'} href={`/${collection}/create`}>
                     <Icons.Icon name={'plus'} className={'mr-2'}/> {'Create new'}
                 </Buttons.Button>
 
-                <Buttons.ButtonLink type={'secondary'} href={`${collection}/import`}>
+                <Buttons.ButtonLink type={'secondary'} href={`/${collection}/import`}>
                     <Icons.Icon name={'cloud-upload'} className={'mr-2'}/> Bulk import
                 </Buttons.ButtonLink>
             </div>
