@@ -69,7 +69,7 @@ const TableBody = ({deleteUrl, items, fields, onDelete, info, setDeleteModal}) =
     return <tbody>
     {
         items.map((item, index) => <tr key={index}>
-                {fields.map((field, fieldIndex) => <td key={fieldIndex}>{item[field.name]}</td>)}
+                {fields.map((field, fieldIndex) => <td key={`${index}-${fieldIndex}`}>{item[field.name]}</td>)}
                 <td className={'storybook-list-table-body-actions'}>
                     <Buttons.Button appendClassname={'button-icon'}>
                         <Icons.Icon name={'eye'} className={'text-green-400 w-4'}/>
@@ -111,9 +111,9 @@ const Header = ({info = {}, search, onSearch, collection}) => {
             </div>
 
             <div className={'m-2'}>
-                <Buttons.Button type={'primary'} appendClassname={'mr-2'} href={`/${collection}/create`}>
+                <Buttons.ButtonLink type={'primary'} appendClassname={'mr-2'} href={`/${collection}/create`}>
                     <Icons.Icon name={'plus'} className={'mr-2'}/> {'Create new'}
-                </Buttons.Button>
+                </Buttons.ButtonLink>
 
                 <Buttons.ButtonLink type={'secondary'} href={`/${collection}/import`}>
                     <Icons.Icon name={'cloud-upload'} className={'mr-2'}/> Bulk import
