@@ -14,7 +14,7 @@ Example.args = {
     base_url: process.env.STORYBOOK_BASE_URL,
     collection: process.env.STORYBOOK_COLLECTION,
     search: {
-        user_id: 2,
+        user_id: process.env.STORYBOOK_USER_ID,
         additionals: ['index', 'info'],
     }
 }

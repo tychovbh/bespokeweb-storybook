@@ -14,16 +14,16 @@ Create.args = {
     base_url: process.env.STORYBOOK_BASE_URL,
     collection: process.env.STORYBOOK_COLLECTION,
     params: {
-        user_id: 2,
+        user_id: process.env.STORYBOOK_USER_ID,
     }
 }
 
 export const Edit = Template.bind({})
 Edit.args = {
-    id: 1,
+    id: process.env.STORYBOOK_RECORD_ID,
     base_url: process.env.STORYBOOK_BASE_URL,
     collection: process.env.STORYBOOK_COLLECTION,
     params: {
-        user_id: 2,
+        user_id: process.env.STORYBOOK_USER_ID,
     }
 }

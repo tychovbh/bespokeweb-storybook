@@ -2,13 +2,13 @@ import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 import {Loaders, Buttons, Lists, Collections, Texts} from 'bespokeweb-storybook'
 
-export const Show = ({base_url, collection, id}) => {
+export const Show = ({base_url, collection, id, params = {}}) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         setLoading(true)
-        Axios.get(`${base_url}/${collection}/${id}`)
+        Axios.get(`${base_url}/${collection}/${id}`, {params})
             .then(response => {
                 setData(response.data)
                 setLoading(false)
@@ -20,6 +20,7 @@ export const Show = ({base_url, collection, id}) => {
             <Loaders.Circle/>
         </div>
     }
+
 
     return <div className={'storybook-collections-show'}>
         <div className={'storybook-collections-show-buttons'}>
@@ -33,10 +34,10 @@ export const Show = ({base_url, collection, id}) => {
 
         <Lists.Container>
             <Lists.Header>
-                <Texts.Heading type={'h3'}>{data.meta.singular || ''}</Texts.Heading>
+                <Texts.Heading type={'h3'}>{data.info.label || ''}</Texts.Heading>
             </Lists.Header>
             {
-                data.fields.map((field, index) => <Lists.Row key={index}>
+                data.show.map((field, index) => <Lists.Row key={index}>
                         <Lists.Column type={'dt'}>{field.label}</Lists.Column>
                         <Lists.Column>{data.data[field.name] ?? ''}</Lists.Column>
                     </Lists.Row>
@@ -45,9 +46,10 @@ export const Show = ({base_url, collection, id}) => {
 
         </Lists.Container>
 
-        {
+   {
+       /* TODO to implement when relations make sence
+       /*     {
             data.relations.map((relation, index) => {
-                console.log(relation)
                 return <Collections.List
                     key={index}
                     base_url={base_url}
@@ -57,6 +59,6 @@ export const Show = ({base_url, collection, id}) => {
                     }}
                 />
             })
-        }
+        }*/}
     </div>
 }

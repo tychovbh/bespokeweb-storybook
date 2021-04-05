@@ -9,27 +9,12 @@ export const Save = ({base_url, collection, id, return_url, params = {}}) => {
     const endpoint = `${base_url}/${collection}/${id ? `${id}/edit` : 'create'}`
 
     useEffect(() => {
-        axios.get(endpoint, {
-            params
-        })
+        axios.get(endpoint, {params})
             .then(response => {
                 setForm(response.data.data)
                 setLoading(false)
             })
     }, [])
-
-    const handleSubmit = (event, model) => {
-        event.preventDefault()
-        axios.post(endpoint, model)
-            .then(response => {
-                if (response.data) {
-                    window.location.href = return_url || `/${collection}`
-                }
-            })
-            .catch(e => {
-                console.log(e)
-            })
-    }
 
     if (isLoading) {
         return <div className={'h-64 flex justify-center items-center'}>
@@ -40,7 +25,7 @@ export const Save = ({base_url, collection, id, return_url, params = {}}) => {
     if (!form.title) {
         return <></>
     }
-    
+
     return <div>
         <div className={'collections-buttons'}>
             {/*<Link to={`/dashboard/${collection}`}>*/}
@@ -53,7 +38,10 @@ export const Save = ({base_url, collection, id, return_url, params = {}}) => {
                 defaults={form.defaults}
                 method={'post'}
                 action={form.route}
-                onSubmit={handleSubmit}
+                onResponse={data => {
+                    console.log(data)
+                    // window.location.href = return_url || `/${collection}`
+                }}
                 components={{
                     title: Texts.Heading,
                     field: Forms.Field,
