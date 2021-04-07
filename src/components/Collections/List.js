@@ -47,15 +47,9 @@ const TableHead = ({sort, fields, onSort}) => <thead>
 </tr>
 </thead>
 
-const TableBody = ({deleteUrl, items, fields, onDelete, info, setDeleteModal}) => {
+const TableBody = ({items, fields, info, setDeleteModal, collection}) => {
     const Delete = (item) => {
         setDeleteModal(item)
-
-        // Axios.delete(deleteUrl + id)
-        //     .then(response => {`
-        //         const allData = items.filter(item => item.id !== id)
-        //         onDelete(allData)
-        //     }).catch(err => console.log(err))
     }
 
     if (!items.length) {
@@ -71,12 +65,12 @@ const TableBody = ({deleteUrl, items, fields, onDelete, info, setDeleteModal}) =
         items.map((item, index) => <tr key={index}>
                 {fields.map((field, fieldIndex) => <td key={`${index}-${fieldIndex}`}>{item[field.name]}</td>)}
                 <td className={'storybook-list-table-body-actions'}>
-                    <Buttons.Button appendClassname={'button-icon'}>
+                    <Buttons.ButtonLink href={`/${collection}/${item.id}`} appendClassname={'button-icon'}>
                         <Icons.Icon name={'eye'} className={'text-green-400 w-4'}/>
-                    </Buttons.Button>
-                    <Buttons.Button appendClassname={'button-icon'}>
+                    </Buttons.ButtonLink>
+                    <Buttons.ButtonLink href={`/${collection}/${item.id}/edit`} appendClassname={'button-icon'}>
                         <Icons.Icon name={'pencil'} className={'text-orange-400 w-4'}/>
-                    </Buttons.Button>
+                    </Buttons.ButtonLink>
                     <Buttons.Button onClick={() => Delete(item)} appendClassname={'button-icon'}>
                         <Icons.Icon name={'x-circle'} className={'text-red-400 w-4'}/>
                     </Buttons.Button>
@@ -99,7 +93,7 @@ const Header = ({info = {}, search, onSearch, collection}) => {
 
         <div className={'storybook-collections-list-toolbar'}>
             <div className={'w-3/5 flex items-center'}>
-                <Icons.Icon name={'search'}  className={'w-5 mx-3'}/>
+                <Icons.Icon name={'search'} className={'w-5 mx-3'}/>
 
                 <Forms.Input
                     id={'search'}
@@ -148,12 +142,14 @@ const Pagination = ({meta, onPage}) => <div className={'flex justify-between mt-
     </div>
 </div>
 
-const DeleteModel = ({base_url, collection, field, open, onClose, onDelete}) => {
+const DeleteModel = ({base_url, collection, field, open, onClose, onDelete, params = {}}) => {
     const [deleteField, setDeleteField] = useState('')
 
     const Delete = (() => {
         // TODO receive error when can't delete e.g. having a relation
-        Axios.delete(`${base_url}/${collection}/${field.id}`)
+        Axios.delete(`${base_url}/${collection}/${field.id}`, {
+            params
+        })
             .then(response => {
                 onDelete()
                 onClose()
@@ -196,18 +192,18 @@ export const List = ({base_url, collection, search}) => {
         ...search,
         search: '',
         page: 1,
-        sort: ''
+        sort: '',
     })
 
     const [deleteModal, setDeleteModal] = useState({
-        open: false
+        open: false,
     })
 
     // Request is done after the user stops typing
     useEffect(() => {
-        if(params.search) {
-            const timeoutId = setTimeout(() => Request(params), 500);
-            return () => clearTimeout(timeoutId);
+        if (params.search) {
+            const timeoutId = setTimeout(() => Request(params), 500)
+            return () => clearTimeout(timeoutId)
         }
     }, [params.search])
 
@@ -258,6 +254,7 @@ export const List = ({base_url, collection, search}) => {
                 }}
             />
             <DeleteModel
+                params={params}
                 base_url={base_url}
                 collection={collection}
                 open={deleteModal.open}
@@ -282,15 +279,11 @@ export const List = ({base_url, collection, search}) => {
                 {
                     !searching &&
                     <TableBody
+                        collection={collection}
                         info={data.info}
-                        deleteUrl={`${base_url}/${collection}/`}
                         items={data.data}
-                        onDelete={newItems => setData({...data, data: newItems})}
                         fields={data.index}
-                        setDeleteModal={field => {
-                            setDeleteModal({...deleteModal, open: !deleteModal.open, field})
-                        }}
-                        collection={data.collection}
+                        setDeleteModal={field => setDeleteModal({...deleteModal, open: !deleteModal.open, field})}
                     />
                 }
             </Tables.Table>
@@ -307,5 +300,5 @@ List.propTypes = {
     /**
      * The endpoint
      */
-    endpoint: PropTypes.string
+    endpoint: PropTypes.string,
 }

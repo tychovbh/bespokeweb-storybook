@@ -27,20 +27,15 @@ export const Save = ({base_url, collection, id, return_url, params = {}}) => {
     }
 
     return <div>
-        <div className={'collections-buttons'}>
-            {/*<Link to={`/dashboard/${collection}`}>*/}
-            <Buttons.Button type={'success'}>Terug</Buttons.Button>
-            {/*</Link>*/}
-        </div>
-
         <div className={'storybook-collections-save-form'}>
             <Form
                 defaults={form.defaults}
                 method={'post'}
-                action={form.route}
-                onResponse={data => {
-                    console.log(data)
-                    // window.location.href = return_url || `/${collection}`
+                action={form.route + `?user_id=${params.user_id}`}
+                onResponse={response => {
+                    if ([201, 200].includes(response.status)) {
+                        window.location.href = return_url || `/${collection}`
+                    }
                 }}
                 components={{
                     title: Texts.Heading,
