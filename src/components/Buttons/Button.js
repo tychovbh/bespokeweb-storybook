@@ -5,12 +5,20 @@ import PropTypes from 'prop-types'
  * Primary UI component for user interaction
  */
 export const Button = ({id, className, appendClassname, children, type, onClick, disabled}) => {
-    let typeClass = type ? 'storybook-buttons-button-' + type : ''
+    let typeClass = type ? ' storybook-buttons-button-' + type : ''
+
+    if (appendClassname) {
+        typeClass += ' ' + appendClassname
+    }
+
+    if (disabled) {
+        typeClass += ' storybook-buttons-button-disabled'
+    }
 
     return <button
         id={id}
-        className={`${className} ${typeClass} ${appendClassname}`}
-        onClick={onClick}
+        className={`${className}${typeClass}`}
+        onClick={disabled ? null : onClick}
         disabled={disabled}
     >
         {children}
@@ -46,13 +54,19 @@ Button.propTypes = {
     /**
      * The onClick function of the Buttons
      */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+
+    /**
+     * The button is enabled/disabled
+     */
+    disabled: PropTypes.bool
 }
 
 Button.defaultProps = {
     className: 'storybook-buttons-button',
     appendClassname: '',
     type: 'default',
+    disabled: false,
     onClick: () => {
     }
 }

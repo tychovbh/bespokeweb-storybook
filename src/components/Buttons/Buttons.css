@@ -19,6 +19,7 @@
 .storybook-buttons-button-default {
     @apply bg-white;
     @apply text-black;
+    @apply cursor-default;
 }
 
 .storybook-buttons-button-primary {

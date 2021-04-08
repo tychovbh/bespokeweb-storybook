@@ -46,7 +46,7 @@
 
 /* Sidebar */
 .storybook-navigations-sidebar {
-    min-width: 300px;
+    width: 300px;
     @apply absolute;
     @apply h-full;
     @apply left-0 top-0;

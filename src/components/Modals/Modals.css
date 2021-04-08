@@ -3,19 +3,23 @@
     @apply bg-white;
     @apply overflow-hidden;
     @apply shadow;
-    @apply m-4;
-}
-
-/* Modal */
-.storybook-modals-model {
-    @apply z-50;
-}
-
-.storybook-modals-model .storybook-modals-container {
     width: 640px;
 }
 
-.storybook-models-onblur {
+/* Modal */
+.storybook-modals {
+    @apply z-50;
+    @apply w-full;
+    @apply h-full;
+}
+
+.storybook-modals-full .storybook-modals-container {
+    @apply w-full;
+    @apply h-full;
+    @apply rounded-none;
+}
+
+.storybook-modals-onblur {
     @apply w-full;
     @apply h-full;
     @apply absolute;
@@ -30,7 +34,11 @@
 }
 
 .storybook-modals-visible {
-    @apply flex justify-center items-center;
+    @apply flex;
+}
+
+.storybook-modals-default {
+    @apply justify-center items-center;
 }
 
 .storybook-modals-body {

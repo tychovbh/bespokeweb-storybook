@@ -31,7 +31,6 @@ export const Save = ({base_url, collection, id, return_url, params = {}}) => {
             <Form
                 defaults={form.defaults}
                 method={'post'}
-                action={form.route + `?user_id=${params.user_id}`}
                 onResponse={response => {
                     if ([201, 200].includes(response.status)) {
                         window.location.href = return_url || `/${collection}`
@@ -53,7 +52,7 @@ export const Save = ({base_url, collection, id, return_url, params = {}}) => {
                     label: Forms.Label,
                     submit: () => <Forms.Submit type={'primary'} title={'Opslaan'}/>,
                 }}
-                form={form}
+                form={{...form, route: form.route + `?user_id=${params.user_id}`}}
             />
         </div>
     </div>

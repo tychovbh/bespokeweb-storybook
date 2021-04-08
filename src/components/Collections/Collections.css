@@ -14,7 +14,7 @@
 
 .storybook-collections-list-toolbar {
     @apply flex justify-between;
-    @apply border rounded-lg;
+    @apply border;
     @apply mb-2;
 }
 
