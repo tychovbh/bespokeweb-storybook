@@ -2,38 +2,67 @@ import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 import {Loaders, Lists, Collections, Texts, Buttons, Modals} from 'bespokeweb-storybook'
 
-function map(html, data) {
-
+const Something = ({data}) => {
     if (Array.isArray(data)) {
-        data.map((item, key) => {
-            html += map(html, item)
-        })
-    } else {
-        for (let key in data) {
-            html += `<p>${key}: ${data[key]}</p>`
-        }
+        return <>
+            {data.map((item, index) => <Something key={index} data={item}/>)}
+        </>
     }
 
-    return html
+    const [open, setOpen] = useState(false)
+
+    return <>
+        <button onClick={() => setOpen(!open)}>open</button>
+        <Lists.Container open={open}>
+            {
+                Object.keys(data).map((key, index) => {
+                    const value = data[key]
+                    return <Lists.Row key={index}>
+                        <Lists.Column type={'dt'}>{key}</Lists.Column>
+                        <Lists.Column>
+                            {['object', 'array'].includes(typeof value) ? JSON.stringify(value) : value}
+                        </Lists.Column>
+                    </Lists.Row>
+                })
+            }
+        </Lists.Container>
+    </>
 }
 
-const Something = ({data}) => {
-    return <>
-        {data.map}
-    </>
+const List = ({title, fields, data, setModal}) => <Lists.Container>
+    <Lists.Header>
+        <Texts.Heading type={'h3'}>{title}</Texts.Heading>
+    </Lists.Header>
+    {
+        fields.map((field, index) => {
+                const Template = templates[field.type] || templates.default
+                return <Lists.Row key={index}>
+                    <Lists.Column type={'dt'}>{field.label}</Lists.Column>
+                    <Lists.Column>
+                        <Template field={field} data={data} setModal={setModal}/>
+                    </Lists.Column>
+                </Lists.Row>
+            },
+        )
+    }
+
+</Lists.Container>
+
+const Json = ({field, data, setModal}) => {
+    console.log(field, data)
+    return <div>
+        <Buttons.Button type={'dark'} onClick={() => {
+            setModal({open: true, content: () => <div>
+                    <p>Data:</p>
+                    <Something data={JSON.parse(data[field.name])}/>
+                </div>, params: {field}})
+        }}>open</Buttons.Button>
+    </div>
 }
 
 const templates = {
     default: ({field, data}) => <>{data[field.name] ?? ''}</>,
-    json: ({field, data, setModal}) => <div>
-        <Buttons.Button type={'dark'} onClick={() => {
-            setModal({open: true, content: () => <div>
-                    {
-
-                    }
-                </div>, params: {field}})
-        }}>open</Buttons.Button>
-    </div>
+    json: Json
 }
 
 const ShowModal = ({field, onClose, children, open}) => <Modals.Modal open={open}>
@@ -85,24 +114,11 @@ export const Show = ({base_url, database, collection, id, params = {}}) => {
             {modal.content && modal.content()}
         </ShowModal>}
         <div className={'storybook-collections-show'}>
-            <Lists.Container>
-                <Lists.Header>
-                    <Texts.Heading type={'h3'}>{data.info.label || ''}</Texts.Heading>
-                </Lists.Header>
-                {
-                    data.show.map((field, index) => {
-                            const Template = templates[field.type] || templates.default
-                            return <Lists.Row key={index}>
-                                <Lists.Column type={'dt'}>{field.label}</Lists.Column>
-                                <Lists.Column>
-                                    <Template field={field} data={data.data} setModal={setModal}/>
-                                </Lists.Column>
-                            </Lists.Row>
-                        },
-                    )
-                }
-
-            </Lists.Container>
+            <List
+                title={data.info.label || ''}
+                fields={data.show}
+                setModal={setModal}
+                data={data.data}/>
 
             {
                 data.relations.map((relation, index) => {

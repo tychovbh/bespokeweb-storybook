@@ -2,8 +2,20 @@
 .storybook-lists-container {
     @apply bg-white;
     @apply shadow;
-    @apply overflow-hidden;
+    @apply overflow-x-scroll;
     @apply rounded-lg;
+    @apply transition;
+    @apply duration-500;
+    @apply ease-in-out;
+    @apply visible;
+    @apply opacity-100;
+    @apply h-auto;
+}
+
+.storybook-lists-container-closed {
+    @apply invisible;
+    @apply opacity-0;
+    @apply h-0;
 }
 
 /* Header */

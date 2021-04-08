@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const Container = ({id, className, appendClassname, children}) => {
-    return <dl
-        id={id}
-        className={`${className ?? 'storybook-lists-container'} ${appendClassname}`}
-    >
+export const Container = ({id, className, appendClassname, children, open = true}) => {
+    className = className || `storybook-lists-container${appendClassname ? ` ${appendClassname}` : ''}`
+
+    if (!open) {
+        className += ' storybook-lists-container-closed'
+    }
+
+    return <dl id={id} className={className}>
         {children}
     </dl>
 };
