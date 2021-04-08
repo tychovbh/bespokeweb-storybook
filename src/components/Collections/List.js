@@ -184,12 +184,11 @@ const DeleteModel = ({base_url, collection, field, open, onClose, onDelete, para
     </Modals.Modal>
 }
 
-export const List = ({base_url, collection, search}) => {
+export const List = ({base_url, collection, params}) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
     const [searching, setSearching] = useState(false)
-    const [params, setParams] = useState({
-        ...search,
+    const [filters, setFilters] = useState({
         search: '',
         page: 1,
         sort: '',
@@ -201,15 +200,16 @@ export const List = ({base_url, collection, search}) => {
 
     // Request is done after the user stops typing
     useEffect(() => {
-        if (params.search) {
-            const timeoutId = setTimeout(() => Request(params), 500)
+        if (filters.search) {
+            const timeoutId = setTimeout(() => Request(filters), 500)
             return () => clearTimeout(timeoutId)
         }
-    }, [params.search])
+    }, [filters.search])
 
-    const Request = (params = {}) => {
+    const Request = (filters = {}) => {
         Axios.get(`${base_url}/${collection}`, {
             params: {
+                ...filters,
                 ...params,
                 paginate: '10',
             },
@@ -223,19 +223,19 @@ export const List = ({base_url, collection, search}) => {
     const handleSort = (name) => {
         let type = 'asc'
 
-        if (params.sort) {
-            const sort = params.sort.split(' ')
+        if (filters.sort) {
+            const sort = filters.sort.split(' ')
             if (sort[0] !== name || sort[1] === 'asc') {
                 type = 'desc'
             }
         }
 
-        setParams({...params, sort: name + ' ' + type})
-        Request({...params, sort: name + ' ' + type})
+        setFilters({...filters, sort: name + ' ' + type})
+        Request({...filters, sort: name + ' ' + type})
     }
 
     useEffect(() => {
-        Request(params)
+        Request()
     }, [])
 
     if (isLoading) {
@@ -247,14 +247,14 @@ export const List = ({base_url, collection, search}) => {
             <Header
                 collection={collection}
                 info={data.info}
-                search={params.search}
+                search={filters.search}
                 onSearch={search => {
-                    setParams({...params, search, page: 1})
+                    setFilters({...filters, search, page: 1})
                     setSearching(true)
                 }}
             />
             <DeleteModel
-                params={params}
+                params={filters}
                 base_url={base_url}
                 collection={collection}
                 open={deleteModal.open}
@@ -262,12 +262,12 @@ export const List = ({base_url, collection, search}) => {
                 onClose={() => setDeleteModal({...deleteModal, open: !deleteModal.open})}
                 onDelete={() => {
                     setSearching(true)
-                    Request(params)
+                    Request(filters)
                 }}
             />
 
             <Tables.Table appendClassname={'storybook-list-table'}>
-                <TableHead sort={params.sort} fields={data.index} onSort={name => handleSort(name)}/>
+                <TableHead sort={filters.sort} fields={data.index} onSort={name => handleSort(name)}/>
                 {
                     searching &&
                     <tbody>
@@ -289,8 +289,8 @@ export const List = ({base_url, collection, search}) => {
             </Tables.Table>
 
             <Pagination meta={data.meta} onPage={page => {
-                setParams({...params, page})
-                Request({...params, page})
+                setFilters({...filters, page})
+                Request({...filters, page})
             }}/>
         </div>
     </div>
