@@ -8,10 +8,6 @@
 .storybook-buttons-button:disabled {
 }
 
-.storybook-buttons-button svg {
-    @apply w-5;
-}
-
 .storybook-buttons-button:hover {
     @apply cursor-pointer;
 }
