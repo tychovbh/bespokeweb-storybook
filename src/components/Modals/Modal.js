@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
-import PropTypes from 'prop-types';
+import React, {useEffect} from 'react'
+import PropTypes from 'prop-types'
 
 export const Overlay = ({id, className, appendClassname, children, open, type}) => {
-    let showClass = open ? ' storybook-modals-visible' : '';
+    let showClass = open ? ' storybook-modals-visible' : ''
 
     if (appendClassname) {
         showClass += ' ' + appendClassname
@@ -14,25 +14,29 @@ export const Overlay = ({id, className, appendClassname, children, open, type}) 
     >
         {children}
     </div>
-};
+}
 
 export const Modal = ({children, open, onClose, type = 'default'}) => {
     useEffect(() => {
         if (open) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.body.classList.add('no-scroll');
+            window.scrollTo({top: 0, behavior: 'smooth'})
+            document.body.classList.add('storybook-no-scroll')
         } else {
-            document.body.classList.remove('no-scroll');
+            document.body.classList.remove('storybook-no-scroll')
         }
-    }, [open]);
+
+        return () => {
+            document.body.classList.remove('storybook-no-scroll')
+        }
+    }, [open])
+
+
 
     return <Overlay open={open} onClose={onClose} type={type}>
         <div className={'storybook-modals-onblur'} onClick={onClose}/>
-        <div className={`storybook-modals`}>
-            {children}
-        </div>
+        {children}
     </Overlay>
-};
+}
 
 Modal.propTypes = {
     /**
@@ -53,10 +57,10 @@ Modal.propTypes = {
     /**
      * Modal Type
      */
-    type: PropTypes.string
-};
+    type: PropTypes.string,
+}
 
 Modal.defaultProps = {
     open: false,
-    type: 'default'
-};
+    type: 'default',
+}

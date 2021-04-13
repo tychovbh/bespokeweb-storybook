@@ -17,6 +17,7 @@ const Json = ({value, setModal}) => {
 const templates = {
     default: ({value}) => <>{value ?? ''}</>,
     json: Json,
+    jsonb: Json,
     tinyint: ({value}) => <Forms.Toggle value={Boolean(value)} disabled/>
 }
 
@@ -33,7 +34,7 @@ const ShowJson = ({data, index, setModal}) => {
         <div className={'lists-toggle-bar'}>
             <Buttons.Button type={'dark'} onClick={() => setOpen(!open)}>
                 <div className={'lists-toggle-bar-button'}>
-                open json &nbsp;<Icons.Icon name={open ? 'chevron-up' : 'chevron-down'} className={'w-32'}/>
+                open json &nbsp;<Icons.Icon name={open ? 'chevron-up' : 'chevron-down'} className={'w-8'}/>
                 </div>
             </Buttons.Button>
         </div>
@@ -71,7 +72,7 @@ const ShowJson = ({data, index, setModal}) => {
 
 const List = ({title, fields, data, setModal}) => <Lists.Container>
     <Lists.Header>
-        <Texts.Heading type={'h3'}>{title}</Texts.Heading>
+        <Texts.Heading type={'h3'}>Record</Texts.Heading>
     </Lists.Header>
     {
         fields.map((field, index) => {
@@ -140,11 +141,12 @@ export const Show = ({base_url, database, collection, id, params = {}}) => {
                 setModal={setModal}
                 data={data.data}/>
 
+                <Texts.Heading type={'h3'} className={'my-8'}>Relations</Texts.Heading>
             {
-                data.relations.map((relation, index) => {
+                data.relations.filter(relation => relation['type'] === 'hasMany').map((relation, index) => {
                     return <Collections.List
                         key={index}
-                        relation
+                        relation={relation}
                         base_url={base_url}
                         collection={`${database}/${relation.name}`}
                         params={{

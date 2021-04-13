@@ -1,16 +1,10 @@
 .storybook-modals-container {
     @apply rounded-lg;
     @apply bg-white;
-    @apply overflow-hidden;
+    @apply overflow-y-scroll;
     @apply shadow;
-    width: 640px;
-}
-
-/* Modal */
-.storybook-modals {
     @apply z-50;
-    @apply w-full;
-    @apply h-full;
+    width: 640px;
 }
 
 .storybook-modals-full .storybook-modals-container {
@@ -23,7 +17,7 @@
     @apply w-full;
     @apply h-full;
     @apply absolute;
-    @apply z-50;
+    @apply z-40;
 }
 
 .storybook-modals-overlay {
@@ -31,6 +25,7 @@
     background: rgba(0, 0, 0, .33);
     @apply absolute;
     @apply top-0 bottom-0 left-0 right-0;
+    @apply z-30;
 }
 
 .storybook-modals-visible {
@@ -99,4 +94,8 @@
 .storybook-modals-notification-close .storybook-button-default {
     @apply p-0;
     @apply bg-transparent;
+}
+
+.storybook-no-scroll {
+    overflow-y: hidden;
 }

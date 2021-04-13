@@ -85,12 +85,14 @@ const Loading = () => <div className={'h-64 flex justify-center items-center'}>
     <Loaders.Circle/>
 </div>
 
-const Header = ({info = {}, search, onSearch, collection}) => {
+const Header = ({info = {}, search, onSearch, collection, relation}) => {
     return <>
-        <Texts.Heading appendClassname={'text-center mb-8'}>
-            {info.label || ''}
-        </Texts.Heading>
+        {
+            !relation.name && <Texts.Heading appendClassname={'text-center mb-8'}>
+                {info.label || ''}
+            </Texts.Heading>
 
+        }
         <div className={'storybook-collections-list-toolbar'}>
             <div className={'w-3/5 flex items-center'}>
                 <Icons.Icon name={'search'} className={'w-5 mx-3'}/>
@@ -148,7 +150,7 @@ const DeleteModel = ({base_url, collection, field, open, onClose, onDelete, para
     const Delete = (() => {
         // TODO receive error when can't delete e.g. having a relation
         Axios.delete(`${base_url}/${collection}/${field.id}`, {
-            params
+            params,
         })
             .then(response => {
                 onDelete()
@@ -184,7 +186,7 @@ const DeleteModel = ({base_url, collection, field, open, onClose, onDelete, para
     </Modals.Modal>
 }
 
-export const List = ({base_url, collection, params}) => {
+const Item = ({base_url, collection, params, relation}) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
     const [searching, setSearching] = useState(false)
@@ -245,6 +247,7 @@ export const List = ({base_url, collection, params}) => {
     return <div className={'mt-12'}>
         <div>
             <Header
+                relation={relation}
                 collection={collection}
                 info={data.info}
                 search={filters.search}
@@ -292,6 +295,20 @@ export const List = ({base_url, collection, params}) => {
                 setFilters({...filters, page})
                 Request({...filters, page})
             }}/>
+        </div>
+    </div>
+}
+export const List = ({base_url, collection, params, relation = {}}) => {
+    const [visible, setVisible] = useState(!relation.name)
+
+    return <div className={'border-t'}>
+        <div className={'lists-toggle-bar'}>
+            <Buttons.Button type={'dark'} onClick={() => setVisible(!visible)}>
+                <div className={'lists-toggle-bar-button'}>
+                    {relation.label} &nbsp;<Icons.Icon name={visible ? 'chevron-up' : 'chevron-down'} className={'w-8'}/>
+                </div>
+            </Buttons.Button>
+            {visible && <Item base_url={base_url} collection={collection} params={params} relation={relation}/>}
         </div>
     </div>
 }
