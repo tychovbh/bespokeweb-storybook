@@ -1,6 +1,6 @@
 import React from "react";
-import '../../styles/style.css';
-import {Feedbacks, Texts, Buttons} from '../../';
+import 'bespokeweb-storybook/styles/style.css';
+import {Feedbacks, Texts, Buttons} from 'bespokeweb-storybook';
 
 export default {
     title: 'Example/Feedbacks/Alert',

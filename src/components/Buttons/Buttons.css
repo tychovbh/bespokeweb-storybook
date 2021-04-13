@@ -1,58 +1,74 @@
-.storybook-button {
+.storybook-buttons-button {
     @apply py-2 px-4;
     @apply rounded-lg;
+    @apply inline-flex items-center;
+    white-space: nowrap;
 }
 
-.storybook-button:hover {
+.storybook-buttons-button:disabled {
+}
+
+.storybook-buttons-button:hover {
     @apply cursor-pointer;
 }
 
-.storybook-button-default {
+.storybook-buttons-button-default {
     @apply bg-white;
     @apply text-black;
+    @apply cursor-default;
 }
 
-.storybook-button-primary {
+.storybook-buttons-button-primary {
     @apply bg-blue-500;
     @apply text-white;
 }
 
-.storybook-button-secondary {
+.storybook-buttons-button-primary:disabled {
+    @apply bg-blue-300;
+    @apply cursor-not-allowed;
+}
+
+.storybook-buttons-button-secondary {
     @apply bg-gray-400;
     @apply text-white;
 }
 
-.storybook-button-success {
+.storybook-buttons-button-success {
     @apply bg-green-400;
     @apply text-white;
 }
 
-.storybook-button-warning {
+.storybook-buttons-button-warning {
     @apply bg-orange-400;
     @apply text-white;
 }
 
-.storybook-button-danger {
+.storybook-buttons-button-danger {
     @apply bg-red-400;
     @apply text-white;
 }
 
-.storybook-button-info {
+.storybook-buttons-button-danger:disabled {
+    @apply bg-red-300;
+    @apply cursor-not-allowed;
+}
+
+.storybook-buttons-button-info {
     @apply bg-blue-300;
     @apply text-white;
 }
 
-.storybook-button-light {
+.storybook-buttons-button-light {
     @apply bg-gray-100;
     @apply text-gray-900;
 }
 
-.storybook-button-dark {
+.storybook-buttons-button-dark {
     @apply bg-gray-800;
     @apply text-white;
 }
 
-.storybook-button-link {
+.storybook-buttons-button-link {
     @apply bg-transparent;
     @apply text-gray-800;
     @apply underline;

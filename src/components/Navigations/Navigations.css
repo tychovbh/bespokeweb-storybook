@@ -46,12 +46,12 @@
 
 /* Sidebar */
 .storybook-navigations-sidebar {
-    min-width: 300px;
-    @apply absolute;
+    width: 300px;
+    @apply fixed;
     @apply h-full;
     @apply left-0 top-0;
     @apply bg-white;
-    @apply pt-5 pb-4;
+    @apply pt-16 pb-4;
     @apply border-r border-gray-200;
     @apply overflow-y-auto;
     @apply flex flex-col flex-grow;
@@ -114,4 +114,11 @@
 /* Dropdown */
 .storybook-navigations-dropdown .storybook-navigations-nav-link:hover {
     background: inherit;
+}
+
+.navigations-sidebar-hamburger {
+    @apply fixed;
+    @apply p-0;
+    top: 15px;
+    left: 15px;
 }

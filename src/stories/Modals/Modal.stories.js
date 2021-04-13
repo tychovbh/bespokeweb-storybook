@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import '../../styles/style.css';
-import {Modals, Buttons, Texts} from '../../';
+import React, {useState} from "react"
+import 'bespokeweb-storybook/styles/style.css'
+import {Modals, Buttons, Texts} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Modals/Modal',
@@ -22,27 +22,27 @@ const Template = (args) => <Modals.Modal {...args}>
             <Buttons.Button type={'danger'}>Deactivate</Buttons.Button>
         </Modals.Footer>
     </Modals.Container>
-</Modals.Modal>;
+</Modals.Modal>
 
 const Template2 = (args) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
     return <>
         <Template {...args} open={open} onClose={() => setOpen(false)}/>
         <Buttons.Button type={'primary'} onClick={() => setOpen(true)}>Open model</Buttons.Button>
     </>
-};
+}
 
-export const Hidden = Template.bind({});
+export const Hidden = Template.bind({})
 Hidden.args = {
     open: false,
-};
+}
 
-export const Shown = Template.bind({});
+export const Shown = Template.bind({})
 Shown.args = {
     open: true,
-};
+}
 
-export const Simple = Template2.bind({});
+export const Simple = Template2.bind({})
 Simple.args = {
     open: false,
-};
+}

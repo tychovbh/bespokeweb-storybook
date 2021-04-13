@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../styles/style.css'
-import {Pages} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Pages} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Pages/Description',

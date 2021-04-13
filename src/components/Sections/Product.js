@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Texts, Buttons, Icons} from '../../'
+import {Texts, Buttons, Icons} from 'bespokeweb-storybook'
 
 export const Product = ({id, className, appendClassname, title, description, price, button, list}) => {
     return <div

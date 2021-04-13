@@ -1,6 +1,6 @@
 import React from "react";
-import '../../styles/style.css';
-import {Navigations} from '../../';
+import 'bespokeweb-storybook/styles/style.css';
+import {Navigations} from 'bespokeweb-storybook';
 import Logo from '../../assets/world-wide-web.svg'
 
 export default {

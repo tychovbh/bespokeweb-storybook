@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import '../../styles/style.css'
-import {Navigations, Icons, Buttons} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Navigations, Icons, Layouts} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Navigations/Sidebar',
@@ -105,6 +105,11 @@ const Template = (args) => {
                 </Navigations.Dropdown>
             </Navigations.Nav>
         </Navigations.Sidebar>
+        <Layouts.Container type={'sidebar'}>
+            <Layouts.Container>
+                <h1>Content</h1>
+            </Layouts.Container>
+        </Layouts.Container>
     </div>
 }
 

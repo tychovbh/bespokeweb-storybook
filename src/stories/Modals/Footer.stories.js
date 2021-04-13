@@ -1,6 +1,6 @@
 import React from "react";
-import '../../styles/style.css';
-import {Modals, Buttons} from '../../';
+import 'bespokeweb-storybook/styles/style.css';
+import {Modals, Buttons} from 'bespokeweb-storybook';
 
 export default {
     title: 'Example/Modals/Footer',

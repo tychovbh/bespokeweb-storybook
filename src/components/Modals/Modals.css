@@ -1,24 +1,23 @@
 .storybook-modals-container {
     @apply rounded-lg;
     @apply bg-white;
-    @apply overflow-hidden;
+    @apply overflow-y-scroll;
     @apply shadow;
-    @apply m-4;
-}
-
-/* Modal */
-.storybook-modals-model {
     @apply z-50;
-}
-
-.storybook-modals-model .storybook-modals-container {
     width: 640px;
 }
 
-.storybook-models-onblur {
+.storybook-modals-full .storybook-modals-container {
+    @apply w-full;
+    @apply h-full;
+    @apply rounded-none;
+}
+
+.storybook-modals-onblur {
     @apply w-full;
     @apply h-full;
     @apply absolute;
+    @apply z-40;
 }
 
 .storybook-modals-overlay {
@@ -26,10 +25,15 @@
     background: rgba(0, 0, 0, .33);
     @apply absolute;
     @apply top-0 bottom-0 left-0 right-0;
+    @apply z-30;
 }
 
 .storybook-modals-visible {
-    @apply flex justify-center items-center;
+    @apply flex;
+}
+
+.storybook-modals-default {
+    @apply justify-center items-center;
 }
 
 .storybook-modals-body {
@@ -90,4 +94,8 @@
 .storybook-modals-notification-close .storybook-button-default {
     @apply p-0;
     @apply bg-transparent;
+}
+
+.storybook-no-scroll {
+    overflow-y: hidden;
 }

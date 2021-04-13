@@ -1,5 +1,6 @@
 @import './index.css';
 @import '../components/Buttons/Buttons.css';
+@import '../components/Collections/Collections.css';
 @import '../components/Dashboards/Dashboards.css';
 @import '../components/Dropdowns/Dropdowns.css';
 @import '../components/Elements/Elements.css';
@@ -14,4 +15,3 @@
 @import '../components/Tables/Tables.css';
 @import '../components/Texts/Texts.css';
 @import '../components/Forms/Forms.css';
-

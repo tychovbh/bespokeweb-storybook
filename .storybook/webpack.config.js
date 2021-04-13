@@ -1,6 +1,7 @@
 const path = require("path");
 
 module.exports = async ({ config, mode }) => {
+  config.resolve.alias['bespokeweb-storybook'] = path.resolve(__dirname, '../src')
   config.module.rules.push({
     test: /\.css$/,
     use: [

@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../styles/style.css'
-import {Icons} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Icons} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Icons',
@@ -52,9 +52,21 @@ Chevron_down.args = {
     className: 'w-64'
 };
 
+export const Chevron_left = Template.bind({});
+Chevron_left.args = {
+    name: 'chevron-left',
+    className: 'w-64'
+};
+
 export const Chevron_right = Template.bind({});
 Chevron_right.args = {
     name: 'chevron-right',
+    className: 'w-64'
+};
+
+export const Chevron_up = Template.bind({});
+Chevron_up.args = {
+    name: 'chevron-up',
     className: 'w-64'
 };
 
@@ -145,6 +157,18 @@ Pencil_alt.args = {
 export const Play = Template.bind({});
 Play.args = {
     name: 'play',
+    className: 'w-64'
+};
+
+export const Plus = Template.bind({});
+Plus.args = {
+    name: 'plus',
+    className: 'w-64'
+};
+
+export const Search = Template.bind({});
+Search.args = {
+    name: 'search',
     className: 'w-64'
 };
 

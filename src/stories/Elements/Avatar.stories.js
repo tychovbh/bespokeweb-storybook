@@ -1,6 +1,6 @@
 import React from "react";
-import '../../styles/style.css'
-import {Elements} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Elements} from 'bespokeweb-storybook'
 import Profile from '../../assets/profile.jpg'
 
 export default {

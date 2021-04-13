@@ -1,7 +1,6 @@
-import React from 'react';
-import '../../styles/style.css';
-import {Navigations} from '../../';
-import {Elements, Texts} from "../../index";
+import React from 'react'
+import 'bespokeweb-storybook/styles/style.css'
+import {Navigations, Elements, Texts} from 'bespokeweb-storybook'
 import Logo from '../../assets/world-wide-web.svg'
 import Avatar from '../../assets/profile.jpg'
 
@@ -23,7 +22,7 @@ const Template = (args) => <Navigations.Content {...args}>
         <Navigations.NavLink>Calendar</Navigations.NavLink>
     </Navigations.Nav>
     <Elements.Avatar img={Avatar}/>
-</Navigations.Content>;
+</Navigations.Content>
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

@@ -2,8 +2,20 @@
 .storybook-lists-container {
     @apply bg-white;
     @apply shadow;
-    @apply overflow-hidden;
-    @apply rounded-lg;
+    @apply overflow-x-scroll;
+    /*@apply rounded-lg;*/
+    @apply transition;
+    @apply duration-500;
+    @apply ease-in-out;
+    @apply visible;
+    @apply opacity-100;
+    @apply h-auto;
+}
+
+.storybook-lists-container-closed {
+    @apply invisible;
+    @apply opacity-0;
+    @apply h-0;
 }
 
 /* Header */
@@ -34,12 +46,6 @@
 }
 
 @media (min-width: 640px) {
-
-    /* Header */
-    .storybook-lists-header {
-        @apply px-6;
-    }
-
     /*Row*/
     .storybook-lists-row {
         @apply grid;
@@ -48,4 +54,19 @@
         @apply px-6;
         @apply col-span-2;
     }
+}
+
+.lists-toggle-bar {
+    @apply storybook-lists-header;
+    @apply w-full;
+    @apply border;
+    @apply border-t-0;
+}
+
+.lists-toggle-bar:nth-child(1) {
+    @apply border-t;
+}
+
+.lists-toggle-bar-button {
+    @apply flex items-center content-center;
 }

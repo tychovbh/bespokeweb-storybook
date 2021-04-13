@@ -1,16 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
-import {Buttons, Icons} from '../../'
+import {Buttons, Icons} from 'bespokeweb-storybook'
 
-export const SidebarNav = ({id, className, appendClassname, navRef, children, state, setState}) => {
-
-    return <div ref={navRef}
-                className={`storybook-navigations-sidebar${state ? ` storybook-navigations-sidebar-${state}` : ''}`}>
-        <div className={'storybook-navigations-sidebar-x'}>
-            <Buttons.Button onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
+export const SidebarNav = ({navRef, children, state, setState}) => {
+    return <div
+        ref={navRef}
+        className={`storybook-navigations-sidebar${state ? ` storybook-navigations-sidebar-${state}` : ''}`}>
+            <Buttons.Button onClick={() => setState(state !== 'open' ? 'open' : 'close')} appendClassname={'navigations-sidebar-hamburger'}>
                 <Icons.Icon name={'x'} className={'w-6'}/>
             </Buttons.Button>
-        </div>
         {children}
     </div>
 }
@@ -20,8 +18,8 @@ export const Sidebar = ({children}) => {
     const nav = useRef(null)
 
     const checkVisible = () => {
-        const box = nav.current.getBoundingClientRect();
-        const visible = !!(box.width && box.height);
+        const box = nav.current.getBoundingClientRect()
+        const visible = !!(box.width && box.height)
         setState(visible ? 'open' : 'close')
     }
 
@@ -30,8 +28,10 @@ export const Sidebar = ({children}) => {
     }, [])
 
     return <>
-        <Buttons.Button onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
-            <Icons.Icon name={'menu-alt-2'} className={'w-8'}/>
+        <Buttons.Button
+            appendClassname={'navigations-sidebar-hamburger'}
+            onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
+            <Icons.Icon name={'menu-alt-2'} className={'w-6'}/>
         </Buttons.Button>
 
         {
@@ -47,5 +47,5 @@ Sidebar.propTypes = {
 }
 Sidebar.defaultProps = {
     className: 'storybook-navigations-sidebar',
-    appendClassname: ''
+    appendClassname: '',
 }

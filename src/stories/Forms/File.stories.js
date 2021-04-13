@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import '../../styles/style.css'
-import {Forms} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Forms} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Forms/File',

@@ -8,7 +8,7 @@ export const Group = ({id, className, appendClassname, children}) => {
     >
         {children}
     </div>
-};
+}
 
 Group.propTypes = {
     /**
@@ -30,8 +30,8 @@ Group.propTypes = {
      * The title of the Buttons
      */
     children: PropTypes.string,
-};
+}
 
 Group.defaultProps = {
     appendClassname: '',
-};
+}

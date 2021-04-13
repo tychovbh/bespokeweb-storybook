@@ -1,0 +1,69 @@
+.button-icon {
+    @apply p-2;
+    @apply bg-transparent;
+}
+
+/* list */
+.storybook-list-table-body-actions {
+    width: 164px;
+}
+
+.storybook-list-table {
+    min-width: 1024px;
+}
+
+.storybook-collections-list-toolbar {
+    @apply flex justify-between;
+    @apply border;
+    @apply mb-2;
+}
+
+.storybook-collections-list-search {
+    @apply w-full h-full;
+}
+
+.storybook-collections-list-search:focus {
+    outline: none !important;
+}
+
+.storybook-collections-list-table-container {
+    @apply w-full;
+    @apply overflow-x-auto;
+    @apply shadow;
+    @apply rounded-lg;
+}
+
+.storybook-collections-list-th-sort:hover {
+    @apply cursor-pointer;
+}
+
+.storybook-collections-list-th-sort-asc .storybook-collections-list-th-sort-icons svg:first-child {
+    @apply hidden;
+}
+
+.storybook-collections-list-th-sort-desc .storybook-collections-list-th-sort-icons svg:last-child {
+    @apply hidden;
+}
+
+.storybook-collections-list-th-sort-body {
+    @apply flex items-center;
+    @apply relative;
+}
+
+.storybook-collections-list-th-sort-icons {
+    @apply w-2;
+    @apply ml-2;
+}
+
+
+/* Show */
+.storybook-collections-show-buttons {
+    @apply flex justify-between;
+    @apply mb-4;
+}
+
+/* Save */
+.storybook-collections-save-form {
+    width: 512px;
+    @apply mx-auto;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../styles/style.css'
-import {Buttons} from '../../';
+import {Buttons} from 'bespokeweb-storybook'
+import 'bespokeweb-storybook/styles/style.css'
 
 export default {
     title: 'Example/Buttons/Dropdown',

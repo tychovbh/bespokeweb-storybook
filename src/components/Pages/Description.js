@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Texts} from '../../'
+import {Texts} from 'bespokeweb-storybook'
 
 export const Description = ({id, className, appendClassname, children}) => {
     return <Texts.Primary

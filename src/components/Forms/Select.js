@@ -2,10 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export const Select = ({id, className, appendClassname, children, name, value, onChange}) => {
-    return <select id={id} name={name}
-                   className={`${className} ${appendClassname}`}
-                   defaultValue={value}
-                   onChange={onChange}
+    return <select
+        id={id}
+        name={name}
+        className={`${className}${appendClassname ? ` ${appendClassname}` : ''}`}
+        value={value}
+        onChange={onChange}
     >
         {children}
     </select>
@@ -45,5 +47,5 @@ Select.propTypes = {
 
 Select.defaultProps = {
     className: 'storybook-forms-input storybook-forms-select',
-    appendClassname: ''
+    appendClassname: '',
 }

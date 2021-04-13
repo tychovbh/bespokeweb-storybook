@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../styles/style.css'
-import {Loaders} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Loaders} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Loaders/Circle',

@@ -1,33 +1,42 @@
-import React, {useEffect} from "react";
-import PropTypes from 'prop-types';
+import React, {useEffect} from 'react'
+import PropTypes from 'prop-types'
 
-export const Overlay = ({id, className, appendClassname, children, open}) => {
-    const showClass = open ? 'storybook-modals-visible' : '';
+export const Overlay = ({id, className, appendClassname, children, open, type}) => {
+    let showClass = open ? ' storybook-modals-visible' : ''
+
+    if (appendClassname) {
+        showClass += ' ' + appendClassname
+    }
 
     return <div
         id={id}
-        className={`${className ?? 'storybook-modals-overlay'} ${showClass} ${appendClassname}`}
+        className={`${className || 'storybook-modals-overlay'}${showClass} storybook-modals-${type}`}
     >
         {children}
     </div>
-};
+}
 
-export const Modal = ({children, open, onClose}) => {
+export const Modal = ({children, open, onClose, type = 'default'}) => {
     useEffect(() => {
         if (open) {
-            document.body.classList.add('no-scroll');
+            window.scrollTo({top: 0, behavior: 'smooth'})
+            document.body.classList.add('storybook-no-scroll')
         } else {
-            document.body.classList.remove('no-scroll');
+            document.body.classList.remove('storybook-no-scroll')
         }
-    }, [open]);
 
-    return <Overlay open={open} onClose={onClose}>
-        <div className={'storybook-models-onblur'} onClick={onClose}/>
-        <div className={'storybook-modals-model'}>
-            {children}
-        </div>
+        return () => {
+            document.body.classList.remove('storybook-no-scroll')
+        }
+    }, [open])
+
+
+
+    return <Overlay open={open} onClose={onClose} type={type}>
+        <div className={'storybook-modals-onblur'} onClick={onClose}/>
+        {children}
     </Overlay>
-};
+}
 
 Modal.propTypes = {
     /**
@@ -43,9 +52,15 @@ Modal.propTypes = {
     /**
      * The onClose method of the Modal
      */
-    onClose: PropTypes.func
-};
+    onClose: PropTypes.func,
+
+    /**
+     * Modal Type
+     */
+    type: PropTypes.string,
+}
 
 Modal.defaultProps = {
-    show: false
-};
+    open: false,
+    type: 'default',
+}
