@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
-import {Loaders, Lists, Collections, Texts, Buttons, Modals, Icons, Forms} from 'bespokeweb-storybook'
+import {Loaders, Lists, Collections, Texts, Buttons, Modals, Icons, Forms, Layouts} from 'bespokeweb-storybook'
 
 const Json = ({value, setModal}) => {
     return <div>
@@ -71,9 +71,6 @@ const ShowJson = ({data, index, setModal}) => {
 }
 
 const List = ({title, fields, data, setModal}) => <Lists.Container>
-    <Lists.Header>
-        <Texts.Heading type={'h3'}>Record</Texts.Heading>
-    </Lists.Header>
     {
         fields.map((field, index) => {
                 const Template = templates[field.type] || templates.default
@@ -140,14 +137,15 @@ export const Show = ({base_url, database, collection, id, params = {}, buttons})
             })}>
             {modal.content && modal.content()}
         </ShowModal>}
-        <div className={'storybook-collections-show'}>
+        <Layouts.Container>
+            <Collections.Title>Record</Collections.Title>
             <List
                 title={data.info.label || ''}
                 fields={data.show}
                 setModal={setModal}
                 data={data.data}/>
 
-                <Texts.Heading type={'h3'} className={'my-8'}>Relations</Texts.Heading>
+            <Collections.Title>Relations</Collections.Title>
             {
                 data.relations.filter(relation => relation['type'] === 'hasMany').map((relation, index) => {
                     return <Collections.List
@@ -163,6 +161,6 @@ export const Show = ({base_url, database, collection, id, params = {}, buttons})
                     />
                 })
             }
-        </div>
+        </Layouts.Container>
     </>
 }

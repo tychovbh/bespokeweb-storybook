@@ -10,6 +10,7 @@ import {
     Icons,
     Modals,
     Collections,
+    Layouts
 } from 'bespokeweb-storybook'
 
 const TableHead = ({sort, fields, onSort}) => <thead>
@@ -102,19 +103,21 @@ const Header = ({info = {}, search, onSearch, collection, relation, buttons}) =>
             </>
         }
 
-        <div className={'storybook-collections-list-toolbar'}>
-            <label htmlFor={'search'} className={'w-5 mx-3 cursor-pointer'}>
-                <Icons.Icon name={'search'}/>
-            </label>
+        <Layouts.Container>
+            <div className={'storybook-collections-list-toolbar'}>
+                <label htmlFor={'search'} className={'w-5 mx-3 cursor-pointer'}>
+                    <Icons.Icon name={'search'}/>
+                </label>
 
-            <Forms.Input
-                id={'search'}
-                className={'storybook-collections-list-search'}
-                placeholder={'Search'}
-                value={search}
-                onChange={(event) => onSearch(event.target.value)}
-            />
-        </div>
+                <Forms.Input
+                    id={'search'}
+                    className={'storybook-collections-list-search'}
+                    placeholder={'Search'}
+                    value={search}
+                    onChange={(event) => onSearch(event.target.value)}
+                />
+            </div>
+        </Layouts.Container>
     </>
 }
 
@@ -243,32 +246,33 @@ const Item = ({base_url, collection, params, relation, buttons}) => {
         return <Loading/>
     }
 
-    return <div className={'mt-12'}>
-        <div>
-            <Header
-                relation={relation}
-                collection={collection}
-                buttons={buttons}
-                info={data.info}
-                search={filters.search}
-                onSearch={search => {
-                    setFilters({...filters, search, page: 1})
-                    setSearching(true)
-                }}
-            />
-            <DeleteModel
-                params={filters}
-                base_url={base_url}
-                collection={collection}
-                open={deleteModal.open}
-                field={deleteModal.field}
-                onClose={() => setDeleteModal({...deleteModal, open: !deleteModal.open})}
-                onDelete={() => {
-                    setSearching(true)
-                    Request(filters)
-                }}
-            />
+    return <>
 
+        <Header
+            relation={relation}
+            collection={collection}
+            buttons={buttons}
+            info={data.info}
+            search={filters.search}
+            onSearch={search => {
+                setFilters({...filters, search, page: 1})
+                setSearching(true)
+            }}
+        />
+        <DeleteModel
+            params={filters}
+            base_url={base_url}
+            collection={collection}
+            open={deleteModal.open}
+            field={deleteModal.field}
+            onClose={() => setDeleteModal({...deleteModal, open: !deleteModal.open})}
+            onDelete={() => {
+                setSearching(true)
+                Request(filters)
+            }}
+        />
+
+        <Layouts.Container>
             <Tables.Table>
                 <TableHead sort={filters.sort} fields={data.index} onSort={name => handleSort(name)}/>
                 {
@@ -295,8 +299,8 @@ const Item = ({base_url, collection, params, relation, buttons}) => {
                 setFilters({...filters, page})
                 Request({...filters, page})
             }}/>
-        </div>
-    </div>
+        </Layouts.Container>
+    </>
 }
 export const List = ({base_url, collection, params, relation = {}, buttons}) => {
     const [visible, setVisible] = useState(!relation.name)
