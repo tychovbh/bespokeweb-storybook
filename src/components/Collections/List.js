@@ -86,18 +86,21 @@ const Loading = () => <div className={'h-64 flex justify-center items-center'}>
     <Loaders.Circle/>
 </div>
 
-const Header = ({info = {}, search, onSearch, collection, relation}) => {
+const Header = ({info = {}, search, onSearch, collection, relation, buttons}) => {
     return <>
-        <Collections.Buttons>
-            <Buttons.ButtonLink type={'secondary'} appendClassname={'mr-4'} href={`/${collection}/import`}>
-                <Icons.Icon name={'cloud-upload'} className={'mr-2 w-5'}/> Bulk import
-            </Buttons.ButtonLink>
-            <Buttons.ButtonLink type={'primary'} href={`/${collection}/create`}>
-                <Icons.Icon name={'plus'} className={'mr-2 w-5'}/> {'new'}
-            </Buttons.ButtonLink>
-        </Collections.Buttons>
-
-        {!relation.name && <Collections.Title>Records</Collections.Title>}
+        {
+            !relation.name && <>
+                <Collections.Buttons button={buttons}>
+                    <Buttons.ButtonLink type={'secondary'} appendClassname={'mr-4'} href={`/${collection}/import`}>
+                        <Icons.Icon name={'cloud-upload'} className={'mr-2 w-5'}/> Bulk import
+                    </Buttons.ButtonLink>
+                    <Buttons.ButtonLink type={'primary'} href={`/${collection}/create`}>
+                        <Icons.Icon name={'plus'} className={'mr-2 w-5'}/> {'new'}
+                    </Buttons.ButtonLink>
+                </Collections.Buttons>
+                <Collections.Title>Records</Collections.Title>
+            </>
+        }
 
         <div className={'storybook-collections-list-toolbar'}>
             <label htmlFor={'search'} className={'w-5 mx-3 cursor-pointer'}>
@@ -182,7 +185,7 @@ const DeleteModel = ({base_url, collection, field, open, onClose, onDelete, para
     </Modals.Modal>
 }
 
-const Item = ({base_url, collection, params, relation}) => {
+const Item = ({base_url, collection, params, relation, buttons}) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
     const [searching, setSearching] = useState(false)
@@ -245,6 +248,7 @@ const Item = ({base_url, collection, params, relation}) => {
             <Header
                 relation={relation}
                 collection={collection}
+                buttons={buttons}
                 info={data.info}
                 search={filters.search}
                 onSearch={search => {
@@ -294,10 +298,15 @@ const Item = ({base_url, collection, params, relation}) => {
         </div>
     </div>
 }
-export const List = ({base_url, collection, params, relation = {}}) => {
+export const List = ({base_url, collection, params, relation = {}, buttons}) => {
     const [visible, setVisible] = useState(!relation.name)
 
-    const ListItem = () => <Item base_url={base_url} collection={collection} params={params} relation={relation}/>
+    const ListItem = () => <Item
+        base_url={base_url}
+        collection={collection}
+        params={params}
+        buttons={buttons}
+        relation={relation}/>
 
     if (!relation.name) {
         return <ListItem/>
@@ -307,8 +316,8 @@ export const List = ({base_url, collection, params, relation = {}}) => {
         <div className={'lists-toggle-bar'}>
             <Buttons.Button type={'dark'} onClick={() => setVisible(!visible)}>
                 <div className={'lists-toggle-bar-button'}>
-                    {relation.label} &nbsp;<Icons.Icon name={visible ? 'chevron-up' : 'chevron-down'}
-                                                       className={'w-8'}/>
+                    Relation: {relation.label} &nbsp;
+                    <Icons.Icon name={visible ? 'chevron-down' : 'chevron-up'} className={'w-8'}/>
                 </div>
             </Buttons.Button>
             {visible && <ListItem/>}

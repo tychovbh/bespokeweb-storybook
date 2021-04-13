@@ -14,9 +14,9 @@ Example.args = {
     base_url: process.env.STORYBOOK_BASE_URL,
     collection: 'managedat/databases',
     database: process.env.STORYBOOK_DATABASE,
-    id: process.env.STORYBOOK_RECORD_ID,
+    id: 1,
     params: {
-        user_id: process.env.STORYBOOK_USER_ID,
+        user_id: 1,
         additionals: ['show', 'info', 'relations']
     }
 }

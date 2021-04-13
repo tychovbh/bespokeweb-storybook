@@ -100,7 +100,7 @@ const ShowModal = ({onClose, children, open}) => <Modals.Modal open={open} type=
     </Modals.Container>
 </Modals.Modal>
 
-export const Show = ({base_url, database, collection, id, params = {}}) => {
+export const Show = ({base_url, database, collection, id, params = {}, buttons}) => {
     const [data, setData] = useState({})
     const [isLoading, setLoading] = useState(true)
     const [modal, setModal] = useState({
@@ -125,6 +125,12 @@ export const Show = ({base_url, database, collection, id, params = {}}) => {
 
 
     return <>
+        <Collections.Buttons buttons={buttons}>
+            <Buttons.ButtonLink href={collection} appendClassname={'mr-4'}>Back</Buttons.ButtonLink>
+            <Buttons.ButtonLink href={`${collection}/${id}/edit`} appendClassname={'mr-4'} type={'success'}>
+                Edit
+            </Buttons.ButtonLink>
+        </Collections.Buttons>
         {modal.open && <ShowModal
             {...modal.params}
             open={modal.open}
