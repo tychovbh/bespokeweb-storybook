@@ -13,7 +13,7 @@
 .storybook-tables-table {
     @apply w-full;
     @apply text-left;
-    /*@apply rounded-lg;*/
+    @apply rounded;
     @apply shadow;
     @apply overflow-hidden;
 }

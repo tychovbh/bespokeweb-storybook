@@ -9,6 +9,7 @@ import {
     Loaders,
     Icons,
     Modals,
+    Collections,
 } from 'bespokeweb-storybook'
 
 const TableHead = ({sort, fields, onSort}) => <thead>
@@ -87,34 +88,29 @@ const Loading = () => <div className={'h-64 flex justify-center items-center'}>
 
 const Header = ({info = {}, search, onSearch, collection, relation}) => {
     return <>
-        {
-            !relation.name && <Texts.Heading appendClassname={'text-center mb-8'}>
-                {info.label || ''}
-            </Texts.Heading>
+        <Collections.Buttons>
+            <Buttons.ButtonLink type={'secondary'} appendClassname={'mr-4'} href={`/${collection}/import`}>
+                <Icons.Icon name={'cloud-upload'} className={'mr-2 w-5'}/> Bulk import
+            </Buttons.ButtonLink>
+            <Buttons.ButtonLink type={'primary'} href={`/${collection}/create`}>
+                <Icons.Icon name={'plus'} className={'mr-2 w-5'}/> {'new'}
+            </Buttons.ButtonLink>
+        </Collections.Buttons>
 
-        }
+        {!relation.name && <Collections.Title>Records</Collections.Title>}
+
         <div className={'storybook-collections-list-toolbar'}>
-            <div className={'w-3/5 flex items-center'}>
-                <Icons.Icon name={'search'} className={'w-5 mx-3'}/>
+            <label htmlFor={'search'} className={'w-5 mx-3 cursor-pointer'}>
+                <Icons.Icon name={'search'}/>
+            </label>
 
-                <Forms.Input
-                    id={'search'}
-                    className={'storybook-collections-list-search'}
-                    placeholder={'Search'}
-                    value={search}
-                    onChange={(event) => onSearch(event.target.value)}
-                />
-            </div>
-
-            <div className={'m-2'}>
-                <Buttons.ButtonLink type={'primary'} appendClassname={'mr-2'} href={`/${collection}/create`}>
-                    <Icons.Icon name={'plus'} className={'mr-2'}/> {'Create new'}
-                </Buttons.ButtonLink>
-
-                <Buttons.ButtonLink type={'secondary'} href={`/${collection}/import`}>
-                    <Icons.Icon name={'cloud-upload'} className={'mr-2'}/> Bulk import
-                </Buttons.ButtonLink>
-            </div>
+            <Forms.Input
+                id={'search'}
+                className={'storybook-collections-list-search'}
+                placeholder={'Search'}
+                value={search}
+                onChange={(event) => onSearch(event.target.value)}
+            />
         </div>
     </>
 }
@@ -269,7 +265,7 @@ const Item = ({base_url, collection, params, relation}) => {
                 }}
             />
 
-            <Tables.Table appendClassname={'storybook-list-table'}>
+            <Tables.Table>
                 <TableHead sort={filters.sort} fields={data.index} onSort={name => handleSort(name)}/>
                 {
                     searching &&
@@ -311,7 +307,8 @@ export const List = ({base_url, collection, params, relation = {}}) => {
         <div className={'lists-toggle-bar'}>
             <Buttons.Button type={'dark'} onClick={() => setVisible(!visible)}>
                 <div className={'lists-toggle-bar-button'}>
-                    {relation.label} &nbsp;<Icons.Icon name={visible ? 'chevron-up' : 'chevron-down'} className={'w-8'}/>
+                    {relation.label} &nbsp;<Icons.Icon name={visible ? 'chevron-up' : 'chevron-down'}
+                                                       className={'w-8'}/>
                 </div>
             </Buttons.Button>
             {visible && <ListItem/>}

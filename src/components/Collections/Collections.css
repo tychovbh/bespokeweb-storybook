@@ -8,22 +8,20 @@
     width: 164px;
 }
 
-.storybook-list-table {
-    min-width: 1024px;
-}
-
 .storybook-collections-list-toolbar {
-    @apply flex justify-between;
+    @apply flex justify-between items-center;
     @apply border;
-    @apply mb-2;
+    @apply mb-4;
+    @apply rounded;
 }
 
 .storybook-collections-list-search {
     @apply w-full h-full;
+    @apply p-4;
 }
 
 .storybook-collections-list-search:focus {
-    outline: none !important;
+    outline: none;
 }
 
 .storybook-collections-list-table-container {
@@ -74,4 +72,9 @@
 
 .collections-buttons-title .storybook-texts-heading {
     @apply text-white;
+}
+
+.collections-title {
+    max-width: 250px;
+    @apply mx-auto;
 }

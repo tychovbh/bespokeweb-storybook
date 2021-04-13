@@ -1,11 +1,9 @@
 import React from 'react'
-import {FormSubmit} from 'react-form-foundry'
-import {Navigations, Texts, Buttons as ButtonsComponents} from 'bespokeweb-storybook'
+import {Navigations} from 'bespokeweb-storybook'
 
-export const Buttons = ({buttons, components}) => <Navigations.Topbar>
+export const Buttons = ({buttons, children}) => <Navigations.Topbar>
     <Navigations.Content appendClassname={'collections-buttons'}>
         {buttons && buttons()}
-        <ButtonsComponents.Button appendClassname={'mr-4'}>All Databases</ButtonsComponents.Button>
-        <FormSubmit components={components}/>
+        {children}
     </Navigations.Content>
 </Navigations.Topbar>

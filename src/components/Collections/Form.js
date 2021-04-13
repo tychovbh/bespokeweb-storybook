@@ -1,8 +1,9 @@
 import React from 'react'
-import {FormBuilder} from 'react-form-foundry'
-import {Texts, Forms, Collections} from 'bespokeweb-storybook'
+import {FormBuilder, FormSubmit} from 'react-form-foundry'
+import {Texts, Forms, Collections, Buttons as ButtonsComponents} from 'bespokeweb-storybook'
 
 export const Form = ({form, return_url, collection, params, buttons, id}) => {
+    return_url = return_url || `/${collection}`
     const components = {
         title: Texts.Heading,
         field: Forms.Field,
@@ -28,15 +29,16 @@ export const Form = ({form, return_url, collection, params, buttons, id}) => {
         method={'post'}
         onResponse={response => {
             if ([201, 200].includes(response.status)) {
-                window.location.href = return_url || `/${collection}`
+                window.location.href = return_url
             }
         }}
         components={components}
         form={{...form, route: form.route + `?user_id=${params.user_id}`}}
     >
-        <Collections.Buttons
-            components={components}
-            buttons={buttons}/>
+        <Collections.Buttons>
+            <ButtonsComponents.ButtonLink href={return_url} appendClassname={'mr-4'}>Back</ButtonsComponents.ButtonLink>
+            <FormSubmit components={components}/>
+        </Collections.Buttons>
         <Collections.Fields/>
     </FormBuilder>
 
