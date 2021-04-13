@@ -1,5 +1,6 @@
 export * as Buttons from './components/Buttons'
 export * as Dashboards from './components/Dashboards'
+export * as Dropdowns from './components/Dropdowns'
 export * as Layouts from './components/Layouts'
 export * as Elements from './components/Elements'
 export * as Feedbacks from './components/Feedbacks'
