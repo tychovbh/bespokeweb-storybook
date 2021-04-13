@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import Form from 'react-form-foundry'
-import {Buttons, Texts, Forms, Loaders} from 'bespokeweb-storybook'
+import {Loaders, Collections} from 'bespokeweb-storybook'
 
-export const Save = ({base_url, collection, id, return_url, params = {}}) => {
+export const Save = ({base_url, collection, id, return_url, params = {}, buttons}) => {
     const [form, setForm] = useState({})
     const [isLoading, setLoading] = useState(true)
     const endpoint = `${base_url}/${collection}/${id ? `${id}/edit` : 'create'}`
@@ -23,39 +22,20 @@ export const Save = ({base_url, collection, id, return_url, params = {}}) => {
     }
 
     if (!form.title) {
-        return <></>
+        return <>
+            <p>Oops something went wrong</p>
+        </>
     }
 
-    return <div>
-        <div className={'storybook-collections-save-form'}>
-            <Form
-                defaults={form.defaults}
-                method={'post'}
-                onResponse={response => {
-                    if ([201, 200].includes(response.status)) {
-                        window.location.href = return_url || `/${collection}`
-                    }
-                }}
-                components={{
-                    title: Texts.Heading,
-                    field: Forms.Field,
-                    input: ({name, value, onChange, type}) => <Forms.Input
-                        onChange={onChange}
-                        name={name}
-                        type={type}
-                        value={value}/>,
-                    select: ({name, value, onChange, children, label}) => <Forms.Select
-                        onChange={onChange}
-                        name={name}
-                        children={[<option key={'empty'}>Pick a {label}</option>].concat(children)}
-                        value={value}/>,
-                    label: Forms.Label,
-                    submit: () => <Forms.Submit type={'primary'} title={'Opslaan'}/>,
-                }}
-                form={{...form, route: form.route + `?user_id=${params.user_id}`}}
-            />
-        </div>
-    </div>
+    return <>
+        <Collections.Form
+            id={id}
+            form={form}
+            return_url={return_url}
+            collection={collection}
+            params={params}
+            buttons={buttons}/>
+    </>
 }
 
 export default Save

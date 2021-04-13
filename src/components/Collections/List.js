@@ -301,6 +301,12 @@ const Item = ({base_url, collection, params, relation}) => {
 export const List = ({base_url, collection, params, relation = {}}) => {
     const [visible, setVisible] = useState(!relation.name)
 
+    const ListItem = () => <Item base_url={base_url} collection={collection} params={params} relation={relation}/>
+
+    if (!relation.name) {
+        return <ListItem/>
+    }
+
     return <div className={'border-t'}>
         <div className={'lists-toggle-bar'}>
             <Buttons.Button type={'dark'} onClick={() => setVisible(!visible)}>
@@ -308,7 +314,7 @@ export const List = ({base_url, collection, params, relation = {}}) => {
                     {relation.label} &nbsp;<Icons.Icon name={visible ? 'chevron-up' : 'chevron-down'} className={'w-8'}/>
                 </div>
             </Buttons.Button>
-            {visible && <Item base_url={base_url} collection={collection} params={params} relation={relation}/>}
+            {visible && <ListItem/>}
         </div>
     </div>
 }

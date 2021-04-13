@@ -6,7 +6,7 @@
 /* Field */
 .storybook-forms-field {
     @apply flex;
-    @apply m-4;
+    @apply mb-4;
 }
 
 .storybook-forms-field-default {

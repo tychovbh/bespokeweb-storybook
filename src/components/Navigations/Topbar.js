@@ -1,12 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Layouts} from 'bespokeweb-storybook'
 
 export const Topbar = ({id, className, appendClassname, children}) => {
+    className = className || 'storybook-navigations-topbar'
+    if (appendClassname) {
+        className += ` ${appendClassname}`
+    }
     return <div
         id={id}
-        className={`${className} ${appendClassname}`}
+        className={className}
     >
+        <Layouts.Container>
+
         {children}
+        </Layouts.Container>
     </div>
 };
 

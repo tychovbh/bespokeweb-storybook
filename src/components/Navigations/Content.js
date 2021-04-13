@@ -2,9 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const Content = ({id, className, appendClassname, children}) => {
+    className = className || 'storybook-navigation-content'
+    if (appendClassname) {
+        className += ` ${appendClassname}`
+    }
     return <div
         id={id}
-        className={`${className ?? 'storybook-navigation-content'} ${appendClassname}`}
+        className={className}
     >
         {children}
     </div>

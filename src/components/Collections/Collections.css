@@ -63,7 +63,15 @@
 }
 
 /* Save */
-.storybook-collections-save-form {
+.storybook-collections-form-fields {
     width: 512px;
     @apply mx-auto;
+}
+
+.collections-buttons {
+    @apply flex justify-end items-center;
+}
+
+.collections-buttons-title .storybook-texts-heading {
+    @apply text-white;
 }

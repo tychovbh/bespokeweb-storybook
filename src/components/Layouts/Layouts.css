@@ -1,12 +1,10 @@
 .storybook-layouts-container-default {
     @apply px-4;
     @apply mx-auto;
-    @apply pt-12;
 }
 
 @media (min-width: 640px) {
     .storybook-layouts-container-default {
-        @apply pt-0;
         max-width: 640px;
     }
 }
