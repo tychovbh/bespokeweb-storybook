@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 import {Loaders, Lists, Collections, Texts, Buttons, Modals, Icons, Forms, Layouts} from 'bespokeweb-storybook'
+import PropTypes from 'prop-types'
+import {Save} from './Save'
 
 const Json = ({value, setModal}) => {
     return <div>
@@ -70,7 +72,7 @@ const ShowJson = ({data, index, setModal}) => {
     </>
 }
 
-const List = ({title, fields, data, setModal}) => <Lists.Container>
+const List = ({fields, data, setModal}) => <Lists.Container>
     {
         fields.map((field, index) => {
                 const Template = templates[field.type] || templates.default
@@ -123,8 +125,8 @@ export const Show = ({base_url, database, collection, id, params = {}, buttons})
 
     return <>
         <Collections.Buttons buttons={buttons}>
-            <Buttons.ButtonLink href={collection} appendClassname={'mr-4'}>Back</Buttons.ButtonLink>
-            <Buttons.ButtonLink href={`${collection}/${id}/edit`} appendClassname={'mr-4'} type={'success'}>
+            <Buttons.ButtonLink href={`/${collection}`} appendClassname={'mr-4'}>Back</Buttons.ButtonLink>
+            <Buttons.ButtonLink href={`/${collection}/${id}/edit`} appendClassname={'mr-4'} type={'success'}>
                 Edit
             </Buttons.ButtonLink>
         </Collections.Buttons>
@@ -140,7 +142,6 @@ export const Show = ({base_url, database, collection, id, params = {}, buttons})
         <Layouts.Container>
             <Collections.Title>Record</Collections.Title>
             <List
-                title={data.info.label || ''}
                 fields={data.show}
                 setModal={setModal}
                 data={data.data}/>
@@ -163,4 +164,37 @@ export const Show = ({base_url, database, collection, id, params = {}, buttons})
             }
         </Layouts.Container>
     </>
+}
+
+
+Save.propTypes = {
+    /**
+     * The base url
+     */
+    base_url: PropTypes.string,
+
+    /**
+     * The collection name
+     */
+    collection: PropTypes.string,
+
+    /**
+     * The database name
+     */
+    database: PropTypes.string,
+
+    /**
+     * The Collection ID
+     */
+    id: PropTypes.number,
+
+    /**
+     * Te request params added to all requests
+     */
+    params: PropTypes.object,
+
+    /**
+     * The custom buttons added to the topbar
+     */
+    buttons: PropTypes.func
 }

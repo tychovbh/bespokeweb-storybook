@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import 'bespokeweb-storybook/styles/style.css'
-import {Navigations, Icons, Layouts} from 'bespokeweb-storybook'
+import {Navigations, Icons, Layouts, Logos} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Navigations/Sidebar',
@@ -18,9 +18,7 @@ const Template = (args) => {
     return <div>
         <Navigations.Sidebar {...args}>
             <Navigations.Brand>
-                <Navigations.BrandImage
-                    src={'https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg'}
-                    appendClassname={'h-8'}/>
+                <Logos.Logo name={'managedat'} href={'/'}/>
             </Navigations.Brand>
             <Navigations.Nav>
                 {/* Home */}

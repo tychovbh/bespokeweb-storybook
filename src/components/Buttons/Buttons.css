@@ -18,6 +18,10 @@
     @apply cursor-default;
 }
 
+.storybook-buttons-button-default:focus {
+    @apply outline-none;
+}
+
 .storybook-buttons-button-primary {
     @apply bg-blue-500;
     @apply text-white;

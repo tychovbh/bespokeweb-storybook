@@ -91,7 +91,7 @@ const Header = ({info = {}, search, onSearch, collection, relation, buttons}) =>
     return <>
         {
             !relation.name && <>
-                <Collections.Buttons button={buttons}>
+                <Collections.Buttons buttons={buttons}>
                     <Buttons.ButtonLink type={'secondary'} appendClassname={'mr-4'} href={`/${collection}/import`}>
                         <Icons.Icon name={'cloud-upload'} className={'mr-2 w-5'}/> Bulk import
                     </Buttons.ButtonLink>
@@ -245,9 +245,7 @@ const Item = ({base_url, collection, params, relation, buttons}) => {
     if (isLoading) {
         return <Loading/>
     }
-
     return <>
-
         <Header
             relation={relation}
             collection={collection}
@@ -331,7 +329,27 @@ export const List = ({base_url, collection, params, relation = {}, buttons}) => 
 
 List.propTypes = {
     /**
-     * The endpoint
+     * The base url
      */
-    endpoint: PropTypes.string,
+    base_url: PropTypes.string,
+
+    /**
+     * The collection name
+     */
+    collection: PropTypes.string,
+
+    /**
+     * The request params added to all requests
+     */
+    params: PropTypes.object,
+
+    /**
+     * Is a relation list true/false
+     */
+    relation: PropTypes.bool,
+
+    /**
+     * The custom buttons added to the topbar
+     */
+    buttons: PropTypes.func
 }

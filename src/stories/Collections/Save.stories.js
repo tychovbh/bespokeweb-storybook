@@ -1,5 +1,6 @@
 import React from 'react'
 import {Collections} from 'bespokeweb-storybook'
+import * as Helpers from 'bespokeweb-storybook/stories/helpers'
 
 export default {
     title: 'Example/Collections/Save',
@@ -15,7 +16,8 @@ Create.args = {
     collection: process.env.STORYBOOK_COLLECTION,
     params: {
         user_id: process.env.STORYBOOK_USER_ID,
-    }
+    },
+    buttons: Helpers.CollectionButtons
 }
 
 export const Edit = Template.bind({})

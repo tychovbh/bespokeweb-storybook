@@ -1,15 +1,25 @@
-import React from 'react'
-import PropTypes from "prop-types";
+import React, {useRef} from 'react'
+import PropTypes from 'prop-types'
+import {Layouts} from 'bespokeweb-storybook'
 
 export const Table = ({id, className, appendClassname, children, type}) => {
-    const typeClass = type ? 'storybook-tables-table-' + type : '';
-    return <table
-        id={id}
-        className={`${className ?? 'storybook-tables-table'} ${appendClassname} ${typeClass}`}
-    >
-        {children}
-    </table>
-};
+    const tableRef = useRef(null)
+    className = className || 'storybook-tables-table'
+
+    if (type) {
+        className += `storybook-tables-table-${type}`
+    }
+
+    if (appendClassname) {
+        className += appendClassname
+    }
+
+    return <Layouts.Scrollable childrenRef={tableRef}>
+            <table id={id} className={className} ref={tableRef}>
+                {children}
+            </table>
+    </Layouts.Scrollable>
+}
 
 Table.propTypes = {
     /**
@@ -35,10 +45,10 @@ Table.propTypes = {
     /**
      * The type of Table
      */
-    type: PropTypes.oneOf(['simple', 'striped'])
-};
+    type: PropTypes.oneOf(['simple', 'striped']),
+}
 
 Table.defaultprops = {
     appendClassname: '',
-    type: 'simple'
-};
+    type: 'simple',
+}
