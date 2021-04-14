@@ -13,8 +13,8 @@ const Template = (args) => <Dropdowns.Container {...args}>
     <Dropdowns.Link>link 2</Dropdowns.Link>
 </Dropdowns.Container>
 
-export const Example = Template.bind({})
-Example.args = {
+export const Container = Template.bind({})
+Container.args = {
     open: true,
     align: 'left'
 }

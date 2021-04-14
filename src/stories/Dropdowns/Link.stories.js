@@ -10,5 +10,5 @@ export default {
 
 const Template = (args) => <Dropdowns.Link {...args}>link 1</Dropdowns.Link>
 
-export const Example = Template.bind({})
-Example.args = {}
+export const Link = Template.bind({})
+Link.args = {}

@@ -23,5 +23,5 @@ const Template = (args) => {
     </div>
 }
 
-export const Example = Template.bind({})
-Example.args = {}
+export const Dropdowns = Template.bind({})
+Dropdowns.args = {}
