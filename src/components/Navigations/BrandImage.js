@@ -2,9 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const BrandImage = ({id, className, appendClassname, src, alt}) => {
+    className = className || 'storybook-navigations-brand-image'
+    if (appendClassname) {
+        className += ` ${appendClassname}`
+    }
     return <img
         id={id}
-        className={`${className ?? 'storybook-navigation-brand-image'} ${appendClassname}`}
+        className={className}
         src={src}
         alt={alt}
     />
