@@ -1,4 +1,4 @@
-.storybook-dropdowns-container {
+.storybook-dropdowns-dropdown {
     @apply origin-top-right;
     @apply absolute;
     @apply mt-2;
@@ -22,24 +22,24 @@
     @apply z-10;
 }
 
-.storybook-dropdowns-container-open {
-    @apply storybook-dropdowns-container;
+.storybook-dropdowns-dropdown-open {
+    @apply storybook-dropdowns-dropdown;
 }
 
-.storybook-dropdowns-container-close {
-    @apply storybook-dropdowns-container;
+.storybook-dropdowns-dropdown-close {
+    @apply storybook-dropdowns-dropdown;
     @apply hidden;
 }
 
-.storybook-dropdowns-container-left {
+.storybook-dropdowns-dropdown-left {
     @apply left-0;
 }
 
-.storybook-dropdowns-container-center {
+.storybook-dropdowns-dropdown-center {
     @apply mx-auto;
 }
 
-.storybook-dropdowns-container-right {
+.storybook-dropdowns-dropdown-right {
     @apply right-0;
 }
 

@@ -92,11 +92,13 @@ const Header = ({info = {}, search, onSearch, collection, relation, buttons}) =>
         {
             !relation.name && <>
                 <Collections.Buttons buttons={buttons}>
-                    <Buttons.ButtonLink type={'secondary'} appendClassname={'mr-4'} href={`/${collection}/import`}>
-                        <Icons.Icon name={'cloud-upload'} className={'mr-2 w-5'}/> Bulk import
+                    <Buttons.ButtonLink appendClassname={'mr-4'} href={`/${collection}/import`}>
+                        <Icons.Icon name={'cloud-upload'} className={'mr-2 w-5'}/>
+                        Bulk import
                     </Buttons.ButtonLink>
-                    <Buttons.ButtonLink type={'primary'} href={`/${collection}/create`}>
-                        <Icons.Icon name={'plus'} className={'mr-2 w-5'}/> {'new'}
+                    <Buttons.ButtonLink type={'success'} href={`/${collection}/create`}>
+                        <Icons.Icon name={'plus'} className={'mr-2 w-5'}/>
+                        create
                     </Buttons.ButtonLink>
                 </Collections.Buttons>
                 <Collections.Title>Records</Collections.Title>

@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import '../../styles/style.css'
-import {Dropdowns, Buttons, Menus} from '../../'
+import 'bespokeweb-storybook/styles/style.css'
+import {Dropdowns, Buttons} from 'bespokeweb-storybook'
 
 export default {
-    title: 'Example/Dropdowns',
-    components: Dropdowns.Container,
+    title: 'Example/Dropdowns/Dropdown',
+    components: Dropdowns.Dropdown,
     args: {}
 }
 
@@ -16,12 +16,12 @@ const Template = (args) => {
             open
         </Buttons.Button>
 
-        <Dropdowns.Container open={open} align={'left'} onClose={() => setOpen(!open)}>
+        <Dropdowns.Dropdown open={open} align={'left'} onClose={() => setOpen(!open)}>
             <Dropdowns.Link>link 1</Dropdowns.Link>
             <Dropdowns.Link>link 2</Dropdowns.Link>
-        </Dropdowns.Container>
+        </Dropdowns.Dropdown>
     </div>
 }
 
-export const Dropdowns = Template.bind({})
-Dropdowns.args = {}
+export const Dropdown = Template.bind({})
+Dropdown.args = {}

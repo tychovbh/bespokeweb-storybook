@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Buttons} from '../../'
+import {Buttons} from 'bespokeweb-storybook'
 
 export const LinkButton = ({onClick, children}) => {
     return <Buttons.Button onClick={onClick} className={'storybook-dropdowns-link-button'}>
