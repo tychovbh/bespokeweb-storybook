@@ -10,7 +10,7 @@ import {
     Icons,
     Modals,
     Collections,
-    Layouts
+    Layouts,
 } from 'bespokeweb-storybook'
 
 const TableHead = ({sort, fields, onSort}) => <thead>
@@ -273,13 +273,13 @@ const Item = ({base_url, collection, params, relation, buttons}) => {
         />
 
         <Layouts.Container>
-            <Tables.Table>
+            <Tables.Table truncate>
                 <TableHead sort={filters.sort} fields={data.index} onSort={name => handleSort(name)}/>
                 {
                     searching &&
                     <tbody>
                     <tr className={'w-full'}>
-                        <td colSpan={data.index.length + 1}><Loading/></td>
+                        <td><Loading/></td>
                     </tr>
                     </tbody>
                 }
@@ -299,34 +299,19 @@ const Item = ({base_url, collection, params, relation, buttons}) => {
                 setFilters({...filters, page})
                 Request({...filters, page})
             }}/>
+
+
+            <hr className={'my-10'}/>
         </Layouts.Container>
     </>
 }
 export const List = ({base_url, collection, params, relation = {}, buttons}) => {
-    const [visible, setVisible] = useState(!relation.name)
-
-    const ListItem = () => <Item
+    return <Item
         base_url={base_url}
         collection={collection}
         params={params}
         buttons={buttons}
         relation={relation}/>
-
-    if (!relation.name) {
-        return <ListItem/>
-    }
-
-    return <div className={'border-t'}>
-        <div className={'lists-toggle-bar'}>
-            <Buttons.Button type={'dark'} onClick={() => setVisible(!visible)}>
-                <div className={'lists-toggle-bar-button'}>
-                    Relation: {relation.label} &nbsp;
-                    <Icons.Icon name={visible ? 'chevron-down' : 'chevron-up'} className={'w-8'}/>
-                </div>
-            </Buttons.Button>
-            {visible && <ListItem/>}
-        </div>
-    </div>
 }
 
 List.propTypes = {
@@ -353,5 +338,5 @@ List.propTypes = {
     /**
      * The custom buttons added to the topbar
      */
-    buttons: PropTypes.func
+    buttons: PropTypes.func,
 }

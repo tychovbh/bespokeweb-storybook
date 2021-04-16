@@ -20,7 +20,7 @@ const templates = {
     default: ({value}) => <>{value ?? ''}</>,
     json: Json,
     jsonb: Json,
-    tinyint: ({value}) => <Forms.Toggle value={Boolean(value)} disabled/>
+    tinyint: ({value}) => <Forms.Toggle value={Boolean(value)} disabled/>,
 }
 
 const ShowJson = ({data, index, setModal}) => {
@@ -36,7 +36,7 @@ const ShowJson = ({data, index, setModal}) => {
         <div className={'lists-toggle-bar'}>
             <Buttons.Button type={'dark'} onClick={() => setOpen(!open)}>
                 <div className={'lists-toggle-bar-button'}>
-                open json &nbsp;<Icons.Icon name={open ? 'chevron-up' : 'chevron-down'} className={'w-8'}/>
+                    open json &nbsp;<Icons.Icon name={open ? 'chevron-up' : 'chevron-down'} className={'w-8'}/>
                 </div>
             </Buttons.Button>
         </div>
@@ -100,7 +100,7 @@ const ShowModal = ({onClose, children, open}) => <Modals.Modal open={open} type=
 </Modals.Modal>
 
 export const Show = ({base_url, database, collection, id, params = {}, buttons}) => {
-    const [data, setData] = useState({})
+    const [model, setModel] = useState({})
     const [isLoading, setLoading] = useState(true)
     const [modal, setModal] = useState({
         open: false,
@@ -111,7 +111,7 @@ export const Show = ({base_url, database, collection, id, params = {}, buttons})
         setLoading(true)
         Axios.get(`${base_url}/${collection}/${id}`, {params})
             .then(response => {
-                setData(response.data)
+                setModel(response.data)
                 setLoading(false)
             })
     }, [])
@@ -122,7 +122,6 @@ export const Show = ({base_url, database, collection, id, params = {}, buttons})
         </div>
     }
 
-
     return <>
         <Collections.Buttons buttons={buttons}>
             <Buttons.ButtonLink href={`/${collection}`} appendClassname={'mr-4'}>Back</Buttons.ButtonLink>
@@ -130,42 +129,40 @@ export const Show = ({base_url, database, collection, id, params = {}, buttons})
                 Edit
             </Buttons.ButtonLink>
         </Collections.Buttons>
-        {modal.open && <ShowModal
-            {...modal.params}
-            open={modal.open}
-            onClose={() => setModal({
-                open: false,
-                content: null,
-            })}>
-            {modal.content && modal.content()}
-        </ShowModal>}
+
+        {
+            modal.open && <ShowModal
+                {...modal.params}
+                open={modal.open}
+                onClose={() => setModal({
+                    open: false,
+                    content: null,
+                })}>
+                {modal.content && modal.content()}
+            </ShowModal>
+        }
+
         <Layouts.Container>
             <Collections.Title>Record</Collections.Title>
             <List
-                fields={data.show}
+                fields={model.show}
                 setModal={setModal}
-                data={data.data}/>
+                data={model.data}/>
 
-            <Collections.Title>Relations</Collections.Title>
-            {
-                data.relations.filter(relation => relation['type'] === 'hasMany').map((relation, index) => {
-                    return <Collections.List
-                        key={index}
-                        relation={relation}
-                        base_url={base_url}
-                        collection={`${database}/${relation.name}`}
-                        params={{
-                            ...params,
-                            [relation.reference]: data.data[relation.column],
-                            additionals: ['index', 'info'],
-                        }}
-                    />
-                })
-            }
+            <hr className={'my-10'}/>
         </Layouts.Container>
+
+        {
+            !!model.relations.length && <Collections.Relations
+                relations={model.relations}
+                base_url={base_url}
+                database={database}
+                params={params}
+                model={model}
+            />
+        }
     </>
 }
-
 
 Save.propTypes = {
     /**
@@ -196,5 +193,5 @@ Save.propTypes = {
     /**
      * The custom buttons added to the topbar
      */
-    buttons: PropTypes.func
+    buttons: PropTypes.func,
 }

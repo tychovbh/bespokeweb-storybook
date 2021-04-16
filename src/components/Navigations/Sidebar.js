@@ -27,7 +27,7 @@ export const Sidebar = ({children}) => {
         checkVisible()
     }, [])
 
-    return <>
+    return <div>
         <Buttons.Button
             appendClassname={'navigations-sidebar-hamburger'}
             onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
@@ -37,7 +37,7 @@ export const Sidebar = ({children}) => {
         {
             <SidebarNav setState={setState} navRef={nav} state={state}>{children}</SidebarNav>
         }
-    </>
+    </div>
 }
 
 Sidebar.propTypes = {

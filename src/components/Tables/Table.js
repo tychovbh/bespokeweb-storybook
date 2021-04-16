@@ -2,16 +2,20 @@ import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {Layouts} from 'bespokeweb-storybook'
 
-export const Table = ({id, className, appendClassname, children, type}) => {
+export const Table = ({id, className, appendClassname, children, type, truncate}) => {
     const tableRef = useRef(null)
     className = className || 'storybook-tables-table'
 
     if (type) {
-        className += `storybook-tables-table-${type}`
+        className += ` storybook-tables-table-${type}`
+    }
+
+    if (truncate) {
+        className += ' storybook-tables-table-truncate'
     }
 
     if (appendClassname) {
-        className += appendClassname
+        className += ` ${appendClassname}`
     }
 
     return <Layouts.Scrollable childrenRef={tableRef}>
@@ -46,9 +50,15 @@ Table.propTypes = {
      * The type of Table
      */
     type: PropTypes.oneOf(['simple', 'striped']),
+
+    /**
+     * Table with truncated columns
+     */
+    truncate: PropTypes.bool,
 }
 
 Table.defaultprops = {
     appendClassname: '',
     type: 'simple',
+    truncate: false,
 }

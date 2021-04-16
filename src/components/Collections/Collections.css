@@ -78,3 +78,21 @@
     max-width: 250px;
     @apply mx-auto;
 }
+
+/* Relations */
+.storybook-collections-relations-tabs {
+    @apply overflow-x-scroll;
+    @apply flex;
+    @apply mb-8;
+}
+.storybook-collections-relations-tab .storybook-buttons-button {
+    @apply uppercase;
+    @apply font-bold;
+    @apply rounded-none;
+    @apply px-8 pb-4;
+}
+.storybook-collections-relations-tab-active .storybook-buttons-button {
+    @apply text-green-400;
+    @apply border-b-2;
+    @apply border-green-400;
+}

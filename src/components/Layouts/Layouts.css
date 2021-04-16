@@ -27,6 +27,10 @@
     }
 }
 
+.storybook-layouts-container-sidebar {
+    margin-left: 15px;
+}
+
 @media (min-width: 640px) {
     .storybook-layouts-container-sidebar {
         margin-left: 300px;

@@ -1,5 +1,8 @@
 .storybook-navigation-container {
     @apply bg-gray-700;
+    @apply fixed;
+    @apply top-0;
+    width: calc(100% - 300px);
 }
 
 .storybook-navigation-content {
@@ -42,33 +45,30 @@
     @apply h-full;
     @apply left-0 top-0;
     @apply bg-white;
-    @apply pt-16 pb-4;
+    @apply pb-4 pt-12;
     @apply border-r border-gray-200;
     @apply overflow-y-auto;
     @apply flex flex-col flex-grow;
-    display: none;
-}
-
-.storybook-navigations-sidebar-x {
-    @apply block;
-    @apply mb-4;
+    @apply hidden;
 }
 
 @media (min-width: 640px) {
     .storybook-navigations-sidebar {
-        display: flex;
+        @apply flex;
+        @apply pt-4;
     }
 
-    .storybook-navigations-sidebar-x {
+    .navigations-sidebar-hamburger {
         @apply hidden;
     }
 }
+
 .storybook-navigations-sidebar-open {
-    display: flex;
+    @apply flex;
 }
 
 .storybook-navigations-sidebar-close {
-    display: none;
+    @apply hidden;
 }
 
 .storybook-navigations-dropdown-icon {

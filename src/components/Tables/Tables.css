@@ -48,6 +48,12 @@
     @apply bg-gray-100;
 }
 
+.storybook-tables-table-truncate th,
+.storybook-tables-table-truncate td {
+    @apply truncate;
+    max-width: 300px;
+}
+
 .th-sort:hover {
     @apply cursor-pointer;
 }
