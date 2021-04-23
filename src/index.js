@@ -1,4 +1,5 @@
 export * as Buttons from './components/Buttons'
+export * as Cards from './components/Cards'
 export * as Collections from './components/Collections'
 export * as Dashboards from './components/Dashboards'
 export * as Dropdowns from './components/Dropdowns'

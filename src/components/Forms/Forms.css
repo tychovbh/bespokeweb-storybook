@@ -1,6 +1,24 @@
 /* Checkbox */
 .storybook-forms-checkbox {
+    @apply flex items-center;
+}
 
+
+.storybook-forms-checkbox input {
+    @apply h-4 w-4;
+    @apply text-indigo-600;
+    @apply border-gray-300 rounded;
+}
+
+.storybook-forms-checkbox input:hover,
+.storybook-forms-checkbox label:hover {
+    @apply cursor-pointer;
+}
+
+.storybook-forms-checkbox label {
+    @apply block;
+    @apply ml-2;
+    @apply text-sm text-gray-900;
 }
 
 /* Field */
@@ -42,6 +60,7 @@
     @apply py-1 px-2;
     @apply border;
     @apply rounded-lg;
+    @apply shadow-sm;
 }
 
 /* Label */

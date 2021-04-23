@@ -5,3 +5,12 @@
 .storybook-pages-description {
     @apply text-xl;
 }
+
+/* Login */
+.storybook-pages-login {
+    @apply h-screen;
+    @apply min-h-screen;
+    @apply flex items-center justify-center;
+    @apply bg-gray-100;
+    @apply py-12 px-4;
+}

@@ -7,7 +7,7 @@
 }
 
 .storybook-texts-heading {
-    @apply font-medium;
+    @apply font-extrabold;
 }
 
 .storybook-texts-heading-h1 {
@@ -34,3 +34,8 @@
     font-size: .67em;
 }
 
+/* Small */
+.storybook-texts-small {
+    @apply block;
+    @apply text-sm text-gray-600;
+}
