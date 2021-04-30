@@ -16,7 +16,7 @@ export const Login = () => {
                     </Texts.Heading>
 
                     <Texts.Small appendClassname={'mt-2'}>
-                        Or <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                        Or <a href="#" className="font-medium text-green-400 hover:text-green-300">
                         start your 14-day free trial
                     </a>
                     </Texts.Small>
@@ -26,12 +26,12 @@ export const Login = () => {
                 <input type="hidden" name="remember" value="true"/>
 
                 <div>
-                    <Forms.Field>
+                    <Forms.Field animated>
+                        <Forms.Input id={'email-address'}/>
+
                         <Forms.Label htmlFor={'email-address'}>
                             Email address
                         </Forms.Label>
-
-                        <Forms.Input id={'email-address'}/>
                     </Forms.Field>
 
                     <Forms.Field>
@@ -43,21 +43,20 @@ export const Login = () => {
                     </Forms.Field>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className={'flex items-center justify-between'}>
                     <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
 
-                    <div className="text-sm">
-                        <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    <div className={'text-sm'}>
+                        <a href="#" className={'font-medium text-green-400 hover:text-green-300'}>
                             Forgot your password?
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <button type="submit"
-                            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <Buttons.Button type={'default'} appendClassname={'text-white bg-green-400 hover:bg-green-500'}>
                         Sign in
-                    </button>
+                    </Buttons.Button>
                 </div>
             </form>
         </Cards.Card>

@@ -1,7 +1,9 @@
 .storybook-buttons-button {
     @apply py-2 px-4;
     @apply rounded-lg;
-    @apply inline-flex items-center;
+    @apply inline-flex items-center justify-center;
+    @apply text-sm;
+    @apply font-medium;
     white-space: nowrap;
 }
 
@@ -13,8 +15,7 @@
 }
 
 .storybook-buttons-button-default {
-    @apply bg-white;
-    @apply text-black;
+    @apply w-full;
     @apply cursor-default;
 }
 
