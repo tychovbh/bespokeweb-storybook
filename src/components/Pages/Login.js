@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Cards, Buttons, Forms, Texts, Logos} from 'bespokeweb-storybook'
 
 
 export const Login = () => {
+    const [model, setModel] = useState({
+        email: '',
+        password: ''
+    })
+
     return <div className={'storybook-pages-login'}>
         <Cards.Card>
             <div>
@@ -27,19 +32,23 @@ export const Login = () => {
 
                 <div>
                     <Forms.Field animated>
-                        <Forms.Input id={'email-address'}/>
+                        <Forms.Input id={'email-address'} value={model.email} onChange={event => {
+                            setModel({...model, email: event.target.value})
+                        }}/>
 
                         <Forms.Label htmlFor={'email-address'}>
                             Email address
                         </Forms.Label>
                     </Forms.Field>
 
-                    <Forms.Field>
+                    <Forms.Field animated={'closed'}>
+                        <Forms.Input id={'password'} value={model.password} onChange={event => {
+                            setModel({...model, password: event.target.value})
+                        }}/>
+
                         <Forms.Label htmlFor={'password'}>
                             Password
                         </Forms.Label>
-
-                        <Forms.Input id={'password'}/>
                     </Forms.Field>
                 </div>
 

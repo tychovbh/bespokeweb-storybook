@@ -53,17 +53,16 @@
 .storybook-forms-field-animated label {
     @apply absolute;
     @apply transition-all;
-    @apply duration-500;
+    @apply duration-300;
     @apply mb-0 ml-2;
     @apply bg-white;
     @apply text-gray-500;
 }
 
 .storybook-forms-field-animated input:focus + label,
-.storybook-forms-field-animated input:valid + label
-{
-    @apply text-sm;
-    transform: translateY(-90%);
+.storybook-forms-field-animated input:not([value=""]) + label {
+    font-size: .75rem;
+    transform: translateY(-100%);
     @apply px-2;
 }
 
