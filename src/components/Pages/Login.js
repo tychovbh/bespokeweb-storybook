@@ -42,7 +42,7 @@ export const Login = () => {
                     </Forms.Field>
 
                     <Forms.Field animated={'closed'}>
-                        <Forms.Input id={'password'} value={model.password} onChange={event => {
+                        <Forms.Input id={'password'} type={'password'} value={model.password} onChange={event => {
                             setModel({...model, password: event.target.value})
                         }}/>
 
