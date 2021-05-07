@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import {Cards, Buttons, Forms, Texts, Logos} from 'bespokeweb-storybook'
+import {Cards, Buttons, Forms, Texts, Logos, Feedbacks} from 'bespokeweb-storybook'
 
 
-export const Login = () => {
+export const Login = ({onSubmit, errors}) => {
     const [model, setModel] = useState({
         email: '',
         password: ''
@@ -27,6 +27,16 @@ export const Login = () => {
                     </Texts.Small>
                 </div>
             </div>
+
+            {/*<div className={''}>*/}
+            {/*    {*/}
+            {/*        errors.map((error, index) => <Feedbacks.Alert key={index} type={'danger'}>*/}
+            {/*                <Texts.Primary>{error}</Texts.Primary>*/}
+            {/*        </Feedbacks.Alert>*/}
+            {/*        )*/}
+            {/*    }*/}
+            {/*</div>*/}
+
             <form className="mt-8 space-y-6" action="#" method="POST">
                 <input type="hidden" name="remember" value="true"/>
 
@@ -63,11 +73,19 @@ export const Login = () => {
                 </div>
 
                 <div>
-                    <Buttons.Button type={'default'} appendClassname={'text-white bg-green-400 hover:bg-green-500'}>
+                    <Buttons.Button
+                        type={'default'}
+                        appendClassname={'text-white bg-green-400 hover:bg-green-500'}
+                        onClick={() => onSubmit(model)}
+                    >
                         Sign in
                     </Buttons.Button>
                 </div>
             </form>
         </Cards.Card>
     </div>
+}
+
+Login.defaultProps = {
+    errors: []
 }

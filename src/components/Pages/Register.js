@@ -67,7 +67,7 @@ export const FormFields = ({model, setModel}) => {
 
 }
 
-export const Register = () => {
+export const Register = ({onSubmit}) => {
     const [model, setModel] = useState({
         firstname: '',
         prefix: '',
@@ -88,7 +88,6 @@ export const Register = () => {
                             Create a new account
                         </span>
                     </Texts.Heading>
-
                     <Texts.Small appendClassname={'mt-2'}>
                         Already have an account? <a href="#"
                                                     className={'font-medium text-green-400 hover:text-green-300'}>
@@ -112,7 +111,11 @@ export const Register = () => {
                 </div>
 
                 <div>
-                    <Buttons.Button type={'default'} appendClassname={'text-white bg-green-400 hover:bg-green-500'}>
+                    <Buttons.Button
+                        type={'default'}
+                        appendClassname={'text-white bg-green-400 hover:bg-green-500'}
+                        onClick={() => onSubmit(model)}
+                    >
                         Sign in
                     </Buttons.Button>
                 </div>
