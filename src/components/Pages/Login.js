@@ -56,7 +56,7 @@ export const Login = () => {
                     <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
 
                     <div className={'text-sm'}>
-                        <a href="#" className={'storybook-pages-login-forgot-password'}>
+                        <a href="#" className={'storybook-pages-login-forgot-password '}>
                             Forgot your password?
                         </a>
                     </div>
