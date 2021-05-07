@@ -30,7 +30,7 @@ export const Login = () => {
             <form className="mt-8 space-y-6" action="#" method="POST">
                 <input type="hidden" name="remember" value="true"/>
 
-                <div>
+                <div className={'storybook-pages-login-fields'}>
                     <Forms.Field animated>
                         <Forms.Input id={'email-address'} value={model.email} onChange={event => {
                             setModel({...model, email: event.target.value})
@@ -52,11 +52,11 @@ export const Login = () => {
                     </Forms.Field>
                 </div>
 
-                <div className={'flex items-center justify-between'}>
+                <div className={'storybook-pages-login-form-footer'}>
                     <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
 
                     <div className={'text-sm'}>
-                        <a href="#" className={'font-medium text-green-400 hover:text-green-300'}>
+                        <a href="#" className={'storybook-pages-login-forgot-password'}>
                             Forgot your password?
                         </a>
                     </div>

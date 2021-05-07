@@ -26,7 +26,6 @@
 /* Field */
 .storybook-forms-field {
     @apply flex;
-    @apply mb-4;
     @apply relative;
 }
 
@@ -47,23 +46,28 @@
 }
 
 .storybook-forms-field-animated {
-    @apply flex;
+    @apply flex flex-col-reverse;
 }
 
 .storybook-forms-field-animated label {
-    @apply absolute;
-    @apply transition-all;
-    @apply duration-300;
     @apply mb-0 ml-2;
-    @apply bg-white;
     @apply text-gray-500;
 }
 
-.storybook-forms-field-animated input:focus + label,
-.storybook-forms-field-animated input:not([value=""]) + label {
-    font-size: .75rem;
-    transform: translateY(-100%);
-    @apply px-2;
+@media (min-width: 640px) {
+    .storybook-forms-field-animated label {
+        @apply absolute;
+        @apply transition-all;
+        @apply duration-300;
+        @apply bg-white;
+    }
+
+    .storybook-forms-field-animated input:focus + label,
+    .storybook-forms-field-animated input:not([value=""]) + label {
+        font-size: .75rem;
+        transform: translateY(-1.5rem);
+        @apply px-2;
+    }
 }
 
 /* File */
@@ -80,7 +84,7 @@
 /* Input */
 .storybook-forms-input {
     @apply w-full;
-    @apply py-1 px-2;
+    @apply p-2;
     @apply border;
     @apply rounded-lg;
     @apply shadow-sm;
