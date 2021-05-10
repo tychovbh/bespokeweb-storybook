@@ -3,31 +3,20 @@ import {Cards, Buttons, Forms, Texts, Logos} from 'bespokeweb-storybook'
 import {Fields} from "../Collections";
 
 export const FormFields = ({model, setModel}) => {
-    return <div className={'storybook-pages-login-fields'}>
-        <Forms.Field animated={'closed'}>
-            <Forms.Input id={'password'} type={'password'} value={model.password} onChange={event => {
-                setModel({...model, password: event.target.value})
+    return <div className={'grid gap-4'}>
+        <Forms.Field animated>
+            <Forms.Input id={'email'} value={model.email} onChange={event => {
+                setModel({...model, email: event.target.value})
             }}/>
 
-            <Forms.Label htmlFor={'password'}>
-                Password
-            </Forms.Label>
-        </Forms.Field>
-
-        <Forms.Field animated={'closed'}>
-            <Forms.Input id={'password-repeat'} type={'password'} value={model.password_repeat} onChange={event => {
-                setModel({...model, password_repeat: event.target.value})
-            }}/>
-
-            <Forms.Label htmlFor={'password-repeat'}>
-                Repeat password
+            <Forms.Label htmlFor={'firstname'}>
+                Email
             </Forms.Label>
         </Forms.Field>
     </div>
-
 }
 
-export const ForgottenPassword = () => {
+export const ForgottenPassword = ({onSubmit}) => {
     const [model, setModel] = useState({
         firstname: '',
         prefix: '',
@@ -37,8 +26,6 @@ export const ForgottenPassword = () => {
         password_repeat: ''
     })
 
-
-
     return <div className={'storybook-pages-login'}>
         <Cards.Card>
             <div>
@@ -47,19 +34,41 @@ export const ForgottenPassword = () => {
 
                     <Texts.Heading type={'h2'} appendClassname={'mt-6'}>
                         <span className={'text-3xl'}>
-                            Reset password
+                            Forgotten Password
                         </span>
                     </Texts.Heading>
+                    <Texts.Small appendClassname={'mt-2'}>
+                        Don't have an account? <a href="#"
+                                                  className={'font-medium text-green-400 hover:text-green-300'}>
+                        Register</a>
+                    </Texts.Small>
                 </div>
             </div>
-            <form className="mt-8 space-y-6" action="#" method="POST">
-                <input type="hidden" name="remember" value="true"/>
+            <form className="mt-8 mb-6" action="#" method="POST">
+
+                <Texts.Small>
+                    Enter your email address below to reset your password
+                </Texts.Small>
 
                 <FormFields model={model} setModel={setModel}/>
 
+                <div className={'storybook-pages-login-form-footer'}>
+                    <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
+
+                    <div className={'text-sm'}>
+                        <a href="#" className={'storybook-pages-login-forgot-password'}>
+                            Forgot your password?
+                        </a>
+                    </div>
+                </div>
+
                 <div>
-                    <Buttons.Button type={'default'} appendClassname={'text-white bg-green-400 hover:bg-green-500'}>
-                        Reset
+                    <Buttons.Button
+                        type={'default'}
+                        appendClassname={'text-white bg-green-400 hover:bg-green-500'}
+                        onClick={() => onSubmit(model)}
+                    >
+                        Sign in
                     </Buttons.Button>
                 </div>
             </form>

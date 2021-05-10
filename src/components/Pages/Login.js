@@ -28,16 +28,17 @@ export const Login = ({onSubmit, errors}) => {
                 </div>
             </div>
 
-            {/*<div className={''}>*/}
-            {/*    {*/}
-            {/*        errors.map((error, index) => <Feedbacks.Alert key={index} type={'danger'}>*/}
-            {/*                <Texts.Primary>{error}</Texts.Primary>*/}
-            {/*        </Feedbacks.Alert>*/}
-            {/*        )*/}
-            {/*    }*/}
-            {/*</div>*/}
 
             <form className="mt-8 space-y-6" action="#" method="POST">
+                <div className={'grid gap-4'}>
+                    {
+                        errors.map((error, index) => <Feedbacks.Alert key={index} type={'danger'}>
+                                <Texts.Primary>{error}</Texts.Primary>
+                            </Feedbacks.Alert>
+                        )
+                    }
+                </div>
+
                 <input type="hidden" name="remember" value="true"/>
 
                 <div className={'storybook-pages-login-fields'}>
