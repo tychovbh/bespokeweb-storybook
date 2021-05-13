@@ -3,7 +3,7 @@ import {Cards, Buttons, Forms, Texts, Logos} from 'bespokeweb-storybook'
 import {Fields} from "../Collections";
 
 export const FormFields = ({model, setModel}) => {
-    return <div className={'grid gap-4'}>
+    return <div className={'my-4 grid gap-4'}>
         <Forms.Field animated>
             <Forms.Input id={'email'} value={model.email} onChange={event => {
                 setModel({...model, email: event.target.value})
@@ -26,7 +26,7 @@ export const ForgottenPassword = ({onSubmit}) => {
         password_repeat: ''
     })
 
-    return <div className={'storybook-pages-login'}>
+    return <div className={'storybook-pages-form'}>
         <Cards.Card>
             <div>
                 <div className={'text-center'}>
@@ -46,13 +46,14 @@ export const ForgottenPassword = ({onSubmit}) => {
             </div>
             <form className="mt-8 mb-6" action="#" method="POST">
 
-                <Texts.Small>
+                <Texts.Small appendClassname={'text-center'}>
                     Enter your email address below to reset your password
                 </Texts.Small>
+                <form className="mt-8" action="#" method="POST">
+                    <FormFields model={model} setModel={setModel}/>
+                </form>
 
-                <FormFields model={model} setModel={setModel}/>
-
-                <div className={'storybook-pages-login-form-footer'}>
+                <div className={'flex items-center justify-between mb-4'}>
                     <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
 
                     <div className={'text-sm'}>

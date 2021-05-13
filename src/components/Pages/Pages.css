@@ -7,7 +7,7 @@
 }
 
 /* Login */
-.storybook-pages-login {
+.storybook-pages-form {
     @apply h-screen;
     @apply min-h-screen;
     @apply flex items-center justify-center;
@@ -19,7 +19,7 @@
     @apply grid gap-6;
 }
 
-.storybook-pages-login-form-footer {
+.storybook-pages-form-footer {
     @apply flex items-center justify-between;
 }
 

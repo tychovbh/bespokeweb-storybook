@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import {Cards, Buttons, Forms, Texts, Logos} from 'bespokeweb-storybook'
-import {Fields} from "../Collections";
+import {Cards, Buttons, Forms, Texts, Logos, Feedbacks} from 'bespokeweb-storybook'
 
 export const FormFields = ({model, setModel}) => {
     return <div className={'storybook-pages-login-fields'}>
@@ -67,7 +66,7 @@ export const FormFields = ({model, setModel}) => {
 
 }
 
-export const Register = ({onSubmit}) => {
+export const Register = ({onSubmit, errors}) => {
     const [model, setModel] = useState({
         firstname: '',
         prefix: '',
@@ -77,7 +76,7 @@ export const Register = ({onSubmit}) => {
         password_repeat: ''
     })
 
-    return <div className={'storybook-pages-login'}>
+    return <div className={'storybook-pages-form'}>
         <Cards.Card>
             <div>
                 <div className={'text-center'}>
@@ -96,18 +95,25 @@ export const Register = ({onSubmit}) => {
                 </div>
             </div>
             <form className="mt-8 space-y-6" action="#" method="POST">
+                {
+                    errors.length !== 0 &&
+                    <div className={'grid gap-4'}>
+                        {
+                            errors.map((error, index) => <Feedbacks.Alert key={index} type={'danger'}>
+                                    <Texts.Primary>{error}</Texts.Primary>
+                                </Feedbacks.Alert>
+                            )
+                        }
+                    </div>
+                }
                 <input type="hidden" name="remember" value="true"/>
 
                 <FormFields model={model} setModel={setModel}/>
 
-                <div className={'storybook-pages-login-form-footer'}>
+                <div className={'storybook-pages-form-footer'}>
                     <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
 
-                    <div className={'text-sm'}>
-                        <a href="#" className={'storybook-pages-login-forgot-password'}>
-                            Forgot your password?
-                        </a>
-                    </div>
+                    <Forms.ForgotPassword/>
                 </div>
 
                 <div>
@@ -122,4 +128,8 @@ export const Register = ({onSubmit}) => {
             </form>
         </Cards.Card>
     </div>
+}
+
+Register.defaultProps = {
+    errors: []
 }

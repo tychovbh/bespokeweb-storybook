@@ -10,10 +10,12 @@ export default {
 
 const Template = (args) => <Pages.Login {...args}/>
 
-export const Login = Template.bind({})
-Login.args = {
+export const Default = Template.bind({})
+Default.args = {}
+
+export const LoginError = Template.bind({})
+LoginError.args = {
     errors: [
-        'error message 1',
-        'error message 2'
+        'Incorrect password',
     ]
 }

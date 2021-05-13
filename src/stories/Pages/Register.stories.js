@@ -10,5 +10,12 @@ export default {
 
 const Template = (args) => <Pages.Register {...args}/>
 
-export const Register = Template.bind({})
-Register.args = {}
+export const Default = Template.bind({})
+Default.args = {}
+
+export const RegisterError = Template.bind({})
+RegisterError.args = {
+    errors: [
+        'Email is already used'
+    ]
+}

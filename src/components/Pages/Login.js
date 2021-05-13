@@ -8,7 +8,7 @@ export const Login = ({onSubmit, errors}) => {
         password: ''
     })
 
-    return <div className={'storybook-pages-login'}>
+    return <div className={'storybook-pages-form'}>
         <Cards.Card>
             <div>
                 <div className={'text-center'}>
@@ -30,14 +30,17 @@ export const Login = ({onSubmit, errors}) => {
 
 
             <form className="mt-8 space-y-6" action="#" method="POST">
-                <div className={'grid gap-4'}>
-                    {
-                        errors.map((error, index) => <Feedbacks.Alert key={index} type={'danger'}>
-                                <Texts.Primary>{error}</Texts.Primary>
-                            </Feedbacks.Alert>
-                        )
-                    }
-                </div>
+                {
+                    errors.length !== 0 &&
+                    <div className={'grid gap-4'}>
+                        {
+                            errors.map((error, index) => <Feedbacks.Alert key={index} type={'danger'}>
+                                    <Texts.Primary>{error}</Texts.Primary>
+                                </Feedbacks.Alert>
+                            )
+                        }
+                    </div>
+                }
 
                 <input type="hidden" name="remember" value="true"/>
 
@@ -63,14 +66,10 @@ export const Login = ({onSubmit, errors}) => {
                     </Forms.Field>
                 </div>
 
-                <div className={'storybook-pages-login-form-footer'}>
+                <div className={'storybook-pages-form-footer'}>
                     <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
 
-                    <div className={'text-sm'}>
-                        <a href="#" className={'storybook-pages-login-forgot-password '}>
-                            Forgot your password?
-                        </a>
-                    </div>
+                    <Forms.ForgotPassword/>
                 </div>
 
                 <div>
