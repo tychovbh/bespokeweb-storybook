@@ -21,7 +21,7 @@ export const Login = ({onSubmit, errors}) => {
                     </Texts.Heading>
 
                     <Texts.Small appendClassname={'mt-2'}>
-                        Or <a href="#" className="font-medium text-green-400 hover:text-green-300">
+                        Or <a href={'#'} className={'font-medium text-green-400 hover:text-green-300'}>
                         start your 14-day free trial
                     </a>
                     </Texts.Small>
@@ -29,7 +29,7 @@ export const Login = ({onSubmit, errors}) => {
             </div>
 
 
-            <form className="mt-8 space-y-6" action="#" method="POST">
+            <form className={'mt-8 space-y-6'} action={'#'} method={'POST'}>
                 {
                     errors.length !== 0 &&
                     <div className={'grid gap-4'}>

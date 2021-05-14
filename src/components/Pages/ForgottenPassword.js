@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
-import {Cards, Buttons, Forms, Texts, Logos} from 'bespokeweb-storybook'
-import {Fields} from "../Collections";
+import {Buttons, Cards, Feedbacks, Forms, Texts, Logos} from 'bespokeweb-storybook'
 
 export const FormFields = ({model, setModel}) => {
-    return <div className={'my-4 grid gap-4'}>
+    return <div className={'mt-4 grid gap-4'}>
         <Forms.Field animated>
             <Forms.Input id={'email'} value={model.email} onChange={event => {
                 setModel({...model, email: event.target.value})
@@ -16,14 +15,9 @@ export const FormFields = ({model, setModel}) => {
     </div>
 }
 
-export const ForgottenPassword = ({onSubmit}) => {
+export const ForgottenPassword = ({onSubmit, errors}) => {
     const [model, setModel] = useState({
-        firstname: '',
-        prefix: '',
-        lastname: '',
         email: '',
-        password: '',
-        password_repeat: ''
     })
 
     return <div className={'storybook-pages-form'}>
@@ -38,29 +32,36 @@ export const ForgottenPassword = ({onSubmit}) => {
                         </span>
                     </Texts.Heading>
                     <Texts.Small appendClassname={'mt-2'}>
-                        Don't have an account? <a href="#"
-                                                  className={'font-medium text-green-400 hover:text-green-300'}>
-                        Register</a>
+                        Already have an account? <a href="#"
+                                                    className={'font-medium text-green-400 hover:text-green-300'}>
+                        Sign in</a>
                     </Texts.Small>
                 </div>
             </div>
-            <form className="mt-8 mb-6" action="#" method="POST">
+            <form className="mt-8 space-y-6" action="#" method="POST">
+                {
+                    errors.length !== 0 &&
+                    <div className={'grid gap-4'}>
+                        {
+                            errors.map((error, index) => <Feedbacks.Alert key={index} type={'danger'}>
+                                    <Texts.Primary>{error}</Texts.Primary>
+                                </Feedbacks.Alert>
+                            )
+                        }
+                    </div>
+                }
+                <div>
+                    <Texts.Small appendClassname={'text-center'}>
+                        Enter your email below to reset your password
+                    </Texts.Small>
 
-                <Texts.Small appendClassname={'text-center'}>
-                    Enter your email address below to reset your password
-                </Texts.Small>
-                <form className="mt-8" action="#" method="POST">
                     <FormFields model={model} setModel={setModel}/>
-                </form>
+                </div>
 
-                <div className={'flex items-center justify-between mb-4'}>
+                <div className={'storybook-pages-form-footer'}>
                     <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
 
-                    <div className={'text-sm'}>
-                        <a href="#" className={'storybook-pages-login-forgot-password'}>
-                            Forgot your password?
-                        </a>
-                    </div>
+                    <Forms.ForgotPassword/>
                 </div>
 
                 <div>
@@ -75,4 +76,8 @@ export const ForgottenPassword = ({onSubmit}) => {
             </form>
         </Cards.Card>
     </div>
+}
+
+ForgottenPassword.defaultProps = {
+    errors: []
 }

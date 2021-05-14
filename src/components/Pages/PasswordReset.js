@@ -37,7 +37,7 @@ export const PasswordReset = () => {
         password_repeat: ''
     })
 
-    return <div className={'storybook-pages-login'}>
+    return <div className={'storybook-pages-form'}>
         <Cards.Card>
             <div>
                 <div className={'text-center'}>
