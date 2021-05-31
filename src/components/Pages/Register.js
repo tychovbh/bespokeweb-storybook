@@ -1,72 +1,8 @@
 import React, {useState} from 'react'
 import {Cards, Buttons, Forms, Texts, Logos, Feedbacks} from 'bespokeweb-storybook'
+import Form from "react-form-foundry";
 
-export const FormFields = ({model, setModel}) => {
-    return <div className={'storybook-pages-login-fields'}>
-        <Forms.Field animated>
-            <Forms.Input id={'firstname'} value={model.firstname} onChange={event => {
-                setModel({...model, firstname: event.target.value})
-            }}/>
-
-            <Forms.Label htmlFor={'firstname'}>
-                First name
-            </Forms.Label>
-        </Forms.Field>
-
-        <Forms.Field animated>
-            <Forms.Input id={'prefix'} value={model.prefix} onChange={event => {
-                setModel({...model, prefix: event.target.value})
-            }}/>
-
-            <Forms.Label htmlFor={'prefix'}>
-                Prefix
-            </Forms.Label>
-        </Forms.Field>
-
-        <Forms.Field animated>
-            <Forms.Input id={'lastname'} value={model.lastname} onChange={event => {
-                setModel({...model, lastname: event.target.value})
-            }}/>
-
-            <Forms.Label htmlFor={'lastname'}>
-                Last name
-            </Forms.Label>
-        </Forms.Field>
-
-        <Forms.Field animated>
-            <Forms.Input id={'email-address'} value={model.email} onChange={event => {
-                setModel({...model, email: event.target.value})
-            }}/>
-
-            <Forms.Label htmlFor={'email-address'}>
-                Email address
-            </Forms.Label>
-        </Forms.Field>
-
-        <Forms.Field animated={'closed'}>
-            <Forms.Input id={'password'} type={'password'} value={model.password} onChange={event => {
-                setModel({...model, password: event.target.value})
-            }}/>
-
-            <Forms.Label htmlFor={'password'}>
-                Password
-            </Forms.Label>
-        </Forms.Field>
-
-        <Forms.Field animated={'closed'}>
-            <Forms.Input id={'password-repeat'} type={'password'} value={model.password_repeat} onChange={event => {
-                setModel({...model, password_repeat: event.target.value})
-            }}/>
-
-            <Forms.Label htmlFor={'password-repeat'}>
-                Repeat password
-            </Forms.Label>
-        </Forms.Field>
-    </div>
-
-}
-
-export const Register = ({onSubmit, errors}) => {
+export const Register = ({onSubmit, errors, form}) => {
     const [model, setModel] = useState({
         firstname: '',
         prefix: '',
@@ -108,23 +44,25 @@ export const Register = ({onSubmit, errors}) => {
                 }
                 <input type="hidden" name="remember" value="true"/>
 
-                <FormFields model={model} setModel={setModel}/>
+                <Form
+                    form={form}
+                    components={{
+                        input: ({name, value, onChange, type, placeholder}) => <Forms.Field animated>
+                            <Forms.Input id={name} name={name} value={value} type={type} onChange={onChange}/>
 
-                <div className={'storybook-pages-form-footer'}>
-                    <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
-
-                    <Forms.ForgotPassword/>
-                </div>
-
-                <div>
-                    <Buttons.Button
-                        type={'default'}
-                        appendClassname={'text-white bg-green-400 hover:bg-green-500'}
-                        onClick={() => onSubmit(model)}
-                    >
-                        Sign in
-                    </Buttons.Button>
-                </div>
+                            <Forms.Label htmlFor={name}>
+                                {placeholder}
+                            </Forms.Label>
+                        </Forms.Field>,
+                        submit: () => <Buttons.Button
+                            type={'default'}
+                            appendClassname={'text-white bg-green-400 hover:bg-green-500'}
+                            onClick={() => onSubmit(model)}
+                        >
+                            Sign in
+                        </Buttons.Button>
+                    }}
+                />
             </form>
         </Cards.Card>
     </div>

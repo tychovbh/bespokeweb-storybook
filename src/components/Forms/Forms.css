@@ -27,6 +27,7 @@
 .storybook-forms-field {
     @apply flex;
     @apply relative;
+    @apply mb-6;
 }
 
 .storybook-forms-field-default {
@@ -52,6 +53,10 @@
 .storybook-forms-field-animated label {
     @apply mb-0 ml-2;
     @apply text-gray-500;
+}
+
+.storybook-forms-field-animated label:hover {
+    @apply cursor-text;
 }
 
 @media (min-width: 640px) {

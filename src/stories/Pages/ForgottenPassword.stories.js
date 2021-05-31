@@ -11,4 +11,23 @@ export default {
 const Template = (args) => <Pages.ForgottenPassword {...args}/>
 
 export const ForgottenPassword = Template.bind({})
-ForgottenPassword.args = {}
+ForgottenPassword.args = {
+    form: {
+        name: 'register',
+        label: 'Register',
+        fields: [
+            {
+                element: {
+                    name: 'input',
+                },
+                properties: {
+                    name: 'email',
+                    type: 'text',
+                    required: true,
+                    placeholder: 'Email',
+                },
+
+            }
+        ],
+    }
+}

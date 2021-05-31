@@ -1,25 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Buttons, Cards, Feedbacks, Forms, Texts, Logos} from 'bespokeweb-storybook'
+import Form from "react-form-foundry";
 
-export const FormFields = ({model, setModel}) => {
-    return <div className={'mt-4 grid gap-4'}>
-        <Forms.Field animated>
-            <Forms.Input id={'email'} value={model.email} onChange={event => {
-                setModel({...model, email: event.target.value})
-            }}/>
-
-            <Forms.Label htmlFor={'firstname'}>
-                Email
-            </Forms.Label>
-        </Forms.Field>
-    </div>
-}
-
-export const ForgottenPassword = ({onSubmit, errors}) => {
+export const ForgottenPassword = ({onSubmit, errors, form}) => {
     const [model, setModel] = useState({
-        email: '',
+        email: ''
     })
-
     return <div className={'storybook-pages-form'}>
         <Cards.Card>
             <div>
@@ -51,27 +37,29 @@ export const ForgottenPassword = ({onSubmit, errors}) => {
                     </div>
                 }
                 <div>
-                    <Texts.Small appendClassname={'text-center'}>
+                    <Texts.Small appendClassname={'text-center mb-6'}>
                         Enter your email below to reset your password
                     </Texts.Small>
 
-                    <FormFields model={model} setModel={setModel}/>
-                </div>
+                    <Form
+                        form={form}
+                        components={{
+                            input: ({name, value, onChange, type, placeholder}) => <Forms.Field animated>
+                                <Forms.Input id={name} name={name} value={value} type={type} onChange={onChange}/>
 
-                <div className={'storybook-pages-form-footer'}>
-                    <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
-
-                    <Forms.ForgotPassword/>
-                </div>
-
-                <div>
-                    <Buttons.Button
-                        type={'default'}
-                        appendClassname={'text-white bg-green-400 hover:bg-green-500'}
-                        onClick={() => onSubmit(model)}
-                    >
-                        Sign in
-                    </Buttons.Button>
+                                <Forms.Label htmlFor={name}>
+                                    {placeholder}
+                                </Forms.Label>
+                            </Forms.Field>,
+                            submit: () => <Buttons.Button
+                                type={'default'}
+                                appendClassname={'text-white bg-green-400 hover:bg-green-500'}
+                                onClick={() => onSubmit(model)}
+                            >
+                                Sign in
+                            </Buttons.Button>
+                        }}
+                    />
                 </div>
             </form>
         </Cards.Card>
