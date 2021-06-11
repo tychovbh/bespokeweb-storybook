@@ -4,6 +4,27 @@ import PropTypes from 'prop-types'
 /**
  * Primary UI component for user interaction
  */
+// export const Button = ({id, className, appendClassname, children, type, onClick, disabled}) => {
+//     let typeClass = type ? ' storybook-buttons-button-' + type : ''
+//
+//     if (appendClassname) {
+//         typeClass += ' ' + appendClassname
+//     }
+//
+//     if (disabled) {
+//         typeClass += ' storybook-buttons-button-disabled'
+//     }
+//
+//     return <button
+//         id={id}
+//         className={`${className}${typeClass}`}
+//         onClick={disabled ? null : onClick}
+//         disabled={disabled}
+//     >
+//         {children}
+//     </button>
+// }
+
 export const Button = ({id, className, appendClassname, children, type, onClick, disabled}) => {
     let typeClass = type ? ' storybook-buttons-button-' + type : ''
 
@@ -11,14 +32,10 @@ export const Button = ({id, className, appendClassname, children, type, onClick,
         typeClass += ' ' + appendClassname
     }
 
-    if (disabled) {
-        typeClass += ' storybook-buttons-button-disabled'
-    }
-
     return <button
         id={id}
         className={`${className}${typeClass}`}
-        onClick={disabled ? null : onClick}
+        onClick={onClick}
         disabled={disabled}
     >
         {children}
@@ -65,7 +82,6 @@ Button.propTypes = {
 Button.defaultProps = {
     className: 'storybook-buttons-button',
     appendClassname: '',
-    type: 'default',
     disabled: false,
     onClick: () => {
     }

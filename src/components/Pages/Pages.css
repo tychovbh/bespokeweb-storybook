@@ -5,3 +5,29 @@
 .storybook-pages-description {
     @apply text-xl;
 }
+
+/* Login */
+.storybook-pages-form {
+    @apply h-screen;
+    @apply min-h-screen;
+    @apply flex items-center justify-center;
+    @apply bg-gray-100;
+    @apply py-12 px-4;
+}
+
+.storybook-pages-login-fields {
+    @apply grid gap-6;
+}
+
+.storybook-pages-form-footer {
+    @apply flex items-center justify-between;
+}
+
+.storybook-pages-login-forgot-password {
+    @apply font-medium text-green-400;
+}
+
+.storybook-pages-login-forgot-password:hover {
+    @apply text-green-300;
+}
+

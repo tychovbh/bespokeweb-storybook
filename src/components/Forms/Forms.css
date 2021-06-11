@@ -1,19 +1,40 @@
 /* Checkbox */
 .storybook-forms-checkbox {
+    @apply flex items-center;
 
+}
+
+.storybook-forms-checkbox input {
+    @apply h-4 w-4;
+    @apply text-indigo-600;
+    @apply border;
+    @apply rounded-lg;
+    @apply shadow-sm;
+}
+
+.storybook-forms-checkbox input:hover,
+.storybook-forms-checkbox label:hover {
+    @apply cursor-pointer;
+}
+
+.storybook-forms-checkbox label {
+    @apply block;
+    @apply ml-2;
+    @apply text-sm text-gray-900;
 }
 
 /* Field */
 .storybook-forms-field {
     @apply flex;
-    @apply mb-4;
+    @apply relative;
+    @apply mb-6;
 }
 
 .storybook-forms-field-default {
     @apply flex-col justify-center;
 }
 
-.storybook-forms-field-default .storybook-forms-label {
+.storybook-forms-field-default label {
     @apply mb-2;
 }
 
@@ -23,6 +44,35 @@
 
 .storybook-forms-field-inline .storybook-forms-label {
     @apply mr-4;
+}
+
+.storybook-forms-field-animated {
+    @apply flex flex-col-reverse;
+}
+
+.storybook-forms-field-animated label {
+    @apply mb-0 ml-2;
+    @apply text-gray-500;
+}
+
+.storybook-forms-field-animated label:hover {
+    @apply cursor-text;
+}
+
+@media (min-width: 640px) {
+    .storybook-forms-field-animated label {
+        @apply absolute;
+        @apply transition-all;
+        @apply duration-300;
+        @apply bg-white;
+    }
+
+    .storybook-forms-field-animated input:focus + label,
+    .storybook-forms-field-animated input:not([value=""]) + label {
+        font-size: .75rem;
+        transform: translateY(-1.5rem);
+        @apply px-2;
+    }
 }
 
 /* File */
@@ -39,9 +89,10 @@
 /* Input */
 .storybook-forms-input {
     @apply w-full;
-    @apply py-1 px-2;
+    @apply p-2;
     @apply border;
     @apply rounded-lg;
+    @apply shadow-sm;
 }
 
 /* Label */

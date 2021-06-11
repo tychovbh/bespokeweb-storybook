@@ -1,0 +1,7 @@
+.storybook-cards-card {
+    width: 450px;
+    @apply bg-white;
+    @apply py-8 px-10;
+    @apply shadow-lg;
+    @apply rounded;
+}

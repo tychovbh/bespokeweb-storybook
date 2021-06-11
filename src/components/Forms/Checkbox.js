@@ -1,15 +1,14 @@
 import React from 'react'
 import PropsTypes from 'prop-types';
 
-export const Checkbox = ({id, className, appendClassname, name, value, onClick}) => {
-    return <input
-        id={id}
-        className={`${className ?? 'storybook-forms-checkbox'} ${appendClassname}`}
-        type="checkbox"
-        name={name}
-        value={value}
-        onClick={onClick}
-    />
+export const Checkbox = ({id, className, appendClassname, name, value, onClick, label}) => {
+    className = className || 'storybook-forms-checkbox'
+    className += ` ${appendClassname}`
+
+    return <div className={`${className}`}>
+        <input id={id} name={name} type={'checkbox'} value={value} onClick={onClick}/>
+        {label && <label htmlFor={id}>{label}</label>}
+    </div>
 };
 
 Checkbox.propTypes = {
@@ -46,5 +45,6 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProp = {
     appendClassname: '',
-    onClick: () => {}
+    onClick: () => {
+    }
 };
