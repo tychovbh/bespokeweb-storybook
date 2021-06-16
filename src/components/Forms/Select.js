@@ -7,7 +7,7 @@ export const Select = ({id, className, appendClassname, children, name, value, o
         name={name}
         className={`${className}${appendClassname ? ` ${appendClassname}` : ''}`}
         value={value}
-        onChange={onChange}
+        onChange={event => onChange(event.target.value)}
     >
         {children}
     </select>
