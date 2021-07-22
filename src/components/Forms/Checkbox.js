@@ -1,14 +1,14 @@
 import React from 'react'
 import PropsTypes from 'prop-types';
 
-export const Checkbox = ({id, className, appendClassname, name, value, onClick}) => {
+export const Checkbox = ({id, className, appendClassname, name, value, onChange}) => {
     return <input
         id={id}
         className={`${className ?? 'storybook-forms-checkbox'} ${appendClassname}`}
         type="checkbox"
         name={name}
         value={value}
-        onClick={onClick}
+        onChange={event => onChange(event.target.checked)}
     />
 };
 
