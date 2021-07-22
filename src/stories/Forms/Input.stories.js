@@ -29,3 +29,8 @@ export const Number = Template.bind({});
 Number.args = {
     type: 'number'
 };
+
+export const Date = Template.bind({});
+Date.args = {
+    type: 'date'
+};
