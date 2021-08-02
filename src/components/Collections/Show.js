@@ -1,75 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
-import {Loaders, Lists, Collections, Texts, Buttons, Modals, Icons, Forms, Layouts} from 'bespokeweb-storybook'
+import {Loaders, Lists, Collections, Buttons, Modals, Layouts} from 'bespokeweb-storybook'
 import PropTypes from 'prop-types'
 import {Save} from './Save'
 
-const Json = ({value, setModal}) => {
-    return <div>
-        <Buttons.Button type={'dark'} onClick={() => {
-            setModal({
-                open: true, content: () => <div>
-                    <ShowJson data={typeof value === 'string' ? JSON.parse(value) : value} setModal={setModal}/>
-                </div>,
-            })
-        }}>open json</Buttons.Button>
-    </div>
-}
 
 const templates = {
     default: ({value}) => <>{value ?? ''}</>,
-    json: Json,
-    jsonb: Json,
-    tinyint: ({value}) => <Forms.Toggle value={Boolean(value)} disabled/>,
-}
-
-const ShowJson = ({data, index, setModal}) => {
-    if (Array.isArray(data)) {
-        return <>
-            {data.map((item, index) => <ShowJson key={index} index={index} data={item} setModal={setModal}/>)}
-        </>
-    }
-
-    const [open, setOpen] = useState(false)
-
-    return <>
-        <div className={'lists-toggle-bar'}>
-            <Buttons.Button type={'dark'} onClick={() => setOpen(!open)}>
-                <div className={'lists-toggle-bar-button'}>
-                    open json &nbsp;<Icons.Icon name={open ? 'chevron-up' : 'chevron-down'} className={'w-8'}/>
-                </div>
-            </Buttons.Button>
-        </div>
-        <Lists.Container open={open}>
-            {
-                Object.keys(data).map((key, index) => {
-                    let value = data[key]
-                    let template = 'default'
-                    if (typeof value === 'object') {
-                        template = 'json'
-                    }
-
-                    if (typeof value === 'string' && ['true', 'false'].includes(value.toLocaleLowerCase())) {
-                        template = 'tinyint'
-                        value = value.toLocaleLowerCase() === 'true'
-                    }
-
-                    if (typeof value === 'boolean') {
-                        template = 'tinyint'
-                    }
-
-                    const Template = templates[template]
-
-                    return <Lists.Row key={index}>
-                        <Lists.Column type={'dt'}>{key}</Lists.Column>
-                        <Lists.Column>
-                            <Template value={value} setModal={setModal}/>
-                        </Lists.Column>
-                    </Lists.Row>
-                })
-            }
-        </Lists.Container>
-    </>
+    json: ({value, setModal}) => <Lists.ColumnBool value={value} setModal={setModal}/>,
+    jsonb: ({value, setModal}) => <Lists.ColumnBool value={value} setModal={setModal}/>,
+    tinyint: ({value}) => <Lists.ColumnBool value={value}/>,
 }
 
 const List = ({fields, data, setModal}) => <Lists.Container>
