@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Buttons, Lists} from 'bespokeweb-storybook'
+import {Buttons, Icons, Lists} from 'bespokeweb-storybook'
 
 function Json({data, setModal}) {
     const [open, setOpen] = useState(false)
@@ -36,7 +36,7 @@ function Json({data, setModal}) {
                         template = 'tinyint'
                     }
 
-                    const Template = templates[template]
+                    const Template = Lists.templates[template]
 
                     return <Lists.Row key={index}>
                         <Lists.Column type={'dt'}>{key}</Lists.Column>

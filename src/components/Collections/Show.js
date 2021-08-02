@@ -4,18 +4,10 @@ import {Loaders, Lists, Collections, Buttons, Modals, Layouts} from 'bespokeweb-
 import PropTypes from 'prop-types'
 import {Save} from './Save'
 
-
-const templates = {
-    default: ({value}) => <>{value ?? ''}</>,
-    json: ({value, setModal}) => <Lists.ColumnBool value={value} setModal={setModal}/>,
-    jsonb: ({value, setModal}) => <Lists.ColumnBool value={value} setModal={setModal}/>,
-    tinyint: ({value}) => <Lists.ColumnBool value={value}/>,
-}
-
 const List = ({fields, data, setModal}) => <Lists.Container>
     {
         fields.map((field, index) => {
-                const Template = templates[field.type] || templates.default
+                const Template = Lists.templates[field.type] || Lists.templates.default
                 return <Lists.Row key={index}>
                     <Lists.Column type={'dt'}>{field.label}</Lists.Column>
                     <Lists.Column>
@@ -25,7 +17,6 @@ const List = ({fields, data, setModal}) => <Lists.Container>
             },
         )
     }
-
 </Lists.Container>
 
 const ShowModal = ({onClose, children, open}) => <Modals.Modal open={open} type={'full'}>
