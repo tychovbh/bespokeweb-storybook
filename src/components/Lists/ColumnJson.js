@@ -23,7 +23,7 @@ function Json({data, setModal}) {
                 Object.keys(data).map((key, index) => {
                     let value = data[key]
                     let template = 'default'
-                    if (typeof value === 'object') {
+                    if (value && typeof value === 'object') {
                         template = 'json'
                     }
 
