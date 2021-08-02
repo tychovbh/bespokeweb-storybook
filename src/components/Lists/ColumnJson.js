@@ -55,7 +55,7 @@ export function ColumnJson({value, setModal}) {
         <Buttons.Button type={'dark'} onClick={() => {
             setModal({
                 open: true, content: () => <div>
-                    <Json data={typeof value === 'string' ? JSON.parse(value) : value} setModal={setModal}/>
+                    <Json data={value && typeof value === 'string' ? JSON.parse(value) : value} setModal={setModal}/>
                 </div>,
             })
         }}>open json</Buttons.Button>
