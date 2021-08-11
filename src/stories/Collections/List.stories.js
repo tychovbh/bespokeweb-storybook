@@ -13,7 +13,7 @@ const Template = (args) => <Collections.List {...args}/>
 export const List = Template.bind({})
 List.args = {
     base_url: process.env.STORYBOOK_BASE_URL,
-    collection: 'eyecons-backend/channels',
+    collection: process.env.STORYBOOK_COLLECTION,
     params: {
         additionals: ['index', 'info'],
     },

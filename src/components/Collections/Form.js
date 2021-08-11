@@ -8,12 +8,12 @@ export const Form = ({form,  collection, params, buttons, id}) => {
         title: Texts.Heading,
         field: Forms.Field,
         input: ({name, value, onChange, type}) => <Forms.Input
-            onChange={onChange}
+            onChange={value => onChange({target: {value}})}
             name={name}
             type={type}
             value={value}/>,
         select: ({name, value, onChange, children, label}) => <Forms.Select
-            onChange={onChange}
+            onChange={value => onChange({target: {value}})}
             name={name}
             children={[<option key={'empty'}>Pick a {label}</option>].concat(children)}
             value={value}/>,

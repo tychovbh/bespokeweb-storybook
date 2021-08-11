@@ -177,7 +177,7 @@ const DeleteModel = ({base_url, collection, field, open, onClose, onDelete, para
 
                 <Forms.Input
                     placeholder={'DELETE'}
-                    onChange={event => setDeleteField(event.target.value)}
+                    onChange={value => setDeleteField(value)}
                     value={deleteField}
                 />
             </Modals.Body>
@@ -276,7 +276,7 @@ const Item = ({base_url, collection, params, relation, buttons}) => {
         />
 
         <Layouts.Container>
-            <Tables.Table truncate>
+            <Tables.Table truncate scrollable>
                 <TableHead sort={filters.sort} fields={data.index} onSort={name => handleSort(name)}/>
                 {
                     searching &&
