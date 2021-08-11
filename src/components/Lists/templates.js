@@ -1,12 +1,12 @@
 import React from 'react'
 import {Lists} from 'bespokeweb-storybook'
-import ReactJson from 'react-json-view'
+// import ReactJson from 'react-json-view'
 
 export const templates = {
     default: ({value}) => <>{value ?? ''}</>,
     json: ({value, setModal}) => <Lists.ColumnJson value={value} setModal={setModal}/>,
     jsonb: ({value, setModal}) => <Lists.ColumnJson value={value} setModal={setModal}/>,
-    json_raw: ({value}) => <ReactJson src={value}/>,
+    json_raw: ({value, setModal}) => <Lists.ColumnJson value={value} setModal={setModal}/>,
     tinyint: ({value}) => <Lists.ColumnBool value={value}/>,
     image: ({value, name}) => <img src={value} alt={name}/>
 }

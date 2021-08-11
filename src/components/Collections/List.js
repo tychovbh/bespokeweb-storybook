@@ -65,7 +65,10 @@ const TableBody = ({items, fields, info, setDeleteModal, collection}) => {
     return <tbody>
     {
         items.map((item, index) => <tr key={index}>
-                {fields.map((field, fieldIndex) => <td key={`${index}-${fieldIndex}`}>{item[field.name]}</td>)}
+                {fields.map((field, fieldIndex) => {
+                    const value = typeof item[field.name] === 'object' ? JSON.stringify(item[field.name]) : item[field.name]
+                    return <td key={`${index}-${fieldIndex}`}>{value}</td>
+                })}
                 <td className={'storybook-list-table-body-actions'}>
                     <Buttons.ButtonLink href={`/${collection}/${item.id}`} appendClassname={'button-icon'}>
                         <Icons.Icon name={'eye'} className={'text-green-400 w-4'}/>
