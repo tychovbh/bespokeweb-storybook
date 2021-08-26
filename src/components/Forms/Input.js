@@ -50,7 +50,10 @@ Input.propTypes = {
     /**
      * The value of an Input
      */
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
 
     /**
      * The onChange method of an Input

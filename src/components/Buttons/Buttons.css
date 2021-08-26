@@ -78,6 +78,16 @@
     @apply underline;
 }
 
+.storybook-buttons-button-search {
+    @apply
+    bg-transparent
+    text-gray-800 underline
+    w-full;
+}
+.storybook-buttons-button-search:hover {
+    @apply bg-gray-100;
+}
+
 /* Dropdown */
 .storybook-button-group {
     @apply border;

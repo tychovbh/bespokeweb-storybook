@@ -49,7 +49,7 @@ Button.propTypes = {
     /**
      * the color of a Submit button
      */
-    type: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']),
+    type: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'search']),
 
     /**
      * The onClick function of the Buttons

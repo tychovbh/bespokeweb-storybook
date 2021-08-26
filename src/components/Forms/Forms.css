@@ -58,6 +58,21 @@
     @apply p-0;
 }
 
+/* Search */
+.storybook-forms-search {
+    @apply relative;
+    @apply w-full;
+}
+
+.storybook-forms-search-results {
+    top: 40px;
+    @apply z-10;
+    @apply absolute left-0;
+    @apply w-full;
+    @apply bg-white;
+    @apply rounded-md;
+}
+
 /* Submit */
 .storybook-forms-submit {
     @apply py-2 px-4;
@@ -160,3 +175,4 @@
 .storybook-forms-toggle-active .storybook-forms-toggle-handle {
     @apply translate-x-5;
 }
+
