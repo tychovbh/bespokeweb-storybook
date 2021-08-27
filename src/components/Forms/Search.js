@@ -2,13 +2,32 @@ import React, {useState} from 'react'
 import {Buttons, Forms} from 'bespokeweb-storybook'
 import {Fetcher} from 'ra-fetch'
 
+let final_search = null
+
 export default function Search({value, onChange, route, param, id, label}) {
     const [results, setResults] = useState(Fetcher.collection)
 
     function performSearch(params) {
-        Fetcher.index(route, params).then(response => {
-            setResults(response)
-        })
+        final_search = params[param]
+
+        if (final_search === '') {
+            delete params[param]
+            setResults(Fetcher.collection())
+            return
+        }
+
+        if (final_search.length === 1) {
+            return
+        }
+
+        setTimeout(() => {
+            if (params[param] === final_search) {
+                Fetcher.index(route, params).then(response => {
+                    setResults(response)
+                })
+            }
+        }, 400)
+
     }
 
     return <div className={'storybook-forms-search'}>
