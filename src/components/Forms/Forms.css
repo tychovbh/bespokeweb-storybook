@@ -71,6 +71,7 @@
     @apply w-full;
     @apply bg-white;
     @apply rounded-md;
+    @apply border;
 }
 
 /* Submit */
