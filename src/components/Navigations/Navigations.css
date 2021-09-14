@@ -50,14 +50,14 @@
     @apply overflow-y-auto;
     @apply flex flex-col flex-grow;
     @apply hidden;
+    @apply z-10;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1280px) {
     .storybook-navigations-sidebar {
         @apply flex;
         @apply pt-4;
     }
-
     .navigations-sidebar-hamburger {
         @apply hidden;
     }
