@@ -12,6 +12,7 @@ const Template = (args) => <Pages.Login {...args}/>
 
 export const Default = Template.bind({})
 Default.args = {
+    onSubmit: () => console.log('Login'),
     form: {
         name: 'login',
         label: 'Login',
@@ -26,7 +27,6 @@ Default.args = {
                     required: true,
                     placeholder: 'Email',
                 },
-
             },
             {
                 element: {
@@ -38,7 +38,6 @@ Default.args = {
                     required: true,
                     placeholder: 'Password',
                 },
-
             }
         ],
     }

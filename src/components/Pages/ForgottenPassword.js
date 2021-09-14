@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Buttons, Cards, Feedbacks, Forms, Texts, Logos} from 'bespokeweb-storybook'
-import Form from "react-form-foundry";
+import Form from 'react-form-foundry'
 
 export const ForgottenPassword = ({onSubmit, errors, form}) => {
     const [model, setModel] = useState({
@@ -17,14 +17,9 @@ export const ForgottenPassword = ({onSubmit, errors, form}) => {
                             Forgotten Password
                         </span>
                     </Texts.Heading>
-                    <Texts.Small appendClassname={'mt-2'}>
-                        Already have an account? <a href="#"
-                                                    className={'font-medium text-green-400 hover:text-green-300'}>
-                        Sign in</a>
-                    </Texts.Small>
                 </div>
             </div>
-            <form className="mt-8 space-y-6" action="#" method="POST">
+            <form className={'mt-6 space-y-6'} action={'#'} method={'POST'}>
                 {
                     errors.length !== 0 &&
                     <div className={'grid gap-4'}>

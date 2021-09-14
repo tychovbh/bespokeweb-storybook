@@ -3,15 +3,6 @@ import {Cards, Buttons, Forms, Texts, Logos, Feedbacks} from 'bespokeweb-storybo
 import Form from "react-form-foundry";
 
 export const Register = ({onSubmit, errors, form}) => {
-    const [model, setModel] = useState({
-        firstname: '',
-        prefix: '',
-        lastname: '',
-        email: '',
-        password: '',
-        password_repeat: ''
-    })
-
     return <div className={'storybook-pages-form'}>
         <Cards.Card>
             <div>
@@ -30,7 +21,7 @@ export const Register = ({onSubmit, errors, form}) => {
                     </Texts.Small>
                 </div>
             </div>
-            <form className="mt-8 space-y-6" action="#" method="POST">
+            <form className={'mt-8 space-y-6'} action={'#'} method={'POST'}>
                 {
                     errors.length !== 0 &&
                     <div className={'grid gap-4'}>
@@ -46,6 +37,7 @@ export const Register = ({onSubmit, errors, form}) => {
 
                 <Form
                     form={form}
+                    onSubmit={onSubmit}
                     components={{
                         input: ({name, value, onChange, type, placeholder}) => <Forms.Field animated>
                             <Forms.Input id={name} name={name} value={value} type={type} onChange={onChange}/>
@@ -57,9 +49,8 @@ export const Register = ({onSubmit, errors, form}) => {
                         submit: () => <Buttons.Button
                             type={'default'}
                             appendClassname={'text-white bg-green-400 hover:bg-green-500'}
-                            onClick={() => onSubmit(model)}
                         >
-                            Sign in
+                            Register
                         </Buttons.Button>
                     }}
                 />

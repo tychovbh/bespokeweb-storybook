@@ -46,6 +46,7 @@ export const Login = ({onSubmit, errors, form}) => {
 
                 <Form
                     form={form}
+                    onSubmit={onSubmit}
                     components={{
                         input: ({name, value, onChange, type, placeholder}) => <Forms.Field animated>
                             <Forms.Input id={name} name={name} value={value} type={type} onChange={onChange}/>
@@ -57,49 +58,16 @@ export const Login = ({onSubmit, errors, form}) => {
                         submit: () => <Buttons.Button
                             type={'default'}
                             appendClassname={'text-white bg-green-400 hover:bg-green-500'}
-                            onClick={() => onSubmit(model)}
                         >
                             Sign in
                         </Buttons.Button>
                     }}
                 />
 
-                {/*<div className={'storybook-pages-login-fields'}>*/}
-                {/*    <Forms.Field animated>*/}
-                {/*        <Forms.Input id={'email-address'} value={model.email} onChange={event => {*/}
-                {/*            setModel({...model, email: event.target.value})*/}
-                {/*        }}/>*/}
-
-                {/*        <Forms.Label htmlFor={'email-address'}>*/}
-                {/*            Email address*/}
-                {/*        </Forms.Label>*/}
-                {/*    </Forms.Field>*/}
-
-                {/*    <Forms.Field animated={'closed'}>*/}
-                {/*        <Forms.Input id={'password'} type={'password'} value={model.password} onChange={event => {*/}
-                {/*            setModel({...model, password: event.target.value})*/}
-                {/*        }}/>*/}
-
-                {/*        <Forms.Label htmlFor={'password'}>*/}
-                {/*            Password*/}
-                {/*        </Forms.Label>*/}
-                {/*    </Forms.Field>*/}
-                {/*</div>*/}
-
                 <div className={'storybook-pages-form-footer'}>
                     <Forms.Checkbox id={'remember-me'} label={'Remember me'}/>
 
                     <Forms.ForgotPassword/>
-                </div>
-
-                <div>
-                    <Buttons.Button
-                        type={'default'}
-                        appendClassname={'text-white bg-green-400 hover:bg-green-500'}
-                        onClick={() => onSubmit(model)}
-                    >
-                        Sign in
-                    </Buttons.Button>
                 </div>
             </form>
         </Cards.Card>
