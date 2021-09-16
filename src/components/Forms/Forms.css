@@ -68,10 +68,11 @@
     top: 40px;
     @apply z-10;
     @apply absolute left-0;
-    @apply w-full;
+    @apply min-w-full;
     @apply bg-white;
     @apply rounded-md;
     @apply border;
+    @apply break-all;
 }
 
 /* Submit */

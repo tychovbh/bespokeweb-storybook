@@ -50,7 +50,7 @@
     @apply overflow-y-auto;
     @apply flex flex-col flex-grow;
     @apply hidden;
-    @apply z-10;
+    @apply z-50;
 }
 
 @media (min-width: 1280px) {

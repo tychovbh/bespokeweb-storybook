@@ -13,7 +13,7 @@ export default {
 const Template = () => {
     const [result, setResult] = useState({todo_id: null, todo_label: ''})
 
-    return <div>
+    return <div className={'w-1/2'}>
         <Forms.Search
             route={'todos'}
             value={result.todo_id}
