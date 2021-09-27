@@ -4,7 +4,7 @@ import {Fetcher} from 'ra-fetch'
 
 let final_search = null
 
-export default function Search({value, onChange, route, param, id, label, min = 0}) {
+export default function Search({value, onChange, route, param, id, label, min = 0, params}) {
     const [results, setResults] = useState(Fetcher.collection)
 
     function performSearch(params) {
@@ -35,7 +35,7 @@ export default function Search({value, onChange, route, param, id, label, min = 
             value={value}
             onChange={value => {
                 onChange(null, value)
-                performSearch({[param]: value})
+                performSearch({...params, [param]: value})
             }}
         />
         {
