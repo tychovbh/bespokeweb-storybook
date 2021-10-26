@@ -20,7 +20,7 @@ export const Topbar = ({id, className, appendClassname, children}) => {
 
 Topbar.propTypes = {
     /**
-     * The id of the Container
+     * The id of the Breadcrumbs
      */
     id: PropTypes.string,
 

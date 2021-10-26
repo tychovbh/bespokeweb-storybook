@@ -55,7 +55,7 @@ export const Notification = ({id, className, appendClassname, children, type, ti
 
 Notification.propTypes = {
     /**
-     * The id of the Container
+     * The id of the Breadcrumbs
      */
     id: PropTypes.string,
 

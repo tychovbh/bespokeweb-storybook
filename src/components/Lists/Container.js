@@ -15,7 +15,7 @@ export const Container = ({id, className, appendClassname, children, open = true
 
 Container.propTypes = {
     /**
-     * The id of the Container
+     * The id of the Breadcrumbs
      */
     id: PropTypes.string,
 
@@ -30,7 +30,7 @@ Container.propTypes = {
     appendClassname: PropTypes.string,
 
     /**
-     * The HTML inside of the Container
+     * The HTML inside of the Breadcrumbs
      */
     children: PropTypes.node.isRequired
 };

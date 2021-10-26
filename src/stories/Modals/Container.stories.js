@@ -3,7 +3,7 @@ import 'bespokeweb-storybook/styles/style.css'
 import {Modals, Buttons, Texts} from 'bespokeweb-storybook'
 
 export default {
-    title: 'Example/Modals/Container',
+    title: 'Example/Modals/Breadcrumbs',
     component: Modals.Container,
     argsTypes: {}
 }

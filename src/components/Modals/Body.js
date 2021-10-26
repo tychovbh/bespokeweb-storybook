@@ -11,7 +11,7 @@ export const Body = ({id, className, appendClassname, children}) => {
 };
 Body.propTypes = {
     /**
-     * The id of the Container
+     * The id of the Breadcrumbs
      */
     id: PropTypes.string,
 
@@ -26,7 +26,7 @@ Body.propTypes = {
     appendClassname: PropTypes.string,
 
     /**
-     * The title of the Container
+     * The title of the Breadcrumbs
      */
     children: PropTypes.node.isRequired
 };

@@ -58,6 +58,7 @@
         @apply flex;
         @apply pt-4;
     }
+
     .navigations-sidebar-hamburger {
         @apply hidden;
     }
@@ -122,4 +123,15 @@
 
 .storybook-navigations-topbar {
 
+}
+
+
+/* Breadcrumbs */
+.storybook-navigations-breadcrumb {
+    @apply
+    bg-gray-100
+    p-3
+    rounded
+    font-sans
+    w-full;
 }

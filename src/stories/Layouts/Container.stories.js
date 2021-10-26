@@ -3,7 +3,7 @@ import 'bespokeweb-storybook/styles/style.css';
 import {Layouts} from 'bespokeweb-storybook'
 
 export default {
-    title: 'Example/Layouts/Container',
+    title: 'Example/Layouts/Breadcrumbs',
     component: Layouts.Container,
     argsTypes: {}
 }

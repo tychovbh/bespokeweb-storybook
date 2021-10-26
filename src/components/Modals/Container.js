@@ -10,7 +10,7 @@ export const Container = ({id, className, appendClassname, children}) => {
 };
 Container.propTypes = {
     /**
-     * The id of the Container
+     * The id of the Breadcrumbs
      */
     id: PropTypes.string,
 
@@ -25,7 +25,7 @@ Container.propTypes = {
     appendClassname: PropTypes.string,
 
     /**
-     * The title of the Container
+     * The title of the Breadcrumbs
      */
     children: PropTypes.node.isRequired
 };
