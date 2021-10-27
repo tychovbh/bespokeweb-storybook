@@ -4,17 +4,15 @@ export default function Breadcrumbs({items, divider, Component}) {
     return <nav className={'storybook-navigations-breadcrumb'}>
         <ol className={'list-reset flex text-grey-dark'}>
             {items.map((item, index) => {
-                return <>
+                return <li key={index} className={'flex'}>
                     {
-                        Component ? <Component key={index} {...item}/>
-                            : <li>
-                                <a href={item.href} className={'underline'}>{item.label}</a>
-                            </li>
+                        Component ? <Component {...item}/>
+                            : <a href={item.href} className={'underline'}>{item.label}</a>
                     }
                     {
-                        index + 1 !== items.length && <li><span className="mx-2">{divider || '>'}</span></li>
+                        index + 1 !== items.length && <span className="mx-2">{divider || '>'}</span>
                     }
-                </>
+                </li>
             })}
         </ol>
     </nav>
