@@ -40,7 +40,7 @@ Input.propTypes = {
     /**
      * The type of an Input (e.g. Texts, Password, Radio, Checkbox)
      */
-    type: PropTypes.oneOf(['text', 'password', 'hidden', 'number', 'date']),
+    type: PropTypes.oneOf(['text', 'password', 'hidden', 'number', 'date', 'time']),
 
     /**
      * The placeholder of an Input
