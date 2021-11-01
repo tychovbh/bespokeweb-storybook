@@ -34,3 +34,8 @@ export const Date = Template.bind({});
 Date.args = {
     type: 'date'
 };
+
+export const Time = Template.bind({});
+Time.args = {
+    type: 'time'
+};
