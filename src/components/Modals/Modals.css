@@ -25,7 +25,7 @@
     background: rgba(0, 0, 0, .33);
     @apply absolute;
     @apply top-0 bottom-0 left-0 right-0;
-    @apply z-30;
+    z-index: 9999;
 }
 
 .storybook-modals-visible {
@@ -87,6 +87,7 @@
     @apply flex-1;
     @apply mr-4;
 }
+
 .storybook-modals-notification-close {
     @apply w-6;
 }
