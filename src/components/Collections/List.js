@@ -71,13 +71,13 @@ const TableBody = ({items, fields, info, setDeleteModal, collection}) => {
                 })}
                 <td className={'storybook-list-table-body-actions'}>
                     <Buttons.ButtonLink href={`/${collection}/${item.id}`} appendClassname={'button-icon'}>
-                        <Icons.Icon name={'eye'} className={'text-green-400 w-4'}/>
+                        <Icons.Icon name={'Eye'} className={'text-green-400 w-4'}/>
                     </Buttons.ButtonLink>
                     <Buttons.ButtonLink href={`/${collection}/${item.id}/edit`} appendClassname={'button-icon'}>
-                        <Icons.Icon name={'pencil'} className={'text-orange-400 w-4'}/>
+                        <Icons.Icon name={'Pencil'} className={'text-orange-400 w-4'}/>
                     </Buttons.ButtonLink>
                     <Buttons.Button onClick={() => Delete(item)} appendClassname={'button-icon'}>
-                        <Icons.Icon name={'x-circle'} className={'text-red-400 w-4'}/>
+                        <Icons.Icon name={'XCircle'} className={'text-red-400 w-4'}/>
                     </Buttons.Button>
                 </td>
             </tr>,
@@ -96,11 +96,11 @@ const Header = ({info = {}, search, onSearch, collection, relation, buttons}) =>
             !relation.name && <>
                 <Collections.Buttons buttons={buttons}>
                     <Buttons.ButtonLink appendClassname={'mr-4'} href={`/${collection}/import`}>
-                        <Icons.Icon name={'cloud-upload'} className={'mr-2 w-5'}/>
+                        <Icons.Icon name={'CloudUpload'} className={'mr-2 w-5'}/>
                         Bulk import
                     </Buttons.ButtonLink>
                     <Buttons.ButtonLink type={'success'} href={`/${collection}/create`}>
-                        <Icons.Icon name={'plus'} className={'mr-2 w-5'}/>
+                        <Icons.Icon name={'Plus'} className={'mr-2 w-5'}/>
                         create
                     </Buttons.ButtonLink>
                 </Collections.Buttons>
@@ -111,7 +111,7 @@ const Header = ({info = {}, search, onSearch, collection, relation, buttons}) =>
         <Layouts.Container>
             <div className={'storybook-collections-list-toolbar'}>
                 <label htmlFor={'search'} className={'w-5 mx-3 cursor-pointer'}>
-                    <Icons.Icon name={'search'}/>
+                    <Icons.Icon name={'Search'}/>
                 </label>
 
                 <Forms.Input

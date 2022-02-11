@@ -26,7 +26,7 @@ export const Product = ({id, className, appendClassname, title, description, pri
                     list &&
                     list.items.map((item, index) => {
                         return <div key={index} className={'storybook-sections-pricing-list-item flex'}>
-                            <Icons.Icon name={'check'} className={'text-green-400 w-6 mr-3'}/>
+                            <Icons.Icon name={'Check'} className={'text-green-400 w-6 mr-3'}/>
                             <Texts.Primary appendClassname={'flex-1'}>{item}</Texts.Primary>
                         </div>
                     })

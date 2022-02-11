@@ -18,7 +18,7 @@ const Template = (args) => {
            <Navigations.Nav>
                {/* Home */}
                <Navigations.NavLink>
-                   <Icons.Icon name={'home'}/>
+                   <Icons.Icon name={'Home'}/>
                    Dashboard
                </Navigations.NavLink>
            </Navigations.Nav>

@@ -46,7 +46,7 @@ export const Notification = ({id, className, appendClassname, children, type, ti
             </div>
             <div className={'storybook-modals-notification-close'}>
                 <Buttons.Button>
-                    <Icons.Icon className={`storybook-modals-notification-close`} name={'x'}/>
+                    <Icons.Icon className={`storybook-modals-notification-close`} name={'X'}/>
                 </Buttons.Button>
             </div>
         </div>

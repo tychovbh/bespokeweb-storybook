@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/solid";
 
 export const Group = ({id, className, appendClassname, children}) => {
-    return <div
-        id={id}
-        className={`${className ?? 'storybook-button-group'} ${appendClassname}`}
-    >
+    return <div className={'storybook-buttons-group'}>
         {children}
     </div>
 }

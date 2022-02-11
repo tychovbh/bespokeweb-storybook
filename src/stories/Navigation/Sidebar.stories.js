@@ -21,17 +21,16 @@ const Template = (args) => {
                 <Logos.Logo name={'managedat'} href={'/'}/>
             </Navigations.Brand>
             <Navigations.Nav>
-                {/* Home */}
                 <Navigations.NavLink>
-                    <Icons.Icon name={'home'}/>
+                    <Icons.Icon name={'Home'}/>
                     Dashboard
                 </Navigations.NavLink>
 
                 <Navigations.NavLink onClick={() => handleOpen('team')}>
-                    <Icons.Icon name={'users'}/>
+                    <Icons.Icon name={'Users'}/>
                     Team
                     <Icons.Icon
-                        name={open === 'team' ? 'chevron-down' : 'chevron-right'}
+                        name={open === 'team' ? 'ChevronDown' : 'ChevronRight'}
                         className={'storybook-navigations-dropdown-icon'}
                     />
                 </Navigations.NavLink>
@@ -43,10 +42,10 @@ const Template = (args) => {
                 </Navigations.Dropdown>
 
                 <Navigations.NavLink onClick={() => handleOpen('projects')}>
-                    <Icons.Icon name={'folder'}/>
+                    <Icons.Icon name={'Folder'}/>
                     Projects
                     <Icons.Icon
-                        name={open === 'projects' ? 'chevron-down' : 'chevron-right'}
+                        name={open === 'projects' ? 'ChevronDown' : 'ChevronRight'}
                         className={'storybook-navigations-dropdown-icon'}
                     />
                 </Navigations.NavLink>
@@ -58,10 +57,10 @@ const Template = (args) => {
                 </Navigations.Dropdown>
 
                 <Navigations.NavLink onClick={() => handleOpen('calendar')}>
-                    <Icons.Icon name={'calendar'}/>
+                    <Icons.Icon name={'Calendar'}/>
                     Calendar
                     <Icons.Icon
-                        name={open === 'calendar' ? 'chevron-down' : 'chevron-right'}
+                        name={open === 'calendar' ? 'ChevronDown' : 'ChevronRight'}
                         className={'storybook-navigations-dropdown-icon'}
                     />
                 </Navigations.NavLink>
@@ -73,10 +72,10 @@ const Template = (args) => {
                 </Navigations.Dropdown>
 
                 <Navigations.NavLink onClick={() => handleOpen('documents')}>
-                    <Icons.Icon name={'inbox'}/>
+                    <Icons.Icon name={'Inbox'}/>
                     Documents
                     <Icons.Icon
-                        name={open === 'documents' ? 'chevron-down' : 'chevron-right'}
+                        name={open === 'documents' ? 'ChevronDown' : 'ChevronRight'}
                         className={'storybook-navigations-dropdown-icon'}
                     />
                 </Navigations.NavLink>
@@ -88,10 +87,10 @@ const Template = (args) => {
                 </Navigations.Dropdown>
 
                 <Navigations.NavLink onClick={() => handleOpen('reports')}>
-                    <Icons.Icon name={'chart-bar'}/>
+                    <Icons.Icon name={'ChartBar'}/>
                     Reports
                     <Icons.Icon
-                        name={open === 'reports' ? 'chevron-down' : 'chevron-right'}
+                        name={open === 'reports' ? 'ChevronDown' : 'ChevronRight'}
                         className={'storybook-navigations-dropdown-icon'}
                     />
                 </Navigations.NavLink>

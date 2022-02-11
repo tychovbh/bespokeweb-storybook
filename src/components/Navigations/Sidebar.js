@@ -7,7 +7,7 @@ export const SidebarNav = ({navRef, children, state, setState}) => {
         ref={navRef}
         className={`storybook-navigations-sidebar${state ? ` storybook-navigations-sidebar-${state}` : ''}`}>
             <Buttons.Button onClick={() => setState(state !== 'open' ? 'open' : 'close')} appendClassname={'navigations-sidebar-hamburger'}>
-                <Icons.Icon name={'x'} className={'w-6'}/>
+                <Icons.Icon name={'X'} className={'w-6'}/>
             </Buttons.Button>
         {children}
     </div>
@@ -31,7 +31,7 @@ export const Sidebar = ({children}) => {
         <Buttons.Button
             appendClassname={'navigations-sidebar-hamburger'}
             onClick={() => setState(state !== 'open' ? 'open' : 'close')}>
-            <Icons.Icon name={'menu-alt-2'} className={'w-6'}/>
+            <Icons.Icon name={'MenuAlt2'} className={'w-6'}/>
         </Buttons.Button>
 
         {

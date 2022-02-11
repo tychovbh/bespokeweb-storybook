@@ -3,7 +3,7 @@ import 'bespokeweb-storybook/styles/style.css'
 import {Lists, Buttons, Texts} from 'bespokeweb-storybook'
 
 export default {
-    title: 'Example/Lists/Breadcrumbs',
+    title: 'Example/Lists/Container',
     components: Lists.Container,
     argsTypes: {}
 }

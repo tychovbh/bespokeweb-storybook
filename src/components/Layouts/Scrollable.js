@@ -37,7 +37,7 @@ export const Scrollable = ({children, childrenRef}) => {
     return <div className={'storybook-layouts-container'}>
         <div className={'storybook-layouts-scroll storybook-layouts-scroll-left'}>
             <Buttons.Button onClick={() => scroll('left')}>
-                <Icons.Icon name={'chevron-left'} className={'w-8'}/>
+                <Icons.Icon name={'ChevronLeft'} className={'w-8'}/>
             </Buttons.Button>
         </div>
 
@@ -47,7 +47,7 @@ export const Scrollable = ({children, childrenRef}) => {
 
         <div className={'storybook-layouts-scroll storybook-layouts-scroll-right'}>
             <Buttons.Button onClick={() => scroll('right')}>
-                <Icons.Icon name={'chevron-right'} className={'w-8'}/>
+                <Icons.Icon name={'ChevronRight'} className={'w-8'}/>
             </Buttons.Button>
         </div>
     </div>

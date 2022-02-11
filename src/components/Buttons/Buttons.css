@@ -13,7 +13,6 @@
 }
 
 .storybook-buttons-button-default {
-    @apply bg-white;
     @apply text-black;
     @apply cursor-default;
 }
@@ -84,6 +83,7 @@
     text-gray-800 underline
     w-full;
 }
+
 .storybook-buttons-button-search:hover {
     @apply bg-gray-100;
 }
@@ -118,4 +118,16 @@
 
 .storybook-button-download-content-button {
     @apply text-purple-700;
+}
+
+.storybook-buttons-group {
+    @apply flex items-center rounded-md shadow-sm;
+    @apply border border-gray-300;
+    width: fit-content;
+}
+
+@media (min-width: 768px) {
+    .storybook-buttons-group {
+        @apply items-stretch;
+    }
 }

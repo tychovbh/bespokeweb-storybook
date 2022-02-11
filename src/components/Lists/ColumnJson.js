@@ -14,7 +14,7 @@ function Json({data, setModal}) {
         <div className={'lists-toggle-bar'}>
             <Buttons.Button type={'dark'} onClick={() => setOpen(!open)}>
                 <div className={'lists-toggle-bar-button'}>
-                    open json &nbsp;<Icons.Icon name={open ? 'chevron-up' : 'chevron-down'} className={'w-8'}/>
+                    open json &nbsp;<Icons.Icon name={open ? 'ChevronUp' : 'ChevronDown'} className={'w-8'}/>
                 </div>
             </Buttons.Button>
         </div>

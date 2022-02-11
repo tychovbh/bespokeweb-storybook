@@ -5,19 +5,19 @@ import PropTypes from 'prop-types'
  * Primary UI component for user interaction
  */
 export const Button = ({id, className, appendClassname, children, type, onClick, disabled}) => {
-    let typeClass = type ? ' storybook-buttons-button-' + type : ''
+    className += 'storybook-buttons-button-' + type
 
     if (appendClassname) {
-        typeClass += ' ' + appendClassname
+        className += ' ' + appendClassname
     }
 
     if (disabled) {
-        typeClass += ' storybook-buttons-button-disabled'
+        className += ' storybook-buttons-button-disabled'
     }
 
     return <button
         id={id}
-        className={`${className}${typeClass}`}
+        className={`${className}`}
         onClick={disabled ? null : onClick}
         disabled={disabled}
     >

@@ -1,0 +1,26 @@
+/* Container */
+.storybook-calendars-container {
+
+}
+
+@media (min-width: 1024px) {
+    .storybook-calendars-container {
+        @apply flex h-full flex-col;
+    }
+}
+
+/* Header */
+.storybook-calendars-header {
+    @apply relative z-20 flex items-center justify-between border-b border-gray-200 py-4 px-6;
+}
+
+@media (min-width: 1024px) {
+    .storybook-calendars-header {
+        @apply flex-none;
+    }
+}
+
+/* Title */
+.storybook-calendars-title {
+    @apply text-lg font-semibold text-gray-900;
+}

@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
 export const Brand = ({id, className, appendClassname, children}) => {
     return <div
@@ -8,7 +8,7 @@ export const Brand = ({id, className, appendClassname, children}) => {
     >
         {children}
     </div>
-};
+}
 
 Brand.propTypes = {
     /**
@@ -30,9 +30,9 @@ Brand.propTypes = {
      * The HTML inside of Brand
      */
     children: PropTypes.node.isRequired,
-};
+}
 
 Brand.defaultProps = {
     className: 'storybook-navigations-brand',
     appendClassname: ''
-};
+}

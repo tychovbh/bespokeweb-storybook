@@ -34,3 +34,11 @@
     font-size: .67em;
 }
 
+/* Link */
+.storybook-texts-link {
+    @apply text-blue-400 underline;
+}
+
+.storybook-texts-link:hover {
+    @apply text-blue-600;
+}
