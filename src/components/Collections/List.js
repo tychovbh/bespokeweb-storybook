@@ -74,7 +74,7 @@ const TableBody = ({items, fields, info, setDeleteModal, collection}) => {
                         <Icons.Icon name={'Eye'} className={'text-green-400 w-4'}/>
                     </Buttons.ButtonLink>
                     <Buttons.ButtonLink href={`/${collection}/${item.id}/edit`} appendClassname={'button-icon'}>
-                        <Icons.Icon name={'Pencil'} className={'text-orange-400 w-4'}/>
+                        <Icons.Icon name={'Pencil'} className={'text-yellow-400 w-4'}/>
                     </Buttons.ButtonLink>
                     <Buttons.Button onClick={() => Delete(item)} appendClassname={'button-icon'}>
                         <Icons.Icon name={'XCircle'} className={'text-red-400 w-4'}/>

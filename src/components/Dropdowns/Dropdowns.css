@@ -1,68 +1,55 @@
+/* Dropdown */
 .storybook-dropdowns-dropdown {
-    @apply origin-top-right;
-    @apply absolute;
-    @apply mt-2;
-    min-width: 12rem;
-    max-height: 18rem;
-    @apply overflow-scroll;
-    @apply rounded-md;
-    @apply shadow-lg;
-    @apply py-1;
-    @apply bg-white;
-    @apply z-20;
-    /*@apply ring-1;*/
-    /*@apply ring-black;*/
-    /*@apply ring-opacity-5;*/
+    @apply relative;
+    width: fit-content;
 }
 
-.storybook-dropdowns-overlay {
-    @apply fixed;
-    @apply top-0 right-0 bottom-0 left-0;
-    background: none;
-    @apply z-10;
-}
-
-.storybook-dropdowns-dropdown-open {
-    @apply storybook-dropdowns-dropdown;
-}
-
-.storybook-dropdowns-dropdown-close {
-    @apply storybook-dropdowns-dropdown;
-    @apply hidden;
-}
-
-.storybook-dropdowns-dropdown-left {
-    @apply left-0;
-}
-
-.storybook-dropdowns-dropdown-center {
-    @apply mx-auto;
-}
-
-.storybook-dropdowns-dropdown-right {
-    @apply right-0;
-}
-
-.storybook-dropdowns-link {
+/* Button */
+.storybook-dropdowns-button {
     @apply flex items-center;
-    @apply py-2 px-4 pr-12;
-    @apply text-sm;
-    @apply text-gray-700;
+    @apply rounded-md border border-gray-300;
+    @apply bg-white;
+    @apply py-2 pl-3 pr-2;
+    @apply shadow-sm;
+    @apply text-sm font-medium text-gray-700;
 }
 
-.storybook-dropdowns-link:hover,
-.storybook-dropdowns-link-button:hover {
-    @apply bg-gray-100;
+.storybook-dropdowns-button:hover {
+    @apply bg-gray-50;
 }
 
-.storybook-dropdowns-link .storybook-menus-avatar-image,
-.storybook-dropdowns-link-button .storybook-menus-avatar-image {
-    @apply mr-3;
+/* Items */
+.storybook-dropdowns-items {
+    @apply absolute;
+    @apply mt-3;
+    @apply w-36;
+    @apply overflow-hidden;
+    @apply rounded-md;
+    @apply bg-white;
+    @apply shadow-lg;
+    @apply ring-1 ring-black ring-opacity-5;
 }
 
-.storybook-dropdowns-link-button {
-    @apply storybook-dropdowns-link;
-    @apply w-full;
+.storybook-dropdowns-items:focus {
+    @apply outline-none;
 }
 
+.storybook-dropdowns-items-left {
+    @apply left-0 origin-top-left;
+}
 
+.storybook-dropdowns-items-right {
+    @apply right-0 origin-top-right;
+}
+
+/* Item */
+.storybook-dropdowns-item {
+    @apply text-gray-700 text-sm;
+    @apply block;
+    @apply px-4 py-2;
+    @apply cursor-pointer;
+}
+
+.storybook-dropdowns-item-active {
+    @apply bg-gray-100 text-gray-900;
+}

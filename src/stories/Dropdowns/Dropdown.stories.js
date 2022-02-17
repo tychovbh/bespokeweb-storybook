@@ -1,27 +1,47 @@
-import React, {useState} from 'react'
+import React from 'react'
 import 'bespokeweb-storybook/styles/style.css'
-import {Dropdowns, Buttons} from 'bespokeweb-storybook'
+import {Dropdowns, Icons} from 'bespokeweb-storybook'
 
 export default {
-    title: 'Example/Dropdowns/Dropdown',
+    title: 'Components/Dropdowns/Dropdown',
     components: Dropdowns.Dropdown,
     args: {}
 }
 
-const Template = (args) => {
-    const [open, setOpen] = useState(false)
+const Template = ({children, ...args}) => {
+    return <Dropdowns.Dropdown {...args}>
+        <Dropdowns.Button>
+            Dropdown <Icons.Icon name={'ChevronDown'} className={'w-5 ml-2 text-gray-400'}/>
+        </Dropdowns.Button>
 
-    return <div className={'relative'}>
-        <Buttons.Button {...args} onClick={() => setOpen(!open)} type={'primary'}>
-            open
-        </Buttons.Button>
-
-        <Dropdowns.Dropdown open={open} align={'left'} onClose={() => setOpen(!open)}>
-            <Dropdowns.Link>link 1</Dropdowns.Link>
-            <Dropdowns.Link>link 2</Dropdowns.Link>
-        </Dropdowns.Dropdown>
-    </div>
+        {
+            children ??
+            <Dropdowns.Items>
+                <Dropdowns.Item>Item 1</Dropdowns.Item>
+                <Dropdowns.Item>Item 2</Dropdowns.Item>
+                <Dropdowns.Item>Item 3</Dropdowns.Item>
+            </Dropdowns.Items>
+        }
+    </Dropdowns.Dropdown>
 }
 
-export const Dropdown = Template.bind({})
-Dropdown.args = {}
+export const Default = Template.bind({})
+Default.args = {}
+
+export const Left = Template.bind({})
+Left.args = {
+    children: <Dropdowns.Items align={'left'}>
+        <Dropdowns.Item>Item 1</Dropdowns.Item>
+        <Dropdowns.Item>Item 2</Dropdowns.Item>
+        <Dropdowns.Item>Item 3</Dropdowns.Item>
+    </Dropdowns.Items>
+}
+
+export const Right = Template.bind({})
+Right.args = {
+    children: <Dropdowns.Items align={'right'}>
+        <Dropdowns.Item>Item 1</Dropdowns.Item>
+        <Dropdowns.Item>Item 2</Dropdowns.Item>
+        <Dropdowns.Item>Item 3</Dropdowns.Item>
+    </Dropdowns.Items>
+}

@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import * as Helpers from 'bespokeweb-storybook/helpers'
 
-export default function Header({id, className, appendClassName, children}) {
+export default function Desktop({id, className, appendClassName, children}) {
     return <div id={id} className={Helpers.classNames(className, appendClassName)}>
-        {children}
+        <div className={className + '-desktop'}>
+            {children}
+        </div>
     </div>
 }
 
-Header.propTypes = {
+Desktop.propTypes = {
     /**
      * Add an id
      */
@@ -25,6 +27,6 @@ Header.propTypes = {
     appendClassname: PropTypes.string,
 }
 
-Header.defaultProps = {
-    className: 'storybook-calendars-header'
+Desktop.defaultProps = {
+    className: 'storybook-calendars-calendar'
 }

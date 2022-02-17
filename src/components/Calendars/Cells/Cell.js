@@ -1,15 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as Helpers from 'bespokeweb-storybook/helpers'
-import {Menu} from '@headlessui/react'
 
-export default function Dropdown({id, className, appendClassName, children}) {
-    return <Menu as={'div'} id={id} className={Helpers.classNames(className, appendClassName)}>
+export default function Cell({id, className, appendClassName, children, active}) {
+    if (active) {
+        className += '-active'
+    }
+
+    return <div id={id} className={Helpers.classNames(className, appendClassName)}>
         {children}
-    </Menu>
+    </div>
 }
 
-Dropdown.propTypes = {
+Cell.propTypes = {
     /**
      * Add an id
      */
@@ -26,6 +29,6 @@ Dropdown.propTypes = {
     appendClassname: PropTypes.string,
 }
 
-Dropdown.defaultProps = {
-    className: 'storybook-dropdowns-dropdown'
+Cell.defaultProps = {
+    className: 'storybook-calendars-cells-cell'
 }

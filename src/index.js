@@ -1,19 +1,41 @@
-export * as Buttons from './components/Buttons'
-export * as Calendars from './components/Calendars'
-export * as Collections from './components/Collections'
-export * as Dashboards from './components/Dashboards'
-export * as Dropdowns from './components/Dropdowns'
-export * as Layouts from './components/Layouts'
-export * as Elements from './components/Elements'
-export * as Feedbacks from './components/Feedbacks'
-export * as Forms from './components/Forms'
-export * as Icons from './components/Icons'
-export * as Lists from './components/Lists'
-export * as Loaders from './components/Loaders'
-export * as Logos from './components/Logos'
-export * as Modals from './components/Modals'
-export * as Navigations from './components/Navigations'
-export * as Pages from './components/Pages'
-export * as Sections from './components/Sections'
-export * as Tables from './components/Tables'
-export * as Texts from './components/Texts'
+import * as Buttons from './components/Buttons'
+import * as Calendars from './components/Calendars'
+import * as Collections from './components/Collections'
+import * as Dashboards from './components/Dashboards'
+import * as Dropdowns from './components/Dropdowns'
+import * as Layouts from './components/Layouts'
+import * as Elements from './components/Elements'
+import * as Feedbacks from './components/Feedbacks'
+import * as Forms from './components/Forms'
+import * as Icons from './components/Icons'
+import * as Lists from './components/Lists'
+import * as Loaders from './components/Loaders'
+import * as Logos from './components/Logos'
+import * as Modals from './components/Modals'
+import * as Navigations from './components/Navigations'
+import * as Pages from './components/Pages'
+import * as Sections from './components/Sections'
+import * as Tables from './components/Tables'
+import * as Texts from './components/Texts'
+
+export {
+    Buttons,
+    Calendars,
+    Collections,
+    Dashboards,
+    Dropdowns,
+    Layouts,
+    Elements,
+    Feedbacks,
+    Forms,
+    Icons,
+    Lists,
+    Loaders,
+    Logos,
+    Modals,
+    Navigations,
+    Pages,
+    Sections,
+    Tables,
+    Texts
+}

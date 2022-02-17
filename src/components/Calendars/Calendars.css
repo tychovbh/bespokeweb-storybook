@@ -1,3 +1,20 @@
+.storybook-calendars-add-event-button {
+    @apply rounded-md border border-transparent;
+    @apply bg-indigo-600;
+    @apply py-2 px-4;
+    @apply text-sm font-medium text-white;
+    @apply shadow-sm;
+}
+
+.storybook-calendars-add-event-button:focus {
+    @apply outline-none;
+    @apply ring-2 ring-indigo-500 ring-offset-2;
+}
+
+.storybook-calendars-add-event-button:hover {
+    @apply bg-indigo-700;
+}
+
 /* Container */
 .storybook-calendars-container {
 
@@ -23,4 +40,205 @@
 /* Title */
 .storybook-calendars-title {
     @apply text-lg font-semibold text-gray-900;
+}
+
+/* DateSelect */
+.storybook-calendars-date-select-previous {
+    @apply flex items-center justify-center;
+    @apply py-2 pl-3 pr-4;
+    @apply text-gray-400;
+}
+
+.storybook-calendars-date-select-previous:focus {
+    @apply relative;
+}
+
+.storybook-calendars-date-select-previous:hover {
+    @apply hover:text-gray-500;
+}
+
+@media (min-width: 768px) {
+    .storybook-calendars-date-select-previous {
+        @apply w-9;
+        @apply px-2;
+    }
+
+    .storybook-calendars-date-select-previous:hover {
+        @apply bg-gray-50;
+    }
+}
+
+.storybook-calendars-date-select-label {
+    @apply hidden;
+    @apply px-3.5;
+    @apply text-sm font-medium text-gray-700;
+}
+
+.storybook-calendars-date-select-label:hover {
+    @apply bg-gray-50;
+    @apply text-gray-900;
+}
+
+.storybook-calendars-date-select-label:focus {
+    @apply relative;
+}
+
+@media (min-width: 768px) {
+    .storybook-calendars-date-select-label {
+        @apply block;
+    }
+}
+
+.storybook-calendars-date-select-next {
+    @apply flex items-center justify-center;
+    @apply py-2 pl-4 pr-3;
+    @apply text-gray-400;
+}
+
+.storybook-calendars-date-select-next:hover {
+    @apply text-gray-500;
+}
+
+.storybook-calendars-date-select-next:focus {
+    @apply relative;
+}
+
+@media (min-width: 768px) {
+    .storybook-calendars-date-select-next {
+        @apply w-9;
+        @apply px-2;
+        @apply hover:bg-gray-50;
+    }
+
+    .storybook-calendars-date-select-next:hover {
+        @apply bg-gray-50;
+    }
+}
+
+/* Body */
+.storybook-calendars-body {
+    @apply shadow;
+    @apply ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col;
+}
+
+@media (min-width: 1024px) {
+    .storybook-calendars-body {
+        @apply flex flex-auto flex-col;
+    }
+}
+
+/* Head */
+.storybook-calendars-head {
+    @apply grid grid-cols-7 gap-px;
+    @apply border-b border-gray-300;
+    @apply bg-gray-200;
+    @apply text-center text-xs font-semibold leading-6;
+    @apply text-gray-700;
+}
+
+@media (min-width: 1024px) {
+    .storybook-calendars-head {
+        @apply flex-none;
+    }
+}
+
+/* Head Item */
+.storybook-calendars-head-item {
+    @apply bg-white py-2;
+}
+
+.storybook-calendars-head-item > span {
+    @apply sr-only sm:not-sr-only;
+}
+
+/* Calendar */
+.storybook-calendars-calendar {
+    @apply flex;
+    @apply bg-gray-200;
+    @apply text-xs leading-6 text-gray-700;
+}
+
+.storybook-calendars-calendar-desktop {
+    @apply hidden;
+    @apply w-full;
+}
+
+.storybook-calendars-calendar-mobile {
+    @apply isolate;
+    @apply w-full;
+    @apply grid grid-cols-7 grid-rows-6 gap-px;
+}
+
+@media (min-width: 1024px) {
+    .storybook-calendars-calendar {
+        @apply flex-auto;
+    }
+
+    .storybook-calendars-calendar-desktop {
+        @apply grid grid-cols-7 grid-rows-6 gap-px;
+    }
+
+    .storybook-calendars-calendar-mobile {
+        @apply hidden;
+    }
+}
+
+/* Cells Cell */
+.storybook-calendars-cells-cell {
+    @apply bg-gray-50 text-gray-500;
+}
+
+.storybook-calendars-cells-cell-active {
+    @apply bg-white;
+}
+
+/* Cells Date */
+@media (min-width: 1024px) {
+    .storybook-calendars-cells-date {
+
+    }
+
+    .storybook-calendars-cells-date-active {
+        @apply storybook-calendars-cells-date;
+        @apply flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white;
+    }
+}
+
+/* Events Item */
+@media (min-width: 1024px) {
+    .storybook-calendars-events-item {
+
+    }
+
+    .storybook-calendars-events-item > a {
+        @apply group flex;
+    }
+
+    .storybook-calendars-events-item > a:hover > .storybook-calendars-events-label,
+    .storybook-calendars-events-item > a:hover > .storybook-calendars-events-time {
+        @apply text-indigo-600;
+    }
+}
+
+/* Events Label */
+@media (min-width: 1024px) {
+    .storybook-calendars-events-label {
+        @apply flex-auto;
+        @apply truncate font-medium text-gray-900;
+    }
+}
+
+
+/* Events Time */
+.storybook-calendars-events-time {
+    @apply ml-3;
+    @apply hidden;
+    @apply flex-none;
+    @applu text-gray-500;
+}
+
+@media (min-width: 1280px) {
+    .storybook-calendars-events-time {
+        @apply block;
+    }
 }

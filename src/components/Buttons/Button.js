@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
  * Primary UI component for user interaction
  */
 export const Button = ({id, className, appendClassname, children, type, onClick, disabled}) => {
-    className += 'storybook-buttons-button-' + type
+    className += ' storybook-buttons-button-' + type
 
     if (appendClassname) {
         className += ' ' + appendClassname

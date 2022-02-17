@@ -3,7 +3,7 @@ import 'bespokeweb-storybook/styles/style.css'
 import {Modals, Texts} from 'bespokeweb-storybook'
 
 export default {
-    title: 'Example/Modals/Body',
+    title: 'Example/Modals/Tables',
     component: Modals.Body,
     argsTypes: {}
 }

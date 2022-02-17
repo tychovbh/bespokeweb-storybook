@@ -8,7 +8,7 @@ const icons = {
         icon: 'check-circle'
     },
     warning: {
-        className: 'text-orange-500',
+        className: 'text-yellow-500',
         icon: 'exclamation'
     },
     danger: {

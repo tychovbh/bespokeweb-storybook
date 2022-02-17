@@ -1,35 +1,32 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/solid";
+import * as Helpers from 'bespokeweb-storybook/helpers'
 
-export const Group = ({id, className, appendClassname, children}) => {
-    return <div className={'storybook-buttons-group'}>
+export const Group = ({className, appendClassname, children}) => {
+
+    return <div className={Helpers.classNames(className, appendClassname)}>
         {children}
     </div>
 }
 
 Group.propTypes = {
     /**
-     * The id of a Buttons
-     */
-    id: PropTypes.string,
-
-    /**
-     * Use a different classname
+     * Change the className
      */
     className: PropTypes.string,
 
     /**
-     * Add more classnames
+     * Add more classNames
      */
     appendClassname: PropTypes.string,
 
     /**
-     * The title of the Buttons
+     * The HTML inside
      */
-    children: PropTypes.string,
+    children: PropTypes.node.isRequired,
 }
 
 Group.defaultProps = {
+    className: 'storybook-buttons-group',
     appendClassname: '',
 }
