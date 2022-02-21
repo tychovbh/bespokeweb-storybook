@@ -7,7 +7,7 @@ export default function Container({children}) {
     </div>
 }
 
-Container.PropTypes = {
+Container.propTypes = {
     /**
      * The HTML inside.
      */

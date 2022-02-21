@@ -2,12 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import * as Helpers from 'bespokeweb-storybook/helpers'
 
-export default function Date({id, className, appendClassName, children, date, active}) {
+export default function Date({id, className, appendClassName, children, date, isToday, active}) {
+    let classNames = className;
+
     if (active) {
-        className += '-active'
+        classNames += ` ${className}-active`
     }
 
-    return <time id={id} className={Helpers.classNames(className, appendClassName)} dateTime={date}>
+    if (isToday) {
+        classNames += ` ${className}-today`
+    }
+
+    return <time id={id} className={Helpers.classNames(classNames, appendClassName)} dateTime={date}>
         {children}
     </time>
 }
@@ -31,5 +37,6 @@ Date.propTypes = {
 
 Date.defaultProps = {
     className: 'storybook-calendars-cells-date',
+    isToday: false,
     active: false
 }

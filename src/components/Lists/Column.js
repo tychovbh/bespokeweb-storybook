@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export const Column = ({id, className, appendClassname, children, type, colSpan}) => {
     const titleClass = type ? 'storybook-lists-column-' + type : '';

@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import * as Helpers from 'bespokeweb-storybook/helpers'
 
 export default function List({id, className, appendClassName, children}) {
-    return <div id={id} className={Helpers.classNames(className, appendClassName)}>
-        <ol className={'mt-2'}>
-            {children}
-        </ol>
-    </div>
+    return <ol id={id} className={Helpers.classNames(className, appendClassName)}>
+        {children}
+    </ol>
 }
 
 List.propTypes = {
@@ -28,5 +26,5 @@ List.propTypes = {
 }
 
 List.defaultProps = {
-    className: '',
+    className: 'storybook-calendars-events-list',
 }

@@ -23,4 +23,4 @@ export default function DateSelect({}) {
     </Buttons.Group>
 }
 
-DateSelect.PropTypes = {}
+DateSelect.propTypes = {}

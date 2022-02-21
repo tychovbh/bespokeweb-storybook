@@ -23,6 +23,8 @@ const days = [
         events: [
             {id: 1, name: 'Design review', time: '10AM', datetime: '2022-01-03T10:00', href: '#'},
             {id: 2, name: 'Sales meeting', time: '2PM', datetime: '2022-01-03T14:00', href: '#'},
+            {id: 2, name: 'Sales meeting', time: '2PM', datetime: '2022-01-03T14:00', href: '#'},
+            {id: 2, name: 'Sales meeting', time: '2PM', datetime: '2022-01-03T14:00', href: '#'},
         ],
     },
     {date: '2022-01-04', isCurrentMonth: true, events: []},
@@ -41,6 +43,7 @@ const days = [
         date: '2022-01-12',
         isCurrentMonth: true,
         isToday: true,
+        // isSelected: true,
         events: [{id: 6, name: "Sam's birthday party", time: '2PM', datetime: '2022-01-25T14:00', href: '#'}],
     },
     {date: '2022-01-13', isCurrentMonth: true, events: []},
@@ -167,23 +170,35 @@ const Template = (args) => <Calendars.Container {...args}>
             </Calendars.HeadItem>
         </Calendars.Head>
 
-        <Calendars.Calendar.Container>
-            <Calendars.Calendar.Desktop>
-                {
-                    days.map((day) => {
-                        return <Cell day={day}/>
-                    })
-                }
-            </Calendars.Calendar.Desktop>
+        <Calendars.Calendar>
+            {
+                days.map((day) => {
+                    return <Calendars.Cells.Cell
+                        key={day.date}
+                        isCurrentMonth={day.isCurrentMonth}
+                        active={day.isSelected}
+                    >
+                        <Calendars.Cells.Date isToday={day.isToday} active={day.isSelected}>
+                            {day.date.split('-').pop().replace(/^0/, '')}
+                        </Calendars.Cells.Date>
 
-            <Calendars.Calendar.Mobile>
-                {
-                    days.map((day) => {
-                        return <Cell day={day}/>
-                    })
-                }
-            </Calendars.Calendar.Mobile>
-        </Calendars.Calendar.Container>
+                        <Calendars.Events.List>
+                            {
+                                day.events.slice(0, 2).map((event) => {
+                                    return <Calendars.Events.Item key={event.id}>
+                        {/*                <Calendars.Events.Label>*/}
+                        {/*                    {event.name}*/}
+                        {/*                </Calendars.Events.Label>*/}
+                                    </Calendars.Events.Item>
+                                })
+                            }
+                        {/*    {day.events.length > 2 &&*/}
+                        {/*    <li className={'text-gray-500 hidden lg:block'}>+ {day.events.length - 2} more</li>}*/}
+                        </Calendars.Events.List>
+                    </Calendars.Cells.Cell>
+                })
+            }
+        </Calendars.Calendar>
     </Calendars.Body>
 </Calendars.Container>
 

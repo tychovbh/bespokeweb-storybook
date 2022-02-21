@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import * as Helpers from 'bespokeweb-storybook/helpers'
 
 export default function Label({id, className, appendClassName, children}) {
-    return <div id={id} className={Helpers.classNames(className, appendClassName)}>
+    return <p id={id} className={Helpers.classNames(className, appendClassName)}>
         {children}
-    </div>
+    </p>
 }
 
 Label.propTypes = {

@@ -7,7 +7,7 @@ export default function Title({children, dateTime}) {
     </h1>
 }
 
-Title.PropTypes = {
+Title.propTypes = {
     /**
      * The HTML inside.
      */

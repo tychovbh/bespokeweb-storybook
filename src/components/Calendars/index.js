@@ -1,8 +1,8 @@
 import * as Cells from './Cells'
 import * as Events from './Events'
-import * as Calendar from './Calendar'
 
 import Body from './Body'
+import Calendar from './Calendar'
 import Container from './Container'
 import DateSelect from './DateSelect'
 import Head from './Head'
