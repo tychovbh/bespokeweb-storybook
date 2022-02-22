@@ -196,12 +196,12 @@ const Template = (args) => <Calendars.Container {...args}>
                                     </Calendars.Events.Item>
                                 })
                             }
-                            {
-                                day.events.length > 2 &&
-                                <li className={'text-gray-500 hidden lg:block'}>
-                                    + {day.events.length - 2} more
-                                </li>
-                            }
+                            {/*{*/}
+                            {/*    day.events.length > 2 &&*/}
+                            {/*    <li className={'text-gray-500 hidden lg:block'}>*/}
+                            {/*        + {day.events.length - 2} more*/}
+                            {/*    </li>*/}
+                            {/*}*/}
                         </Calendars.Events.List>
                     </Calendars.Cells.Cell>
                 })

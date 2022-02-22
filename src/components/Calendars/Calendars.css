@@ -123,7 +123,7 @@
 /* Body */
 .storybook-calendars-body {
     @apply shadow;
-    @apply ring-1 ring-black ring-opacity-5
+    @apply ring-1 ring-black ring-opacity-5;
 
     @apply lg:flex lg:flex-auto lg:flex-col;
 }
@@ -183,7 +183,6 @@
 
 /* Cells Cell */
 .storybook-calendars-cells-cell {
-    @apply block;
     @apply bg-gray-50;
     @apply flex flex-col;
     @apply h-14;
@@ -246,8 +245,6 @@
 .storybook-calendars-cells-date-active {
     @apply text-white;
     @apply bg-opacity-100;
-
-
 }
 
 
@@ -255,9 +252,13 @@
 .storybook-calendars-events-list {
     @apply -mx-0.5 mt-auto;
     @apply flex flex-wrap-reverse;
+}
 
-    @apply lg:mt-2 lg:mx-0;
-    @apply lg:flex-wrap;
+@media (min-width: 1024px) {
+    .storybook-calendars-events-list {
+        @apply -mx-0.5 mt-auto;
+        @apply flex-nowrap flex-col;
+    }
 }
 
 
@@ -267,26 +268,32 @@
     @apply h-1.5 w-1.5;
     @apply rounded-full;
     @apply bg-gray-400;
-
-    @apply lg:mx-0 lg:mb-0;
-    @apply lg:w-auto lg:h-auto;
-    @apply lg:rounded-none;
-    @apply lg:bg-opacity-0;
 }
 
 .storybook-calendars-events-item a {
-    @apply group;
-    @apply flex;
     @apply hidden;
+}
 
-    @apply lg:block;
+@media (min-width: 1024px) {
+    .storybook-calendars-events-item {
+        @apply mx-0 mb-0;
+        @apply h-auto w-auto;
+        @apply rounded-none;
+        @apply bg-transparent;
+    }
+
+    .storybook-calendars-events-item a {
+        @apply flex justify-between;
+        @apply group;
+    }
 }
 
 
 /* Events Label */
 .storybook-calendars-events-label {
     @apply flex-auto;
-    @apply truncate font-medium text-gray-900 group-hover:text-indigo-600;
+    @apply truncate font-medium text-gray-900;
+    @apply group-hover:text-indigo-600;
 }
 
 
@@ -295,8 +302,11 @@
     @apply ml-3;
     @apply hidden;
     @apply flex-none;
-    @apply text-gray-500;
-    @apply group-hover:text-indigo-600;
+    @apply text-gray-500 group-hover:text-indigo-600;
+}
 
-    @apply xl:block;
+@media (min-width: 1280px) {
+    .storybook-calendars-events-time {
+        @apply block;
+    }
 }
