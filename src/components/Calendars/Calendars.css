@@ -124,8 +124,6 @@
 .storybook-calendars-body {
     @apply shadow;
     @apply ring-1 ring-black ring-opacity-5;
-
-    @apply lg:flex lg:flex-auto lg:flex-col;
 }
 
 @media (min-width: 1024px) {
@@ -183,14 +181,11 @@
 
 /* Cells Cell */
 .storybook-calendars-cells-cell {
-    @apply bg-gray-50;
     @apply flex flex-col;
     @apply h-14;
     @apply py-2 px-3;
-}
-
-.storybook-calendars-cells-cell-current-month {
-    @apply bg-white;
+    @apply bg-gray-50;
+    @apply text-gray-500;
 }
 
 .storybook-calendars-cells-cell:hover {
@@ -201,9 +196,33 @@
     @apply z-10;
 }
 
+.storybook-calendars-cells-cell-current-month {
+    @apply bg-white;
+    @apply text-gray-900;
+}
+
+.storybook-calendars-cells-cell-today {
+    @apply font-semibold;
+    @apply text-indigo-600;
+}
+
+.storybook-calendars-cells-cell-selected {
+    @apply font-semibold;
+    @apply text-white;
+}
+
 @media (min-width: 1024px) {
     .storybook-calendars-cells-cell {
         @apply h-auto;
+    }
+
+    .storybook-calendars-cells-cell-today {
+        @apply font-normal;
+        @apply text-white;
+    }
+
+    .storybook-calendars-cells-cell-selected {
+        @apply font-normal;
     }
 }
 
@@ -211,53 +230,52 @@
 /* Cells Date */
 .storybook-calendars-cells-date {
     @apply ml-auto;
-
-    @apply lg:ml-0;
 }
 
-.storybook-calendars-cells-date-active {
+.storybook-calendars-cells-date-selected {
     @apply flex items-center justify-center;
     @apply h-6 w-6;
     @apply rounded-full;
     @apply bg-gray-900;
-    @apply font-semibold;
-
-    @apply lg:flex lg:items-center lg:justify-center;
-    @apply lg:h-auto lg:w-auto;
-    @apply lg:rounded-none;
-    @apply lg:bg-transparent;
-    @apply lg:font-normal lg:text-gray-900;
 }
 
-.storybook-calendars-cells-date-today {
-    @apply text-indigo-600 font-semibold;
-    @apply bg-indigo-600 bg-opacity-0;
-
-    @apply lg:flex lg:items-center lg:justify-center;
-    @apply lg:h-6 lg:w-6;
-    @apply lg:rounded-full;
-    @apply lg:bg-gray-900;
-    @apply lg:font-semibold;
-    @apply lg:bg-indigo-600;
-    @apply lg:text-white;
+.storybook-calendars-cells-date-selected.storybook-calendars-cells-date-today {
+    @apply bg-indigo-600;
 }
 
-.storybook-calendars-cells-date-active {
-    @apply text-white;
-    @apply bg-opacity-100;
+@media (min-width: 1024px) {
+    .storybook-calendars-cells-date {
+        @apply ml-0;
+    }
+
+    .storybook-calendars-cells-date-today {
+        @apply flex items-center justify-center;
+        @apply h-6 w-6;
+        @apply rounded-full;
+        @apply bg-indigo-600;
+    }
+
+    .storybook-calendars-cells-date-selected {
+        @apply block;
+        @apply h-auto w-auto;
+        @apply rounded-none;
+        @apply bg-transparent;
+        @apply text-gray-900;
+    }
 }
 
 
 /* Event List */
 .storybook-calendars-events-list {
     @apply -mx-0.5 mt-auto;
-    @apply flex flex-wrap-reverse;
+    @apply flex flex-wrap;
 }
 
 @media (min-width: 1024px) {
     .storybook-calendars-events-list {
-        @apply -mx-0.5 mt-auto;
-        @apply flex-nowrap flex-col;
+        @apply mx-0 mt-2;
+        @apply block;
+        @apply w-full;
     }
 }
 
@@ -277,14 +295,13 @@
 @media (min-width: 1024px) {
     .storybook-calendars-events-item {
         @apply mx-0 mb-0;
-        @apply h-auto w-auto;
+        @apply h-auto w-full;
         @apply rounded-none;
         @apply bg-transparent;
     }
 
     .storybook-calendars-events-item a {
-        @apply flex justify-between;
-        @apply group;
+        @apply flex;
     }
 }
 
@@ -292,8 +309,7 @@
 /* Events Label */
 .storybook-calendars-events-label {
     @apply flex-auto;
-    @apply truncate font-medium text-gray-900;
-    @apply group-hover:text-indigo-600;
+    @apply truncate font-medium text-gray-900 text-left;
 }
 
 
@@ -302,7 +318,7 @@
     @apply ml-3;
     @apply hidden;
     @apply flex-none;
-    @apply text-gray-500 group-hover:text-indigo-600;
+    @apply text-gray-500;
 }
 
 @media (min-width: 1280px) {

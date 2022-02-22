@@ -2,19 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import * as Helpers from 'bespokeweb-storybook/helpers'
 
-export default function Cell({id, className, appendClassName, children, isCurrentMonth, active}) {
+export default function Cell({id, className, appendClassName, children, isCurrentMonth, isToday, isSelected}) {
     let classNames = className
 
     if (isCurrentMonth) {
         classNames += ` ${className}-current-month`
     }
 
-    // if (active) {
-    //     classNames += ` ${className}-active`
-    // }
+    if (isToday) {
+        classNames += ` ${className}-today`
+    }
+
+    if (isSelected) {
+        classNames += ` ${className}-selected`
+    }
 
     return <>
-        {/*<div id={id} className={Helpers.classNames(className + '-desktop', appendClassName)}>*/}
+        {/*<div id={id} className={Helpers.classNames(className, appendClassName)}>*/}
         {/*    {children}*/}
         {/*</div>*/}
 
