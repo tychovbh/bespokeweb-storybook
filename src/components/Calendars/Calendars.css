@@ -15,6 +15,7 @@
     @apply bg-indigo-700;
 }
 
+
 /* Container */
 .storybook-calendars-container {
 
@@ -25,6 +26,7 @@
         @apply flex h-full flex-col;
     }
 }
+
 
 /* Header */
 .storybook-calendars-header {
@@ -37,10 +39,12 @@
     }
 }
 
+
 /* Title */
 .storybook-calendars-title {
     @apply text-lg font-semibold text-gray-900;
 }
+
 
 /* DateSelect */
 .storybook-calendars-date-select-previous {
@@ -115,10 +119,13 @@
     }
 }
 
+
 /* Body */
 .storybook-calendars-body {
     @apply shadow;
-    @apply ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col;
+    @apply ring-1 ring-black ring-opacity-5
+
+    @apply lg:flex lg:flex-auto lg:flex-col;
 }
 
 @media (min-width: 1024px) {
@@ -126,6 +133,7 @@
         @apply flex flex-auto flex-col;
     }
 }
+
 
 /* Head */
 .storybook-calendars-head {
@@ -142,6 +150,7 @@
     }
 }
 
+
 /* Head Item */
 .storybook-calendars-head-item {
     @apply bg-white py-2;
@@ -150,6 +159,7 @@
 .storybook-calendars-head-item > span {
     @apply sr-only sm:not-sr-only;
 }
+
 
 /* Calendar */
 .storybook-calendars-calendar {
@@ -169,6 +179,7 @@
         @apply flex-auto;
     }
 }
+
 
 /* Cells Cell */
 .storybook-calendars-cells-cell {
@@ -197,9 +208,12 @@
     }
 }
 
+
 /* Cells Date */
 .storybook-calendars-cells-date {
     @apply ml-auto;
+
+    @apply lg:ml-0;
 }
 
 .storybook-calendars-cells-date-active {
@@ -208,54 +222,44 @@
     @apply rounded-full;
     @apply bg-gray-900;
     @apply font-semibold;
+
+    @apply lg:flex lg:items-center lg:justify-center;
+    @apply lg:h-auto lg:w-auto;
+    @apply lg:rounded-none;
+    @apply lg:bg-transparent;
+    @apply lg:font-normal lg:text-gray-900;
 }
 
 .storybook-calendars-cells-date-today {
     @apply text-indigo-600 font-semibold;
     @apply bg-indigo-600 bg-opacity-0;
+
+    @apply lg:flex lg:items-center lg:justify-center;
+    @apply lg:h-6 lg:w-6;
+    @apply lg:rounded-full;
+    @apply lg:bg-gray-900;
+    @apply lg:font-semibold;
+    @apply lg:bg-indigo-600;
+    @apply lg:text-white;
 }
 
 .storybook-calendars-cells-date-active {
     @apply text-white;
     @apply bg-opacity-100;
+
+
 }
 
-@media (min-width: 1024px) {
-    .storybook-calendars-cells-date {
-        @apply ml-0;
-    }
-
-    .storybook-calendars-cells-date-active {
-        @apply flex items-center justify-center;
-        @apply h-auto w-auto;
-        @apply rounded-none;
-        @apply bg-transparent;
-        @apply font-normal text-gray-900;
-    }
-
-    .storybook-calendars-cells-date-today {
-        @apply flex items-center justify-center;
-        @apply h-6 w-6;
-        @apply rounded-full;
-        @apply bg-gray-900;
-        @apply font-semibold;
-        @apply bg-indigo-600;
-        @apply text-white;
-    }
-}
 
 /* Event List */
 .storybook-calendars-events-list {
     @apply -mx-0.5 mt-auto;
     @apply flex flex-wrap-reverse;
+
+    @apply lg:mt-2 lg:mx-0;
+    @apply lg:flex-wrap;
 }
 
-@media (min-width: 1024px) {
-    .storybook-calendars-events-list {
-        @apply mt-0;
-        @apply flex flex-wrap;
-    }
-}
 
 /* Event Item */
 .storybook-calendars-events-item {
@@ -263,25 +267,19 @@
     @apply h-1.5 w-1.5;
     @apply rounded-full;
     @apply bg-gray-400;
+
+    @apply lg:mx-0 lg:mb-0;
+    @apply lg:w-auto lg:h-auto;
+    @apply lg:rounded-none;
+    @apply lg:bg-opacity-0;
 }
 
 .storybook-calendars-events-item a {
     @apply group;
     @apply flex;
     @apply hidden;
-}
 
-@media (min-width: 1024px) {
-    .storybook-calendars-events-item {
-        @apply mx-0 mb-0;
-        @apply w-auto h-auto;
-        @apply rounded-none;
-        @apply bg-opacity-0;
-    }
-
-    .storybook-calendars-events-item a {
-        @apply block;
-    }
+    @apply lg:block;
 }
 
 
@@ -289,4 +287,16 @@
 .storybook-calendars-events-label {
     @apply flex-auto;
     @apply truncate font-medium text-gray-900 group-hover:text-indigo-600;
+}
+
+
+/* Events Time */
+.storybook-calendars-events-time {
+    @apply ml-3;
+    @apply hidden;
+    @apply flex-none;
+    @apply text-gray-500;
+    @apply group-hover:text-indigo-600;
+
+    @apply xl:block;
 }

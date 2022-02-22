@@ -186,14 +186,22 @@ const Template = (args) => <Calendars.Container {...args}>
                             {
                                 day.events.slice(0, 2).map((event) => {
                                     return <Calendars.Events.Item key={event.id}>
-                        {/*                <Calendars.Events.Label>*/}
-                        {/*                    {event.name}*/}
-                        {/*                </Calendars.Events.Label>*/}
+                                        <Calendars.Events.Label>
+                                            {event.name}
+                                        </Calendars.Events.Label>
+
+                                        <Calendars.Events.Time>
+                                            {event.time}
+                                        </Calendars.Events.Time>
                                     </Calendars.Events.Item>
                                 })
                             }
-                        {/*    {day.events.length > 2 &&*/}
-                        {/*    <li className={'text-gray-500 hidden lg:block'}>+ {day.events.length - 2} more</li>}*/}
+                            {
+                                day.events.length > 2 &&
+                                <li className={'text-gray-500 hidden lg:block'}>
+                                    + {day.events.length - 2} more
+                                </li>
+                            }
                         </Calendars.Events.List>
                     </Calendars.Cells.Cell>
                 })
