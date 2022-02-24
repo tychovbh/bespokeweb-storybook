@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import * as Helpers from 'bespokeweb-storybook/helpers'
 
-export default function Item({id, className, appendClassName, children, onClick}) {
-    return <li id={id} className={Helpers.classNames(className, appendClassName)}>
-        <button onClick={onClick}>
-            {children}
-        </button>
-    </li>
+export default function Item({id, className, appendClassName, children}) {
+    return <div id={id} className={Helpers.classNames(className, appendClassName)}>
+        {children}
+    </div>
 }
 
 Item.propTypes = {
@@ -25,9 +23,13 @@ Item.propTypes = {
      * Add more classNames
      */
     appendClassname: PropTypes.string,
+
+    /**
+     * The HTML inside
+     */
+    children: PropTypes.node.isRequired,
 }
 
 Item.defaultProps = {
-    className: 'storybook-calendars-events-item',
-    href: '#'
+    className: 'storybook-calendars-heads-item'
 }

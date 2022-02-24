@@ -23,7 +23,7 @@
 
 @media (min-width: 1024px) {
     .storybook-calendars-container {
-        @apply flex h-full flex-col;
+        @apply flex flex-col;
     }
 }
 
@@ -133,8 +133,8 @@
 }
 
 
-/* Head */
-.storybook-calendars-head {
+/* Heads */
+.storybook-calendars-heads-container {
     @apply grid grid-cols-7 gap-px;
     @apply border-b border-gray-300;
     @apply bg-gray-200;
@@ -143,18 +143,18 @@
 }
 
 @media (min-width: 1024px) {
-    .storybook-calendars-head {
+    .storybook-calendars-heads-container {
         @apply flex-none;
     }
 }
 
 
-/* Head Item */
-.storybook-calendars-head-item {
+/* Heads Item */
+.storybook-calendars-heads-item {
     @apply bg-white py-2;
 }
 
-.storybook-calendars-head-item > span {
+.storybook-calendars-heads-item > span {
     @apply sr-only sm:not-sr-only;
 }
 
@@ -253,6 +253,7 @@
         @apply h-6 w-6;
         @apply rounded-full;
         @apply bg-indigo-600;
+        @apply font-semibold;
     }
 
     .storybook-calendars-cells-date-selected {
@@ -276,6 +277,7 @@
         @apply mx-0 mt-2;
         @apply block;
         @apply w-full;
+        @apply flex-nowrap;
     }
 }
 
@@ -288,8 +290,21 @@
     @apply bg-gray-400;
 }
 
-.storybook-calendars-events-item a {
+.storybook-calendars-events-item button {
     @apply hidden;
+}
+
+.storybook-calendars-events-item button:hover > .storybook-calendars-events-label,
+.storybook-calendars-events-item button:hover > .storybook-calendars-events-time {
+    @apply text-indigo-600;
+}
+
+.storybook-calendars-events-item:nth-child(n+5) {
+    @apply lg:hidden;
+}
+
+.storybook-calendars-events-item:nth-child(n+5) button {
+    @apply lg:block;
 }
 
 @media (min-width: 1024px) {
@@ -300,8 +315,9 @@
         @apply bg-transparent;
     }
 
-    .storybook-calendars-events-item a {
-        @apply flex;
+    .storybook-calendars-events-item button {
+        @apply w-full;
+        @apply flex justify-between;
     }
 }
 

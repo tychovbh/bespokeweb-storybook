@@ -12,5 +12,6 @@ const Template = (args) => <Calendars.Title {...args}/>
 
 export const Title = Template.bind({})
 Title.args = {
+    dateTime: '2022-01',
     children: 'January 2022'
 }

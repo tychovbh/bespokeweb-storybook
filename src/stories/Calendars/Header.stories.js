@@ -11,13 +11,14 @@ export default {
 const Template = (args) => <Calendars.Header {...args}>
     <Calendars.Title dateTime={'2022-01'}>January 2022</Calendars.Title>
 
-    <div className="flex items-center">
+    <div className={'flex items-center'}>
         <Calendars.DateSelect/>
 
         <div className={'hidden md:ml-4 md:flex md:items-center'}>
             <Dropdowns.Dropdown>
                 <Dropdowns.Button>
-                    Month view <Icons.Icon name={'ChevronDown'} className={'w-5 ml-2 text-gray-400'}/>
+                    Month view <Icons.Icon name={'ChevronDown'} type={'solid'}
+                                           className={'w-5 ml-2 text-gray-400'}/>
                 </Dropdowns.Button>
 
                 <Dropdowns.Items align={'right'}>
@@ -31,7 +32,7 @@ const Template = (args) => <Calendars.Header {...args}>
             <div className={'mx-6 h-6 w-px bg-gray-300'}/>
 
             <Buttons.Button appendClassname={'storybook-calendars-add-event-button'}>
-                Add Event
+                Add event
             </Buttons.Button>
         </div>
     </div>

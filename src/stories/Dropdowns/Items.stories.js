@@ -11,11 +11,11 @@ export default {
 
 const Template = (args) =>
     <Dropdowns.Dropdown>
-        {/*<Dropdowns.Items {...args}>*/}
-        <Dropdowns.Item>
-            Month view <ChevronDownIcon className={'ml-2 h-5 w-5 text-gray-400'} aria-hidden={'true'}/>
-        </Dropdowns.Item>
-        {/*</Dropdowns.Items>*/}
+        <Dropdowns.Items {...args}>
+            <Dropdowns.Item>
+                Month view <ChevronDownIcon className={'ml-2 h-5 w-5 text-gray-400'} aria-hidden={'true'}/>
+            </Dropdowns.Item>
+        </Dropdowns.Items>
     </Dropdowns.Dropdown>
 
 export const Items = Template.bind({})
