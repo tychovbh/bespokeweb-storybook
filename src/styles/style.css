@@ -1,6 +1,7 @@
 @import './index.css';
 @import '../components/Buttons/Buttons.css';
 @import '../components/Calendars/Calendars.css';
+@import '../components/Cards/Cards.css';
 @import '../components/Collections/Collections.css';
 @import '../components/Dashboards/Dashboards.css';
 @import '../components/Dropdowns/Dropdowns.css';

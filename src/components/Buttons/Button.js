@@ -1,23 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import * as Helpers from 'bespokeweb-storybook/helpers'
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({id, className, appendClassname, children, type, onClick, disabled}) => {
-    className += ' storybook-buttons-button-' + type
+export const Button = ({id, className, appendClassName, children, type, onClick, disabled}) => {
+    let classNames = className
 
-    if (appendClassname) {
-        className += ' ' + appendClassname
+    if (type) {
+        classNames += ' storybook-buttons-button-' + type
     }
 
     if (disabled) {
-        className += ' storybook-buttons-button-disabled'
+        classNames += ' storybook-buttons-button-disabled'
     }
 
     return <button
         id={id}
-        className={`${className}`}
+        className={Helpers.classNames(classNames, appendClassName)}
         onClick={disabled ? null : onClick}
         disabled={disabled}
     >
@@ -37,9 +38,9 @@ Button.propTypes = {
     className: PropTypes.string,
 
     /**
-     * Add more classnames
+     * Add more classNames
      */
-    appendClassname: PropTypes.string,
+    appendClassName: PropTypes.string,
 
     /**
      * The title of the Buttons
@@ -64,7 +65,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
     className: 'storybook-buttons-button',
-    appendClassname: '',
+    appendClassName: '',
     type: 'default',
     disabled: false,
     onClick: () => {

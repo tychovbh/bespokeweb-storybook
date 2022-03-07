@@ -1,0 +1,8 @@
+.storybook-cards-card {
+    @apply divide-y divide-gray-100;
+    @apply overflow-hidden;
+    @apply rounded-lg;
+    @apply bg-white;
+    @apply shadow;
+    @apply ring-1 ring-black ring-opacity-5;
+}

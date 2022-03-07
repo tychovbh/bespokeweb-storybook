@@ -1,5 +1,6 @@
 import * as Buttons from './components/Buttons'
 import * as Calendars from './components/Calendars'
+import * as Cards from './components/Cards'
 import * as Collections from './components/Collections'
 import * as Dashboards from './components/Dashboards'
 import * as Dropdowns from './components/Dropdowns'
@@ -21,6 +22,7 @@ import * as Texts from './components/Texts'
 export {
     Buttons,
     Calendars,
+    Cards,
     Collections,
     Dashboards,
     Dropdowns,
