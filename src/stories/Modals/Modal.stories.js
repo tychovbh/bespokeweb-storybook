@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import 'bespokeweb-storybook/styles/style.css'
-import {Modals, Buttons, Texts} from 'bespokeweb-storybook'
+import {Modals, Buttons} from 'bespokeweb-storybook'
 
 export default {
     title: 'Example/Modals/Modal',
@@ -8,41 +8,34 @@ export default {
     argsTypes: {}
 }
 
-const Template = (args) => <Modals.Modal {...args}>
-    <Modals.Container>
-        <Modals.Body>
-            <Texts.Heading type={'h3'} appendClassname={'mb-2'}>Deactivate account</Texts.Heading>
-            <Texts.Primary>
-                Are you sure you want to deactivate your account? All of your data will be permanently removed. This
-                action cannot be undone.
-            </Texts.Primary>
-        </Modals.Body>
-        <Modals.Footer>
-            <Buttons.Button type={'default'} onClick={args.onClose}>Close</Buttons.Button>
-            <Buttons.Button type={'danger'}>Deactivate</Buttons.Button>
-        </Modals.Footer>
-    </Modals.Container>
-</Modals.Modal>
-
-const Template2 = (args) => {
+const Template = ({animated}) => {
     const [open, setOpen] = useState(false)
-    return <>
-        <Template {...args} open={open} onClose={() => setOpen(false)}/>
-        <Buttons.Button type={'primary'} onClick={() => setOpen(true)}>Open model</Buttons.Button>
-    </>
+
+    return <div>
+        <Buttons.Button type={'primary'} onClick={() => setOpen(true)}>Open modal</Buttons.Button>
+
+        <Modals.Modal animate={animated} open={open} onClose={() => setOpen(false)}>
+            <Modals.Panel animate={animated}>
+                <Modals.Title>Deleting</Modals.Title>
+
+                <Modals.Body>
+                    Are you sure you want to delete this record?
+                </Modals.Body>
+
+                <Modals.Footer>
+                    <Buttons.Button type={'danger'} onClick={() => setOpen(false)}>
+                        Delete
+                    </Buttons.Button>
+                </Modals.Footer>
+            </Modals.Panel>
+        </Modals.Modal>
+    </div>
 }
 
-export const Hidden = Template.bind({})
-Hidden.args = {
-    open: false,
-}
+export const Default = Template.bind({})
+Default.args = {}
 
-export const Shown = Template.bind({})
-Shown.args = {
-    open: true,
-}
-
-export const Simple = Template2.bind({})
-Simple.args = {
-    open: false,
+export const Animated = Template.bind({})
+Animated.args = {
+    animated: true
 }

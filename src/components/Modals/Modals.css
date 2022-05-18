@@ -1,102 +1,38 @@
-.storybook-modals-container {
-    @apply rounded-lg;
-    @apply bg-white;
-    @apply overflow-y-scroll;
-    @apply shadow;
-    @apply z-50;
-    width: 640px;
+/* Modal */
+.storybook-modals-modal {
+    @apply
+    relative
+    z-10;
 }
 
-.storybook-modals-full .storybook-modals-container {
-    @apply w-full;
-    @apply h-full;
-    @apply rounded-none;
+.storybook-modals-modal-overlay {
+    @apply
+    fixed
+    inset-0
+    bg-black bg-opacity-25;
 }
 
-.storybook-modals-onblur {
-    @apply w-full;
-    @apply h-full;
-    @apply absolute;
-    @apply z-40;
+/* Panel */
+.storybook-modals-panel {
+    @apply
+    w-full max-w-md
+    transform
+    overflow-hidden
+    rounded-2xl
+    bg-white
+    p-6
+    text-left
+    align-middle
+    shadow-xl
+    transition-all;
 }
 
-.storybook-modals-overlay {
-    @apply hidden;
-    background: rgba(0, 0, 0, .33);
-    @apply absolute;
-    @apply top-0 bottom-0 left-0 right-0;
-    z-index: 9999;
-}
-
-.storybook-modals-visible {
-    @apply flex;
-}
-
-.storybook-modals-default {
-    @apply justify-center items-center;
-}
-
+/* Body */
 .storybook-modals-body {
-    @apply p-6;
+    @apply mt-2;
 }
 
-.storybook-modals-body .storybook-texts-primary {
-    @apply text-gray-700;
-}
-
+/* Footer */
 .storybook-modals-footer {
-    @apply flex justify-end;
-    @apply bg-gray-200;
-    @apply py-4 px-6;
-}
-
-.storybook-modals-footer .storybook-button {
-    @apply ml-2;
-}
-
-/* NotificationOverlay */
-.storybook-modals-notification-overlay {
-    max-width: 640px;
-    @apply p-4;
-    @apply fixed top-0 right-0;
-    @apply flex flex-col-reverse;
-    @apply z-50;
-}
-
-/* Notification */
-.storybook-modals-notification {
-    @apply z-50;
-    @apply rounded-lg;
-    @apply shadow-lg;
-    @apply border;
-    @apply bg-white;
-    @apply p-4 px-4;
-    @apply mb-4;
-}
-
-.storybook-modals-notification-icon {
-    @apply w-6;
-    @apply mr-4;
-}
-
-.storybook-modals-notification-body {
-    @apply flex items-start;
-}
-
-.storybook-modals-notification-content {
-    @apply flex-1;
-    @apply mr-4;
-}
-
-.storybook-modals-notification-close {
-    @apply w-6;
-}
-
-.storybook-modals-notification-close .storybook-button-default {
-    @apply p-0;
-    @apply bg-transparent;
-}
-
-.storybook-no-scroll {
-    overflow-y: hidden;
+    @apply mt-4;
 }

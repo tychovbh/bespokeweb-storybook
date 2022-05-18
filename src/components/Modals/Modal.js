@@ -1,41 +1,29 @@
-import React, {useEffect} from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
+import {Dialog, Transition} from '@headlessui/react'
 
-export const Overlay = ({id, className, appendClassname, children, open, type}) => {
-    let showClass = open ? ' storybook-modals-visible' : ''
+export default function Modal({children, open, onClose, animate}) {
+    return <Transition appear show={open} as={Fragment}>
+        <Dialog as={'div'} className={'storybook-modals-modal'} onClose={onClose}>
+            {
+                Boolean(animate) ? <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    <div className={'storybook-modals-modal-overlay'}/>
+                </Transition.Child> : <div className={'storybook-modals-modal-overlay'}/>
+            }
 
-    if (appendClassname) {
-        showClass += ' ' + appendClassname
-    }
-
-    return <div
-        id={id}
-        className={`${className || 'storybook-modals-overlay'}${showClass} storybook-modals-${type}`}
-    >
-        {children}
-    </div>
-}
-
-export const Modal = ({children, open, onClose, type = 'default'}) => {
-    useEffect(() => {
-        if (open) {
-            window.scrollTo({top: 0, behavior: 'smooth'})
-            document.body.classList.add('storybook-no-scroll')
-        } else {
-            document.body.classList.remove('storybook-no-scroll')
-        }
-
-        return () => {
-            document.body.classList.remove('storybook-no-scroll')
-        }
-    }, [open])
-
-
-
-    return <Overlay open={open} onClose={onClose} type={type}>
-        <div className={'storybook-modals-onblur'} onClick={onClose}/>
-        {children}
-    </Overlay>
+            <div className={'fixed inset-0 flex items-center justify-center'}>
+                {children}
+            </div>
+        </Dialog>
+    </Transition>
 }
 
 Modal.propTypes = {
@@ -61,6 +49,7 @@ Modal.propTypes = {
 }
 
 Modal.defaultProps = {
+    className: 'storybook-modals-modal',
     open: false,
     type: 'default',
 }

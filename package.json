@@ -8,6 +8,7 @@
     "url": "https://github.com/tychovbh/bespokeweb-storybook"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.1",
     "axios": "^0.21.1",
     "ra-fetch": "^1.4.4",
     "react": "^17.0.1",

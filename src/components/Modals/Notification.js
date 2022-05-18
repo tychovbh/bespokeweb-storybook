@@ -17,7 +17,7 @@ const icons = {
     },
 }
 
-export const Notification = ({id, className, appendClassname, children, type, title, description}) => {
+export default function Notification({id, className, appendClassname, children, type, title, description}) {
     const typeClass = type ? ' storybook-modals-notification-' + type : ''
 
     if (children) {
@@ -38,7 +38,8 @@ export const Notification = ({id, className, appendClassname, children, type, ti
         <div className={'storybook-modals-notification-body'}>
             {
                 type &&
-                <Icons.Icon className={`${icons[type].className} storybook-modals-notification-icon`} name={icons[type].icon}/>
+                <Icons.Icon className={`${icons[type].className} storybook-modals-notification-icon`}
+                            name={icons[type].icon}/>
             }
             <div className={'storybook-modals-notification-content'}>
                 <Texts.Heading type={'h4'}>{title}</Texts.Heading>

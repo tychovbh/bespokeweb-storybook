@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types'
 
-export const NotificationOverlay = ({id, className, appendClassname, children}) => {
+export default function NotificationOverlay({id, className, appendClassname, children}) {
     return <div
         id={id}
         className={`${className ?? 'storybook-modals-notification-overlay'} ${appendClassname}`}

@@ -1,19 +1,13 @@
-import PropTypes from "prop-types";
-import React from "react";
+import React from 'react'
+import PropTypes from 'prop-types'
+import * as Helpers from 'bespokeweb-storybook/helpers'
 
-export const Footer = ({id, className, appendClassname, children}) => {
-    return <div
-        id={id}
-        className={`${className ?? 'storybook-modals-footer'} ${appendClassname}`}
-    >
+export default function Footer({className, appendClassName, children}) {
+    return <div className={Helpers.classNames(className, appendClassName)}>
         {children}
     </div>
 };
 Footer.propTypes = {
-    /**
-     * The id of the Modal
-     */
-    id: PropTypes.string,
 
     /**
      * Use a different classname
@@ -23,14 +17,14 @@ Footer.propTypes = {
     /**
      * Add more classnames
      */
-    appendClassname: PropTypes.string,
+    appendClassName: PropTypes.string,
 
     /**
      * The title of the Buttons
      */
     children: PropTypes.node.isRequired,
-};
+}
+
 Footer.defaultProps = {
-    appendClassname: '',
-    type: 'default'
-};
+    className: 'storybook-modals-footer'
+}
