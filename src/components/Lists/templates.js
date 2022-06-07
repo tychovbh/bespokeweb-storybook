@@ -8,5 +8,6 @@ export const templates = {
     jsonb: ({value, setModal}) => <Lists.ColumnJson value={value} setModal={setModal}/>,
     json_raw: ({value}) => <ReactJson src={value}/>,
     tinyint: ({value}) => <Lists.ColumnBool value={value}/>,
-    image: ({value, name}) => <img src={value} alt={name}/>
+    image: ({value, name}) => <img src={value} alt={name}/>,
+    wysiwyg: ({value}) => <div className={'ck'} dangerouslySetInnerHTML={{__html: value}}/>
 }

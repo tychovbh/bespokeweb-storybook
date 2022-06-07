@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as Helpers from 'bespokeweb-storybook/helpers'
+import {Helpers} from 'bespokeweb-storybook'
 
 export default function Footer({className, appendClassName, children}) {
     return <div className={Helpers.classNames(className, appendClassName)}>
@@ -8,7 +8,6 @@ export default function Footer({className, appendClassName, children}) {
     </div>
 };
 Footer.propTypes = {
-
     /**
      * Use a different classname
      */

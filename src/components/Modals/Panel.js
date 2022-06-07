@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import * as Helpers from 'bespokeweb-storybook/helpers'
+import {Helpers} from 'bespokeweb-storybook'
 import {Dialog, Transition} from '@headlessui/react'
 
 export default function Panel({children, className, appendClassname, animate}) {
