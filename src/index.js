@@ -1,3 +1,4 @@
+export * as Framer from './components/Framer'
 export * as Buttons from './components/Buttons'
 export * as Collections from './components/Collections'
 export * as Dashboards from './components/Dashboards'
